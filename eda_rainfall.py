@@ -31,12 +31,13 @@ N = len(raw_audio)
 time = np.linspace(0, N / Fs, N)
 
 
-plt.figure(figsize=(15, 4))
+plt.figure(figsize=(12, 4))
 plt.plot(time, raw_audio, label="raw_audio")
 plt.plot(time, filtered_audio, label="filterd_audio")
 plt.xlabel("time")
 plt.ylabel("Amplitude")
 plt.legend()
+plt.show()
 
 
 wav_file_path = join(OUTPUT_DIR, "test_raw.wav")
