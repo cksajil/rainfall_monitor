@@ -18,8 +18,8 @@ The `recordings` folder contains files with readings from mechanical and sound s
 
 ### Data Aquisition Device (DAQ)
 We have used [Arduino Uno](https://en.wikipedia.org/wiki/Arduino_Uno) board as the DAQ device.
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Arduino_Uno_-_R3.jpg/440px-Arduino_Uno_-_R3.jpg" width="400"/>
 
-<img src="https://en.wikipedia.org/wiki/Arduino_Uno#/media/File:Arduino_Uno_-_R3.jpg" width="450"/>
 
 ### Supporting scripts to monitor rainfall using acoustic sensors
 1. eda_rainfall.ipynb : Contains exploratory data analysis and visualizations to derive insights from data recorded
