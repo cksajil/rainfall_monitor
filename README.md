@@ -28,13 +28,13 @@ We have used [Arduino Uno](https://en.wikipedia.org/wiki/Arduino_Uno) board as t
 
 ### Correlation Table
 
-| Pearson correlation              |              |
+| Pearson correlation  |           |              |
 |----------------------|-----------|--------------|
 |                      | **Sound** | **Loudness** |
 |    **Rainfall (mm)** | 0.265357  | **0.737172** |
 | Spearman correlation |           |              |
 |                      | **Sound** | **Loudness** |
-|    **Rainfall (mm)** | 0.152554  | **0.839047** |
+| **Rainfall (mm)**    | 0.152554  | **0.839047** |
 
 
 ### Observations
