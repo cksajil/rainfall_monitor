@@ -8,7 +8,11 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 ### Sensors used
 The acoustic sensors used are [Grove Sound Sensor](https://wiki.seeedstudio.com/Grove-Sound_Sensor/) and [Grove Loudness Sensor](https://wiki.seeedstudio.com/Grove-Loudness_Sensor/).
 
-![loudness_sensor](https://files.seeedstudio.com/wiki/Grove-Loudness_Sensor/img/Loudness%20Sensor_new.jpg)
+1. Loudness Sensor
+<img src="https://files.seeedstudio.com/wiki/Grove-Loudness_Sensor/img/Loudness%20Sensor_new.jpg" alt="drawing" width="200"/>
+
+2. Sound Sensor
+<img src="https://files.seeedstudio.com/wiki/Grove_Sound_Sensor/img/page_small_1.jpg" alt="drawing" width="200"/>
 
 ### Data
 The `recordings` folder contains files with readings from mechanical and sound sensor devices. The data was recorded in-house at ICFOSS.
