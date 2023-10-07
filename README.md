@@ -14,7 +14,16 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 <img src="https://files.seeedstudio.com/wiki/Grove_Sound_Sensor/img/page_small_1.jpg" alt="drawing" width="250"/>
 
 ### Data
-The `recordings` folder contains files with readings from mechanical and sound sensor devices. The data was recorded in-house at ICFOSS.
+The `recordings` folder contains files with readings from mechanical and sound sensor devices. The data was recorded in-house at ICFOSS. The recording files contains timestamps and its corresponding rainfall/sound readings from mechanical and our DAQ respectively. The dataset after cleaning and preprocessing will look like the one below.
+
+| datetime            | x1 | rainfall (mm) | sound | loudness | timedelta       | timedelta_min |
+|---------------------|----|---------------|-------|----------|-----------------|---------------|
+| 2023-10-03 22:52:00 | 2  | 0.56          | 378.0 | 137.0    | 0 days 00:00:00 | 0             |
+| 2023-10-03 22:53:00 | 2  | 0.56          | 360.0 | 128.0    | 0 days 00:01:00 | 1             |
+| 2023-10-03 23:29:00 | 4  | 1.12          | 380.0 | 141.0    | 0 days 00:36:00 | 36            |
+| 2023-10-04 01:44:00 | 1  | 0.28          | 384.0 | 137.0    | 0 days 02:15:00 | 135           |
+
+Here the `timedelta` feature is the time difference between previous tippping time and current tipping time.
 
 ### Data Aquisition Device (DAQ)
 
