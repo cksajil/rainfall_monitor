@@ -17,7 +17,9 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 The `recordings` folder contains files with readings from mechanical and sound sensor devices. The data was recorded in-house at ICFOSS.
 
 ### Data Aquisition Device (DAQ)
+
 We have used [Arduino Uno](https://en.wikipedia.org/wiki/Arduino_Uno) board as the DAQ device.
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Arduino_Uno_-_R3.jpg/440px-Arduino_Uno_-_R3.jpg" width="400"/>
 
 
