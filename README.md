@@ -25,3 +25,10 @@ We have used [Arduino Uno](https://en.wikipedia.org/wiki/Arduino_Uno) board as t
 
 ### Supporting scripts to monitor rainfall using acoustic sensors
 1. eda_rainfall.ipynb : Contains exploratory data analysis and visualizations to derive insights from data recorded
+
+### Observations
+
+1. There is correlation w.r.t. mechanical readings and acoustic measurements
+2. The acoustic feature loudness (pearson: 0.7371) is found to be more correlated to mechanical measurements
+3. For low volumes of rain (0.28 mm), the variation in loudness is not very useful. Hence in these cases a different strategy needs to be deviced
+4. For low volumes of rain (e.g. <=0.28 mm) the tipping event happens relatively after longer duration (10-150 min). Hence loudness measurement in the last 1 minute may not account for the drizzling rain happened from the previous tipping point.
