@@ -33,7 +33,7 @@ We have used [Arduino Uno](https://en.wikipedia.org/wiki/Arduino_Uno) board as t
 
 
 ### Supporting scripts to monitor rainfall using acoustic sensors
-1. eda_rainfall.ipynb : Contains exploratory data analysis and visualizations to derive insights from data recorded
+1. `eda_rainfall.ipynb` : Contains exploratory data analysis and visualizations to derive insights from data recorded
 
 ### Correlation Table
 
