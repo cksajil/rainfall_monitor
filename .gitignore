@@ -7,3 +7,6 @@ __pycache__/
 
 # Ignore virtual environment
 venv/
+
+# Igonote file locations
+recordings/
