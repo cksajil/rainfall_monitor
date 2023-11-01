@@ -10,3 +10,6 @@ venv/
 
 # Igonote file locations
 recordings/
+
+# Ignore jupyter checkpoint
+.ipynb_checkpoints/
