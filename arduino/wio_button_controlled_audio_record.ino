@@ -8,15 +8,8 @@
 
 RTC_SAMD51 rtc;
 #define SERIAL Serial
-
-#ifdef USESPIFLASH
-#define DEV SPIFLASH
-#include "SFUD/Seeed_SFUD.h"
-#else
-
 #define DEV SD
 
-#endif 
 
 #ifdef _SAMD21_
 #define SDCARD_SS_PIN 1
@@ -67,10 +60,10 @@ void loop()
               {
                 SERIAL.println("Writing to the file after button A pressed...");
 
-                for (unsigned int i=0; i<3; i++)
+                for (unsigned int i=0; i<64000; i++)
                       { 
                           DateTime now = rtc.now();
-                          int val = analogRead(WIO_MIC);
+                          double val = analogRead(WIO_MIC);
                           
                           RootWrite.print(now.hour(), DEC);
                           RootWrite.print(':');
