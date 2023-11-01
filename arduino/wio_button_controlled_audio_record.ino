@@ -1,14 +1,21 @@
+#include <math.h>
+#include <SPI.h>
 #include <Seeed_FS.h>
-#include "DateTime.h"
+#include "SD/Seeed_SD.h"
 #include "RTC_SAMD51.h"
+#include "DateTime.h"
 
+
+RTC_SAMD51 rtc;
 #define SERIAL Serial
+
 #ifdef USESPIFLASH
 #define DEV SPIFLASH
 #include "SFUD/Seeed_SFUD.h"
 #else
+
 #define DEV SD
-#include "SD/Seeed_SD.h"
+
 #endif 
 
 #ifdef _SAMD21_
@@ -16,7 +23,6 @@
 #define SDCARD_SPI SPI
 #endif 
 
-RTC_SAMD51 rtc;
 
 void setup() 
   {
@@ -24,9 +30,26 @@ void setup()
     rtc.begin();
 
     pinMode(WIO_KEY_A, INPUT);
+    pinMode(WIO_KEY_B, INPUT);
     
     pinMode(WIO_MIC, INPUT);
     pinMode(5, OUTPUT);
+
+    #ifdef SFUD_USING_QSPI
+    while (!DEV.begin(104000000UL)) 
+      {
+        SERIAL.println("Card Mount Failed");
+        return;
+      }
+    #else
+        while (!DEV.begin(SDCARD_SS_PIN,SDCARD_SPI,4000000UL)) 
+          {
+            SERIAL.println("Card Mount Failed");
+            return;
+          }
+    #endif 
+    
+        SERIAL.println("initialization done.");
     
    }
     
@@ -38,31 +61,13 @@ void loop()
           digitalWrite(5, HIGH);
           while (!SERIAL) {};
     
-          #ifdef SFUD_USING_QSPI
-              while (!DEV.begin(104000000UL)) 
-                {
-                  SERIAL.println("Card Mount Failed");
-                  return;
-                }
-          #else
-              while (!DEV.begin(SDCARD_SS_PIN,SDCARD_SPI,4000000UL)) 
-                {
-                  SERIAL.println("Card Mount Failed");
-                  return;
-                }
-          #endif 
-          
-              SERIAL.println("initialization done.");
-          
-
-          
-          File RootWrite = DEV.open("/readings.txt", "w");
+          File RootWrite = DEV.open("readings.txt", "w");
     
           if (RootWrite) 
               {
                 SERIAL.println("Writing to the file after button A pressed...");
 
-                for (unsigned int i=0; i<64000; i++)
+                for (unsigned int i=0; i<3; i++)
                       { 
                           DateTime now = rtc.now();
                           int val = analogRead(WIO_MIC);
@@ -87,37 +92,37 @@ void loop()
     
             else 
                 {
-                    SERIAL.println("error opening hello.txt");
+                    SERIAL.println("error opening readings.txt");
                 }
     
-
+        delay(1000);
         }
 
-//        else if (digitalRead(WIO_KEY_B) == LOW) 
-//            {
-//                Serial.println("Button B pressed displaying contents of file recorded");
-//                digitalWrite(5, LOW);
-//                
-//                File RootRead= DEV.open("/readings.txt");
-//                
-//                if (RootRead) 
-//                    {
-//                        SERIAL.println("Sample readings are as follows");
-//                    
-//                        while (RootRead.available()) 
-//                            {
-//                              SERIAL.write(RootRead.read());
-//                            }
-//                 
-//                        RootRead.close();
-//                    } 
-//                else 
-//                    {
-//                    SERIAL.println("error opening readings.txt");
-//                    }
-
+        else if (digitalRead(WIO_KEY_B) == LOW) 
+            {
+                Serial.println("Button B pressed, displaying contents of file recorded");
+                digitalWrite(5, LOW);
                 
-//            }
+                File RootRead= DEV.open("readings.txt");
+                
+                if (RootRead) 
+                    {
+                        SERIAL.println("Sample readings are as follows");
+                    
+                        while (RootRead.available()) 
+                            {
+                              SERIAL.write(RootRead.read());
+                            }
+                 
+                        RootRead.close();
+                    } 
+                else 
+                    {
+                    SERIAL.println("error opening readings.txt");
+                    }
+
+             delay(1000);   
+            }
  }
 
     
