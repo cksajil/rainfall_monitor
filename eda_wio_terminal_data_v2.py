@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from tqdm import tqdm
 from os.path import join
 from scipy.io.wavfile import write
@@ -25,11 +26,17 @@ for row in tqdm(data):
     raw_audio.append(reading)
     timestamps.append(timestamp)
    
+raw_array = np.array(raw_audio)
+
+xmin = np.min(raw_array)
+xmax = np.max(raw_array)
+raw_array = (raw_array-xmin)/(xmax-xmin)
+raw_array-=0.5
+
 df["timestamp"] = timestamps
-df["raw_audio"] = raw_audio
+df["raw_audio"] = raw_array
 
 df.to_csv(join(RECORDING_DIR, WIO_PROCESSED_FILE), index=False)
 
-print(df["timestamp"].value_counts())
 
-write(join(RECORDING_DIR, AUDIO_FILE), Fs, df["raw_audio"].to_numpy())
+write(join(RECORDING_DIR, AUDIO_FILE), Fs, raw_array)
