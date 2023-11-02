@@ -20,6 +20,8 @@ RTC_SAMD51 rtc;
 void setup() 
   {
     Serial.begin(9600);
+    analogReadResolution(16);
+        
     rtc.begin();
 
     pinMode(WIO_KEY_A, INPUT);
@@ -27,6 +29,8 @@ void setup()
     
     pinMode(WIO_MIC, INPUT);
     pinMode(5, OUTPUT);
+
+    
 
     #ifdef SFUD_USING_QSPI
     while (!DEV.begin(104000000UL)) 
@@ -47,9 +51,15 @@ void setup()
    }
     
 void loop() 
+
 {
+  
+  
   if (digitalRead(WIO_KEY_A)==LOW)
+        
         { 
+          Serial.println("Waiting in idle time");
+          delay(10000);
           Serial.println("Recording key pressed");
           digitalWrite(5, HIGH);
           while (!SERIAL) {};
@@ -62,17 +72,17 @@ void loop()
 
                 for (unsigned int i=0; i<64000; i++)
                       { 
-                          DateTime now = rtc.now();
-                          double val = analogRead(WIO_MIC);
+//                          DateTime now = rtc.now();
+                          int val = analogRead(WIO_MIC);
                           
-                          RootWrite.print(now.hour(), DEC);
-                          RootWrite.print(':');
-                         
-                          RootWrite.print(now.minute(), DEC);
-                          RootWrite.print(':');
-                          
-                          RootWrite.print(now.second(), DEC);
-                          RootWrite.print(',');
+//                          RootWrite.print(now.hour(), DEC);
+//                          RootWrite.print(':');
+//                         
+//                          RootWrite.print(now.minute(), DEC);
+//                          RootWrite.print(':');
+//                          
+//                          RootWrite.print(now.second(), DEC);
+//                          RootWrite.print(',');
                         
                           RootWrite.println(val);
                       }
