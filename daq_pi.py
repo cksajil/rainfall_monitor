@@ -34,12 +34,12 @@ for i in range(num_samples):
                      location])
     
     time_left = dt_stop-dt_start
-    seconds_left = time_left.total_seconds() 
-    hours = divmod(seconds_left, 3600)[0]
-    seconds_left-=hours*60*60
-    minutes = divmod(seconds_left, 60)[0]
-    seconds_left-= minutes*60
 
-    print("Time left {} hours {} minutes and {} seconds".format(hours, 
-                                                                 minutes, 
-                                                                 time_left.seconds))
+    days, seconds = time_left.days, time_left.seconds
+    hours = days * 24 + seconds // 3600
+    minutes = (seconds % 3600) // 60
+    seconds = seconds % 60
+
+    print("Time left {} hours {} minutes and {} seconds".format(hours,
+                                                                minutes, 
+                                                                seconds))
