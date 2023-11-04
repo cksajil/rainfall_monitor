@@ -9,13 +9,13 @@ config = load_config("config.yaml")
 dt_now = datetime.now()
 
 print("Started data logging at", dt_now)
-dt_fname = time_stamp_fnamer(dt_now)
+dt_fname = time_stamp_fnamer(dt_now)+".wav"
 
 d = 60
 file_format = "wav"
 resolution = "S32"
 sampling_rate = "48000"
-location = config["data_dir"]
+location = config["data_dir"]+dt_fname
 
 subprocess.call(["arecord", 
                  "--duration="+str(d), 

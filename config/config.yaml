@@ -1,2 +1,2 @@
-data_dir: /home/pi/raingauge/data
-#data_dir: /home/icfoss/icfoss/rainfall_monitor/data
+data_dir: /home/pi/raingauge/data/
+#data_dir: /home/icfoss/icfoss/rainfall_monitor/data/
