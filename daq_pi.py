@@ -33,7 +33,7 @@ for i in range(num_samples):
                      "-r", sampling_rate,
                      location])
     
-    time_left = dt_stop-dt_start
+    time_left = dt_stop-dt_now
 
     days, seconds = time_left.days, time_left.seconds
     hours = days * 24 + seconds // 3600
