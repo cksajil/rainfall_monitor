@@ -31,3 +31,7 @@ def create_folder(directory):
     """Function to create a folder in a location if it does not exist"""
     if not os.path.exists(directory):
         os.makedirs(directory)
+
+
+# with open(path.join(config["data_dir"], dt_fname), "w") as f:
+#     f.write("sample data")
