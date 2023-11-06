@@ -1,4 +1,4 @@
 #! /bin/bash
 
 source /home/pi/raingauge/code/venv/bin/activate
-python /home/pi/raingauge/code/daq_pi.py > /home/pi/raingauge/logs/log.txt
+python /home/pi/raingauge/code/daq_pi.py
