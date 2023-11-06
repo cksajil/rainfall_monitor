@@ -17,7 +17,7 @@ num_samples = int(config["record_hours"]*(3600/d))
 dt_start = datetime.now()
 dt_stop = dt_start+timedelta(hours=24)
 
-f = open(path.join(config["log_dir"], "log.txt"), "w")
+f = open(path.join(config["log_dir"], "log.txt"), "w+")
 
 f.write("Started data logging at {}\n".format(dt_start))
 f.write("Total number of samples to be recorded: {}\n".format(num_samples))
