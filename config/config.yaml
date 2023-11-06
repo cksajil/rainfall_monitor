@@ -1,3 +1,4 @@
 data_dir: /home/pi/raingauge/data/
 #data_dir: /home/icfoss/icfoss/rainfall_monitor/data/
 record_hours: 24
+sample_duration_sec: 1

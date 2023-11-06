@@ -6,7 +6,8 @@ from utils.helper import load_config
 
 
 config = load_config("config.yaml")
-num_samples = int(config["record_hours"]*60*60)
+sample_duration = config["sample_duration_sec:"]
+num_samples = int(config["record_hours"]*(3600/sample_duration))
 
 
 dt_start = datetime.now()
