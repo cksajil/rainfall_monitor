@@ -27,7 +27,7 @@ for i in range(num_samples):
     dt_fname = time_stamp_fnamer(dt_now)+".wav"
     location = config["data_dir"]+dt_fname
 
-    subprocess.call(["arecord", 
+    subprocess.call(["arecord",
                      "-q",
                      "--duration="+str(d), 
                      "-t", str(file_format),
