@@ -14,7 +14,6 @@ sampling_rate = config["sampling_rate"]
 
 num_samples = int(config["record_hours"]*(3600/d))
 
-
 dt_start = datetime.now()
 dt_stop = dt_start+timedelta(hours=24)
 
@@ -30,8 +29,8 @@ for i in range(num_samples):
 
     subprocess.call(["arecord", 
                      "--duration="+str(d), 
-                     "-t", file_format,
-                     "-f", resolution,
+                     "-t", str(file_format),
+                     "-f", str(resolution),
                      "-r", sampling_rate,
                      location])
     
