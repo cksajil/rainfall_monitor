@@ -1,4 +1,5 @@
 data_dir: /home/pi/raingauge/data/
+log_dir: /home/pi/raingauge/logs/
 record_hours: 24
 sample_duration_sec: 10
 file_format: "wav"

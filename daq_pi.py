@@ -17,13 +17,15 @@ num_samples = int(config["record_hours"]*(3600/d))
 dt_start = datetime.now()
 dt_stop = dt_start+timedelta(hours=24)
 
-print("Started data logging at", dt_start)
-print("Total number of samples to be recorded: ", num_samples)
+f = open(path.join(config["log_dir"], "log.txt"), "w")
+
+f.write("Started data logging at {}\n".format(dt_start))
+f.write("Total number of samples to be recorded: {}\n".format(num_samples))
 
 
 for i in range(num_samples):
     dt_now = datetime.now()
-    print("Recording sample number {} on {}".format(i,dt_now))
+    f.write("Recording sample number {} on {}\n".format(i, dt_now))
     dt_fname = time_stamp_fnamer(dt_now)+".wav"
     location = config["data_dir"]+dt_fname
 
@@ -42,8 +44,9 @@ for i in range(num_samples):
     minutes = (seconds % 3600) // 60
     seconds = seconds % 60
 
-    print("Time left {} hours {} minutes and {} seconds".format(hours,
+    f.write("Time left {} hours {} minutes and {} seconds\n".format(hours,
                                                                 minutes, 
                                                                 seconds))
 dt_end = datetime.now()
-print("Finished data logging at", dt_end)
+f.write("Finished data logging at {}\n".format(dt_end))
+f.close()
