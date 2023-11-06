@@ -44,3 +44,5 @@ for i in range(num_samples):
     print("Time left {} hours {} minutes and {} seconds".format(hours,
                                                                 minutes, 
                                                                 seconds))
+dt_end = datetime.now()
+print("Finished data logging at", dt_end)
