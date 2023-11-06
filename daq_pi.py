@@ -6,8 +6,13 @@ from utils.helper import load_config
 
 
 config = load_config("config.yaml")
-sample_duration = config["sample_duration_sec"]
-num_samples = int(config["record_hours"]*(3600/sample_duration))
+
+d = config["sample_duration_sec"]
+file_format = config["file_format"]
+resolution = config["resolution"]
+sampling_rate = config["sampling_rate"]
+
+num_samples = int(config["record_hours"]*(3600/d))
 
 
 dt_start = datetime.now()
@@ -16,10 +21,6 @@ dt_stop = dt_start+timedelta(hours=24)
 print("Started data logging at", dt_start)
 print("Total number of samples to be recorded: ", num_samples)
 
-d = 1
-file_format = "wav"
-resolution = "S32"
-sampling_rate = "48000"
 
 for i in range(num_samples):
     dt_now = datetime.now()
