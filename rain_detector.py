@@ -79,11 +79,13 @@ dnn_model = create_dnn(X_train[0].shape)
 cp_callback = ModelCheckpoint(
     filepath="./model/dnn.h5",
     monitor="val_accuracy",
+    validation_data=(X_test, y_test),
     verbose=1,
     save_best_only=True,
     mode="auto")
 
 early_stopper_cb = EarlyStopper(0.9901)
+
 history = dnn_model.fit(
     X_train,
     y_train,
@@ -93,5 +95,5 @@ history = dnn_model.fit(
     callbacks=[cp_callback, early_stopper_cb])
 
 loss, test_accuracy = dnn_model.evaluate(X_test, y_test, verbose=2)
-stats = "Restored model, accuracy: {:5.2f}% ".format(100 * test_accuracy)
+stats = "Trained model, accuracy: {:5.2f}% ".format(100 * test_accuracy)
 print(stats)
