@@ -37,6 +37,10 @@ Here the `timedelta` feature is the time difference between previous tippping ti
 #### Data from USB mic and Raspberry
 The data from USB mic contains audio files saved in wav format with a fixed duration. The parameters of desired audio files (e.g. sampling rate, sample duration, bit size, total recording time, etc.) can be set in the `config.yaml` file. The recorded audio files are further analysed for deep learning modeling.
 
+The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec.wav`) file name as shown below.
+
+`2023_11_06_16_13_11_011224.wav`
+
 ### Data Aquisition Device (DAQ)
 
 We have used [Arduino Uno](https://en.wikipedia.org/wiki/Arduino_Uno) board as the DAQ device for Grove sound and loudness sensors.
