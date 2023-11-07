@@ -5,8 +5,10 @@ from tqdm import tqdm
 from os.path import join
 from os import listdir
 import tensorflow as tf
-from keras.models import Sequential
 from keras.layers import Dense
+from keras.models import Sequential
+from utils.helper import EarlyStopper
+from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.initializers import RandomUniform
 from tensorflow.keras.regularizers import l2
 from sklearn.model_selection import train_test_split
@@ -81,7 +83,7 @@ cp_callback = ModelCheckpoint(
     save_best_only=True,
     mode="auto")
 
-early_stopper_cb = EarlyStopper(0.9501)
+early_stopper_cb = EarlyStopper(0.9901)
 history = dnn_model.fit(
     X_train,
     y_train,
