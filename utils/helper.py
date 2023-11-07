@@ -45,6 +45,6 @@ class EarlyStopper(Callback):
         self.target = target
 
     def on_epoch_end(self, epoch, logs={}):
-        acc = logs['val_accuracy']
-        if acc >= self.target:
+        val_loss = logs['val_loss']
+        if val_loss < self.target:
             self.model.stop_training = True

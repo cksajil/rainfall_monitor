@@ -17,7 +17,7 @@ from sklearn.model_selection import train_test_split
 RECORDING_DIR = "./data/rain_mini_dataset"
 CLASSES = ["rain", "ambient"]
 
-EPOCHS = 30
+EPOCHS = 15
 BATCH_SIZE =  16
 SAMPLE_LEN = 22050
 VALIDATION_SPLIT = 0.2
@@ -79,13 +79,13 @@ def create_dnn(in_shape):
 dnn_model = create_dnn(X_train[0].shape)
 
 cp_callback = ModelCheckpoint(
-    filepath="./model/dnn.h5",
-    monitor="val_accuracy",
+    filepath="./model/dnn.hdf5",
+    monitor="val_loss",
     verbose=1,
     save_best_only=True,
-    mode="auto")
+    mode="min")
 
-early_stopper_cb = EarlyStopper(0.9901)
+early_stopper_cb = EarlyStopper(0.05)
 
 history = dnn_model.fit(
     X_train,
