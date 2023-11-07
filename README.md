@@ -16,16 +16,20 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 ## Sensors used
 1. [Grove Loudness Sensor](https://wiki.seeedstudio.com/Grove-Loudness_Sensor/)
 <img src="https://files.seeedstudio.com/wiki/Grove-Loudness_Sensor/img/Loudness%20Sensor_new.jpg" alt="drawing" width="250"/>
+
 2. [Grove Sound Sensor](https://wiki.seeedstudio.com/Grove-Sound_Sensor/)
 <img src="https://files.seeedstudio.com/wiki/Grove_Sound_Sensor/img/page_small_1.jpg" alt="drawing" width="250"/>
+
 3. [USB Mic](https://www.amazon.in/USB-Microphone/s?k=USB+Microphone)
 
 
 ## Data Aquisition Devices (DAQs)
 1. [Davis AeroCone 6466M Rain Gauge](https://www.amazon.de/-/en/Davis-AeroCone-6466M-Gauge-Sensor/dp/B08629NFVG) is the mechanical raingauge we are using as a reference for comparing rainfall against acoustic readings.
 <img src="https://m.media-amazon.com/images/I/612KqYGrL7L._AC_SX466_.jpg" widht="400"/>
+
 2. We have used [Arduino Uno](https://en.wikipedia.org/wiki/Arduino_Uno) board as the DAQ device for Grove sound and loudness sensors.
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Arduino_Uno_-_R3.jpg/440px-Arduino_Uno_-_R3.jpg" width="400"/>
+
 3. We also used [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) as a DAQ device for audio recording with high resolution and sampling rate.
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg" alt="raspberrypi" width="400"/>
 
