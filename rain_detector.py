@@ -6,6 +6,7 @@ from os.path import join
 from os import listdir
 import tensorflow as tf
 from keras.layers import Dense
+import matplotlib.pyplot as plt
 from keras.models import Sequential
 from utils.helper import EarlyStopper
 from tensorflow.keras.callbacks import ModelCheckpoint
@@ -16,9 +17,10 @@ from sklearn.model_selection import train_test_split
 RECORDING_DIR = "./data/rain_mini_dataset"
 CLASSES = ["rain", "ambient"]
 
-EPOCHS = 10
-BATCH_SIZE =  32
+EPOCHS = 30
+BATCH_SIZE =  16
 SAMPLE_LEN = 22050
+VALIDATION_SPLIT = 0.2
 
 file_names = []
 target = []
@@ -45,7 +47,7 @@ for index, row in tqdm(basic_data.iterrows(), total=basic_data.shape[0]):
 X_train, X_test, y_train, y_test = train_test_split(
     spectrum_data,
     basic_data["target"],
-    test_size=0.3,
+    test_size=VALIDATION_SPLIT,
     shuffle=True,
 )
 
@@ -79,7 +81,6 @@ dnn_model = create_dnn(X_train[0].shape)
 cp_callback = ModelCheckpoint(
     filepath="./model/dnn.h5",
     monitor="val_accuracy",
-    validation_data=(X_test, y_test),
     verbose=1,
     save_best_only=True,
     mode="auto")
@@ -91,9 +92,16 @@ history = dnn_model.fit(
     y_train,
     batch_size=BATCH_SIZE,
     epochs=EPOCHS,
-    validation_split=0.3,
+    validation_data=(X_test, y_test),
     callbacks=[cp_callback, early_stopper_cb])
 
 loss, test_accuracy = dnn_model.evaluate(X_test, y_test, verbose=2)
 stats = "Trained model, accuracy: {:5.2f}% ".format(100 * test_accuracy)
 print(stats)
+
+plt.plot(history.history["loss"])
+plt.plot(history.history["val_loss"])
+plt.xlabel("Epochs")
+plt.ylabel("log Loss")
+plt.legend(["train", "validation"], loc = "upper right")
+plt.show()
