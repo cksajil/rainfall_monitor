@@ -14,13 +14,14 @@ from tensorflow.keras.initializers import RandomUniform
 from tensorflow.keras.regularizers import l2
 from sklearn.model_selection import train_test_split
 
-RECORDING_DIR = "./data/rain_mini_dataset"
-CLASSES = ["rain", "ambient"]
 
-EPOCHS = 15
+RECORDING_DIR = "rain_dataset"
+CLASSES = ["rain", "ambient"]
+EPOCHS = 100
 BATCH_SIZE = 16
 SAMPLE_LEN = 22050
 VALIDATION_SPLIT = 0.2
+VALIDATION_LOSS_CUTOFF = 0.02
 
 file_names = []
 target = []
@@ -110,7 +111,7 @@ cp_callback = ModelCheckpoint(
     mode="min",
 )
 
-early_stopper_cb = EarlyStopper(0.05)
+early_stopper_cb = EarlyStopper(VALIDATION_LOSS_CUTOFF)
 
 history = dnn_model.fit(
     X_train,
