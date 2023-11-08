@@ -17,11 +17,14 @@ from sklearn.model_selection import train_test_split
 
 RECORDING_DIR = "rain_dataset"
 CLASSES = ["rain", "ambient"]
-EPOCHS = 100
+EPOCHS = 10
 BATCH_SIZE = 16
-SAMPLE_LEN = 22050
-VALIDATION_SPLIT = 0.2
+SAMPLING_RATE = 48000
+BIT_DEPTH = np.float32
+SAMPLE_DURATION = 10
+VALIDATION_SPLIT = 0.25
 VALIDATION_LOSS_CUTOFF = 0.02
+RESULT_COLS = ["Fs", "BIT_DEPTH", "MODEL", "TEST_ACCURACY", "TEST_LOSS"]
 
 file_names = []
 target = []
@@ -32,16 +35,18 @@ for label in CLASSES:
     file_names.extend(fnames)
     target.extend([label] * num_samples)
 
+
+result_df = pd.DataFrame(columns=RESULT_COLS)
 basic_data = pd.DataFrame()
 basic_data["filename"] = file_names
 basic_data["class"] = target
 basic_data["target"] = basic_data["class"].replace({"ambient": 0, "rain": 1})
 
-spectrum_data = np.empty((0, 220500), int)
+spectrum_data = np.empty((0, SAMPLING_RATE * SAMPLE_DURATION), int)
 
 for index, row in tqdm(basic_data.iterrows(), total=basic_data.shape[0]):
     file_path = join(RECORDING_DIR, row["class"], row["filename"])
-    x, Fs = librosa.load(file_path)
+    x, Fs = librosa.load(file_path, sr=SAMPLING_RATE, dtype=BIT_DEPTH)
     xfft = np.abs(np.fft.fft(x))
     spectrum_data = np.vstack([spectrum_data, xfft])
 
@@ -122,9 +127,18 @@ history = dnn_model.fit(
     callbacks=[cp_callback, early_stopper_cb],
 )
 
-loss, test_accuracy = dnn_model.evaluate(X_test, y_test, verbose=2)
-stats = "Trained model, accuracy: {:5.2f}% ".format(100 * test_accuracy)
-print(stats)
+test_loss, test_accuracy = dnn_model.evaluate(X_test, y_test, verbose=2)
+
+result_data = pd.DataFrame(
+    {
+        "Fs": SAMPLING_RATE,
+        "BIT_DEPTH": 32,
+        "MODEL": "DNN",
+        "TEST_ACCURACY": "{:5.2f}% ".format(100 * test_accuracy),
+        "TEST_LOSS": test_loss,
+    }
+)
+
 
 plt.plot(history.history["loss"])
 plt.plot(history.history["val_loss"])
@@ -132,3 +146,5 @@ plt.xlabel("Epochs")
 plt.ylabel("log Loss")
 plt.legend(["train", "validation"], loc="upper right")
 plt.show()
+
+print(result_data)
