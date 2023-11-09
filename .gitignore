@@ -10,9 +10,13 @@ venv/
 
 # Igonote file locations
 recordings/
+
 output_wav/
+
 model/
+
 data/
+
 rain_dataset/
 
 # Ignore jupyter checkpoint
