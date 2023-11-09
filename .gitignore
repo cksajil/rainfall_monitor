@@ -13,6 +13,7 @@ recordings/
 output_wav/
 model/
 data/
+rain_dataset/
 
 # Ignore jupyter checkpoint
 .ipynb_checkpoints/
