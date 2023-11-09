@@ -12,6 +12,7 @@ venv/
 recordings/
 output_wav/
 model/
+data/
 
 # Ignore jupyter checkpoint
 .ipynb_checkpoints/
