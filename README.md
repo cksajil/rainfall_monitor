@@ -20,7 +20,7 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 2. [Grove Sound Sensor](https://wiki.seeedstudio.com/Grove-Sound_Sensor/)
 <img src="https://files.seeedstudio.com/wiki/Grove_Sound_Sensor/img/page_small_1.jpg" alt="drawing" width="250"/>
 
-3. [USB Mic](https://www.amazon.in/USB-Microphone/s?k=USB+Microphone)
+3. [USB Mic, Jieli Technology UACDemoV1.0](https://www.amazon.in/USB-Microphone/s?k=USB+Microphone)
 
 
 ## Data Aquisition Devices (DAQs)
