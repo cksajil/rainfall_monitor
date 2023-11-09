@@ -15,7 +15,7 @@ from tensorflow.keras.regularizers import l2
 from sklearn.model_selection import train_test_split
 
 
-RECORDING_DIR = "rain_dataset"
+RECORDING_DIR = "data/rain_mini_dataset"
 CLASSES = ["rain", "ambient"]
 EPOCHS = 10
 BATCH_SIZE = 16
@@ -24,7 +24,6 @@ BIT_DEPTH = np.float32
 SAMPLE_DURATION = 10
 VALIDATION_SPLIT = 0.25
 VALIDATION_LOSS_CUTOFF = 0.02
-RESULT_COLS = ["Fs", "BIT_DEPTH", "MODEL", "TEST_ACCURACY", "TEST_LOSS"]
 
 file_names = []
 target = []
@@ -36,7 +35,7 @@ for label in CLASSES:
     target.extend([label] * num_samples)
 
 
-result_df = pd.DataFrame(columns=RESULT_COLS)
+result_df = pd.DataFrame()
 basic_data = pd.DataFrame()
 basic_data["filename"] = file_names
 basic_data["class"] = target
@@ -129,15 +128,13 @@ history = dnn_model.fit(
 
 test_loss, test_accuracy = dnn_model.evaluate(X_test, y_test, verbose=2)
 
-result_data = pd.DataFrame(
-    {
-        "Fs": SAMPLING_RATE,
-        "BIT_DEPTH": 32,
-        "MODEL": "DNN",
-        "TEST_ACCURACY": "{:5.2f}% ".format(100 * test_accuracy),
-        "TEST_LOSS": test_loss,
-    }
-)
+result_df = pd.concat([result_df, 
+                       pd.DataFrame([SAMPLING_RATE,
+                                     BIT_DEPTH,
+                                     "DNN",
+                                     "{:5.2f}% ".format(100 * test_accuracy),
+                                     test_loss])],
+                                     ignore_index=True)
 
 
 plt.plot(history.history["loss"])
@@ -147,4 +144,4 @@ plt.ylabel("log Loss")
 plt.legend(["train", "validation"], loc="upper right")
 plt.show()
 
-print(result_data)
+print(result_df)
