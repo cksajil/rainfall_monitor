@@ -21,7 +21,7 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 <img src="https://files.seeedstudio.com/wiki/Grove_Sound_Sensor/img/page_small_1.jpg" alt="drawing" width="250"/>
 
 3. [USB Mic, Jieli Technology UACDemoV1.0](https://www.amazon.in/USB-Microphone/s?k=USB+Microphone)
-
+<img src="https://images.meesho.com/images/products/293053361/m8ldc_512.webp" width="250"/>
 
 ## Data Aquisition Devices (DAQs)
 1. [Davis AeroCone 6466M Rain Gauge](https://www.amazon.de/-/en/Davis-AeroCone-6466M-Gauge-Sensor/dp/B08629NFVG) is the mechanical raingauge we are using as a reference for comparing rainfall against acoustic readings.
