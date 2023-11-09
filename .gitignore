@@ -11,6 +11,7 @@ venv/
 # Igonote file locations
 recordings/
 output_wav/
+model/
 
 # Ignore jupyter checkpoint
 .ipynb_checkpoints/
