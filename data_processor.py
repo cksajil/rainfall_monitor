@@ -30,19 +30,13 @@ basic_data["target"] = basic_data["class"].replace({"ambient": 0, "rain": 1})
 for index, row in tqdm(basic_data.iterrows(), total=basic_data.shape[0]):
     file_path = join(RECORDING_DIR, row["class"], row["filename"])
     audio, Fs = librosa.load(file_path, sr=SAMPLING_RATE)
-    audio /= np.max(np.abs(audio),axis=0)
-    audio = audio*65500
+    audio /= np.max(np.abs(audio), axis=0)
+    audio = audio * 65500
     audio = audio.astype(np.int16)
     audio_segments = np.split(audio, 10)
     i = 0
     for x in audio_segments:
         fname = row["filename"].split(".")[0]
-        out_file_path = join(PROCESSED_DIR, row["class"], fname+"_"+str(i))
+        out_file_path = join(PROCESSED_DIR, row["class"], fname + "_" + str(i))
         wavfile.write(out_file_path, SAMPLING_RATE, x)
-        i+=1
-
-
-
-
-
-
+        i += 1
