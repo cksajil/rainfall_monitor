@@ -84,7 +84,7 @@ The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 
 ### Rain Drop Counting Model Performance
 
-| **EPOCHS** | **MODEL** | **Test_Accuracy** | **Test_Loss** |
+| **Epochs** | **Model** | **Test accuracy** | **Test loss** |
 |------------|-----------|-------------------|---------------|
 | 50         | DNN       | 75.76%            | 1.966277      |
 
