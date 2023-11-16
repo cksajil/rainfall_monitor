@@ -66,9 +66,9 @@ The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 
 ## Scripts
 1. `eda_rainfall.ipynb` : Contains exploratory data analysis and visualizations to derive insights from data recorded from Grove sensors.
-2. `daq_pi.py` contains Python script for automated audio recording which is added to the `~/.bashrc` profile so that the script is run everytime the device boots up and logs in.
+2. `daq_pi.py` contains Python script for automated audio recording in Raspberry which is added to the `~/.bashrc` profile so that the script is run everytime the device boots up and logs in.
 3. `rain_drop_counter_modeling.ipynb` is a jupyter notebook which trains a deep learning model to predict number of rain drops in every 200 millliseconds. The best model has a test accuracy of 78%.
-4. `raindrop_counter.py` is a Python script which can count the number of rain drops in a recorded audio using the deep learning model trained on step 3.
+4. `raindrop_counter.py` is a Python script which can count the number of rain drops in a raspberry pi recorded audio using the deep learning model trained on step 3.
 
 ## Results
 ### Correlation Table
