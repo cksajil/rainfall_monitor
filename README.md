@@ -52,13 +52,15 @@ The data from USB mic contains audio files saved in wav format with a fixed dura
 
 The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec.wav`) file name as shown below.
 
-`2023_11_06_16_13_11_011224.wav`
+`2023_11_06_16_13_11_011224.wav
+
+#### Datasets made available on Kaggle
 
 1. The dataset [rainfall-mini-dataset](https://www.kaggle.com/datasets/sajilck/rainfall-mini-dataset) contains audio recordings which are classified into two main categories "rain" and "ambient" each class containing 24 samples of 10 seconds duration.
 
-2. [rain-drop-mini-splitted](https://www.kaggle.com/datasets/sajilck/rain-drop-mini-splitted) is a splitted version of [rainfall-mini-dataset](https://www.kaggle.com/datasets/sajilck/rainfall-mini-dataset where each 10 second audio is splitted into samples of 200 milliseconds duration.
+2. [rain-drop-mini-splitted](https://www.kaggle.com/datasets/sajilck/rain-drop-mini-splitted) is a splitted version of [rainfall-mini-dataset](https://www.kaggle.com/datasets/sajilck/rainfall-mini-dataset) where each 10 second audio is splitted into samples of 200 milliseconds duration.
 
-3. [rain-drop-count-basic](https://www.kaggle.com/datasets/sajilck/rain-drop-count-basic) contains the labeled value i.e the number of rain drops in each of the samples in [rain-drop-mini-splitted](https://www.kaggle.com/datasets/sajilck/rain-drop-mini-splitted)
+3. [rain-drop-count-basic](https://www.kaggle.com/datasets/sajilck/rain-drop-count-basic) contains the labeled value, i.e the number of rain drops in each of the samples in [rain-drop-mini-splitted](https://www.kaggle.com/datasets/sajilck/rain-drop-mini-splitted)
 
 4. [rainfall-sound-2023-11-13-14-00-00-icfoss](https://www.kaggle.com/datasets/sajilck/rainfall-sound-2023-11-13-14-00-00-icfoss) is the rainfall sound recorded on 13th November 2023 afternoon near ICFOSS premise. The rainfall sound on the metallic enclosure was recorded using Raspberry Pi and USB Mic. The sampling rate was 48Ksamples/sec at 32bit resolution. Each audio file has a duration of 10 seconds. The timestamp corresponding to each file was corrupted (to last known time in the device) due to lack of real-time clock/wifi connectivity in the recording setup.
 
