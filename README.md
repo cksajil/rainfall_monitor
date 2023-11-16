@@ -95,3 +95,4 @@ The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 3. For low volumes of rain (`e.g. <=0.28 mm`), the variation in loudness is not very useful. Hence in these cases a different strategy needs to be devised
 4. For low volumes of rain the tipping event happens relatively after longer duration (`10-150 minutes`). Hence loudness measurement in the last 1 minute may not account for the drizzling rain happened from the previous tipping point.
 5. High sampling rate and resoulition recordings from Raspberry Pi is of high quality and can be used for rainfall estimation provided we are using the same hardware for inference as well.
+6. The test accuracy of DNN model trained on [rain-drop-mini-splitted](https://www.kaggle.com/datasets/sajilck/rain-drop-mini-splitted) dataset is 75%-78%.
