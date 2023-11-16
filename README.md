@@ -82,8 +82,16 @@ The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 | **Rainfall (mm) (mechanical)** | 0.152554  | **0.839047** |
 
 
+### Rain Drop Counting Model Performance
+
+| **EPOCHS** | **MODEL** | **Test_Accuracy** | **Test_Loss** |
+|------------|-----------|-------------------|---------------|
+| 50         | DNN       | 75.76%            | 1.966277      |
+
+
 ### Observations
 1. There is correlation w.r.t. mechanical readings and acoustic measurements
 2. The acoustic feature loudness (`pearson: 0.7371`) is found to be more correlated to mechanical measurements
 3. For low volumes of rain (`e.g. <=0.28 mm`), the variation in loudness is not very useful. Hence in these cases a different strategy needs to be devised
 4. For low volumes of rain the tipping event happens relatively after longer duration (`10-150 minutes`). Hence loudness measurement in the last 1 minute may not account for the drizzling rain happened from the previous tipping point.
+5. High sampling rate and resoulition recordings from Raspberry Pi is of high quality and can be used for rainfall estimation provided we are using the same hardware for inference as well.
