@@ -52,7 +52,7 @@ The data from USB mic contains audio files saved in wav format with a fixed dura
 
 The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec.wav`) file name as shown below.
 
-`2023_11_06_16_13_11_011224.wav
+`2023_11_06_16_13_11_011224.wav`
 
 #### Datasets made available on Kaggle
 
