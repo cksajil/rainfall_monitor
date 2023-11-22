@@ -1,6 +1,7 @@
 import os
 import yaml
-#from tensorflow.keras.callbacks import Callback
+
+# from tensorflow.keras.callbacks import Callback
 
 
 def time_stamp_fnamer(tstamp):
@@ -33,11 +34,12 @@ def create_folder(directory):
         os.makedirs(directory)
 
 
-# with open(path.join(config["data_dir"], dt_fname), "w") as f:
-#     f.write("sample data")
+def create_log_file(log_folder, log_file):
+    with open(os.path.join(log_folder, log_file), "w") as f:
+        f.write("Log file created")
 
 
-#class EarlyStopper(Callback):
+# class EarlyStopper(Callback):
 #    """
 #    A class for early stopper callback for validation accuracy
 #    """
