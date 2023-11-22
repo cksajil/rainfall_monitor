@@ -27,7 +27,7 @@ num_samples = int(config["record_hours"] * (3600 / d))
 dt_start = datetime.now()
 dt_stop = dt_start + timedelta(hours=record_hours)
 
-logger.info("Started data logging at {}\n".format(dt_start))
+logger.info("\nStarted data logging at {}\n".format(dt_start))
 logger.info("Total number of samples to be recorded: {}\n".format(num_samples))
 
 for i in range(num_samples):
