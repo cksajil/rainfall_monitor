@@ -3,15 +3,15 @@ import subprocess
 from os import path
 from datetime import datetime, timedelta
 from utils.helper import time_stamp_fnamer
-from utils.helper import load_config, create_folder, create_log_file
+from utils.helper import load_config, create_folder
 
 
 config = load_config("config.yaml")
 create_folder(config["log_dir"])
-create_log_file(config["log_dir"], config["log_filename"])
 
 logging.basicConfig(
     filename=path.join(config["log_dir"], config["log_filename"]),
+    filemode="a+",
     format="%(message)s",
     filemode="w",
 )
