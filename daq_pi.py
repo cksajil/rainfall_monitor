@@ -3,10 +3,12 @@ import subprocess
 from os import path
 from datetime import datetime, timedelta
 from utils.helper import time_stamp_fnamer
-from utils.helper import load_config
+from utils.helper import load_config, create_folder
 
 
 config = load_config("config.yaml")
+create_folder(config["log_dir"])
+
 logging.basicConfig(
     filename=path.join(config["log_dir"], "log.txt"),
     format="%(message)s",

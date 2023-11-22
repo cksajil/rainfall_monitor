@@ -1,6 +1,6 @@
 import os
 import yaml
-from tensorflow.keras.callbacks import Callback
+#from tensorflow.keras.callbacks import Callback
 
 
 def time_stamp_fnamer(tstamp):
@@ -37,16 +37,15 @@ def create_folder(directory):
 #     f.write("sample data")
 
 
-class EarlyStopper(Callback):
-    """
-    A class for early stopper callback for validation accuracy
-    """
-
-    def __init__(self, target):
-        super(EarlyStopper, self).__init__()
-        self.target = target
-
-    def on_epoch_end(self, epoch, logs={}):
-        val_loss = logs["val_loss"]
-        if val_loss < self.target:
-            self.model.stop_training = True
+#class EarlyStopper(Callback):
+#    """
+#    A class for early stopper callback for validation accuracy
+#    """
+#    def __init__(self, target):
+#        super(EarlyStopper, self).__init__()
+#        self.target = target
+#
+#    def on_epoch_end(self, epoch, logs={}):
+#        val_loss = logs['val_loss']
+#        if val_loss < self.target:
+#            self.model.stop_training = True
