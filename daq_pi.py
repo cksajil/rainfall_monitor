@@ -13,7 +13,6 @@ logging.basicConfig(
     filename=path.join(config["log_dir"], config["log_filename"]),
     filemode="a+",
     format="%(message)s",
-    filemode="w",
 )
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
