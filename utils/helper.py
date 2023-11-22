@@ -36,7 +36,7 @@ def create_folder(directory):
 
 def create_log_file(log_folder, log_file):
     with open(os.path.join(log_folder, log_file), "a+") as f:
-        f.write("Log file created")
+        f.write("")
 
 
 # class EarlyStopper(Callback):
