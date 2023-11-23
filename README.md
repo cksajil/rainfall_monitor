@@ -1,6 +1,8 @@
 # Acoustic Rainfall Monitoring
 ## A project by [ICFOSS](https://icfoss.in/)
 
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdm15b3gwZ2o3dnoxZWNxd3Bod3l0MXNsdHprdm41M2N0ajdpZ2k0NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wxpaNs949jOarTPxFZ/giphy.gif" width="600">
+
 Rainfall also known as precipitation is an important part of enviroment stability. Inorder to have a sustainable echo system, it is important for living beings to have access to clean drinking water. It is also important for early flood warning as well. Many efforts to attain this objective depends on accurate precipitation monitoring.
 
 Precipitation monitoring devices are broadly classified into manuel, mechanical, and optical. It is desirable to have accurate sensors which are not manuel/mechanical/optical. This project is an attempt to predict precipitation using machine learning techniques with sound loudness as input feature.
@@ -10,7 +12,7 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 1. Gopika
 2. [Sajil](https://github.com/cksajil/)
 3. Manu
-4. Aishwarya
+4. Aiswarya
 
 
 ## Sensors used
