@@ -6,3 +6,9 @@ sample_duration_sec: 10
 file_format: "wav"
 resolution: "S32"
 sampling_rate: "48000"
+inference_duration: 0.2
+learning_rate: 0.001
+n_classes: 3
+cnn_dim: [1025, 19]
+model_dir: model
+model_name: cnn.hdf5

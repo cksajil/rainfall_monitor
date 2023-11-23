@@ -1,7 +1,9 @@
+import yaml
 import librosa
 import numpy as np
 import streamlit as st
 from stqdm import stqdm
+from os.path import join
 import matplotlib.pyplot as plt
 from keras.models import Sequential
 from tensorflow.keras.optimizers import Adam
@@ -10,11 +12,23 @@ from tensorflow.keras.initializers import RandomUniform
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 
 
-INFERENCE_DURATION = 0.2
-LEARNING_RATE = 0.001
-N_CLASSES = 3
-CNN_DIM = [1025, 19]
-model_name = "./model/cnn.hdf5"
+def load_config(config_name):
+    """
+    A function to load and return config file in YAML format
+    """
+    CONFIG_PATH = "./config/"
+    with open(join(CONFIG_PATH, config_name)) as file:
+        config = yaml.safe_load(file)
+
+    return config
+
+
+config = load_config("config.yaml")
+INFERENCE_DURATION = config["inference_duration"]
+LEARNING_RATE = config["learning_rate"]
+N_CLASSES = config["n_classes"]
+CNN_DIM = config["cnn_dim"]
+model_path = join(config["model_dir"], config["model_name"])
 
 
 def load_wav(file_path):
@@ -105,7 +119,7 @@ file_path = st.file_uploader("Choose a WAV file", type="wav")
 if file_path is not None:
     model = create_cnn_model(CNN_DIM)
     model.build(input_shape=CNN_DIM)
-    model.load_weights(model_name)
+    model.load_weights(model_path)
 
     st.subheader("Results")
     audio, Fs, n_drops, duration = count_rain_drops(model, file_path)
