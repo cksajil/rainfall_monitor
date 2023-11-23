@@ -9,10 +9,10 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 
 
 ## Project Members
-1. Gopika
-2. [Sajil](https://github.com/cksajil/)
-3. Manu
-4. Aiswarya
+1. Gopika T G
+2. [Sajil C K](https://github.com/cksajil/)
+3. Manu Mohan M S
+4. Aiswarya Babu 
 
 
 ## Sensors used
