@@ -76,7 +76,7 @@ def analyze_audio(file_path):
     audio, Fs, duration = load_wav(file_path)
     segment_len = int(INFERENCE_DURATION * Fs)
     n_segments = int(duration / INFERENCE_DURATION)
-    drops_detected = 0
+    n_drops = 0
 
     for i in range(n_segments):
         audio_segment = audio[i * segment_len : i * segment_len + segment_len]
@@ -88,25 +88,20 @@ def analyze_audio(file_path):
         model.load_weights(model_name)
         y_pred = model.predict(spectrum_data)[0]
         indx = np.argmax(y_pred)
-        drops_detected += indx
+        n_drops += indx
 
     D = librosa.amplitude_to_db(np.abs(librosa.stft(audio)), ref=np.max)
 
-    fig, ax = plt.subplots(2, 1, figsize=(10, 10))
-    ax[0].plot(np.arange(len(audio)) / Fs, audio)
-    ax[0].set_title("Waveform")
-    ax[0].set_xlabel("Time (s)")
-    ax[0].set_ylabel("Amplitude")
-
-    librosa.display.specshow(D, sr=Fs, x_axis="time", y_axis="log", ax=ax[1])
-    ax[1].set_title("Spectrogram")
-    ax[1].set_xlabel("Time (s)")
-    ax[1].set_ylabel("Frequency (Hz)")
+    fig, ax = plt.subplots(figsize=(10, 5))
+    librosa.display.specshow(D, sr=Fs, x_axis="time", y_axis="log", ax=ax)
+    ax.set_title("Spectrogram")
+    ax.set_xlabel("Time (s)")
+    ax.set_ylabel("Frequency (Hz)")
 
     st.pyplot(fig)
     st.write(f"Audio duration: {duration:.2f} seconds")
     st.write(f"Sampling rate: {Fs} Hz")
-    st.write(f"Number of drops detected: {drops_detected}")
+    st.write(f"Number of rain drops detected: {n_drops }")
 
 
 st.title("Acoustic Rainfall Estimation App")
