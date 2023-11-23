@@ -70,6 +70,9 @@ The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 3. `rain_drop_counter_modeling.ipynb` is a jupyter notebook which trains a deep learning model to predict number of rain drops in every 200 millliseconds. The best model has a test accuracy of 78%.
 4. `raindrop_counter.py` is a Python script which can count the number of rain drops in a raspberry pi recorded audio using the deep learning model trained on step 3.
 
+## Lauch Streamlit App
+`streamlit run demo_app.py`
+
 ## Results
 ### Correlation Table
 
