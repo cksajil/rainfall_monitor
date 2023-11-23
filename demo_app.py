@@ -139,8 +139,9 @@ if file_handle is not None:
     col1.metric(
         label="No. of rain drops detected", value=n_drops, delta_color="inverse"
     )
-    col2.metric(label="Audio duration (sec)", value=duration, delta_color="inverse")
-    col3.metric(label="Sampling rate (samples/sec)", value=Fs, delta_color="inverse")
+
+    col2.metric(label="Estimated rainfall (mm)", value=n_drops, delta_color="inverse")
+    col3.metric(label="Audio duration (sec)", value=duration, delta_color="inverse")
 
     plot_spectrogram(audio)
     st.audio(file_handle, format="audio/wav")
