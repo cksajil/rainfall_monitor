@@ -29,6 +29,8 @@ INFERENCE_DURATION = config["inference_duration"]
 LEARNING_RATE = config["learning_rate"]
 N_CLASSES = config["n_classes"]
 CNN_DIM = config["cnn_dim"]
+DROP_SIZE = config["drop_size"]
+DIAMETER = config["enclosure_diameter"]
 model_path = join(config["model_dir"], config["model_name"])
 
 
@@ -114,6 +116,11 @@ def plot_spectrogram(audio):
     st.pyplot(fig)
 
 
+def compute_rainfall(n_drops):
+    area_scale = 1 / (np.pi * (DIAMETER / 2) ** 2)
+    return (area_scale * n_drops * DROP_SIZE) / 10**6
+
+
 st.title("Acoustic Rainfall Estimation App")
 file_handle = st.file_uploader("Choose a WAV file", type="wav")
 
@@ -124,6 +131,7 @@ if file_handle is not None:
 
     st.subheader("Results")
     audio, Fs, n_drops, duration = count_rain_drops(model, file_handle)
+    rainfall = compute_rainfall(n_drops)
     year, month, day, hour, minute, second, _ = map(
         int, file_handle.name.split(".")[0].split("_")
     )
@@ -135,13 +143,15 @@ if file_handle is not None:
         + (start_time + time_delta).strftime("%d/%m/%Y, %H:%M:%S")
     )
     st.subheader("From " + time_span, divider="rainbow")
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     col1.metric(
         label="No. of rain drops detected", value=n_drops, delta_color="inverse"
     )
 
-    col2.metric(label="Estimated rainfall (mm)", value=n_drops, delta_color="inverse")
-    col3.metric(label="Audio duration (sec)", value=duration, delta_color="inverse")
-
+    col2.metric(
+        label="Estimated rainfall (mm)",
+        value="{:20f}".format(rainfall),
+        delta_color="inverse",
+    )
     plot_spectrogram(audio)
     st.audio(file_handle, format="audio/wav")
