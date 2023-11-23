@@ -12,3 +12,4 @@ n_classes: 3
 cnn_dim: [1025, 19]
 model_dir: model
 model_name: cnn.hdf5
+enclosure_diameter: 0.135
