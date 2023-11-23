@@ -94,7 +94,7 @@ def count_rain_drops(file_path):
 
 def plot_spectrogram(audio):
     D = librosa.amplitude_to_db(np.abs(librosa.stft(audio)), ref=np.max)
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(10, 4))
     librosa.display.specshow(D, sr=Fs, x_axis="time", y_axis="log", ax=ax)
     ax.set_title("Spectrogram")
     ax.set_xlabel("Time (s)")
@@ -106,12 +106,14 @@ st.title("Acoustic Rainfall Estimation App")
 file_path = st.file_uploader("Choose a WAV file", type="wav")
 
 if file_path is not None:
-    st.subheader("Uploaded WAV file")
-    st.audio(file_path, format="audio/wav")
-
     st.subheader("Results")
     audio, Fs, n_drops, duration = count_rain_drops(file_path)
+    col1, col2, col3 = st.columns(3)
+    col1.metric(
+        label="No. of rain drops detected", value=n_drops, delta_color="inverse"
+    )
+    col2.metric(label="Audio duration (sec)", value=duration, delta_color="inverse")
+    col3.metric(label="Sampling rate (samples/sec)", value=Fs, delta_color="inverse")
+
     plot_spectrogram(audio)
-    st.write(f"Audio duration: {duration:.2f} seconds")
-    st.write(f"Sampling rate: {Fs} Hz")
-    st.write(f"Number of rain drops detected: {n_drops}")
+    st.audio(file_path, format="audio/wav")
