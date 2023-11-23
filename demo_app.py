@@ -72,7 +72,7 @@ def create_cnn_model(in_shape):
     return model
 
 
-def analyze_audio(file_path):
+def count_rain_drops(file_path):
     audio, Fs, duration = load_wav(file_path)
     segment_len = int(INFERENCE_DURATION * Fs)
     n_segments = int(duration / INFERENCE_DURATION)
@@ -89,27 +89,29 @@ def analyze_audio(file_path):
         y_pred = model.predict(spectrum_data)[0]
         indx = np.argmax(y_pred)
         n_drops += indx
+    return audio, Fs, n_drops, duration
 
+
+def plot_spectrogram(audio):
     D = librosa.amplitude_to_db(np.abs(librosa.stft(audio)), ref=np.max)
-
     fig, ax = plt.subplots(figsize=(10, 5))
     librosa.display.specshow(D, sr=Fs, x_axis="time", y_axis="log", ax=ax)
     ax.set_title("Spectrogram")
     ax.set_xlabel("Time (s)")
     ax.set_ylabel("Frequency (Hz)")
-
     st.pyplot(fig)
-    st.write(f"Audio duration: {duration:.2f} seconds")
-    st.write(f"Sampling rate: {Fs} Hz")
-    st.write(f"Number of rain drops detected: {n_drops }")
 
 
 st.title("Acoustic Rainfall Estimation App")
-uploaded_file = st.file_uploader("Choose a WAV file", type="wav")
+file_path = st.file_uploader("Choose a WAV file", type="wav")
 
-if uploaded_file is not None:
+if file_path is not None:
     st.subheader("Uploaded WAV file")
-    st.audio(uploaded_file, format="audio/wav")
+    st.audio(file_path, format="audio/wav")
 
     st.subheader("Results")
-    analyze_audio(uploaded_file)
+    audio, Fs, n_drops, duration = count_rain_drops(file_path)
+    plot_spectrogram(audio)
+    st.write(f"Audio duration: {duration:.2f} seconds")
+    st.write(f"Sampling rate: {Fs} Hz")
+    st.write(f"Number of rain drops detected: {n_drops}")
