@@ -6,6 +6,7 @@ from stqdm import stqdm
 from os.path import join
 import matplotlib.pyplot as plt
 from keras.models import Sequential
+from datetime import datetime, timedelta
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.regularizers import l2
 from tensorflow.keras.initializers import RandomUniform
@@ -114,15 +115,26 @@ def plot_spectrogram(audio):
 
 
 st.title("Acoustic Rainfall Estimation App")
-file_path = st.file_uploader("Choose a WAV file", type="wav")
+file_handle = st.file_uploader("Choose a WAV file", type="wav")
 
-if file_path is not None:
+if file_handle is not None:
     model = create_cnn_model(CNN_DIM)
     model.build(input_shape=CNN_DIM)
     model.load_weights(model_path)
 
     st.subheader("Results")
-    audio, Fs, n_drops, duration = count_rain_drops(model, file_path)
+    audio, Fs, n_drops, duration = count_rain_drops(model, file_handle)
+    year, month, day, hour, minute, second, _ = map(
+        int, file_handle.name.split(".")[0].split("_")
+    )
+    start_time = datetime(year, month, day, hour, minute, second)
+    time_delta = timedelta(seconds=duration)
+    time_span = (
+        start_time.strftime("%d/%m/%Y, %H:%M:%S")
+        + " to "
+        + (start_time + time_delta).strftime("%d/%m/%Y, %H:%M:%S")
+    )
+    st.subheader("From " + time_span, divider="rainbow")
     col1, col2, col3 = st.columns(3)
     col1.metric(
         label="No. of rain drops detected", value=n_drops, delta_color="inverse"
@@ -131,4 +143,4 @@ if file_path is not None:
     col3.metric(label="Sampling rate (samples/sec)", value=Fs, delta_color="inverse")
 
     plot_spectrogram(audio)
-    st.audio(file_path, format="audio/wav")
+    st.audio(file_handle, format="audio/wav")
