@@ -1,6 +1,7 @@
 import librosa
 import numpy as np
 import streamlit as st
+from stqdm import stqdm
 import matplotlib.pyplot as plt
 from keras.models import Sequential
 from tensorflow.keras.optimizers import Adam
@@ -12,6 +13,7 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 INFERENCE_DURATION = 0.2
 LEARNING_RATE = 0.001
 N_CLASSES = 3
+CNN_DIM = [1025, 19]
 model_name = "./model/cnn.hdf5"
 
 
@@ -23,8 +25,7 @@ def load_wav(file_path):
 
 
 def create_cnn_data(raw_data):
-    dim = [1025, 19]
-    stft_data = np.empty(shape=[0, dim[0], dim[1]])
+    stft_data = np.empty(shape=[0, CNN_DIM[0], CNN_DIM[1]])
     for row in raw_data:
         Zxx = librosa.stft(row)
         stft_sample = np.abs(Zxx)
@@ -72,21 +73,17 @@ def create_cnn_model(in_shape):
     return model
 
 
-def count_rain_drops(file_path):
+def count_rain_drops(model, file_path):
     audio, Fs, duration = load_wav(file_path)
     segment_len = int(INFERENCE_DURATION * Fs)
     n_segments = int(duration / INFERENCE_DURATION)
     n_drops = 0
 
-    for i in range(n_segments):
+    for i in stqdm(range(n_segments)):
         audio_segment = audio[i * segment_len : i * segment_len + segment_len]
         audio_segment = audio_segment.reshape(1, -1)
         spectrum_data = create_cnn_data(audio_segment)
-        in_shape = spectrum_data[0].shape
-        model = create_cnn_model(in_shape)
-        model.build(input_shape=in_shape)
-        model.load_weights(model_name)
-        y_pred = model.predict(spectrum_data)[0]
+        y_pred = model.predict(spectrum_data, verbose=0)[0]
         indx = np.argmax(y_pred)
         n_drops += indx
     return audio, Fs, n_drops, duration
@@ -106,8 +103,12 @@ st.title("Acoustic Rainfall Estimation App")
 file_path = st.file_uploader("Choose a WAV file", type="wav")
 
 if file_path is not None:
+    model = create_cnn_model(CNN_DIM)
+    model.build(input_shape=CNN_DIM)
+    model.load_weights(model_name)
+
     st.subheader("Results")
-    audio, Fs, n_drops, duration = count_rain_drops(file_path)
+    audio, Fs, n_drops, duration = count_rain_drops(model, file_path)
     col1, col2, col3 = st.columns(3)
     col1.metric(
         label="No. of rain drops detected", value=n_drops, delta_color="inverse"
