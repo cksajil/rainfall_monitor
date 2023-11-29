@@ -1,7 +1,7 @@
 # Acoustic Rainfall Monitoring
 ## A project by [ICFOSS](https://icfoss.in/)
 
-## Access live web app [here](https://non-mechanical-raingauge-icfoss.streamlit.app/)
+### [https://non-mechanical-raingauge-icfoss.streamlit.app/](https://non-mechanical-raingauge-icfoss.streamlit.app/)
 
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdm15b3gwZ2o3dnoxZWNxd3Bod3l0MXNsdHprdm41M2N0ajdpZ2k0NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wxpaNs949jOarTPxFZ/giphy.gif" width="600">
 
