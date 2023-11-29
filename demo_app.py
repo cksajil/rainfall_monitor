@@ -123,6 +123,9 @@ def compute_rainfall(n_drops):
 
 st.title("Acoustic Rainfall Estimation App")
 file_handle = st.file_uploader("Choose a WAV file", type="wav")
+st.write(
+    "Download sample sound files to test from [here](https://www.kaggle.com/datasets/sajilck/rainfall-mini-dataset)"
+)
 
 if file_handle is not None:
     model = create_cnn_model(CNN_DIM)
