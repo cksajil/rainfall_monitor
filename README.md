@@ -86,6 +86,10 @@ streamlit run demo_app.py
 |------------|-----------|----------|
 | 25         | LSTM      | 31.15%   |
 
+### Rain Drop Counting Model Performance
+| **Epochs** | **Model** | **Test accuracy** | **Test loss** |
+|------------|-----------|-------------------|---------------|
+| 50         | DNN       | 75.76%            | 1.966277      |
 
 ### Correlation Table
 | Pearson correlation            |           |              |
@@ -95,13 +99,6 @@ streamlit run demo_app.py
 | Spearman correlation           |           |              |
 |                                | **Sound** | **Loudness** |
 | **Rainfall (mm) (mechanical)** | 0.152554  | **0.839047** |
-
-
-### Rain Drop Counting Model Performance
-| **Epochs** | **Model** | **Test accuracy** | **Test loss** |
-|------------|-----------|-------------------|---------------|
-| 50         | DNN       | 75.76%            | 1.966277      |
-
 
 ### Observations
 1. There is correlation w.r.t. mechanical readings and acoustic measurements
