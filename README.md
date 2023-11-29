@@ -80,8 +80,14 @@ streamlit run demo_app.py
 ```
 
 ## Results
-### Correlation Table
 
+#### LSTM Sequential Model Performance
+| **EPOCHS** | **MODEL** | **MAPE** |
+|------------|-----------|----------|
+| 25         | LSTM      | 31.15%   |
+
+
+### Correlation Table
 | Pearson correlation            |           |              |
 |--------------------------------|-----------|--------------|
 |                                | **Sound** | **Loudness** |
@@ -92,7 +98,6 @@ streamlit run demo_app.py
 
 
 ### Rain Drop Counting Model Performance
-
 | **Epochs** | **Model** | **Test accuracy** | **Test loss** |
 |------------|-----------|-------------------|---------------|
 | 50         | DNN       | 75.76%            | 1.966277      |
