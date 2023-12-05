@@ -3,7 +3,8 @@ import subprocess
 from os import path
 from datetime import datetime, timedelta
 from utils.helper import time_stamp_fnamer
-from utils.helper import load_config, create_folder
+from utils.estimate import estimate_rainfall
+from utils.helper import load_config, create_folder, load_estimate_model
 
 
 config = load_config("config.yaml")
@@ -23,6 +24,8 @@ resolution = config["resolution"]
 sampling_rate = config["sampling_rate"]
 record_hours = config["record_hours"]
 num_samples = int(config["record_hours"] * (3600 / d))
+infer_model_path = path.join(config["model_dir"], config["infer_model_name"])
+infer_model = load_estimate_model(infer_model_path)
 
 dt_start = datetime.now()
 dt_stop = dt_start + timedelta(hours=record_hours)
@@ -51,7 +54,8 @@ for i in range(num_samples):
             location,
         ]
     )
-
+    mm_hat = estimate_rainfall(infer_model, location)
+    logger.info("At {} estimated {} \n".format(dt_now, mm_hat))
     time_left = dt_stop - dt_now
     days, seconds = time_left.days, time_left.seconds
     hours = days * 24 + seconds // 3600

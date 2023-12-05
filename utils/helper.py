@@ -1,5 +1,7 @@
 import os
 import yaml
+from keras.models import Sequential
+from keras.layers import LSTM, Dense
 
 # from tensorflow.keras.callbacks import Callback
 
@@ -37,6 +39,22 @@ def create_folder(directory):
 def create_log_file(log_folder, log_file):
     with open(os.path.join(log_folder, log_file), "a") as f:
         f.write("")
+
+
+def create_lstm_model():
+    model = Sequential()
+    model.add(LSTM(50))
+    model.add(Dense(30))
+    model.add(Dense(10))
+    model.add(Dense(1))
+    return model
+
+
+def load_estimate_model(model_path):
+    model = create_lstm_model()
+    model.build()
+    model.load_weights(model_path)
+    return model
 
 
 # class EarlyStopper(Callback):
