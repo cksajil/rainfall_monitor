@@ -24,7 +24,7 @@ resolution = config["resolution"]
 sampling_rate = config["sampling_rate"]
 record_hours = config["record_hours"]
 num_samples = int(config["record_hours"] * (3600 / d))
-infer_model_path = path.join(config["model_dir"], config["infer_model_name"])
+infer_model_path = path.join(config["infer_model_dir"], config["infer_model_name"])
 infer_model = load_estimate_model(infer_model_path)
 
 dt_start = datetime.now()

@@ -10,7 +10,8 @@ inference_duration: 0.2
 learning_rate: 0.001
 n_classes: 3
 cnn_dim: [1025, 19]
-model_dir: /home/pi/raingauge/model/
+model_dir: model
+infer_model_dir: /home/pi/raingauge/model/
 model_name: cnn.hdf5
 infer_model_name: seq_stft.hdf5
 enclosure_diameter: 0.135
