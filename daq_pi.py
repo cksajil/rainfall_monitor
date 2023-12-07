@@ -16,7 +16,7 @@ logging.basicConfig(
     format="%(message)s",
 )
 logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 wav_duration = config["sample_duration_sec"]
 davis_duration = config["davis_duration_sec"]
