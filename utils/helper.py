@@ -3,8 +3,6 @@ import yaml
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
 
-# from tensorflow.keras.callbacks import Callback
-
 
 def time_stamp_fnamer(tstamp):
     """
@@ -56,17 +54,3 @@ def load_estimate_model(model_path):
     model.build(input_shape=config["stft_shape"])
     model.load_weights(model_path)
     return model
-
-
-# class EarlyStopper(Callback):
-#    """
-#    A class for early stopper callback for validation accuracy
-#    """
-#    def __init__(self, target):
-#        super(EarlyStopper, self).__init__()
-#        self.target = target
-#
-#    def on_epoch_end(self, epoch, logs={}):
-#        val_loss = logs['val_loss']
-#        if val_loss < self.target:
-#            self.model.stop_training = True
