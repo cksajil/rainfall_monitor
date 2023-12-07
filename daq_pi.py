@@ -59,7 +59,9 @@ for i in range(1, num_samples + 1):
     )
     if i % num_subsamples == 0:
         mm_hat = estimate_rainfall(infer_model, locations)
+        logger.info("\n\n\n*******************************************************")
         logger.info("At {} estimated {} \n".format(dt_now, mm_hat))
+        logger.info("*******************************************************\n\n\n")
         locations.clear()
     else:
         locations.append(location)
