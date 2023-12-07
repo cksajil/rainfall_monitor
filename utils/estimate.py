@@ -1,6 +1,6 @@
 import librosa
 import numpy as np
-from helper import load_config
+from .helper import load_config
 
 
 def create_cnn_data(raw_data):
