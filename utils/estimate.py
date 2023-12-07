@@ -14,7 +14,11 @@ def combine_audios(file_paths):
     config = load_config("config.yaml")
     for file_path in file_paths:
         audio_segment, _ = librosa.load(file_path)
+        print(audio_segment)
+        print(audio_segment.shape)
         audio = np.append(audio, audio_segment)
+    print(audio)
+    print(audio.shape)
     audio = audio[-1 * config["seq_len"] :]
     return audio
 
