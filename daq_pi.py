@@ -18,12 +18,14 @@ logging.basicConfig(
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
-d = config["sample_duration_sec"]
+wav_duration = config["sample_duration_sec"]
+davis_duration = config["davis_duration_sec"]
 file_format = config["file_format"]
 resolution = config["resolution"]
 sampling_rate = config["sampling_rate"]
 record_hours = config["record_hours"]
-num_samples = int(config["record_hours"] * (3600 / d))
+num_samples = int(config["record_hours"] * (3600 / wav_duration))
+num_subsamples = davis_duration // wav_duration
 infer_model_path = path.join(config["infer_model_dir"], config["infer_model_name"])
 infer_model = load_estimate_model(infer_model_path)
 
@@ -34,17 +36,18 @@ logger.info("\n\n\n*******************************************************")
 logger.info("Started data logging at {}\n".format(dt_start))
 logger.info("Total number of samples to be recorded: {}\n".format(num_samples))
 
-for i in range(num_samples):
+for i in range(1, num_samples + 1):
     dt_now = datetime.now()
     logger.info("Recording sample number {} on {}".format(i, dt_now))
     dt_fname = time_stamp_fnamer(dt_now) + ".wav"
     location = config["data_dir"] + dt_fname
+    locations = []
 
     subprocess.call(
         [
             "arecord",
             "-q",
-            "--duration=" + str(d),
+            "--duration=" + str(wav_duration),
             "-t",
             str(file_format),
             "-f",
@@ -54,8 +57,13 @@ for i in range(num_samples):
             location,
         ]
     )
-    mm_hat = estimate_rainfall(infer_model, location)
-    logger.info("At {} estimated {} \n".format(dt_now, mm_hat))
+    if i % num_subsamples == 0:
+        mm_hat = estimate_rainfall(infer_model, locations)
+        logger.info("At {} estimated {} \n".format(dt_now, mm_hat))
+        locations.clear()
+    else:
+        locations.append(location)
+
     time_left = dt_stop - dt_now
     days, seconds = time_left.days, time_left.seconds
     hours = days * 24 + seconds // 3600
