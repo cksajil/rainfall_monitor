@@ -1,7 +1,6 @@
 import librosa
 import numpy as np
-
-SEQ_LEN = 1360000
+from helper import load_config
 
 
 def create_cnn_data(raw_data):
@@ -12,7 +11,8 @@ def create_cnn_data(raw_data):
 
 def estimate_rainfall(model, file_path):
     audio, Fs = librosa.load(file_path)
-    audio = audio[-1 * SEQ_LEN :]
+    config = load_config("config.yaml")
+    audio = audio[-1 * config["seq_len"] :]
     stft_sample = create_cnn_data(audio)
     y_pred = model.predict(stft_sample, verbose=0)[0][0]
     return y_pred

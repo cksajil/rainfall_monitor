@@ -17,3 +17,4 @@ model_name: cnn.hdf5
 infer_model_name: seq_stft.hdf5
 enclosure_diameter: 0.135
 drop_size: 0.034
+seq_len: 1360000
