@@ -63,7 +63,6 @@ for i in range(1, num_samples + 1):
         locations.clear()
     else:
         locations.append(location)
-    print(locations)
 
     time_left = dt_stop - dt_now
     days, seconds = time_left.days, time_left.seconds
