@@ -5,7 +5,7 @@ from keras.layers import LSTM, Dense
 
 # from tensorflow.keras.callbacks import Callback
 
-STFT_SHAPE = [1025, 2657]
+STFT_SHAPE = [1, 1025, 2657]
 
 def time_stamp_fnamer(tstamp):
     """
