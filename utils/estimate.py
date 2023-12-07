@@ -14,6 +14,5 @@ def estimate_rainfall(model, file_path):
     audio, Fs = librosa.load(file_path)
     audio = audio[-1 * SEQ_LEN :]
     stft_sample = create_cnn_data(audio)
-    print(stft_sample.shape)
     y_pred = model.predict(stft_sample, verbose=0)[0][0]
     return y_pred
