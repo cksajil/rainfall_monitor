@@ -28,6 +28,7 @@ num_samples = int(config["record_hours"] * (3600 / wav_duration))
 num_subsamples = davis_duration // wav_duration
 infer_model_path = path.join(config["infer_model_dir"], config["infer_model_name"])
 infer_model = load_estimate_model(infer_model_path)
+locations = []
 
 dt_start = datetime.now()
 dt_stop = dt_start + timedelta(hours=record_hours)
@@ -41,7 +42,6 @@ for i in range(1, num_samples + 1):
     print("Recording sample number {} on {}".format(i, dt_now))
     dt_fname = time_stamp_fnamer(dt_now) + ".wav"
     location = config["data_dir"] + dt_fname
-    locations = []
 
     subprocess.call(
         [
