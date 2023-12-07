@@ -5,6 +5,7 @@ from keras.layers import LSTM, Dense
 
 # from tensorflow.keras.callbacks import Callback
 
+STFT_SHAPE = [1025, 2657]
 
 def time_stamp_fnamer(tstamp):
     """
@@ -52,7 +53,7 @@ def create_lstm_model():
 
 def load_estimate_model(model_path):
     model = create_lstm_model()
-    model.build()
+    model.build(input_shape = STFT_SHAPE)
     model.load_weights(model_path)
     return model
 
