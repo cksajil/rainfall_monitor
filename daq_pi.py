@@ -39,7 +39,7 @@ logger.info("Total number of samples to be recorded: {}\n".format(num_samples))
 
 for i in range(1, num_samples + 1):
     dt_now = datetime.now()
-    print("Recording sample number {} on {}".format(i, dt_now))
+    logger.info("Recording sample number {} on {}".format(i, dt_now))
     dt_fname = time_stamp_fnamer(dt_now) + ".wav"
     location = config["data_dir"] + dt_fname
 
@@ -59,7 +59,7 @@ for i in range(1, num_samples + 1):
     )
     if i % num_subsamples == 0:
         mm_hat = estimate_rainfall(infer_model, locations)
-        print("At {} estimated {} \n".format(dt_now, mm_hat))
+        logger.info("At {} estimated {} \n".format(dt_now, mm_hat))
         locations.clear()
     else:
         locations.append(location)

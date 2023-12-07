@@ -2,7 +2,7 @@ data_dir: /home/pi/raingauge/data/
 log_dir: /home/pi/raingauge/logs/
 log_filename: log.txt
 record_hours: 24
-sample_duration_sec: 10
+sample_duration_sec: 3
 davis_duration_sec: 180
 file_format: "wav"
 resolution: "S32"
