@@ -9,13 +9,11 @@ Rainfall also known as precipitation is an important part of environment stabili
 
 Precipitation monitoring devices are broadly classified into manuel, mechanical, and optical. It is desirable to have accurate sensors which are not manuel/mechanical/optical. This project is an attempt to predict precipitation using machine learning techniques with sound loudness as input feature.
 
-
 ## Project Members
 1. Gopika T G
 2. [Sajil C K](https://github.com/cksajil/)
 3. Manu Mohan M S
 4. Aiswarya Babu 
-
 
 ## Sensor used
 1. [USB Mic, Jieli Technology UACDemoV1.0](https://www.amazon.in/USB-Microphone/s?k=USB+Microphone)
@@ -39,15 +37,19 @@ The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 `2023_11_06_16_13_11_011224.wav`
 
 #### Datasets made available on Kaggle
-1. [Rainfall_Mechanical_22_November_2023](https://www.kaggle.com/datasets/sajilck/rainfall-mechanical-22-november-2023) contains both audio recordings and rainfall data from mechanical rainguage in overlapping time duration (~10 hrs)
+1. [Rain_Data_Master_2023](https://www.kaggle.com/datasets/sajilck/rain-data-master-2023) contains all audio recordings and rainfall data from mechanical rainguage in overlapping time durations collected so far. Please note that files are of different duration (10 sec and 3 sec) and sampling rates (48K & 8K).
 
-2. The dataset [rainfall-mini-dataset](https://www.kaggle.com/datasets/sajilck/rainfall-mini-dataset) contains audio recordings which are classified into two main categories "rain" and "ambient" each class containing 24 samples of 10 seconds duration.
+2. [Rain_Data_Master_8K](https://www.kaggle.com/datasets/sajilck/rain-data-master-8k) Contains downsamples version of [Rain_Data_Master_2023](https://www.kaggle.com/datasets/sajilck/rain-data-master-2023) so that all files are of same sample rate (i.e. 8K).
 
-3. [rain-drop-mini-splitted](https://www.kaggle.com/datasets/sajilck/rain-drop-mini-splitted) is a splitted version of [rainfall-mini-dataset](https://www.kaggle.com/datasets/sajilck/rainfall-mini-dataset) where each 10 second audio is splitted into samples of 200 milliseconds duration.
+3. [Rainfall_Mechanical_22_November_2023](https://www.kaggle.com/datasets/sajilck/rainfall-mechanical-22-november-2023) contains both audio recordings and rainfall data from mechanical rainguage in overlapping time duration (~10 hrs).
 
-4. [rain-drop-count-basic](https://www.kaggle.com/datasets/sajilck/rain-drop-count-basic) contains the labeled value, i.e the number of rain drops in each of the samples in [rain-drop-mini-splitted](https://www.kaggle.com/datasets/sajilck/rain-drop-mini-splitted)
+4. The dataset [rainfall-mini-dataset](https://www.kaggle.com/datasets/sajilck/rainfall-mini-dataset) contains audio recordings which are classified into two main categories "rain" and "ambient" each class containing 24 samples of 10 seconds duration.
 
-5. [rainfall-sound-2023-11-13-14-00-00-icfoss](https://www.kaggle.com/datasets/sajilck/rainfall-sound-2023-11-13-14-00-00-icfoss) is the rainfall sound recorded on 13th November 2023 afternoon near ICFOSS premise. The rainfall sound on the metallic enclosure was recorded using Raspberry Pi and USB Mic. The sampling rate was 48Ksamples/sec at 32bit resolution. Each audio file has a duration of 10 seconds. The timestamp corresponding to each file was corrupted (to last known time in the device) due to lack of real-time clock/wifi connectivity in the recording setup.
+5. [rain-drop-mini-splitted](https://www.kaggle.com/datasets/sajilck/rain-drop-mini-splitted) is a splitted version of [rainfall-mini-dataset](https://www.kaggle.com/datasets/sajilck/rainfall-mini-dataset) where each 10 second audio is splitted into samples of 200 milliseconds duration.
+
+6. [rain-drop-count-basic](https://www.kaggle.com/datasets/sajilck/rain-drop-count-basic) contains the labeled value, i.e the number of rain drops in each of the samples in [rain-drop-mini-splitted](https://www.kaggle.com/datasets/sajilck/rain-drop-mini-splitted)
+
+7. [rainfall-sound-2023-11-13-14-00-00-icfoss](https://www.kaggle.com/datasets/sajilck/rainfall-sound-2023-11-13-14-00-00-icfoss) is the rainfall sound recorded on 13th November 2023 afternoon near ICFOSS premise. The rainfall sound on the metallic enclosure was recorded using Raspberry Pi and USB Mic. The sampling rate was 48Ksamples/sec at 32bit resolution. Each audio file has a duration of 10 seconds. The timestamp corresponding to each file was corrupted (to last known time in the device) due to lack of real-time clock/wifi connectivity in the recording setup.
 
 ## Scripts
 1. `daq_pi.py` contains Python script for automated audio recording in Raspberry which is added to the `~/.bashrc` profile so that the script is run everytime the device boots up and logs in.
