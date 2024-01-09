@@ -2,1318 +2,170 @@
 
 
 ****************************************************************
-Started data logging at 2024-01-08 13:03:41.896790
-
-Total number of samples to be recorded: 25920.0
-
-
-
-
-****************************************************************
-Started data logging at 2024-01-08 14:21:19.994048
-
-Total number of samples to be recorded: 25920.0
-
-
-
-
-****************************************************************
-Started data logging at 2024-01-08 14:25:49.953056
-
-Total number of samples to be recorded: 25920.0
-
-
-
-
-****************************************************************
-Started data logging at 2024-01-08 14:51:56.474303
+Started data logging at 2024-01-09 12:49:33.722997
 
 Total number of samples to be recorded: 25920
 
+Recording sample number 1 on 2024-01-09 12:49:33.723735
 
 
 
 ****************************************************************
-Started data logging at 2024-01-08 14:52:51.889743
+Started data logging at 2024-01-09 12:51:18.349915
 
 Total number of samples to be recorded: 25920
 
-Recording sample number 1 on 2024-01-08 14:52:51.890413
+Recording sample number 1 on 2024-01-09 12:51:18.350674
 Time left 71 hours 59 minutes and 59 seconds
 
-Finished data logging at 2024-01-08 14:52:51.902846
-
-*************************************************
-
-
-
-Recording sample number 2 on 2024-01-08 14:52:51.903157
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:51.913002
-
-*************************************************
-
-
-
-Recording sample number 3 on 2024-01-08 14:52:51.913282
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:51.923810
-
-*************************************************
-
-
-
-Recording sample number 4 on 2024-01-08 14:52:51.924120
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:51.935788
-
-*************************************************
-
-
-
-Recording sample number 5 on 2024-01-08 14:52:51.936119
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:51.948669
-
-*************************************************
-
-
-
-Recording sample number 6 on 2024-01-08 14:52:51.948974
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:51.959541
-
-*************************************************
-
-
-
-Recording sample number 7 on 2024-01-08 14:52:51.959814
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:51.969130
-
-*************************************************
-
-
-
-Recording sample number 8 on 2024-01-08 14:52:51.969372
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:51.979316
-
-*************************************************
-
-
-
-Recording sample number 9 on 2024-01-08 14:52:51.979611
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:51.990461
-
-*************************************************
-
-
-
-Recording sample number 10 on 2024-01-08 14:52:51.990749
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:52.000576
-
-*************************************************
-
-
-
-Recording sample number 11 on 2024-01-08 14:52:52.000807
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:52.009370
-
-*************************************************
-
-
-
-Recording sample number 12 on 2024-01-08 14:52:52.009688
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:52.021333
-
-*************************************************
-
-
-
-Recording sample number 13 on 2024-01-08 14:52:52.021648
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:52.031347
-
-*************************************************
-
-
-
-Recording sample number 14 on 2024-01-08 14:52:52.031607
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:52.040911
-
-*************************************************
-
-
-
-Recording sample number 15 on 2024-01-08 14:52:52.041165
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:52.050104
-
-*************************************************
-
-
-
-Recording sample number 16 on 2024-01-08 14:52:52.050345
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:52.059559
-
-*************************************************
-
-
-
-Recording sample number 17 on 2024-01-08 14:52:52.059894
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:52:52.068874
-
-*************************************************
-
-
-
-Recording sample number 18 on 2024-01-08 14:52:52.069104
-
-
-
-****************************************************************
-Started data logging at 2024-01-08 14:55:14.527934
-
-Total number of samples to be recorded: 25920
-
-Recording sample number 1 on 2024-01-08 14:55:14.528591
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.536692
-
-*************************************************
-
-
-
-Recording sample number 2 on 2024-01-08 14:55:14.536915
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.546092
-
-*************************************************
-
-
-
-Recording sample number 3 on 2024-01-08 14:55:14.546366
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.556768
-
-*************************************************
-
-
-
-Recording sample number 4 on 2024-01-08 14:55:14.557074
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.568036
-
-*************************************************
-
-
-
-Recording sample number 5 on 2024-01-08 14:55:14.568344
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.579669
-
-*************************************************
-
-
-
-Recording sample number 6 on 2024-01-08 14:55:14.579978
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.590507
-
-*************************************************
-
-
-
-Recording sample number 7 on 2024-01-08 14:55:14.590750
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.599709
-
-*************************************************
-
-
-
-Recording sample number 8 on 2024-01-08 14:55:14.599948
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.608378
-
-*************************************************
-
-
-
-Recording sample number 9 on 2024-01-08 14:55:14.608607
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.617694
-
-*************************************************
-
-
-
-Recording sample number 10 on 2024-01-08 14:55:14.617952
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.627908
-
-*************************************************
-
-
-
-Recording sample number 11 on 2024-01-08 14:55:14.628180
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.638052
-
-*************************************************
-
-
-
-Recording sample number 12 on 2024-01-08 14:55:14.638320
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.648980
-
-*************************************************
-
-
-
-Recording sample number 13 on 2024-01-08 14:55:14.649287
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.660891
-
-*************************************************
-
-
-
-Recording sample number 14 on 2024-01-08 14:55:14.661219
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.673378
-
-*************************************************
-
-
-
-Recording sample number 15 on 2024-01-08 14:55:14.673706
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.685463
-
-*************************************************
-
-
-
-Recording sample number 16 on 2024-01-08 14:55:14.685748
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.696676
-
-*************************************************
-
-
-
-Recording sample number 17 on 2024-01-08 14:55:14.696976
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:55:14.708235
-
-*************************************************
-
-
-
-Recording sample number 18 on 2024-01-08 14:55:14.708564
-
-
-
-****************************************************************
-Started data logging at 2024-01-08 14:59:06.010774
-
-Total number of samples to be recorded: 25920
-
-Recording sample number 1 on 2024-01-08 14:59:06.011521
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.020193
-
-*************************************************
-
-
-
-Recording sample number 2 on 2024-01-08 14:59:06.020451
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.030638
-
-*************************************************
-
-
-
-Recording sample number 3 on 2024-01-08 14:59:06.030980
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.042242
-
-*************************************************
-
-
-
-Recording sample number 4 on 2024-01-08 14:59:06.042489
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.051377
-
-*************************************************
-
-
-
-Recording sample number 5 on 2024-01-08 14:59:06.051626
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.062526
-
-*************************************************
-
-
-
-Recording sample number 6 on 2024-01-08 14:59:06.062820
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.071984
-
-*************************************************
-
-
-
-Recording sample number 7 on 2024-01-08 14:59:06.072229
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.080976
-
-*************************************************
-
-
-
-Recording sample number 8 on 2024-01-08 14:59:06.081219
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.090538
-
-*************************************************
-
-
-
-Recording sample number 9 on 2024-01-08 14:59:06.090795
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.100102
-
-*************************************************
-
-
-
-Recording sample number 10 on 2024-01-08 14:59:06.100341
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.108817
-
-*************************************************
-
-
-
-Recording sample number 11 on 2024-01-08 14:59:06.109122
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.121100
-
-*************************************************
-
-
-
-Recording sample number 12 on 2024-01-08 14:59:06.121352
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.130248
-
-*************************************************
-
-
-
-Recording sample number 13 on 2024-01-08 14:59:06.130492
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.140040
-
-*************************************************
-
-
-
-Recording sample number 14 on 2024-01-08 14:59:06.140294
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.149231
-
-*************************************************
-
-
-
-Recording sample number 15 on 2024-01-08 14:59:06.149474
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.159072
-
-*************************************************
-
-
-
-Recording sample number 16 on 2024-01-08 14:59:06.159387
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.168593
-
-*************************************************
-
-
-
-Recording sample number 17 on 2024-01-08 14:59:06.168848
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 14:59:06.178752
-
-*************************************************
-
-
-
-Recording sample number 18 on 2024-01-08 14:59:06.179043
-
-
-
-****************************************************************
-Started data logging at 2024-01-08 15:00:31.095050
-
-Total number of samples to be recorded: 25920
-
-Recording sample number 1 on 2024-01-08 15:00:31.095784
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.103876
-
-*************************************************
-
-
-
-Recording sample number 2 on 2024-01-08 15:00:31.104143
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.113562
-
-*************************************************
-
-
-
-Recording sample number 3 on 2024-01-08 15:00:31.113838
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.122972
-
-*************************************************
-
-
-
-Recording sample number 4 on 2024-01-08 15:00:31.123272
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.132317
-
-*************************************************
-
-
-
-Recording sample number 5 on 2024-01-08 15:00:31.132551
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.141083
-
-*************************************************
-
-
-
-Recording sample number 6 on 2024-01-08 15:00:31.141396
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.152644
-
-*************************************************
-
-
-
-Recording sample number 7 on 2024-01-08 15:00:31.152909
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.162577
-
-*************************************************
-
-
-
-Recording sample number 8 on 2024-01-08 15:00:31.162838
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.172356
-
-*************************************************
-
-
-
-Recording sample number 9 on 2024-01-08 15:00:31.172614
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.181448
-
-*************************************************
-
-
-
-Recording sample number 10 on 2024-01-08 15:00:31.181697
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.190979
-
-*************************************************
-
-
-
-Recording sample number 11 on 2024-01-08 15:00:31.191297
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.200942
-
-*************************************************
-
-
-
-Recording sample number 12 on 2024-01-08 15:00:31.201215
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.211533
-
-*************************************************
-
-
-
-Recording sample number 13 on 2024-01-08 15:00:31.211842
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.222596
-
-*************************************************
-
-
-
-Recording sample number 14 on 2024-01-08 15:00:31.222836
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.231651
-
-*************************************************
-
-
-
-Recording sample number 15 on 2024-01-08 15:00:31.231895
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.240242
-
-*************************************************
-
-
-
-Recording sample number 16 on 2024-01-08 15:00:31.240474
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.250221
-
-*************************************************
-
-
-
-Recording sample number 17 on 2024-01-08 15:00:31.250497
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:00:31.259725
-
-*************************************************
-
-
-
-Recording sample number 18 on 2024-01-08 15:00:31.260004
-
-
-
-****************************************************************
-Started data logging at 2024-01-08 15:02:43.362602
-
-Total number of samples to be recorded: 25920
-
-Recording sample number 1 on 2024-01-08 15:02:43.363429
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.386320
-
-*************************************************
-
-
-
-Recording sample number 2 on 2024-01-08 15:02:43.386581
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.403740
-
-*************************************************
-
-
-
-Recording sample number 3 on 2024-01-08 15:02:43.403960
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.417026
-
-*************************************************
-
-
-
-Recording sample number 4 on 2024-01-08 15:02:43.417314
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.434378
-
-*************************************************
-
-
-
-Recording sample number 5 on 2024-01-08 15:02:43.434690
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.446788
-
-*************************************************
-
-
-
-Recording sample number 6 on 2024-01-08 15:02:43.447009
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.460521
-
-*************************************************
-
-
-
-Recording sample number 7 on 2024-01-08 15:02:43.460763
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.473421
-
-*************************************************
-
-
-
-Recording sample number 8 on 2024-01-08 15:02:43.473683
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.487222
-
-*************************************************
-
-
-
-Recording sample number 9 on 2024-01-08 15:02:43.487494
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.502470
-
-*************************************************
-
-
-
-Recording sample number 10 on 2024-01-08 15:02:43.502759
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.516878
-
-*************************************************
-
-
-
-Recording sample number 11 on 2024-01-08 15:02:43.517119
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.529159
-
-*************************************************
-
-
-
-Recording sample number 12 on 2024-01-08 15:02:43.529403
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.543195
-
-*************************************************
-
-
-
-Recording sample number 13 on 2024-01-08 15:02:43.543477
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.556988
-
-*************************************************
-
-
-
-Recording sample number 14 on 2024-01-08 15:02:43.557221
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.571854
-
-*************************************************
-
-
-
-Recording sample number 15 on 2024-01-08 15:02:43.572167
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.586828
-
-*************************************************
-
-
-
-Recording sample number 16 on 2024-01-08 15:02:43.587050
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.599568
-
-*************************************************
-
-
-
-Recording sample number 17 on 2024-01-08 15:02:43.599839
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:02:43.613650
-
-*************************************************
-
-
-
-Recording sample number 18 on 2024-01-08 15:02:43.613882
-
-
-
-****************************************************************
-Started data logging at 2024-01-08 15:19:42.796290
-
-Total number of samples to be recorded: 25920
-
-Recording sample number 1 on 2024-01-08 15:19:42.796970
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.808919
-
-*************************************************
-
-
-
-Recording sample number 2 on 2024-01-08 15:19:42.809146
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.821022
-
-*************************************************
-
-
-
-Recording sample number 3 on 2024-01-08 15:19:42.821267
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.835216
-
-*************************************************
-
-
-
-Recording sample number 4 on 2024-01-08 15:19:42.835494
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.850260
-
-*************************************************
-
-
-
-Recording sample number 5 on 2024-01-08 15:19:42.850606
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.865165
-
-*************************************************
-
-
-
-Recording sample number 6 on 2024-01-08 15:19:42.865411
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.877988
-
-*************************************************
-
-
-
-Recording sample number 7 on 2024-01-08 15:19:42.878223
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.890585
-
-*************************************************
-
-
-
-Recording sample number 8 on 2024-01-08 15:19:42.890828
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.903959
-
-*************************************************
-
-
-
-Recording sample number 9 on 2024-01-08 15:19:42.904196
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.918082
-
-*************************************************
-
-
-
-Recording sample number 10 on 2024-01-08 15:19:42.918393
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.936334
-
-*************************************************
-
-
-
-Recording sample number 11 on 2024-01-08 15:19:42.936566
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.948301
-
-*************************************************
-
-
-
-Recording sample number 12 on 2024-01-08 15:19:42.948525
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.962034
-
-*************************************************
-
-
-
-Recording sample number 13 on 2024-01-08 15:19:42.962280
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.975567
-
-*************************************************
-
-
-
-Recording sample number 14 on 2024-01-08 15:19:42.975829
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:42.989527
-
-*************************************************
-
-
-
-Recording sample number 15 on 2024-01-08 15:19:42.989787
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:43.003822
-
-*************************************************
-
-
-
-Recording sample number 16 on 2024-01-08 15:19:43.004122
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:43.017696
-
-*************************************************
-
-
-
-Recording sample number 17 on 2024-01-08 15:19:43.017934
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:19:43.030902
-
-*************************************************
-
-
-
-Recording sample number 18 on 2024-01-08 15:19:43.031214
-
-
-
-****************************************************************
-Started data logging at 2024-01-08 15:27:45.404091
-
-Total number of samples to be recorded: 25920
-
-Recording sample number 1 on 2024-01-08 15:27:45.406226
-Time left 71 hours 59 minutes and 59 seconds
-
-Finished data logging at 2024-01-08 15:27:55.591949
-
-*************************************************
-
-
-
-Recording sample number 2 on 2024-01-08 15:27:55.592567
+Recording sample number 2 on 2024-01-09 12:51:28.536499
 Time left 71 hours 59 minutes and 49 seconds
 
-Finished data logging at 2024-01-08 15:28:05.600542
-
-*************************************************
-
-
-
-Recording sample number 3 on 2024-01-08 15:28:05.601161
+Recording sample number 3 on 2024-01-09 12:51:38.550989
 Time left 71 hours 59 minutes and 39 seconds
 
-Finished data logging at 2024-01-08 15:28:15.613832
-
-*************************************************
-
-
-
-Recording sample number 4 on 2024-01-08 15:28:15.614444
+Recording sample number 4 on 2024-01-09 12:51:48.560735
 Time left 71 hours 59 minutes and 29 seconds
 
-Finished data logging at 2024-01-08 15:28:25.627063
-
-*************************************************
-
-
-
-Recording sample number 5 on 2024-01-08 15:28:25.627764
+Recording sample number 5 on 2024-01-09 12:51:58.574579
 Time left 71 hours 59 minutes and 19 seconds
 
-Finished data logging at 2024-01-08 15:28:35.635417
-
-*************************************************
-
-
-
-Recording sample number 6 on 2024-01-08 15:28:35.636133
+Recording sample number 6 on 2024-01-09 12:52:08.584731
 Time left 71 hours 59 minutes and 9 seconds
 
-Finished data logging at 2024-01-08 15:28:45.651464
-
-*************************************************
-
-
-
-Recording sample number 7 on 2024-01-08 15:28:45.652278
+Recording sample number 7 on 2024-01-09 12:52:18.595359
 Time left 71 hours 58 minutes and 59 seconds
 
-Finished data logging at 2024-01-08 15:28:55.659660
-
-*************************************************
-
-
-
-Recording sample number 8 on 2024-01-08 15:28:55.660153
+Recording sample number 8 on 2024-01-09 12:52:28.608770
 Time left 71 hours 58 minutes and 49 seconds
 
-Finished data logging at 2024-01-08 15:29:05.663517
-
-*************************************************
-
-
-
-Recording sample number 9 on 2024-01-08 15:29:05.664231
+Recording sample number 9 on 2024-01-09 12:52:38.615300
 Time left 71 hours 58 minutes and 39 seconds
 
-Finished data logging at 2024-01-08 15:29:15.674903
-
-*************************************************
-
-
-
-Recording sample number 10 on 2024-01-08 15:29:15.675517
+Recording sample number 10 on 2024-01-09 12:52:48.622616
 Time left 71 hours 58 minutes and 29 seconds
 
-Finished data logging at 2024-01-08 15:29:25.683489
-
-*************************************************
-
-
-
-Recording sample number 11 on 2024-01-08 15:29:25.684103
+Recording sample number 11 on 2024-01-09 12:52:58.631824
 Time left 71 hours 58 minutes and 19 seconds
 
-Finished data logging at 2024-01-08 15:29:35.692468
-
-*************************************************
-
-
-
-Recording sample number 12 on 2024-01-08 15:29:35.693078
+Recording sample number 12 on 2024-01-09 12:53:08.642610
 Time left 71 hours 58 minutes and 9 seconds
 
-Finished data logging at 2024-01-08 15:29:45.703440
-
-*************************************************
-
-
-
-Recording sample number 13 on 2024-01-08 15:29:45.704137
+Recording sample number 13 on 2024-01-09 12:53:18.654528
 Time left 71 hours 57 minutes and 59 seconds
 
-Finished data logging at 2024-01-08 15:29:55.713479
-
-*************************************************
-
-
-
-Recording sample number 14 on 2024-01-08 15:29:55.713833
+Recording sample number 14 on 2024-01-09 12:53:28.672078
 Time left 71 hours 57 minutes and 49 seconds
 
-Finished data logging at 2024-01-08 15:30:05.725738
-
-*************************************************
-
-
-
-Recording sample number 15 on 2024-01-08 15:30:05.726270
+Recording sample number 15 on 2024-01-09 12:53:38.679798
 Time left 71 hours 57 minutes and 39 seconds
 
-Finished data logging at 2024-01-08 15:30:15.740523
-
-*************************************************
-
-
-
-Recording sample number 16 on 2024-01-08 15:30:15.741031
+Recording sample number 16 on 2024-01-09 12:53:48.692689
 Time left 71 hours 57 minutes and 29 seconds
 
-Finished data logging at 2024-01-08 15:30:25.752213
-
-*************************************************
-
-
-
-Recording sample number 17 on 2024-01-08 15:30:25.752867
+Recording sample number 17 on 2024-01-09 12:53:58.705711
 Time left 71 hours 57 minutes and 19 seconds
 
-Finished data logging at 2024-01-08 15:30:35.764693
-
-*************************************************
-
-
-
-Recording sample number 18 on 2024-01-08 15:30:35.765306
+Recording sample number 18 on 2024-01-09 12:54:08.716638
 
 
 
 ***************************************
-At 2024-01-08 15:30:35.765306 estimated 0.14761213958263397
+At 2024-01-09 12:54:08.716638 model withcnn estimated 0.12330508232116699
 **********************************************
 
 
 
 Time left 71 hours 57 minutes and 9 seconds
 
-Finished data logging at 2024-01-08 15:31:14.844879
+Recording sample number 19 on 2024-01-09 12:54:32.119072
+Time left 71 hours 56 minutes and 46 seconds
 
-*************************************************
+Recording sample number 20 on 2024-01-09 12:54:42.310439
+Time left 71 hours 56 minutes and 36 seconds
 
+Recording sample number 21 on 2024-01-09 12:54:52.319415
+Time left 71 hours 56 minutes and 26 seconds
 
+Recording sample number 22 on 2024-01-09 12:55:02.334613
+Time left 71 hours 56 minutes and 16 seconds
 
-Recording sample number 19 on 2024-01-08 15:31:14.845122
-Time left 71 hours 56 minutes and 30 seconds
+Recording sample number 23 on 2024-01-09 12:55:12.343698
+Time left 71 hours 56 minutes and 6 seconds
 
-Finished data logging at 2024-01-08 15:31:25.031537
-
-*************************************************
-
-
-
-Recording sample number 20 on 2024-01-08 15:31:25.032236
-Time left 71 hours 56 minutes and 20 seconds
-
-Finished data logging at 2024-01-08 15:31:35.045402
-
-*************************************************
-
-
-
-Recording sample number 21 on 2024-01-08 15:31:35.046056
-Time left 71 hours 56 minutes and 10 seconds
-
-Finished data logging at 2024-01-08 15:31:45.054713
-
-*************************************************
-
-
-
-Recording sample number 22 on 2024-01-08 15:31:45.055326
-Time left 71 hours 56 minutes and 0 seconds
-
-Finished data logging at 2024-01-08 15:31:55.065932
-
-*************************************************
-
-
-
-Recording sample number 23 on 2024-01-08 15:31:55.066355
-Time left 71 hours 55 minutes and 50 seconds
-
-Finished data logging at 2024-01-08 15:32:05.077433
-
-*************************************************
-
-
-
-Recording sample number 24 on 2024-01-08 15:32:05.078104
-Time left 71 hours 55 minutes and 40 seconds
-
-Finished data logging at 2024-01-08 15:32:15.088242
-
-*************************************************
-
-
-
-Recording sample number 25 on 2024-01-08 15:32:15.088929
+Recording sample number 24 on 2024-01-09 12:55:22.352848
 
 
 
 ****************************************************************
-Started data logging at 2024-01-08 15:36:14.441976
+Started data logging at 2024-01-09 12:56:14.229418
 
 Total number of samples to be recorded: 25920
 
-Recording sample number 1 on 2024-01-08 15:36:14.442685
+Recording sample number 1 on 2024-01-09 12:56:14.230147
 Time left 71 hours 59 minutes and 59 seconds
 
-Recording sample number 2 on 2024-01-08 15:36:24.628310
+Recording sample number 2 on 2024-01-09 12:56:24.416039
 Time left 71 hours 59 minutes and 49 seconds
 
-Recording sample number 3 on 2024-01-08 15:36:34.642721
+Recording sample number 3 on 2024-01-09 12:56:34.430296
 Time left 71 hours 59 minutes and 39 seconds
 
-Recording sample number 4 on 2024-01-08 15:36:44.653486
+Recording sample number 4 on 2024-01-09 12:56:44.440027
 Time left 71 hours 59 minutes and 29 seconds
 
-Recording sample number 5 on 2024-01-08 15:36:54.667024
+Recording sample number 5 on 2024-01-09 12:56:54.448114
 Time left 71 hours 59 minutes and 19 seconds
 
-Recording sample number 6 on 2024-01-08 15:37:04.678488
+Recording sample number 6 on 2024-01-09 12:57:04.456298
 Time left 71 hours 59 minutes and 9 seconds
 
-Recording sample number 7 on 2024-01-08 15:37:14.684270
+Recording sample number 7 on 2024-01-09 12:57:14.472384
 Time left 71 hours 58 minutes and 59 seconds
 
-Recording sample number 8 on 2024-01-08 15:37:24.696061
+Recording sample number 8 on 2024-01-09 12:57:24.479859
 Time left 71 hours 58 minutes and 49 seconds
 
-Recording sample number 9 on 2024-01-08 15:37:34.705515
+Recording sample number 9 on 2024-01-09 12:57:34.489974
 Time left 71 hours 58 minutes and 39 seconds
 
-Recording sample number 10 on 2024-01-08 15:37:44.716454
+Recording sample number 10 on 2024-01-09 12:57:44.499019
 Time left 71 hours 58 minutes and 29 seconds
 
-Recording sample number 11 on 2024-01-08 15:37:54.730743
+Recording sample number 11 on 2024-01-09 12:57:54.511038
 Time left 71 hours 58 minutes and 19 seconds
 
-Recording sample number 12 on 2024-01-08 15:38:04.740614
+Recording sample number 12 on 2024-01-09 12:58:04.520981
 Time left 71 hours 58 minutes and 9 seconds
 
-Recording sample number 13 on 2024-01-08 15:38:14.750612
+Recording sample number 13 on 2024-01-09 12:58:14.527854
 Time left 71 hours 57 minutes and 59 seconds
 
-Recording sample number 14 on 2024-01-08 15:38:24.760744
+Recording sample number 14 on 2024-01-09 12:58:24.546942
 Time left 71 hours 57 minutes and 49 seconds
 
-Recording sample number 15 on 2024-01-08 15:38:34.771294
+Recording sample number 15 on 2024-01-09 12:58:34.562109
 Time left 71 hours 57 minutes and 39 seconds
 
-Recording sample number 16 on 2024-01-08 15:38:44.782353
+Recording sample number 16 on 2024-01-09 12:58:44.576014
 Time left 71 hours 57 minutes and 29 seconds
 
-Recording sample number 17 on 2024-01-08 15:38:54.792624
+Recording sample number 17 on 2024-01-09 12:58:54.589591
 Time left 71 hours 57 minutes and 19 seconds
 
-Recording sample number 18 on 2024-01-08 15:39:04.804898
+Recording sample number 18 on 2024-01-09 12:59:04.602973
 
 
 
 ***************************************
-At 2024-01-08 15:39:04.804898 estimated 0.11897632479667664
+At 2024-01-09 12:59:04.602973 model withoutcnn estimated 0.1032830998301506
 **********************************************
 
 
 
 Time left 71 hours 57 minutes and 9 seconds
 
-Recording sample number 19 on 2024-01-08 15:39:22.510372
+Recording sample number 19 on 2024-01-09 12:59:22.456614
 Time left 71 hours 56 minutes and 51 seconds
 
-Recording sample number 20 on 2024-01-08 15:39:32.693130
-Time left 71 hours 56 minutes and 41 seconds
-
-Recording sample number 21 on 2024-01-08 15:39:42.706160
-Time left 71 hours 56 minutes and 31 seconds
-
-Recording sample number 22 on 2024-01-08 15:39:52.719853
+Recording sample number 20 on 2024-01-09 12:59:32.643420

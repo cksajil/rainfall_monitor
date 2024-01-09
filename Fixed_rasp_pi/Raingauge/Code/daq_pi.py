@@ -26,7 +26,11 @@ sampling_rate = config["sampling_rate"]
 record_hours = config["record_hours"]
 num_samples = int(config["record_hours"]*(3600/wav_duration))
 num_subsamples = davis_duration // wav_duration
-infer_model_path = path.join(config["infer_model_dir"], config["infer_model_name"])
+if config["deployed_model_type"]=="withcnn":
+	infer_model_path = path.join(config["infer_model_dir"], config["infer_modelwithcnn"])
+else:
+	infer_model_path = path.join(config["infer_model_dir"], config["infer_modelwithoucnn"])
+
 infer_model = load_estimate_model(infer_model_path)
 locations = []
 
@@ -60,10 +64,11 @@ for i in range(1, num_samples +1):
 		location,
 		]
 		)
+	model_type= config["deployed_model-type"]
 	if i % num_subsamples ==0 :
 		mm_hat = estimate_rainfall(infer_model, locations)
 		logger.info("\n\n\n***************************************")
-		logger.info("At {} estimated {}".format(dt_now, mm_hat))
+		logger.info("At {} model {} estimated {}".format(dt_now,model_type,mm_hat))
 		logger.info("**********************************************\n\n\n")
 		locations.clear()
 	else:
