@@ -1,6 +1,10 @@
 import pandas as pd
+from os import path
 from gpiozero import Button
 from datetime import datetime
+from utils.helper import load_config
+
+config = load_config("config.yaml")
 
 rain_sensor = Button(6)
 BUCKET_SIZE = 0.2794
@@ -31,5 +35,8 @@ while True:
             {"time": dt_now, "rainfall": rainfall}, ignore_index=True
         )
         reset_rainfall()
+        labels_df.to_csv(
+            path.join(config["log_dir"], config["label_file"]), index=False
+        )
     else:
         continue
