@@ -1,8 +1,11 @@
+import pandas as pd
 from gpiozero import Button
+from datetime import datetime
 
 rain_sensor = Button(6)
 BUCKET_SIZE = 0.2794
 count = 0
+labels_df = pd.DataFrame(columns=["time", "rainfall"])
 
 
 def bucket_tipped():
@@ -15,10 +18,18 @@ def reset_rainfall():
     count = 0
 
 
-rain_sensor.when_pressed = bucket_tipped
+dt_start = datetime.now()
 
-# When data is needed to saved
-# print(count * BUCKET_SIZE)
-
-# When it is needed to clear
-# reset_rainfall()
+while True:
+    rain_sensor.when_pressed = bucket_tipped
+    dt_now = datetime.now()
+    elapsed_time = dt_now - dt_start
+    dt_start = dt_now
+    if elapsed_time.seconds == 30:
+        rainfall = count * BUCKET_SIZE
+        labels_df = labels_df.append(
+            {"time": dt_now, "rainfall": rainfall}, ignore_index=True
+        )
+        reset_rainfall()
+    else:
+        continue
