@@ -1,5 +1,5 @@
-data_dir: /home/pi/fixed-pi/Raingauge/Data/
-log_dir: /home/pi/fixed-pi/Raingauge/Logfiles/
+data_dir: /home/pi/rainfall_monitor/Fixed_rasp_pi/Raingauge/Data/
+log_dir: /home/pi/rainfall_monitor/Fixed_rasp_pi/Raingauge/Logfiles/
 log_filename: log.txt
 record_hours: 72
 sample_duration_sec: 10
@@ -9,8 +9,9 @@ resolution: "S32"
 sampling_rate: "8000"
 learning_rate: 0.001
 stft_shape: [1, 1025, 2657]
-infer_model_dir: /home/pi/fixed-pi/Raingauge/Model/
+infer_model_dir: /home/pi/rainfall_monitor/Fixed_rasp_pi/Raingauge/Model/
 infer_model_withoutcnn: seq_stft.hdf5
 infer_model_withcnn: rain_stft.hdf5
 deployed_model_type: withcnn
 seq_len: 1360000
+csv_file_name: recorded_data_and_estimates.csv

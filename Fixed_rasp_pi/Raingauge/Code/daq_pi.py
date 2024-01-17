@@ -1,10 +1,15 @@
 import logging
 import subprocess
+import pandas as pd
 from os import path
 from datetime import datetime,timedelta
 from utils.helper import time_stamp_fnamer
 from utils.estimate import estimate_rainfall
 from utils.helper import load_config, create_folder, load_estimate_model
+
+
+result_data=[]
+
 
 config = load_config("config.yaml")
 create_folder(config["log_dir"])
@@ -27,9 +32,9 @@ record_hours = config["record_hours"]
 num_samples = int(config["record_hours"]*(3600/wav_duration))
 num_subsamples = davis_duration // wav_duration
 if config["deployed_model_type"]=="withcnn":
-	infer_model_path = path.join(config["infer_model_dir"], config["infer_modelwithcnn"])
+	infer_model_path = path.join(config["infer_model_dir"], config["infer_model_withcnn"])
 else:
-	infer_model_path = path.join(config["infer_model_dir"], config["infer_modelwithoucnn"])
+	infer_model_path = path.join(config["infer_model_dir"], config["infer_model_withoutcnn"])
 
 infer_model = load_estimate_model(infer_model_path)
 locations = []
@@ -64,17 +69,29 @@ for i in range(1, num_samples +1):
 		location,
 		]
 		)
-	model_type= config["deployed_model-type"]
+	model_type= config["deployed_model_type"]
 	if i % num_subsamples ==0 :
 		mm_hat = estimate_rainfall(infer_model, locations)
+		print(mm_hat)
 		logger.info("\n\n\n***************************************")
 		logger.info("At {} model {} estimated {}".format(dt_now,model_type,mm_hat))
 		logger.info("**********************************************\n\n\n")
-		locations.clear()
+		locations.clear()					
+		result_data.append({
+		'Time_stamp': dt_now,
+		'Rainfall Estimate':mm_hat
+		})
+		result_df=pd.DataFrame(result_data)
+		csv_filename =path.join(config["log_dir"],config["csv_file_name"])
+		result_df.to_csv(csv_filename, index=False)
+		logger.info("saved recorded data and rainfall estimate to: {}".format(config["csv_file_name"]))
+
 	else:
 		locations.append(location)
 
 
+
+    
 	time_left = dt_stop -dt_now
 	days, seconds = time_left.days, time_left.seconds
 	hours = days * 24 + seconds //3600

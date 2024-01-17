@@ -2,170 +2,2390 @@
 
 
 ****************************************************************
-Started data logging at 2024-01-09 12:49:33.722997
+Started data logging at 2024-01-17 12:28:50.837121
 
 Total number of samples to be recorded: 25920
 
-Recording sample number 1 on 2024-01-09 12:49:33.723735
-
-
-
-****************************************************************
-Started data logging at 2024-01-09 12:51:18.349915
-
-Total number of samples to be recorded: 25920
-
-Recording sample number 1 on 2024-01-09 12:51:18.350674
+Recording sample number 1 on 2024-01-17 12:28:50.837836
 Time left 71 hours 59 minutes and 59 seconds
 
-Recording sample number 2 on 2024-01-09 12:51:28.536499
+Recording sample number 2 on 2024-01-17 12:29:01.023178
 Time left 71 hours 59 minutes and 49 seconds
 
-Recording sample number 3 on 2024-01-09 12:51:38.550989
+Recording sample number 3 on 2024-01-17 12:29:11.031519
 Time left 71 hours 59 minutes and 39 seconds
 
-Recording sample number 4 on 2024-01-09 12:51:48.560735
+Recording sample number 4 on 2024-01-17 12:29:21.042045
 Time left 71 hours 59 minutes and 29 seconds
 
-Recording sample number 5 on 2024-01-09 12:51:58.574579
+Recording sample number 5 on 2024-01-17 12:29:31.048986
 Time left 71 hours 59 minutes and 19 seconds
 
-Recording sample number 6 on 2024-01-09 12:52:08.584731
+Recording sample number 6 on 2024-01-17 12:29:41.056948
 Time left 71 hours 59 minutes and 9 seconds
 
-Recording sample number 7 on 2024-01-09 12:52:18.595359
+Recording sample number 7 on 2024-01-17 12:29:51.068933
 Time left 71 hours 58 minutes and 59 seconds
 
-Recording sample number 8 on 2024-01-09 12:52:28.608770
+Recording sample number 8 on 2024-01-17 12:30:01.078007
 Time left 71 hours 58 minutes and 49 seconds
 
-Recording sample number 9 on 2024-01-09 12:52:38.615300
+Recording sample number 9 on 2024-01-17 12:30:11.085260
 Time left 71 hours 58 minutes and 39 seconds
 
-Recording sample number 10 on 2024-01-09 12:52:48.622616
+Recording sample number 10 on 2024-01-17 12:30:21.095329
 Time left 71 hours 58 minutes and 29 seconds
 
-Recording sample number 11 on 2024-01-09 12:52:58.631824
+Recording sample number 11 on 2024-01-17 12:30:31.102184
 Time left 71 hours 58 minutes and 19 seconds
 
-Recording sample number 12 on 2024-01-09 12:53:08.642610
+Recording sample number 12 on 2024-01-17 12:30:41.112636
 Time left 71 hours 58 minutes and 9 seconds
 
-Recording sample number 13 on 2024-01-09 12:53:18.654528
+Recording sample number 13 on 2024-01-17 12:30:51.121861
 Time left 71 hours 57 minutes and 59 seconds
 
-Recording sample number 14 on 2024-01-09 12:53:28.672078
+Recording sample number 14 on 2024-01-17 12:31:01.130065
 Time left 71 hours 57 minutes and 49 seconds
 
-Recording sample number 15 on 2024-01-09 12:53:38.679798
+Recording sample number 15 on 2024-01-17 12:31:11.140266
 Time left 71 hours 57 minutes and 39 seconds
 
-Recording sample number 16 on 2024-01-09 12:53:48.692689
+Recording sample number 16 on 2024-01-17 12:31:21.148631
 Time left 71 hours 57 minutes and 29 seconds
 
-Recording sample number 17 on 2024-01-09 12:53:58.705711
+Recording sample number 17 on 2024-01-17 12:31:31.154210
 Time left 71 hours 57 minutes and 19 seconds
 
-Recording sample number 18 on 2024-01-09 12:54:08.716638
+Recording sample number 18 on 2024-01-17 12:31:41.162969
 
 
 
 ***************************************
-At 2024-01-09 12:54:08.716638 model withcnn estimated 0.12330508232116699
+At 2024-01-17 12:31:41.162969 model withcnn estimated 0.08284014463424683
 **********************************************
 
 
 
 Time left 71 hours 57 minutes and 9 seconds
 
-Recording sample number 19 on 2024-01-09 12:54:32.119072
+Recording sample number 19 on 2024-01-17 12:32:03.956599
 Time left 71 hours 56 minutes and 46 seconds
 
-Recording sample number 20 on 2024-01-09 12:54:42.310439
+Recording sample number 20 on 2024-01-17 12:32:14.140583
 Time left 71 hours 56 minutes and 36 seconds
 
-Recording sample number 21 on 2024-01-09 12:54:52.319415
+Recording sample number 21 on 2024-01-17 12:32:24.149800
 Time left 71 hours 56 minutes and 26 seconds
 
-Recording sample number 22 on 2024-01-09 12:55:02.334613
+Recording sample number 22 on 2024-01-17 12:32:34.160961
 Time left 71 hours 56 minutes and 16 seconds
 
-Recording sample number 23 on 2024-01-09 12:55:12.343698
+Recording sample number 23 on 2024-01-17 12:32:44.165898
 Time left 71 hours 56 minutes and 6 seconds
 
-Recording sample number 24 on 2024-01-09 12:55:22.352848
+Recording sample number 24 on 2024-01-17 12:32:54.173488
+Time left 71 hours 55 minutes and 56 seconds
 
+Recording sample number 25 on 2024-01-17 12:33:04.187478
+Time left 71 hours 55 minutes and 46 seconds
 
+Recording sample number 26 on 2024-01-17 12:33:14.196647
+Time left 71 hours 55 minutes and 36 seconds
 
-****************************************************************
-Started data logging at 2024-01-09 12:56:14.229418
+Recording sample number 27 on 2024-01-17 12:33:24.203840
+Time left 71 hours 55 minutes and 26 seconds
 
-Total number of samples to be recorded: 25920
+Recording sample number 28 on 2024-01-17 12:33:34.215590
+Time left 71 hours 55 minutes and 16 seconds
 
-Recording sample number 1 on 2024-01-09 12:56:14.230147
-Time left 71 hours 59 minutes and 59 seconds
+Recording sample number 29 on 2024-01-17 12:33:44.226112
+Time left 71 hours 55 minutes and 6 seconds
 
-Recording sample number 2 on 2024-01-09 12:56:24.416039
-Time left 71 hours 59 minutes and 49 seconds
+Recording sample number 30 on 2024-01-17 12:33:54.232863
+Time left 71 hours 54 minutes and 56 seconds
 
-Recording sample number 3 on 2024-01-09 12:56:34.430296
-Time left 71 hours 59 minutes and 39 seconds
+Recording sample number 31 on 2024-01-17 12:34:04.243251
+Time left 71 hours 54 minutes and 46 seconds
 
-Recording sample number 4 on 2024-01-09 12:56:44.440027
-Time left 71 hours 59 minutes and 29 seconds
+Recording sample number 32 on 2024-01-17 12:34:14.248029
+Time left 71 hours 54 minutes and 36 seconds
 
-Recording sample number 5 on 2024-01-09 12:56:54.448114
-Time left 71 hours 59 minutes and 19 seconds
+Recording sample number 33 on 2024-01-17 12:34:24.257538
+Time left 71 hours 54 minutes and 26 seconds
 
-Recording sample number 6 on 2024-01-09 12:57:04.456298
-Time left 71 hours 59 minutes and 9 seconds
+Recording sample number 34 on 2024-01-17 12:34:34.269415
+Time left 71 hours 54 minutes and 16 seconds
 
-Recording sample number 7 on 2024-01-09 12:57:14.472384
-Time left 71 hours 58 minutes and 59 seconds
+Recording sample number 35 on 2024-01-17 12:34:44.278564
+Time left 71 hours 54 minutes and 6 seconds
 
-Recording sample number 8 on 2024-01-09 12:57:24.479859
-Time left 71 hours 58 minutes and 49 seconds
-
-Recording sample number 9 on 2024-01-09 12:57:34.489974
-Time left 71 hours 58 minutes and 39 seconds
-
-Recording sample number 10 on 2024-01-09 12:57:44.499019
-Time left 71 hours 58 minutes and 29 seconds
-
-Recording sample number 11 on 2024-01-09 12:57:54.511038
-Time left 71 hours 58 minutes and 19 seconds
-
-Recording sample number 12 on 2024-01-09 12:58:04.520981
-Time left 71 hours 58 minutes and 9 seconds
-
-Recording sample number 13 on 2024-01-09 12:58:14.527854
-Time left 71 hours 57 minutes and 59 seconds
-
-Recording sample number 14 on 2024-01-09 12:58:24.546942
-Time left 71 hours 57 minutes and 49 seconds
-
-Recording sample number 15 on 2024-01-09 12:58:34.562109
-Time left 71 hours 57 minutes and 39 seconds
-
-Recording sample number 16 on 2024-01-09 12:58:44.576014
-Time left 71 hours 57 minutes and 29 seconds
-
-Recording sample number 17 on 2024-01-09 12:58:54.589591
-Time left 71 hours 57 minutes and 19 seconds
-
-Recording sample number 18 on 2024-01-09 12:59:04.602973
+Recording sample number 36 on 2024-01-17 12:34:54.286511
 
 
 
 ***************************************
-At 2024-01-09 12:59:04.602973 model withoutcnn estimated 0.1032830998301506
+At 2024-01-17 12:34:54.286511 model withcnn estimated 0.06704015284776688
+**********************************************
+
+
+
+Time left 71 hours 53 minutes and 56 seconds
+
+Recording sample number 37 on 2024-01-17 12:35:06.881976
+Time left 71 hours 53 minutes and 43 seconds
+
+Recording sample number 38 on 2024-01-17 12:35:16.338729
+Time left 71 hours 53 minutes and 34 seconds
+
+Recording sample number 39 on 2024-01-17 12:35:26.423364
+Time left 71 hours 53 minutes and 24 seconds
+
+Recording sample number 40 on 2024-01-17 12:35:36.508803
+Time left 71 hours 53 minutes and 14 seconds
+
+Recording sample number 41 on 2024-01-17 12:35:46.595049
+Time left 71 hours 53 minutes and 4 seconds
+
+Recording sample number 42 on 2024-01-17 12:35:56.682723
+Time left 71 hours 52 minutes and 54 seconds
+
+Recording sample number 43 on 2024-01-17 12:36:06.766140
+Time left 71 hours 52 minutes and 44 seconds
+
+Recording sample number 44 on 2024-01-17 12:36:16.849900
+Time left 71 hours 52 minutes and 33 seconds
+
+Recording sample number 45 on 2024-01-17 12:36:26.937338
+Time left 71 hours 52 minutes and 23 seconds
+
+Recording sample number 46 on 2024-01-17 12:36:37.021608
+Time left 71 hours 52 minutes and 13 seconds
+
+Recording sample number 47 on 2024-01-17 12:36:47.106640
+Time left 71 hours 52 minutes and 3 seconds
+
+Recording sample number 48 on 2024-01-17 12:36:57.187805
+Time left 71 hours 51 minutes and 53 seconds
+
+Recording sample number 49 on 2024-01-17 12:37:07.278247
+Time left 71 hours 51 minutes and 43 seconds
+
+Recording sample number 50 on 2024-01-17 12:37:17.363820
+
+
+
+****************************************************************
+Started data logging at 2024-01-17 12:45:03.653149
+
+Total number of samples to be recorded: 25920
+
+Recording sample number 1 on 2024-01-17 12:45:03.653830
+Time left 71 hours 59 minutes and 59 seconds
+
+Recording sample number 2 on 2024-01-17 12:45:13.840728
+Time left 71 hours 59 minutes and 49 seconds
+
+Recording sample number 3 on 2024-01-17 12:45:23.850068
+Time left 71 hours 59 minutes and 39 seconds
+
+Recording sample number 4 on 2024-01-17 12:45:33.861131
+Time left 71 hours 59 minutes and 29 seconds
+
+Recording sample number 5 on 2024-01-17 12:45:43.873898
+Time left 71 hours 59 minutes and 19 seconds
+
+Recording sample number 6 on 2024-01-17 12:45:53.880522
+Time left 71 hours 59 minutes and 9 seconds
+
+Recording sample number 7 on 2024-01-17 12:46:03.885927
+Time left 71 hours 58 minutes and 59 seconds
+
+Recording sample number 8 on 2024-01-17 12:46:13.898702
+Time left 71 hours 58 minutes and 49 seconds
+
+Recording sample number 9 on 2024-01-17 12:46:23.905304
+Time left 71 hours 58 minutes and 39 seconds
+
+Recording sample number 10 on 2024-01-17 12:46:33.915895
+Time left 71 hours 58 minutes and 29 seconds
+
+Recording sample number 11 on 2024-01-17 12:46:43.923609
+Time left 71 hours 58 minutes and 19 seconds
+
+Recording sample number 12 on 2024-01-17 12:46:53.933387
+Time left 71 hours 58 minutes and 9 seconds
+
+Recording sample number 13 on 2024-01-17 12:47:03.946608
+Time left 71 hours 57 minutes and 59 seconds
+
+Recording sample number 14 on 2024-01-17 12:47:13.954875
+Time left 71 hours 57 minutes and 49 seconds
+
+Recording sample number 15 on 2024-01-17 12:47:23.964909
+Time left 71 hours 57 minutes and 39 seconds
+
+Recording sample number 16 on 2024-01-17 12:47:33.976690
+Time left 71 hours 57 minutes and 29 seconds
+
+Recording sample number 17 on 2024-01-17 12:47:43.985267
+Time left 71 hours 57 minutes and 19 seconds
+
+Recording sample number 18 on 2024-01-17 12:47:53.993468
+
+
+
+***************************************
+At 2024-01-17 12:47:53.993468 model withcnn estimated 0.05612543597817421
 **********************************************
 
 
 
 Time left 71 hours 57 minutes and 9 seconds
 
-Recording sample number 19 on 2024-01-09 12:59:22.456614
+Recording sample number 19 on 2024-01-17 12:48:12.512065
 Time left 71 hours 56 minutes and 51 seconds
 
-Recording sample number 20 on 2024-01-09 12:59:32.643420
+Recording sample number 20 on 2024-01-17 12:48:22.695756
+Time left 71 hours 56 minutes and 40 seconds
+
+Recording sample number 21 on 2024-01-17 12:48:32.703189
+Time left 71 hours 56 minutes and 30 seconds
+
+Recording sample number 22 on 2024-01-17 12:48:42.712171
+Time left 71 hours 56 minutes and 20 seconds
+
+Recording sample number 23 on 2024-01-17 12:48:52.719737
+Time left 71 hours 56 minutes and 10 seconds
+
+Recording sample number 24 on 2024-01-17 12:49:02.728417
+Time left 71 hours 56 minutes and 0 seconds
+
+Recording sample number 25 on 2024-01-17 12:49:12.737356
+Time left 71 hours 55 minutes and 50 seconds
+
+Recording sample number 26 on 2024-01-17 12:49:22.749207
+Time left 71 hours 55 minutes and 40 seconds
+
+Recording sample number 27 on 2024-01-17 12:49:32.757839
+Time left 71 hours 55 minutes and 30 seconds
+
+Recording sample number 28 on 2024-01-17 12:49:42.763837
+Time left 71 hours 55 minutes and 20 seconds
+
+Recording sample number 29 on 2024-01-17 12:49:52.775672
+Time left 71 hours 55 minutes and 10 seconds
+
+Recording sample number 30 on 2024-01-17 12:50:02.784568
+Time left 71 hours 55 minutes and 0 seconds
+
+Recording sample number 31 on 2024-01-17 12:50:12.795199
+Time left 71 hours 54 minutes and 50 seconds
+
+Recording sample number 32 on 2024-01-17 12:50:22.804580
+Time left 71 hours 54 minutes and 40 seconds
+
+Recording sample number 33 on 2024-01-17 12:50:32.815571
+Time left 71 hours 54 minutes and 30 seconds
+
+Recording sample number 34 on 2024-01-17 12:50:42.824057
+Time left 71 hours 54 minutes and 20 seconds
+
+Recording sample number 35 on 2024-01-17 12:50:52.835744
+Time left 71 hours 54 minutes and 10 seconds
+
+Recording sample number 36 on 2024-01-17 12:51:02.842973
+
+
+
+***************************************
+At 2024-01-17 12:51:02.842973 model withcnn estimated 0.09147524833679199
+**********************************************
+
+
+
+Time left 71 hours 54 minutes and 0 seconds
+
+Recording sample number 37 on 2024-01-17 12:51:15.392614
+Time left 71 hours 53 minutes and 48 seconds
+
+Recording sample number 38 on 2024-01-17 12:51:24.846200
+Time left 71 hours 53 minutes and 38 seconds
+
+Recording sample number 39 on 2024-01-17 12:51:34.932841
+Time left 71 hours 53 minutes and 28 seconds
+
+Recording sample number 40 on 2024-01-17 12:51:45.014809
+Time left 71 hours 53 minutes and 18 seconds
+
+Recording sample number 41 on 2024-01-17 12:51:55.058671
+Time left 71 hours 53 minutes and 8 seconds
+
+Recording sample number 42 on 2024-01-17 12:52:05.106418
+Time left 71 hours 52 minutes and 58 seconds
+
+Recording sample number 43 on 2024-01-17 12:52:15.188679
+Time left 71 hours 52 minutes and 48 seconds
+
+Recording sample number 44 on 2024-01-17 12:52:25.271830
+Time left 71 hours 52 minutes and 38 seconds
+
+Recording sample number 45 on 2024-01-17 12:52:35.356587
+Time left 71 hours 52 minutes and 28 seconds
+
+Recording sample number 46 on 2024-01-17 12:52:45.440284
+Time left 71 hours 52 minutes and 18 seconds
+
+Recording sample number 47 on 2024-01-17 12:52:55.522632
+Time left 71 hours 52 minutes and 8 seconds
+
+Recording sample number 48 on 2024-01-17 12:53:05.607563
+Time left 71 hours 51 minutes and 58 seconds
+
+Recording sample number 49 on 2024-01-17 12:53:15.690850
+Time left 71 hours 51 minutes and 47 seconds
+
+Recording sample number 50 on 2024-01-17 12:53:25.775382
+Time left 71 hours 51 minutes and 37 seconds
+
+Recording sample number 51 on 2024-01-17 12:53:35.862692
+Time left 71 hours 51 minutes and 27 seconds
+
+Recording sample number 52 on 2024-01-17 12:53:45.911516
+Time left 71 hours 51 minutes and 17 seconds
+
+Recording sample number 53 on 2024-01-17 12:53:55.996847
+Time left 71 hours 51 minutes and 7 seconds
+
+Recording sample number 54 on 2024-01-17 12:54:06.079819
+
+
+
+***************************************
+At 2024-01-17 12:54:06.079819 model withcnn estimated 0.07426987588405609
+**********************************************
+
+
+
+Time left 71 hours 50 minutes and 57 seconds
+
+Recording sample number 55 on 2024-01-17 12:54:18.560843
+Time left 71 hours 50 minutes and 45 seconds
+
+Recording sample number 56 on 2024-01-17 12:54:28.245894
+Time left 71 hours 50 minutes and 35 seconds
+
+Recording sample number 57 on 2024-01-17 12:54:38.341750
+Time left 71 hours 50 minutes and 25 seconds
+
+Recording sample number 58 on 2024-01-17 12:54:48.437957
+Time left 71 hours 50 minutes and 15 seconds
+
+Recording sample number 59 on 2024-01-17 12:54:58.533962
+Time left 71 hours 50 minutes and 5 seconds
+
+Recording sample number 60 on 2024-01-17 12:55:08.626877
+Time left 71 hours 49 minutes and 55 seconds
+
+Recording sample number 61 on 2024-01-17 12:55:18.720872
+Time left 71 hours 49 minutes and 44 seconds
+
+Recording sample number 62 on 2024-01-17 12:55:28.820137
+Time left 71 hours 49 minutes and 34 seconds
+
+Recording sample number 63 on 2024-01-17 12:55:38.917557
+Time left 71 hours 49 minutes and 24 seconds
+
+Recording sample number 64 on 2024-01-17 12:55:49.011919
+Time left 71 hours 49 minutes and 14 seconds
+
+Recording sample number 65 on 2024-01-17 12:55:59.110972
+Time left 71 hours 49 minutes and 4 seconds
+
+Recording sample number 66 on 2024-01-17 12:56:09.204457
+Time left 71 hours 48 minutes and 54 seconds
+
+Recording sample number 67 on 2024-01-17 12:56:19.302654
+Time left 71 hours 48 minutes and 44 seconds
+
+Recording sample number 68 on 2024-01-17 12:56:29.394860
+Time left 71 hours 48 minutes and 34 seconds
+
+Recording sample number 69 on 2024-01-17 12:56:39.491944
+Time left 71 hours 48 minutes and 24 seconds
+
+Recording sample number 70 on 2024-01-17 12:56:49.586876
+Time left 71 hours 48 minutes and 14 seconds
+
+Recording sample number 71 on 2024-01-17 12:56:59.681331
+Time left 71 hours 48 minutes and 3 seconds
+
+Recording sample number 72 on 2024-01-17 12:57:09.777602
+
+
+
+***************************************
+At 2024-01-17 12:57:09.777602 model withcnn estimated 0.06323840469121933
+**********************************************
+
+
+
+Time left 71 hours 47 minutes and 53 seconds
+
+Recording sample number 73 on 2024-01-17 12:57:22.287653
+Time left 71 hours 47 minutes and 41 seconds
+
+Recording sample number 74 on 2024-01-17 12:57:31.991519
+
+
+
+****************************************************************
+Started data logging at 2024-01-17 12:58:59.012091
+
+Total number of samples to be recorded: 25920
+
+Recording sample number 1 on 2024-01-17 12:58:59.012765
+Time left 71 hours 59 minutes and 59 seconds
+
+Recording sample number 2 on 2024-01-17 12:59:09.197942
+Time left 71 hours 59 minutes and 49 seconds
+
+Recording sample number 3 on 2024-01-17 12:59:19.208326
+Time left 71 hours 59 minutes and 39 seconds
+
+Recording sample number 4 on 2024-01-17 12:59:29.215360
+Time left 71 hours 59 minutes and 29 seconds
+
+Recording sample number 5 on 2024-01-17 12:59:39.224989
+Time left 71 hours 59 minutes and 19 seconds
+
+Recording sample number 6 on 2024-01-17 12:59:49.233839
+Time left 71 hours 59 minutes and 9 seconds
+
+Recording sample number 7 on 2024-01-17 12:59:59.242022
+Time left 71 hours 58 minutes and 59 seconds
+
+Recording sample number 8 on 2024-01-17 13:00:09.249456
+Time left 71 hours 58 minutes and 49 seconds
+
+Recording sample number 9 on 2024-01-17 13:00:19.260402
+Time left 71 hours 58 minutes and 39 seconds
+
+Recording sample number 10 on 2024-01-17 13:00:29.267976
+Time left 71 hours 58 minutes and 29 seconds
+
+Recording sample number 11 on 2024-01-17 13:00:39.276257
+Time left 71 hours 58 minutes and 19 seconds
+
+Recording sample number 12 on 2024-01-17 13:00:49.283675
+Time left 71 hours 58 minutes and 9 seconds
+
+Recording sample number 13 on 2024-01-17 13:00:59.292055
+Time left 71 hours 57 minutes and 59 seconds
+
+Recording sample number 14 on 2024-01-17 13:01:09.300860
+Time left 71 hours 57 minutes and 49 seconds
+
+Recording sample number 15 on 2024-01-17 13:01:19.309963
+Time left 71 hours 57 minutes and 39 seconds
+
+Recording sample number 16 on 2024-01-17 13:01:29.319512
+Time left 71 hours 57 minutes and 29 seconds
+
+Recording sample number 17 on 2024-01-17 13:01:39.330368
+Time left 71 hours 57 minutes and 19 seconds
+
+Recording sample number 18 on 2024-01-17 13:01:49.338910
+
+
+
+***************************************
+At 2024-01-17 13:01:49.338910 model withcnn estimated 0.06794323027133942
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 57 minutes and 9 seconds
+
+Recording sample number 19 on 2024-01-17 13:02:07.839251
+Time left 71 hours 56 minutes and 51 seconds
+
+Recording sample number 20 on 2024-01-17 13:02:18.026578
+Time left 71 hours 56 minutes and 40 seconds
+
+Recording sample number 21 on 2024-01-17 13:02:28.037448
+Time left 71 hours 56 minutes and 30 seconds
+
+Recording sample number 22 on 2024-01-17 13:02:38.046204
+Time left 71 hours 56 minutes and 20 seconds
+
+Recording sample number 23 on 2024-01-17 13:02:48.054958
+Time left 71 hours 56 minutes and 10 seconds
+
+Recording sample number 24 on 2024-01-17 13:02:58.063339
+Time left 71 hours 56 minutes and 0 seconds
+
+Recording sample number 25 on 2024-01-17 13:03:08.071010
+Time left 71 hours 55 minutes and 50 seconds
+
+Recording sample number 26 on 2024-01-17 13:03:18.081494
+Time left 71 hours 55 minutes and 40 seconds
+
+Recording sample number 27 on 2024-01-17 13:03:28.090807
+Time left 71 hours 55 minutes and 30 seconds
+
+Recording sample number 28 on 2024-01-17 13:03:38.097211
+Time left 71 hours 55 minutes and 20 seconds
+
+Recording sample number 29 on 2024-01-17 13:03:48.106731
+Time left 71 hours 55 minutes and 10 seconds
+
+Recording sample number 30 on 2024-01-17 13:03:58.115438
+Time left 71 hours 55 minutes and 0 seconds
+
+Recording sample number 31 on 2024-01-17 13:04:08.122341
+Time left 71 hours 54 minutes and 50 seconds
+
+Recording sample number 32 on 2024-01-17 13:04:18.133760
+Time left 71 hours 54 minutes and 40 seconds
+
+Recording sample number 33 on 2024-01-17 13:04:28.142129
+Time left 71 hours 54 minutes and 30 seconds
+
+Recording sample number 34 on 2024-01-17 13:04:38.150602
+Time left 71 hours 54 minutes and 20 seconds
+
+Recording sample number 35 on 2024-01-17 13:04:48.162375
+Time left 71 hours 54 minutes and 10 seconds
+
+Recording sample number 36 on 2024-01-17 13:04:58.169991
+
+
+
+***************************************
+At 2024-01-17 13:04:58.169991 model withcnn estimated 0.07521160691976547
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 54 minutes and 0 seconds
+
+Recording sample number 37 on 2024-01-17 13:05:10.748016
+Time left 71 hours 53 minutes and 48 seconds
+
+Recording sample number 38 on 2024-01-17 13:05:20.200697
+Time left 71 hours 53 minutes and 38 seconds
+
+Recording sample number 39 on 2024-01-17 13:05:30.284614
+Time left 71 hours 53 minutes and 28 seconds
+
+Recording sample number 40 on 2024-01-17 13:05:40.366507
+Time left 71 hours 53 minutes and 18 seconds
+
+Recording sample number 41 on 2024-01-17 13:05:50.448057
+Time left 71 hours 53 minutes and 8 seconds
+
+Recording sample number 42 on 2024-01-17 13:06:00.536973
+Time left 71 hours 52 minutes and 58 seconds
+
+Recording sample number 43 on 2024-01-17 13:06:10.619421
+Time left 71 hours 52 minutes and 48 seconds
+
+Recording sample number 44 on 2024-01-17 13:06:20.707015
+Time left 71 hours 52 minutes and 38 seconds
+
+Recording sample number 45 on 2024-01-17 13:06:30.715834
+Time left 71 hours 52 minutes and 28 seconds
+
+Recording sample number 46 on 2024-01-17 13:06:40.799344
+Time left 71 hours 52 minutes and 18 seconds
+
+Recording sample number 47 on 2024-01-17 13:06:50.888309
+Time left 71 hours 52 minutes and 8 seconds
+
+Recording sample number 48 on 2024-01-17 13:07:00.974194
+Time left 71 hours 51 minutes and 58 seconds
+
+Recording sample number 49 on 2024-01-17 13:07:10.978873
+Time left 71 hours 51 minutes and 48 seconds
+
+Recording sample number 50 on 2024-01-17 13:07:21.021487
+Time left 71 hours 51 minutes and 37 seconds
+
+Recording sample number 51 on 2024-01-17 13:07:31.068706
+Time left 71 hours 51 minutes and 27 seconds
+
+Recording sample number 52 on 2024-01-17 13:07:41.151742
+Time left 71 hours 51 minutes and 17 seconds
+
+Recording sample number 53 on 2024-01-17 13:07:51.236138
+Time left 71 hours 51 minutes and 7 seconds
+
+Recording sample number 54 on 2024-01-17 13:08:01.317815
+
+
+
+***************************************
+At 2024-01-17 13:08:01.317815 model withcnn estimated 0.07468483597040176
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 50 minutes and 57 seconds
+
+Recording sample number 55 on 2024-01-17 13:08:13.807940
+Time left 71 hours 50 minutes and 45 seconds
+
+Recording sample number 56 on 2024-01-17 13:08:23.360983
+Time left 71 hours 50 minutes and 35 seconds
+
+Recording sample number 57 on 2024-01-17 13:08:33.454808
+Time left 71 hours 50 minutes and 25 seconds
+
+Recording sample number 58 on 2024-01-17 13:08:43.550459
+Time left 71 hours 50 minutes and 15 seconds
+
+Recording sample number 59 on 2024-01-17 13:08:53.646933
+Time left 71 hours 50 minutes and 5 seconds
+
+Recording sample number 60 on 2024-01-17 13:09:03.743374
+Time left 71 hours 49 minutes and 55 seconds
+
+Recording sample number 61 on 2024-01-17 13:09:13.838179
+Time left 71 hours 49 minutes and 45 seconds
+
+Recording sample number 62 on 2024-01-17 13:09:23.934243
+Time left 71 hours 49 minutes and 35 seconds
+
+Recording sample number 63 on 2024-01-17 13:09:34.029003
+Time left 71 hours 49 minutes and 24 seconds
+
+Recording sample number 64 on 2024-01-17 13:09:44.123884
+Time left 71 hours 49 minutes and 14 seconds
+
+Recording sample number 65 on 2024-01-17 13:09:54.219008
+Time left 71 hours 49 minutes and 4 seconds
+
+Recording sample number 66 on 2024-01-17 13:10:04.316822
+Time left 71 hours 48 minutes and 54 seconds
+
+Recording sample number 67 on 2024-01-17 13:10:14.410759
+Time left 71 hours 48 minutes and 44 seconds
+
+Recording sample number 68 on 2024-01-17 13:10:24.504035
+Time left 71 hours 48 minutes and 34 seconds
+
+Recording sample number 69 on 2024-01-17 13:10:34.600238
+Time left 71 hours 48 minutes and 24 seconds
+
+Recording sample number 70 on 2024-01-17 13:10:44.696287
+Time left 71 hours 48 minutes and 14 seconds
+
+Recording sample number 71 on 2024-01-17 13:10:54.792516
+Time left 71 hours 48 minutes and 4 seconds
+
+Recording sample number 72 on 2024-01-17 13:11:04.886007
+
+
+
+***************************************
+At 2024-01-17 13:11:04.886007 model withcnn estimated 0.06317489594221115
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 47 minutes and 54 seconds
+
+Recording sample number 73 on 2024-01-17 13:11:17.466633
+Time left 71 hours 47 minutes and 41 seconds
+
+Recording sample number 74 on 2024-01-17 13:11:26.991565
+Time left 71 hours 47 minutes and 32 seconds
+
+Recording sample number 75 on 2024-01-17 13:11:37.042889
+Time left 71 hours 47 minutes and 21 seconds
+
+Recording sample number 76 on 2024-01-17 13:11:47.093468
+Time left 71 hours 47 minutes and 11 seconds
+
+Recording sample number 77 on 2024-01-17 13:11:57.150768
+Time left 71 hours 47 minutes and 1 seconds
+
+Recording sample number 78 on 2024-01-17 13:12:07.206390
+Time left 71 hours 46 minutes and 51 seconds
+
+Recording sample number 79 on 2024-01-17 13:12:17.258234
+Time left 71 hours 46 minutes and 41 seconds
+
+Recording sample number 80 on 2024-01-17 13:12:27.311145
+Time left 71 hours 46 minutes and 31 seconds
+
+Recording sample number 81 on 2024-01-17 13:12:37.364000
+Time left 71 hours 46 minutes and 21 seconds
+
+Recording sample number 82 on 2024-01-17 13:12:47.417711
+Time left 71 hours 46 minutes and 11 seconds
+
+Recording sample number 83 on 2024-01-17 13:12:57.474025
+Time left 71 hours 46 minutes and 1 seconds
+
+Recording sample number 84 on 2024-01-17 13:13:07.527615
+Time left 71 hours 45 minutes and 51 seconds
+
+Recording sample number 85 on 2024-01-17 13:13:17.585546
+Time left 71 hours 45 minutes and 41 seconds
+
+Recording sample number 86 on 2024-01-17 13:13:27.637580
+Time left 71 hours 45 minutes and 31 seconds
+
+Recording sample number 87 on 2024-01-17 13:13:37.694626
+Time left 71 hours 45 minutes and 21 seconds
+
+Recording sample number 88 on 2024-01-17 13:13:47.746989
+Time left 71 hours 45 minutes and 11 seconds
+
+Recording sample number 89 on 2024-01-17 13:13:57.800174
+Time left 71 hours 45 minutes and 1 seconds
+
+Recording sample number 90 on 2024-01-17 13:14:07.855874
+
+
+
+***************************************
+At 2024-01-17 13:14:07.855874 model withcnn estimated 0.0629122257232666
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 44 minutes and 51 seconds
+
+Recording sample number 91 on 2024-01-17 13:14:20.432731
+Time left 71 hours 44 minutes and 38 seconds
+
+Recording sample number 92 on 2024-01-17 13:14:29.894954
+Time left 71 hours 44 minutes and 29 seconds
+
+Recording sample number 93 on 2024-01-17 13:14:39.942353
+Time left 71 hours 44 minutes and 19 seconds
+
+Recording sample number 94 on 2024-01-17 13:14:49.987768
+Time left 71 hours 44 minutes and 9 seconds
+
+Recording sample number 95 on 2024-01-17 13:15:00.031636
+Time left 71 hours 43 minutes and 58 seconds
+
+Recording sample number 96 on 2024-01-17 13:15:10.083446
+Time left 71 hours 43 minutes and 48 seconds
+
+Recording sample number 97 on 2024-01-17 13:15:20.124785
+Time left 71 hours 43 minutes and 38 seconds
+
+Recording sample number 98 on 2024-01-17 13:15:30.173305
+Time left 71 hours 43 minutes and 28 seconds
+
+Recording sample number 99 on 2024-01-17 13:15:40.222461
+Time left 71 hours 43 minutes and 18 seconds
+
+Recording sample number 100 on 2024-01-17 13:15:50.270931
+Time left 71 hours 43 minutes and 8 seconds
+
+Recording sample number 101 on 2024-01-17 13:16:00.316197
+Time left 71 hours 42 minutes and 58 seconds
+
+Recording sample number 102 on 2024-01-17 13:16:10.365048
+Time left 71 hours 42 minutes and 48 seconds
+
+Recording sample number 103 on 2024-01-17 13:16:20.412407
+Time left 71 hours 42 minutes and 38 seconds
+
+Recording sample number 104 on 2024-01-17 13:16:30.460824
+Time left 71 hours 42 minutes and 28 seconds
+
+Recording sample number 105 on 2024-01-17 13:16:40.507614
+Time left 71 hours 42 minutes and 18 seconds
+
+Recording sample number 106 on 2024-01-17 13:16:50.554192
+Time left 71 hours 42 minutes and 8 seconds
+
+Recording sample number 107 on 2024-01-17 13:17:00.606060
+Time left 71 hours 41 minutes and 58 seconds
+
+Recording sample number 108 on 2024-01-17 13:17:10.653203
+
+
+
+***************************************
+At 2024-01-17 13:17:10.653203 model withcnn estimated 0.07475464046001434
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 41 minutes and 48 seconds
+
+Recording sample number 109 on 2024-01-17 13:17:23.169563
+Time left 71 hours 41 minutes and 35 seconds
+
+Recording sample number 110 on 2024-01-17 13:17:32.683840
+Time left 71 hours 41 minutes and 26 seconds
+
+Recording sample number 111 on 2024-01-17 13:17:42.816292
+Time left 71 hours 41 minutes and 16 seconds
+
+Recording sample number 112 on 2024-01-17 13:17:52.968482
+Time left 71 hours 41 minutes and 6 seconds
+
+Recording sample number 113 on 2024-01-17 13:18:03.098988
+Time left 71 hours 40 minutes and 55 seconds
+
+Recording sample number 114 on 2024-01-17 13:18:13.232765
+Time left 71 hours 40 minutes and 45 seconds
+
+Recording sample number 115 on 2024-01-17 13:18:23.363057
+Time left 71 hours 40 minutes and 35 seconds
+
+Recording sample number 116 on 2024-01-17 13:18:33.496284
+Time left 71 hours 40 minutes and 25 seconds
+
+Recording sample number 117 on 2024-01-17 13:18:43.497964
+Time left 71 hours 40 minutes and 15 seconds
+
+Recording sample number 118 on 2024-01-17 13:18:53.624609
+Time left 71 hours 40 minutes and 5 seconds
+
+Recording sample number 119 on 2024-01-17 13:19:03.761005
+Time left 71 hours 39 minutes and 55 seconds
+
+Recording sample number 120 on 2024-01-17 13:19:13.895487
+Time left 71 hours 39 minutes and 45 seconds
+
+Recording sample number 121 on 2024-01-17 13:19:24.028069
+Time left 71 hours 39 minutes and 34 seconds
+
+Recording sample number 122 on 2024-01-17 13:19:34.158066
+Time left 71 hours 39 minutes and 24 seconds
+
+Recording sample number 123 on 2024-01-17 13:19:44.289043
+Time left 71 hours 39 minutes and 14 seconds
+
+Recording sample number 124 on 2024-01-17 13:19:54.415762
+Time left 71 hours 39 minutes and 4 seconds
+
+Recording sample number 125 on 2024-01-17 13:20:04.566766
+Time left 71 hours 38 minutes and 54 seconds
+
+Recording sample number 126 on 2024-01-17 13:20:14.722236
+
+
+
+***************************************
+At 2024-01-17 13:20:14.722236 model withcnn estimated 0.11444384604692459
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 38 minutes and 44 seconds
+
+Recording sample number 127 on 2024-01-17 13:20:27.480181
+Time left 71 hours 38 minutes and 31 seconds
+
+Recording sample number 128 on 2024-01-17 13:20:36.840655
+Time left 71 hours 38 minutes and 22 seconds
+
+Recording sample number 129 on 2024-01-17 13:20:46.914240
+Time left 71 hours 38 minutes and 12 seconds
+
+Recording sample number 130 on 2024-01-17 13:20:56.988076
+Time left 71 hours 38 minutes and 2 seconds
+
+Recording sample number 131 on 2024-01-17 13:21:07.060949
+Time left 71 hours 37 minutes and 51 seconds
+
+Recording sample number 132 on 2024-01-17 13:21:17.131720
+Time left 71 hours 37 minutes and 41 seconds
+
+Recording sample number 133 on 2024-01-17 13:21:27.202819
+Time left 71 hours 37 minutes and 31 seconds
+
+Recording sample number 134 on 2024-01-17 13:21:37.279080
+Time left 71 hours 37 minutes and 21 seconds
+
+Recording sample number 135 on 2024-01-17 13:21:47.353056
+Time left 71 hours 37 minutes and 11 seconds
+
+Recording sample number 136 on 2024-01-17 13:21:57.425326
+Time left 71 hours 37 minutes and 1 seconds
+
+Recording sample number 137 on 2024-01-17 13:22:07.498615
+Time left 71 hours 36 minutes and 51 seconds
+
+Recording sample number 138 on 2024-01-17 13:22:17.571246
+Time left 71 hours 36 minutes and 41 seconds
+
+Recording sample number 139 on 2024-01-17 13:22:27.644156
+Time left 71 hours 36 minutes and 31 seconds
+
+Recording sample number 140 on 2024-01-17 13:22:37.721721
+Time left 71 hours 36 minutes and 21 seconds
+
+Recording sample number 141 on 2024-01-17 13:22:47.793494
+Time left 71 hours 36 minutes and 11 seconds
+
+Recording sample number 142 on 2024-01-17 13:22:57.869430
+Time left 71 hours 36 minutes and 1 seconds
+
+Recording sample number 143 on 2024-01-17 13:23:07.944967
+Time left 71 hours 35 minutes and 51 seconds
+
+Recording sample number 144 on 2024-01-17 13:23:18.019448
+
+
+
+***************************************
+At 2024-01-17 13:23:18.019448 model withcnn estimated 0.06407202035188675
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 35 minutes and 40 seconds
+
+Recording sample number 145 on 2024-01-17 13:23:30.549963
+Time left 71 hours 35 minutes and 28 seconds
+
+Recording sample number 146 on 2024-01-17 13:23:40.016742
+Time left 71 hours 35 minutes and 18 seconds
+
+Recording sample number 147 on 2024-01-17 13:23:50.023901
+Time left 71 hours 35 minutes and 8 seconds
+
+Recording sample number 148 on 2024-01-17 13:24:00.032047
+Time left 71 hours 34 minutes and 58 seconds
+
+Recording sample number 149 on 2024-01-17 13:24:10.155858
+Time left 71 hours 34 minutes and 48 seconds
+
+Recording sample number 150 on 2024-01-17 13:24:20.191706
+Time left 71 hours 34 minutes and 38 seconds
+
+Recording sample number 151 on 2024-01-17 13:24:30.200875
+Time left 71 hours 34 minutes and 28 seconds
+
+Recording sample number 152 on 2024-01-17 13:24:40.216515
+Time left 71 hours 34 minutes and 18 seconds
+
+Recording sample number 153 on 2024-01-17 13:24:50.339934
+Time left 71 hours 34 minutes and 8 seconds
+
+Recording sample number 154 on 2024-01-17 13:25:00.346146
+Time left 71 hours 33 minutes and 58 seconds
+
+Recording sample number 155 on 2024-01-17 13:25:10.349927
+Time left 71 hours 33 minutes and 48 seconds
+
+Recording sample number 156 on 2024-01-17 13:25:20.476655
+Time left 71 hours 33 minutes and 38 seconds
+
+Recording sample number 157 on 2024-01-17 13:25:30.484435
+Time left 71 hours 33 minutes and 28 seconds
+
+Recording sample number 158 on 2024-01-17 13:25:40.489388
+Time left 71 hours 33 minutes and 18 seconds
+
+Recording sample number 159 on 2024-01-17 13:25:50.521658
+Time left 71 hours 33 minutes and 8 seconds
+
+Recording sample number 160 on 2024-01-17 13:26:00.643623
+Time left 71 hours 32 minutes and 58 seconds
+
+Recording sample number 161 on 2024-01-17 13:26:10.659669
+Time left 71 hours 32 minutes and 48 seconds
+
+Recording sample number 162 on 2024-01-17 13:26:20.675247
+
+
+
+***************************************
+At 2024-01-17 13:26:20.675247 model withcnn estimated 0.0633186623454094
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 32 minutes and 38 seconds
+
+Recording sample number 163 on 2024-01-17 13:26:33.165584
+Time left 71 hours 32 minutes and 25 seconds
+
+Recording sample number 164 on 2024-01-17 13:26:42.582566
+Time left 71 hours 32 minutes and 16 seconds
+
+Recording sample number 165 on 2024-01-17 13:26:52.661247
+Time left 71 hours 32 minutes and 6 seconds
+
+Recording sample number 166 on 2024-01-17 13:27:02.723415
+Time left 71 hours 31 minutes and 56 seconds
+
+Recording sample number 167 on 2024-01-17 13:27:12.771722
+Time left 71 hours 31 minutes and 46 seconds
+
+Recording sample number 168 on 2024-01-17 13:27:22.818021
+Time left 71 hours 31 minutes and 36 seconds
+
+Recording sample number 169 on 2024-01-17 13:27:32.889878
+Time left 71 hours 31 minutes and 26 seconds
+
+Recording sample number 170 on 2024-01-17 13:27:42.962912
+Time left 71 hours 31 minutes and 16 seconds
+
+Recording sample number 171 on 2024-01-17 13:27:53.036120
+Time left 71 hours 31 minutes and 5 seconds
+
+Recording sample number 172 on 2024-01-17 13:28:03.104466
+Time left 71 hours 30 minutes and 55 seconds
+
+Recording sample number 173 on 2024-01-17 13:28:13.161444
+Time left 71 hours 30 minutes and 45 seconds
+
+Recording sample number 174 on 2024-01-17 13:28:23.243595
+Time left 71 hours 30 minutes and 35 seconds
+
+Recording sample number 175 on 2024-01-17 13:28:33.309203
+Time left 71 hours 30 minutes and 25 seconds
+
+Recording sample number 176 on 2024-01-17 13:28:43.373187
+Time left 71 hours 30 minutes and 15 seconds
+
+Recording sample number 177 on 2024-01-17 13:28:53.426385
+Time left 71 hours 30 minutes and 5 seconds
+
+Recording sample number 178 on 2024-01-17 13:29:03.484259
+Time left 71 hours 29 minutes and 55 seconds
+
+Recording sample number 179 on 2024-01-17 13:29:13.554766
+Time left 71 hours 29 minutes and 45 seconds
+
+Recording sample number 180 on 2024-01-17 13:29:23.620122
+
+
+
+***************************************
+At 2024-01-17 13:29:23.620122 model withcnn estimated 0.0628516897559166
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 29 minutes and 35 seconds
+
+Recording sample number 181 on 2024-01-17 13:29:36.075614
+Time left 71 hours 29 minutes and 22 seconds
+
+Recording sample number 182 on 2024-01-17 13:29:45.613515
+Time left 71 hours 29 minutes and 13 seconds
+
+Recording sample number 183 on 2024-01-17 13:29:55.689855
+Time left 71 hours 29 minutes and 3 seconds
+
+Recording sample number 184 on 2024-01-17 13:30:05.749464
+Time left 71 hours 28 minutes and 53 seconds
+
+Recording sample number 185 on 2024-01-17 13:30:15.817389
+Time left 71 hours 28 minutes and 43 seconds
+
+Recording sample number 186 on 2024-01-17 13:30:25.873554
+Time left 71 hours 28 minutes and 33 seconds
+
+Recording sample number 187 on 2024-01-17 13:30:35.937518
+Time left 71 hours 28 minutes and 23 seconds
+
+Recording sample number 188 on 2024-01-17 13:30:45.992677
+Time left 71 hours 28 minutes and 13 seconds
+
+Recording sample number 189 on 2024-01-17 13:30:56.050096
+Time left 71 hours 28 minutes and 2 seconds
+
+Recording sample number 190 on 2024-01-17 13:31:06.115049
+Time left 71 hours 27 minutes and 52 seconds
+
+Recording sample number 191 on 2024-01-17 13:31:16.198873
+Time left 71 hours 27 minutes and 42 seconds
+
+Recording sample number 192 on 2024-01-17 13:31:26.283354
+Time left 71 hours 27 minutes and 32 seconds
+
+Recording sample number 193 on 2024-01-17 13:31:36.340874
+Time left 71 hours 27 minutes and 22 seconds
+
+Recording sample number 194 on 2024-01-17 13:31:46.395876
+Time left 71 hours 27 minutes and 12 seconds
+
+Recording sample number 195 on 2024-01-17 13:31:56.469382
+Time left 71 hours 27 minutes and 2 seconds
+
+Recording sample number 196 on 2024-01-17 13:32:06.532841
+Time left 71 hours 26 minutes and 52 seconds
+
+Recording sample number 197 on 2024-01-17 13:32:16.614080
+Time left 71 hours 26 minutes and 42 seconds
+
+Recording sample number 198 on 2024-01-17 13:32:26.659933
+
+
+
+***************************************
+At 2024-01-17 13:32:26.659933 model withcnn estimated 0.06806066632270813
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 26 minutes and 32 seconds
+
+Recording sample number 199 on 2024-01-17 13:32:39.062805
+Time left 71 hours 26 minutes and 19 seconds
+
+Recording sample number 200 on 2024-01-17 13:32:48.713347
+Time left 71 hours 26 minutes and 10 seconds
+
+Recording sample number 201 on 2024-01-17 13:32:58.778904
+Time left 71 hours 26 minutes and 0 seconds
+
+Recording sample number 202 on 2024-01-17 13:33:08.856882
+Time left 71 hours 25 minutes and 50 seconds
+
+Recording sample number 203 on 2024-01-17 13:33:18.916548
+Time left 71 hours 25 minutes and 40 seconds
+
+Recording sample number 204 on 2024-01-17 13:33:28.982043
+Time left 71 hours 25 minutes and 30 seconds
+
+Recording sample number 205 on 2024-01-17 13:33:39.059153
+Time left 71 hours 25 minutes and 19 seconds
+
+Recording sample number 206 on 2024-01-17 13:33:49.129479
+Time left 71 hours 25 minutes and 9 seconds
+
+Recording sample number 207 on 2024-01-17 13:33:59.197850
+Time left 71 hours 24 minutes and 59 seconds
+
+Recording sample number 208 on 2024-01-17 13:34:09.264495
+Time left 71 hours 24 minutes and 49 seconds
+
+Recording sample number 209 on 2024-01-17 13:34:19.336181
+Time left 71 hours 24 minutes and 39 seconds
+
+Recording sample number 210 on 2024-01-17 13:34:29.404196
+Time left 71 hours 24 minutes and 29 seconds
+
+Recording sample number 211 on 2024-01-17 13:34:39.459141
+Time left 71 hours 24 minutes and 19 seconds
+
+Recording sample number 212 on 2024-01-17 13:34:49.524218
+Time left 71 hours 24 minutes and 9 seconds
+
+Recording sample number 213 on 2024-01-17 13:34:59.570372
+Time left 71 hours 23 minutes and 59 seconds
+
+Recording sample number 214 on 2024-01-17 13:35:09.638408
+Time left 71 hours 23 minutes and 49 seconds
+
+Recording sample number 215 on 2024-01-17 13:35:19.708551
+Time left 71 hours 23 minutes and 39 seconds
+
+Recording sample number 216 on 2024-01-17 13:35:29.776263
+
+
+
+***************************************
+At 2024-01-17 13:35:29.776263 model withcnn estimated 0.0776408240199089
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 23 minutes and 29 seconds
+
+Recording sample number 217 on 2024-01-17 13:35:42.196958
+Time left 71 hours 23 minutes and 16 seconds
+
+Recording sample number 218 on 2024-01-17 13:35:51.832314
+Time left 71 hours 23 minutes and 7 seconds
+
+Recording sample number 219 on 2024-01-17 13:36:01.889109
+Time left 71 hours 22 minutes and 57 seconds
+
+Recording sample number 220 on 2024-01-17 13:36:11.947380
+Time left 71 hours 22 minutes and 47 seconds
+
+Recording sample number 221 on 2024-01-17 13:36:22.017903
+Time left 71 hours 22 minutes and 36 seconds
+
+Recording sample number 222 on 2024-01-17 13:36:32.074556
+Time left 71 hours 22 minutes and 26 seconds
+
+Recording sample number 223 on 2024-01-17 13:36:42.128978
+Time left 71 hours 22 minutes and 16 seconds
+
+Recording sample number 224 on 2024-01-17 13:36:52.195014
+Time left 71 hours 22 minutes and 6 seconds
+
+Recording sample number 225 on 2024-01-17 13:37:02.252069
+Time left 71 hours 21 minutes and 56 seconds
+
+Recording sample number 226 on 2024-01-17 13:37:12.314471
+Time left 71 hours 21 minutes and 46 seconds
+
+Recording sample number 227 on 2024-01-17 13:37:22.377673
+Time left 71 hours 21 minutes and 36 seconds
+
+Recording sample number 228 on 2024-01-17 13:37:32.427334
+Time left 71 hours 21 minutes and 26 seconds
+
+Recording sample number 229 on 2024-01-17 13:37:42.490764
+Time left 71 hours 21 minutes and 16 seconds
+
+Recording sample number 230 on 2024-01-17 13:37:52.549124
+Time left 71 hours 21 minutes and 6 seconds
+
+Recording sample number 231 on 2024-01-17 13:38:02.614494
+Time left 71 hours 20 minutes and 56 seconds
+
+Recording sample number 232 on 2024-01-17 13:38:12.681897
+Time left 71 hours 20 minutes and 46 seconds
+
+Recording sample number 233 on 2024-01-17 13:38:22.728962
+Time left 71 hours 20 minutes and 36 seconds
+
+Recording sample number 234 on 2024-01-17 13:38:32.796817
+
+
+
+***************************************
+At 2024-01-17 13:38:32.796817 model withcnn estimated 0.06220483034849167
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 20 minutes and 26 seconds
+
+Recording sample number 235 on 2024-01-17 13:38:45.221848
+Time left 71 hours 20 minutes and 13 seconds
+
+Recording sample number 236 on 2024-01-17 13:38:54.753660
+Time left 71 hours 20 minutes and 4 seconds
+
+Recording sample number 237 on 2024-01-17 13:39:04.814175
+Time left 71 hours 19 minutes and 54 seconds
+
+Recording sample number 238 on 2024-01-17 13:39:14.872833
+Time left 71 hours 19 minutes and 44 seconds
+
+Recording sample number 239 on 2024-01-17 13:39:24.943352
+Time left 71 hours 19 minutes and 34 seconds
+
+Recording sample number 240 on 2024-01-17 13:39:34.998196
+Time left 71 hours 19 minutes and 24 seconds
+
+Recording sample number 241 on 2024-01-17 13:39:45.056608
+Time left 71 hours 19 minutes and 13 seconds
+
+Recording sample number 242 on 2024-01-17 13:39:55.126218
+Time left 71 hours 19 minutes and 3 seconds
+
+Recording sample number 243 on 2024-01-17 13:40:05.184206
+Time left 71 hours 18 minutes and 53 seconds
+
+Recording sample number 244 on 2024-01-17 13:40:15.258134
+Time left 71 hours 18 minutes and 43 seconds
+
+Recording sample number 245 on 2024-01-17 13:40:25.321244
+Time left 71 hours 18 minutes and 33 seconds
+
+Recording sample number 246 on 2024-01-17 13:40:35.397969
+Time left 71 hours 18 minutes and 23 seconds
+
+Recording sample number 247 on 2024-01-17 13:40:45.453797
+Time left 71 hours 18 minutes and 13 seconds
+
+Recording sample number 248 on 2024-01-17 13:40:55.508428
+Time left 71 hours 18 minutes and 3 seconds
+
+Recording sample number 249 on 2024-01-17 13:41:05.584170
+Time left 71 hours 17 minutes and 53 seconds
+
+Recording sample number 250 on 2024-01-17 13:41:15.653089
+Time left 71 hours 17 minutes and 43 seconds
+
+Recording sample number 251 on 2024-01-17 13:41:25.716061
+Time left 71 hours 17 minutes and 33 seconds
+
+Recording sample number 252 on 2024-01-17 13:41:35.779402
+
+
+
+***************************************
+At 2024-01-17 13:41:35.779402 model withcnn estimated 0.0555090606212616
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 17 minutes and 23 seconds
+
+Recording sample number 253 on 2024-01-17 13:41:48.273540
+Time left 71 hours 17 minutes and 10 seconds
+
+Recording sample number 254 on 2024-01-17 13:41:57.810648
+Time left 71 hours 17 minutes and 1 seconds
+
+Recording sample number 255 on 2024-01-17 13:42:07.882619
+Time left 71 hours 16 minutes and 51 seconds
+
+Recording sample number 256 on 2024-01-17 13:42:17.944902
+Time left 71 hours 16 minutes and 41 seconds
+
+Recording sample number 257 on 2024-01-17 13:42:27.992344
+Time left 71 hours 16 minutes and 31 seconds
+
+Recording sample number 258 on 2024-01-17 13:42:38.048591
+Time left 71 hours 16 minutes and 20 seconds
+
+Recording sample number 259 on 2024-01-17 13:42:48.104996
+Time left 71 hours 16 minutes and 10 seconds
+
+Recording sample number 260 on 2024-01-17 13:42:58.158567
+Time left 71 hours 16 minutes and 0 seconds
+
+Recording sample number 261 on 2024-01-17 13:43:08.213659
+Time left 71 hours 15 minutes and 50 seconds
+
+Recording sample number 262 on 2024-01-17 13:43:18.270376
+Time left 71 hours 15 minutes and 40 seconds
+
+Recording sample number 263 on 2024-01-17 13:43:28.335099
+Time left 71 hours 15 minutes and 30 seconds
+
+Recording sample number 264 on 2024-01-17 13:43:38.399383
+Time left 71 hours 15 minutes and 20 seconds
+
+Recording sample number 265 on 2024-01-17 13:43:48.465104
+Time left 71 hours 15 minutes and 10 seconds
+
+Recording sample number 266 on 2024-01-17 13:43:58.514707
+Time left 71 hours 15 minutes and 0 seconds
+
+Recording sample number 267 on 2024-01-17 13:44:08.575454
+Time left 71 hours 14 minutes and 50 seconds
+
+Recording sample number 268 on 2024-01-17 13:44:18.642187
+Time left 71 hours 14 minutes and 40 seconds
+
+Recording sample number 269 on 2024-01-17 13:44:28.705900
+Time left 71 hours 14 minutes and 30 seconds
+
+Recording sample number 270 on 2024-01-17 13:44:38.780629
+
+
+
+***************************************
+At 2024-01-17 13:44:38.780629 model withcnn estimated 0.07379939407110214
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 14 minutes and 20 seconds
+
+Recording sample number 271 on 2024-01-17 13:44:51.317914
+Time left 71 hours 14 minutes and 7 seconds
+
+Recording sample number 272 on 2024-01-17 13:45:00.848209
+Time left 71 hours 13 minutes and 58 seconds
+
+Recording sample number 273 on 2024-01-17 13:45:10.921558
+Time left 71 hours 13 minutes and 48 seconds
+
+Recording sample number 274 on 2024-01-17 13:45:20.969301
+Time left 71 hours 13 minutes and 38 seconds
+
+Recording sample number 275 on 2024-01-17 13:45:31.038353
+Time left 71 hours 13 minutes and 27 seconds
+
+Recording sample number 276 on 2024-01-17 13:45:41.107065
+Time left 71 hours 13 minutes and 17 seconds
+
+Recording sample number 277 on 2024-01-17 13:45:51.164250
+Time left 71 hours 13 minutes and 7 seconds
+
+Recording sample number 278 on 2024-01-17 13:46:01.233738
+Time left 71 hours 12 minutes and 57 seconds
+
+Recording sample number 279 on 2024-01-17 13:46:11.312004
+Time left 71 hours 12 minutes and 47 seconds
+
+Recording sample number 280 on 2024-01-17 13:46:21.379146
+Time left 71 hours 12 minutes and 37 seconds
+
+Recording sample number 281 on 2024-01-17 13:46:31.448979
+Time left 71 hours 12 minutes and 27 seconds
+
+Recording sample number 282 on 2024-01-17 13:46:41.517323
+Time left 71 hours 12 minutes and 17 seconds
+
+Recording sample number 283 on 2024-01-17 13:46:51.571200
+Time left 71 hours 12 minutes and 7 seconds
+
+Recording sample number 284 on 2024-01-17 13:47:01.631050
+Time left 71 hours 11 minutes and 57 seconds
+
+Recording sample number 285 on 2024-01-17 13:47:11.701577
+Time left 71 hours 11 minutes and 47 seconds
+
+Recording sample number 286 on 2024-01-17 13:47:21.780553
+Time left 71 hours 11 minutes and 37 seconds
+
+Recording sample number 287 on 2024-01-17 13:47:31.837375
+Time left 71 hours 11 minutes and 27 seconds
+
+Recording sample number 288 on 2024-01-17 13:47:41.916994
+
+
+
+***************************************
+At 2024-01-17 13:47:41.916994 model withcnn estimated 0.06633195281028748
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 11 minutes and 17 seconds
+
+Recording sample number 289 on 2024-01-17 13:47:54.403222
+Time left 71 hours 11 minutes and 4 seconds
+
+Recording sample number 290 on 2024-01-17 13:48:03.934553
+Time left 71 hours 10 minutes and 55 seconds
+
+Recording sample number 291 on 2024-01-17 13:48:13.997309
+Time left 71 hours 10 minutes and 45 seconds
+
+Recording sample number 292 on 2024-01-17 13:48:24.068280
+Time left 71 hours 10 minutes and 34 seconds
+
+Recording sample number 293 on 2024-01-17 13:48:34.117072
+Time left 71 hours 10 minutes and 24 seconds
+
+Recording sample number 294 on 2024-01-17 13:48:44.191252
+Time left 71 hours 10 minutes and 14 seconds
+
+Recording sample number 295 on 2024-01-17 13:48:54.251855
+Time left 71 hours 10 minutes and 4 seconds
+
+Recording sample number 296 on 2024-01-17 13:49:04.322386
+Time left 71 hours 9 minutes and 54 seconds
+
+Recording sample number 297 on 2024-01-17 13:49:14.382123
+Time left 71 hours 9 minutes and 44 seconds
+
+Recording sample number 298 on 2024-01-17 13:49:24.438845
+Time left 71 hours 9 minutes and 34 seconds
+
+Recording sample number 299 on 2024-01-17 13:49:34.493934
+Time left 71 hours 9 minutes and 24 seconds
+
+Recording sample number 300 on 2024-01-17 13:49:44.550756
+Time left 71 hours 9 minutes and 14 seconds
+
+Recording sample number 301 on 2024-01-17 13:49:54.607680
+Time left 71 hours 9 minutes and 4 seconds
+
+Recording sample number 302 on 2024-01-17 13:50:04.666618
+Time left 71 hours 8 minutes and 54 seconds
+
+Recording sample number 303 on 2024-01-17 13:50:14.720179
+Time left 71 hours 8 minutes and 44 seconds
+
+Recording sample number 304 on 2024-01-17 13:50:24.787342
+Time left 71 hours 8 minutes and 34 seconds
+
+Recording sample number 305 on 2024-01-17 13:50:34.851265
+Time left 71 hours 8 minutes and 24 seconds
+
+Recording sample number 306 on 2024-01-17 13:50:44.907368
+
+
+
+***************************************
+At 2024-01-17 13:50:44.907368 model withcnn estimated 0.06146574765443802
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 8 minutes and 14 seconds
+
+Recording sample number 307 on 2024-01-17 13:50:57.433963
+Time left 71 hours 8 minutes and 1 seconds
+
+Recording sample number 308 on 2024-01-17 13:51:06.969142
+Time left 71 hours 7 minutes and 52 seconds
+
+Recording sample number 309 on 2024-01-17 13:51:17.020363
+Time left 71 hours 7 minutes and 41 seconds
+
+Recording sample number 310 on 2024-01-17 13:51:27.074308
+Time left 71 hours 7 minutes and 31 seconds
+
+Recording sample number 311 on 2024-01-17 13:51:37.144287
+Time left 71 hours 7 minutes and 21 seconds
+
+Recording sample number 312 on 2024-01-17 13:51:47.198727
+Time left 71 hours 7 minutes and 11 seconds
+
+Recording sample number 313 on 2024-01-17 13:51:57.272457
+Time left 71 hours 7 minutes and 1 seconds
+
+Recording sample number 314 on 2024-01-17 13:52:07.325781
+Time left 71 hours 6 minutes and 51 seconds
+
+Recording sample number 315 on 2024-01-17 13:52:17.373411
+Time left 71 hours 6 minutes and 41 seconds
+
+Recording sample number 316 on 2024-01-17 13:52:27.429884
+Time left 71 hours 6 minutes and 31 seconds
+
+Recording sample number 317 on 2024-01-17 13:52:37.507501
+Time left 71 hours 6 minutes and 21 seconds
+
+Recording sample number 318 on 2024-01-17 13:52:47.589428
+Time left 71 hours 6 minutes and 11 seconds
+
+Recording sample number 319 on 2024-01-17 13:52:57.656547
+Time left 71 hours 6 minutes and 1 seconds
+
+Recording sample number 320 on 2024-01-17 13:53:07.715342
+Time left 71 hours 5 minutes and 51 seconds
+
+Recording sample number 321 on 2024-01-17 13:53:17.780696
+Time left 71 hours 5 minutes and 41 seconds
+
+Recording sample number 322 on 2024-01-17 13:53:27.841179
+Time left 71 hours 5 minutes and 31 seconds
+
+Recording sample number 323 on 2024-01-17 13:53:37.893980
+Time left 71 hours 5 minutes and 21 seconds
+
+Recording sample number 324 on 2024-01-17 13:53:47.949631
+
+
+
+***************************************
+At 2024-01-17 13:53:47.949631 model withcnn estimated 0.0644814670085907
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 5 minutes and 11 seconds
+
+Recording sample number 325 on 2024-01-17 13:54:00.509562
+Time left 71 hours 4 minutes and 58 seconds
+
+Recording sample number 326 on 2024-01-17 13:54:09.899687
+Time left 71 hours 4 minutes and 49 seconds
+
+Recording sample number 327 on 2024-01-17 13:54:19.961024
+Time left 71 hours 4 minutes and 39 seconds
+
+Recording sample number 328 on 2024-01-17 13:54:30.025636
+Time left 71 hours 4 minutes and 28 seconds
+
+Recording sample number 329 on 2024-01-17 13:54:40.093556
+Time left 71 hours 4 minutes and 18 seconds
+
+Recording sample number 330 on 2024-01-17 13:54:50.161354
+Time left 71 hours 4 minutes and 8 seconds
+
+Recording sample number 331 on 2024-01-17 13:55:00.240238
+Time left 71 hours 3 minutes and 58 seconds
+
+Recording sample number 332 on 2024-01-17 13:55:10.306340
+Time left 71 hours 3 minutes and 48 seconds
+
+Recording sample number 333 on 2024-01-17 13:55:20.373928
+Time left 71 hours 3 minutes and 38 seconds
+
+Recording sample number 334 on 2024-01-17 13:55:30.454989
+Time left 71 hours 3 minutes and 28 seconds
+
+Recording sample number 335 on 2024-01-17 13:55:40.522749
+Time left 71 hours 3 minutes and 18 seconds
+
+Recording sample number 336 on 2024-01-17 13:55:50.582411
+Time left 71 hours 3 minutes and 8 seconds
+
+Recording sample number 337 on 2024-01-17 13:56:00.630164
+Time left 71 hours 2 minutes and 58 seconds
+
+Recording sample number 338 on 2024-01-17 13:56:10.689162
+Time left 71 hours 2 minutes and 48 seconds
+
+Recording sample number 339 on 2024-01-17 13:56:20.754865
+Time left 71 hours 2 minutes and 38 seconds
+
+Recording sample number 340 on 2024-01-17 13:56:30.814671
+Time left 71 hours 2 minutes and 28 seconds
+
+Recording sample number 341 on 2024-01-17 13:56:40.872125
+Time left 71 hours 2 minutes and 18 seconds
+
+Recording sample number 342 on 2024-01-17 13:56:50.931025
+
+
+
+***************************************
+At 2024-01-17 13:56:50.931025 model withcnn estimated 0.05839306861162186
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 71 hours 2 minutes and 8 seconds
+
+Recording sample number 343 on 2024-01-17 13:57:03.368277
+Time left 71 hours 1 minutes and 55 seconds
+
+Recording sample number 344 on 2024-01-17 13:57:12.893731
+Time left 71 hours 1 minutes and 46 seconds
+
+Recording sample number 345 on 2024-01-17 13:57:22.950733
+Time left 71 hours 1 minutes and 36 seconds
+
+Recording sample number 346 on 2024-01-17 13:57:33.006207
+Time left 71 hours 1 minutes and 26 seconds
+
+Recording sample number 347 on 2024-01-17 13:57:43.053725
+Time left 71 hours 1 minutes and 15 seconds
+
+Recording sample number 348 on 2024-01-17 13:57:53.138163
+Time left 71 hours 1 minutes and 5 seconds
+
+Recording sample number 349 on 2024-01-17 13:58:03.199040
+Time left 71 hours 0 minutes and 55 seconds
+
+Recording sample number 350 on 2024-01-17 13:58:13.270198
+Time left 71 hours 0 minutes and 45 seconds
+
+Recording sample number 351 on 2024-01-17 13:58:23.341307
+Time left 71 hours 0 minutes and 35 seconds
+
+Recording sample number 352 on 2024-01-17 13:58:33.391351
+Time left 71 hours 0 minutes and 25 seconds
+
+Recording sample number 353 on 2024-01-17 13:58:43.471772
+Time left 71 hours 0 minutes and 15 seconds
+
+Recording sample number 354 on 2024-01-17 13:58:53.544430
+Time left 71 hours 0 minutes and 5 seconds
+
+Recording sample number 355 on 2024-01-17 13:59:03.609907
+Time left 70 hours 59 minutes and 55 seconds
+
+Recording sample number 356 on 2024-01-17 13:59:13.661595
+Time left 70 hours 59 minutes and 45 seconds
+
+Recording sample number 357 on 2024-01-17 13:59:23.726835
+Time left 70 hours 59 minutes and 35 seconds
+
+Recording sample number 358 on 2024-01-17 13:59:33.782912
+Time left 70 hours 59 minutes and 25 seconds
+
+Recording sample number 359 on 2024-01-17 13:59:43.843174
+Time left 70 hours 59 minutes and 15 seconds
+
+Recording sample number 360 on 2024-01-17 13:59:53.892444
+
+
+
+***************************************
+At 2024-01-17 13:59:53.892444 model withcnn estimated 0.06611057370901108
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 59 minutes and 5 seconds
+
+Recording sample number 361 on 2024-01-17 14:00:06.336842
+Time left 70 hours 58 minutes and 52 seconds
+
+Recording sample number 362 on 2024-01-17 14:00:15.858237
+Time left 70 hours 58 minutes and 43 seconds
+
+Recording sample number 363 on 2024-01-17 14:00:25.900759
+Time left 70 hours 58 minutes and 33 seconds
+
+Recording sample number 364 on 2024-01-17 14:00:35.977052
+Time left 70 hours 58 minutes and 23 seconds
+
+Recording sample number 365 on 2024-01-17 14:00:46.046840
+Time left 70 hours 58 minutes and 12 seconds
+
+Recording sample number 366 on 2024-01-17 14:00:56.113564
+Time left 70 hours 58 minutes and 2 seconds
+
+Recording sample number 367 on 2024-01-17 14:01:06.169230
+Time left 70 hours 57 minutes and 52 seconds
+
+Recording sample number 368 on 2024-01-17 14:01:16.235778
+Time left 70 hours 57 minutes and 42 seconds
+
+Recording sample number 369 on 2024-01-17 14:01:26.292130
+Time left 70 hours 57 minutes and 32 seconds
+
+Recording sample number 370 on 2024-01-17 14:01:36.369163
+Time left 70 hours 57 minutes and 22 seconds
+
+Recording sample number 371 on 2024-01-17 14:01:46.440810
+Time left 70 hours 57 minutes and 12 seconds
+
+Recording sample number 372 on 2024-01-17 14:01:56.513905
+Time left 70 hours 57 minutes and 2 seconds
+
+Recording sample number 373 on 2024-01-17 14:02:06.585835
+Time left 70 hours 56 minutes and 52 seconds
+
+Recording sample number 374 on 2024-01-17 14:02:16.649196
+Time left 70 hours 56 minutes and 42 seconds
+
+Recording sample number 375 on 2024-01-17 14:02:26.707862
+Time left 70 hours 56 minutes and 32 seconds
+
+Recording sample number 376 on 2024-01-17 14:02:36.777367
+Time left 70 hours 56 minutes and 22 seconds
+
+Recording sample number 377 on 2024-01-17 14:02:46.835708
+Time left 70 hours 56 minutes and 12 seconds
+
+Recording sample number 378 on 2024-01-17 14:02:56.910842
+
+
+
+***************************************
+At 2024-01-17 14:02:56.910842 model withcnn estimated 0.07754971832036972
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 56 minutes and 2 seconds
+
+Recording sample number 379 on 2024-01-17 14:03:09.346945
+Time left 70 hours 55 minutes and 49 seconds
+
+Recording sample number 380 on 2024-01-17 14:03:18.871350
+Time left 70 hours 55 minutes and 40 seconds
+
+Recording sample number 381 on 2024-01-17 14:03:28.931108
+Time left 70 hours 55 minutes and 30 seconds
+
+Recording sample number 382 on 2024-01-17 14:03:39.000871
+Time left 70 hours 55 minutes and 20 seconds
+
+Recording sample number 383 on 2024-01-17 14:03:49.077041
+Time left 70 hours 55 minutes and 9 seconds
+
+Recording sample number 384 on 2024-01-17 14:03:59.148485
+Time left 70 hours 54 minutes and 59 seconds
+
+Recording sample number 385 on 2024-01-17 14:04:09.210645
+Time left 70 hours 54 minutes and 49 seconds
+
+Recording sample number 386 on 2024-01-17 14:04:19.278060
+Time left 70 hours 54 minutes and 39 seconds
+
+Recording sample number 387 on 2024-01-17 14:04:29.336415
+Time left 70 hours 54 minutes and 29 seconds
+
+Recording sample number 388 on 2024-01-17 14:04:39.414771
+Time left 70 hours 54 minutes and 19 seconds
+
+Recording sample number 389 on 2024-01-17 14:04:49.460759
+Time left 70 hours 54 minutes and 9 seconds
+
+Recording sample number 390 on 2024-01-17 14:04:59.525556
+Time left 70 hours 53 minutes and 59 seconds
+
+Recording sample number 391 on 2024-01-17 14:05:09.585114
+Time left 70 hours 53 minutes and 49 seconds
+
+Recording sample number 392 on 2024-01-17 14:05:19.642497
+Time left 70 hours 53 minutes and 39 seconds
+
+Recording sample number 393 on 2024-01-17 14:05:29.710249
+Time left 70 hours 53 minutes and 29 seconds
+
+Recording sample number 394 on 2024-01-17 14:05:39.779016
+Time left 70 hours 53 minutes and 19 seconds
+
+Recording sample number 395 on 2024-01-17 14:05:49.836008
+Time left 70 hours 53 minutes and 9 seconds
+
+Recording sample number 396 on 2024-01-17 14:05:59.898384
+
+
+
+***************************************
+At 2024-01-17 14:05:59.898384 model withcnn estimated 0.060052283108234406
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 52 minutes and 59 seconds
+
+Recording sample number 397 on 2024-01-17 14:06:12.395311
+Time left 70 hours 52 minutes and 46 seconds
+
+Recording sample number 398 on 2024-01-17 14:06:21.932976
+Time left 70 hours 52 minutes and 37 seconds
+
+Recording sample number 399 on 2024-01-17 14:06:32.014243
+Time left 70 hours 52 minutes and 26 seconds
+
+Recording sample number 400 on 2024-01-17 14:06:42.079370
+Time left 70 hours 52 minutes and 16 seconds
+
+Recording sample number 401 on 2024-01-17 14:06:52.137927
+Time left 70 hours 52 minutes and 6 seconds
+
+Recording sample number 402 on 2024-01-17 14:07:02.208612
+Time left 70 hours 51 minutes and 56 seconds
+
+Recording sample number 403 on 2024-01-17 14:07:12.266889
+Time left 70 hours 51 minutes and 46 seconds
+
+Recording sample number 404 on 2024-01-17 14:07:22.326533
+Time left 70 hours 51 minutes and 36 seconds
+
+Recording sample number 405 on 2024-01-17 14:07:32.391475
+Time left 70 hours 51 minutes and 26 seconds
+
+Recording sample number 406 on 2024-01-17 14:07:42.451773
+Time left 70 hours 51 minutes and 16 seconds
+
+Recording sample number 407 on 2024-01-17 14:07:52.515044
+Time left 70 hours 51 minutes and 6 seconds
+
+Recording sample number 408 on 2024-01-17 14:08:02.574140
+Time left 70 hours 50 minutes and 56 seconds
+
+Recording sample number 409 on 2024-01-17 14:08:12.643777
+Time left 70 hours 50 minutes and 46 seconds
+
+Recording sample number 410 on 2024-01-17 14:08:22.725845
+Time left 70 hours 50 minutes and 36 seconds
+
+Recording sample number 411 on 2024-01-17 14:08:32.813261
+Time left 70 hours 50 minutes and 26 seconds
+
+Recording sample number 412 on 2024-01-17 14:08:42.874210
+Time left 70 hours 50 minutes and 16 seconds
+
+Recording sample number 413 on 2024-01-17 14:08:52.936208
+Time left 70 hours 50 minutes and 6 seconds
+
+Recording sample number 414 on 2024-01-17 14:09:03.003091
+
+
+
+***************************************
+At 2024-01-17 14:09:03.003091 model withcnn estimated 0.06636443734169006
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 49 minutes and 56 seconds
+
+Recording sample number 415 on 2024-01-17 14:09:15.525180
+Time left 70 hours 49 minutes and 43 seconds
+
+Recording sample number 416 on 2024-01-17 14:09:25.064562
+Time left 70 hours 49 minutes and 33 seconds
+
+Recording sample number 417 on 2024-01-17 14:09:35.129169
+Time left 70 hours 49 minutes and 23 seconds
+
+Recording sample number 418 on 2024-01-17 14:09:45.190983
+Time left 70 hours 49 minutes and 13 seconds
+
+Recording sample number 419 on 2024-01-17 14:09:55.244673
+Time left 70 hours 49 minutes and 3 seconds
+
+Recording sample number 420 on 2024-01-17 14:10:05.314359
+Time left 70 hours 48 minutes and 53 seconds
+
+Recording sample number 421 on 2024-01-17 14:10:15.392856
+Time left 70 hours 48 minutes and 43 seconds
+
+Recording sample number 422 on 2024-01-17 14:10:25.517122
+Time left 70 hours 48 minutes and 33 seconds
+
+Recording sample number 423 on 2024-01-17 14:10:35.584037
+Time left 70 hours 48 minutes and 23 seconds
+
+Recording sample number 424 on 2024-01-17 14:10:45.647097
+Time left 70 hours 48 minutes and 13 seconds
+
+Recording sample number 425 on 2024-01-17 14:10:55.728699
+Time left 70 hours 48 minutes and 3 seconds
+
+Recording sample number 426 on 2024-01-17 14:11:05.789561
+Time left 70 hours 47 minutes and 53 seconds
+
+Recording sample number 427 on 2024-01-17 14:11:15.856841
+Time left 70 hours 47 minutes and 43 seconds
+
+Recording sample number 428 on 2024-01-17 14:11:25.922436
+Time left 70 hours 47 minutes and 33 seconds
+
+Recording sample number 429 on 2024-01-17 14:11:35.983480
+Time left 70 hours 47 minutes and 23 seconds
+
+Recording sample number 430 on 2024-01-17 14:11:46.058082
+Time left 70 hours 47 minutes and 12 seconds
+
+Recording sample number 431 on 2024-01-17 14:11:56.126757
+Time left 70 hours 47 minutes and 2 seconds
+
+Recording sample number 432 on 2024-01-17 14:12:06.184991
+
+
+
+***************************************
+At 2024-01-17 14:12:06.184991 model withcnn estimated 0.08807352930307388
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 46 minutes and 52 seconds
+
+Recording sample number 433 on 2024-01-17 14:12:18.643664
+Time left 70 hours 46 minutes and 40 seconds
+
+Recording sample number 434 on 2024-01-17 14:12:28.170816
+Time left 70 hours 46 minutes and 30 seconds
+
+Recording sample number 435 on 2024-01-17 14:12:38.226664
+Time left 70 hours 46 minutes and 20 seconds
+
+Recording sample number 436 on 2024-01-17 14:12:48.282394
+Time left 70 hours 46 minutes and 10 seconds
+
+Recording sample number 437 on 2024-01-17 14:12:58.353005
+Time left 70 hours 46 minutes and 0 seconds
+
+Recording sample number 438 on 2024-01-17 14:13:08.410864
+Time left 70 hours 45 minutes and 50 seconds
+
+Recording sample number 439 on 2024-01-17 14:13:18.476631
+Time left 70 hours 45 minutes and 40 seconds
+
+Recording sample number 440 on 2024-01-17 14:13:28.549272
+Time left 70 hours 45 minutes and 30 seconds
+
+Recording sample number 441 on 2024-01-17 14:13:38.619107
+Time left 70 hours 45 minutes and 20 seconds
+
+Recording sample number 442 on 2024-01-17 14:13:48.670426
+Time left 70 hours 45 minutes and 10 seconds
+
+Recording sample number 443 on 2024-01-17 14:13:58.726456
+Time left 70 hours 45 minutes and 0 seconds
+
+Recording sample number 444 on 2024-01-17 14:14:08.779933
+Time left 70 hours 44 minutes and 50 seconds
+
+Recording sample number 445 on 2024-01-17 14:14:18.857919
+Time left 70 hours 44 minutes and 40 seconds
+
+Recording sample number 446 on 2024-01-17 14:14:28.921395
+Time left 70 hours 44 minutes and 30 seconds
+
+Recording sample number 447 on 2024-01-17 14:14:38.987297
+Time left 70 hours 44 minutes and 20 seconds
+
+Recording sample number 448 on 2024-01-17 14:14:49.040928
+Time left 70 hours 44 minutes and 9 seconds
+
+Recording sample number 449 on 2024-01-17 14:14:59.100470
+Time left 70 hours 43 minutes and 59 seconds
+
+Recording sample number 450 on 2024-01-17 14:15:09.173193
+
+
+
+***************************************
+At 2024-01-17 14:15:09.173193 model withcnn estimated 0.11811274290084839
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 43 minutes and 49 seconds
+
+Recording sample number 451 on 2024-01-17 14:15:21.673641
+Time left 70 hours 43 minutes and 37 seconds
+
+Recording sample number 452 on 2024-01-17 14:15:31.188074
+Time left 70 hours 43 minutes and 27 seconds
+
+Recording sample number 453 on 2024-01-17 14:15:41.248619
+Time left 70 hours 43 minutes and 17 seconds
+
+Recording sample number 454 on 2024-01-17 14:15:51.318888
+Time left 70 hours 43 minutes and 7 seconds
+
+Recording sample number 455 on 2024-01-17 14:16:01.385808
+Time left 70 hours 42 minutes and 57 seconds
+
+Recording sample number 456 on 2024-01-17 14:16:11.454136
+Time left 70 hours 42 minutes and 47 seconds
+
+Recording sample number 457 on 2024-01-17 14:16:21.507526
+Time left 70 hours 42 minutes and 37 seconds
+
+Recording sample number 458 on 2024-01-17 14:16:31.575723
+Time left 70 hours 42 minutes and 27 seconds
+
+Recording sample number 459 on 2024-01-17 14:16:41.637443
+Time left 70 hours 42 minutes and 17 seconds
+
+Recording sample number 460 on 2024-01-17 14:16:51.719541
+Time left 70 hours 42 minutes and 7 seconds
+
+Recording sample number 461 on 2024-01-17 14:17:01.782565
+Time left 70 hours 41 minutes and 57 seconds
+
+Recording sample number 462 on 2024-01-17 14:17:11.838463
+Time left 70 hours 41 minutes and 47 seconds
+
+Recording sample number 463 on 2024-01-17 14:17:21.895064
+Time left 70 hours 41 minutes and 37 seconds
+
+Recording sample number 464 on 2024-01-17 14:17:31.966751
+Time left 70 hours 41 minutes and 27 seconds
+
+Recording sample number 465 on 2024-01-17 14:17:42.032964
+Time left 70 hours 41 minutes and 16 seconds
+
+Recording sample number 466 on 2024-01-17 14:17:52.095177
+Time left 70 hours 41 minutes and 6 seconds
+
+Recording sample number 467 on 2024-01-17 14:18:02.170089
+Time left 70 hours 40 minutes and 56 seconds
+
+Recording sample number 468 on 2024-01-17 14:18:12.227265
+
+
+
+***************************************
+At 2024-01-17 14:18:12.227265 model withcnn estimated 0.06630971282720566
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 40 minutes and 46 seconds
+
+Recording sample number 469 on 2024-01-17 14:18:24.792826
+Time left 70 hours 40 minutes and 34 seconds
+
+Recording sample number 470 on 2024-01-17 14:18:34.308089
+Time left 70 hours 40 minutes and 24 seconds
+
+Recording sample number 471 on 2024-01-17 14:18:44.371493
+Time left 70 hours 40 minutes and 14 seconds
+
+Recording sample number 472 on 2024-01-17 14:18:54.415482
+Time left 70 hours 40 minutes and 4 seconds
+
+Recording sample number 473 on 2024-01-17 14:19:04.447796
+Time left 70 hours 39 minutes and 54 seconds
+
+Recording sample number 474 on 2024-01-17 14:19:14.510145
+Time left 70 hours 39 minutes and 44 seconds
+
+Recording sample number 475 on 2024-01-17 14:19:24.557708
+Time left 70 hours 39 minutes and 34 seconds
+
+Recording sample number 476 on 2024-01-17 14:19:34.604135
+Time left 70 hours 39 minutes and 24 seconds
+
+Recording sample number 477 on 2024-01-17 14:19:44.675250
+Time left 70 hours 39 minutes and 14 seconds
+
+Recording sample number 478 on 2024-01-17 14:19:54.730318
+Time left 70 hours 39 minutes and 4 seconds
+
+Recording sample number 479 on 2024-01-17 14:20:04.786074
+Time left 70 hours 38 minutes and 54 seconds
+
+Recording sample number 480 on 2024-01-17 14:20:14.833561
+Time left 70 hours 38 minutes and 44 seconds
+
+Recording sample number 481 on 2024-01-17 14:20:24.882878
+Time left 70 hours 38 minutes and 34 seconds
+
+Recording sample number 482 on 2024-01-17 14:20:34.929735
+Time left 70 hours 38 minutes and 24 seconds
+
+Recording sample number 483 on 2024-01-17 14:20:44.987016
+Time left 70 hours 38 minutes and 14 seconds
+
+Recording sample number 484 on 2024-01-17 14:20:55.033475
+Time left 70 hours 38 minutes and 3 seconds
+
+Recording sample number 485 on 2024-01-17 14:21:05.087480
+Time left 70 hours 37 minutes and 53 seconds
+
+Recording sample number 486 on 2024-01-17 14:21:15.141240
+
+
+
+***************************************
+At 2024-01-17 14:21:15.141240 model withcnn estimated 0.06469440460205078
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 37 minutes and 43 seconds
+
+Recording sample number 487 on 2024-01-17 14:21:27.623479
+Time left 70 hours 37 minutes and 31 seconds
+
+Recording sample number 488 on 2024-01-17 14:21:37.147762
+Time left 70 hours 37 minutes and 21 seconds
+
+Recording sample number 489 on 2024-01-17 14:21:47.201833
+Time left 70 hours 37 minutes and 11 seconds
+
+Recording sample number 490 on 2024-01-17 14:21:57.262829
+Time left 70 hours 37 minutes and 1 seconds
+
+Recording sample number 491 on 2024-01-17 14:22:07.321879
+Time left 70 hours 36 minutes and 51 seconds
+
+Recording sample number 492 on 2024-01-17 14:22:17.386001
+Time left 70 hours 36 minutes and 41 seconds
+
+Recording sample number 493 on 2024-01-17 14:22:27.444550
+Time left 70 hours 36 minutes and 31 seconds
+
+Recording sample number 494 on 2024-01-17 14:22:37.504943
+Time left 70 hours 36 minutes and 21 seconds
+
+Recording sample number 495 on 2024-01-17 14:22:47.563976
+Time left 70 hours 36 minutes and 11 seconds
+
+Recording sample number 496 on 2024-01-17 14:22:57.633526
+Time left 70 hours 36 minutes and 1 seconds
+
+Recording sample number 497 on 2024-01-17 14:23:07.688584
+Time left 70 hours 35 minutes and 51 seconds
+
+Recording sample number 498 on 2024-01-17 14:23:17.744663
+Time left 70 hours 35 minutes and 41 seconds
+
+Recording sample number 499 on 2024-01-17 14:23:27.800660
+Time left 70 hours 35 minutes and 31 seconds
+
+Recording sample number 500 on 2024-01-17 14:23:37.862532
+Time left 70 hours 35 minutes and 21 seconds
+
+Recording sample number 501 on 2024-01-17 14:23:47.917713
+Time left 70 hours 35 minutes and 11 seconds
+
+Recording sample number 502 on 2024-01-17 14:23:57.970378
+Time left 70 hours 35 minutes and 1 seconds
+
+Recording sample number 503 on 2024-01-17 14:24:08.037149
+Time left 70 hours 34 minutes and 50 seconds
+
+Recording sample number 504 on 2024-01-17 14:24:18.095749
+
+
+
+***************************************
+At 2024-01-17 14:24:18.095749 model withcnn estimated 0.06562763452529907
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 34 minutes and 40 seconds
+
+Recording sample number 505 on 2024-01-17 14:24:30.499304
+Time left 70 hours 34 minutes and 28 seconds
+
+Recording sample number 506 on 2024-01-17 14:24:40.100344
+Time left 70 hours 34 minutes and 18 seconds
+
+Recording sample number 507 on 2024-01-17 14:24:50.212966
+Time left 70 hours 34 minutes and 8 seconds
+
+Recording sample number 508 on 2024-01-17 14:25:00.233355
+Time left 70 hours 33 minutes and 58 seconds
+
+Recording sample number 509 on 2024-01-17 14:25:10.271603
+Time left 70 hours 33 minutes and 48 seconds
+
+Recording sample number 510 on 2024-01-17 14:25:20.297019
+Time left 70 hours 33 minutes and 38 seconds
+
+Recording sample number 511 on 2024-01-17 14:25:30.432696
+Time left 70 hours 33 minutes and 28 seconds
+
+Recording sample number 512 on 2024-01-17 14:25:40.435825
+Time left 70 hours 33 minutes and 18 seconds
+
+Recording sample number 513 on 2024-01-17 14:25:50.518197
+Time left 70 hours 33 minutes and 8 seconds
+
+Recording sample number 514 on 2024-01-17 14:26:00.609844
+Time left 70 hours 32 minutes and 58 seconds
+
+Recording sample number 515 on 2024-01-17 14:26:10.699760
+Time left 70 hours 32 minutes and 48 seconds
+
+Recording sample number 516 on 2024-01-17 14:26:20.792707
+Time left 70 hours 32 minutes and 38 seconds
+
+Recording sample number 517 on 2024-01-17 14:26:30.887251
+Time left 70 hours 32 minutes and 28 seconds
+
+Recording sample number 518 on 2024-01-17 14:26:40.983672
+Time left 70 hours 32 minutes and 18 seconds
+
+Recording sample number 519 on 2024-01-17 14:26:51.077849
+Time left 70 hours 32 minutes and 7 seconds
+
+Recording sample number 520 on 2024-01-17 14:27:01.170486
+Time left 70 hours 31 minutes and 57 seconds
+
+Recording sample number 521 on 2024-01-17 14:27:11.263659
+Time left 70 hours 31 minutes and 47 seconds
+
+Recording sample number 522 on 2024-01-17 14:27:21.360493
+
+
+
+***************************************
+At 2024-01-17 14:27:21.360493 model withcnn estimated 0.06555132567882538
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 31 minutes and 37 seconds
+
+Recording sample number 523 on 2024-01-17 14:27:33.796982
+Time left 70 hours 31 minutes and 25 seconds
+
+Recording sample number 524 on 2024-01-17 14:27:43.369151
+Time left 70 hours 31 minutes and 15 seconds
+
+Recording sample number 525 on 2024-01-17 14:27:53.455462
+Time left 70 hours 31 minutes and 5 seconds
+
+Recording sample number 526 on 2024-01-17 14:28:03.511627
+Time left 70 hours 30 minutes and 55 seconds
+
+Recording sample number 527 on 2024-01-17 14:28:13.592598
+Time left 70 hours 30 minutes and 45 seconds
+
+Recording sample number 528 on 2024-01-17 14:28:23.718239
+Time left 70 hours 30 minutes and 35 seconds
+
+Recording sample number 529 on 2024-01-17 14:28:33.816181
+Time left 70 hours 30 minutes and 25 seconds
+
+Recording sample number 530 on 2024-01-17 14:28:43.907183
+Time left 70 hours 30 minutes and 15 seconds
+
+Recording sample number 531 on 2024-01-17 14:28:54.002432
+Time left 70 hours 30 minutes and 5 seconds
+
+Recording sample number 532 on 2024-01-17 14:29:04.095025
+Time left 70 hours 29 minutes and 54 seconds
+
+Recording sample number 533 on 2024-01-17 14:29:14.188844
+Time left 70 hours 29 minutes and 44 seconds
+
+Recording sample number 534 on 2024-01-17 14:29:24.283732
+Time left 70 hours 29 minutes and 34 seconds
+
+Recording sample number 535 on 2024-01-17 14:29:34.378956
+Time left 70 hours 29 minutes and 24 seconds
+
+Recording sample number 536 on 2024-01-17 14:29:44.471996
+Time left 70 hours 29 minutes and 14 seconds
+
+Recording sample number 537 on 2024-01-17 14:29:54.565862
+Time left 70 hours 29 minutes and 4 seconds
+
+Recording sample number 538 on 2024-01-17 14:30:04.662184
+Time left 70 hours 28 minutes and 54 seconds
+
+Recording sample number 539 on 2024-01-17 14:30:14.757211
+Time left 70 hours 28 minutes and 44 seconds
+
+Recording sample number 540 on 2024-01-17 14:30:24.852327
+
+
+
+***************************************
+At 2024-01-17 14:30:24.852327 model withcnn estimated 0.06386890262365341
+**********************************************
+
+
+
+saved recorded data and rainfall estimate to: recorded_data_and_estimates.csv
+Time left 70 hours 28 minutes and 34 seconds
+
+Recording sample number 541 on 2024-01-17 14:30:37.311138
+Time left 70 hours 28 minutes and 21 seconds
+
+Recording sample number 542 on 2024-01-17 14:30:46.884312
+Time left 70 hours 28 minutes and 12 seconds
+
+Recording sample number 543 on 2024-01-17 14:30:56.966014
+Time left 70 hours 28 minutes and 2 seconds
+
+Recording sample number 544 on 2024-01-17 14:31:07.033328
+Time left 70 hours 27 minutes and 51 seconds
+
+Recording sample number 545 on 2024-01-17 14:31:17.128121
+Time left 70 hours 27 minutes and 41 seconds
+
+Recording sample number 546 on 2024-01-17 14:31:27.225214
+Time left 70 hours 27 minutes and 31 seconds
+
+Recording sample number 547 on 2024-01-17 14:31:37.319628
+Time left 70 hours 27 minutes and 21 seconds
+
+Recording sample number 548 on 2024-01-17 14:31:47.414184
+Time left 70 hours 27 minutes and 11 seconds
+
+Recording sample number 549 on 2024-01-17 14:31:57.506882

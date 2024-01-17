@@ -1,5 +1,6 @@
 import os
 import yaml
+import pandas as pd
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, Reshape
 from keras.layers import Conv2D, MaxPooling2D
@@ -15,7 +16,7 @@ def time_stamp_fnamer(tstamp):
 	return current_date_time_name
 
 def load_config(config_name):
-	CONFIG_PATH = "/home/pi/fixed-pi/Raingauge/Code/config/"
+	CONFIG_PATH = "/home/pi/rainfall_monitor/Fixed_rasp_pi/Raingauge/Code/config"
 	with open (os.path.join(CONFIG_PATH, config_name)) as file:
 		config = yaml.safe_load(file)
 	return config
