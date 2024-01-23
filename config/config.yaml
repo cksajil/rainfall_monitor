@@ -8,16 +8,10 @@ davis_duration_sec: 180
 file_format: "wav"
 resolution: "S32"
 sampling_rate: "8000"
-inference_duration: 0.2
 learning_rate: 0.001
-n_classes: 3
-cnn_dim: [1025, 19]
 stft_shape: [1, 1025, 2657]
 model_dir: model
 infer_model_dir: /home/pi/raingauge/model/
 model_name: cnn.hdf5
 infer_model_name: seq_stft.hdf5
-enclosure_diameter: 0.135
-drop_size: 0.034
 seq_len: 1360000
-
