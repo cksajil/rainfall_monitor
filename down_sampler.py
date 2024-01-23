@@ -5,7 +5,7 @@ from os import listdir
 from os.path import join
 
 
-DATA_PATH = "/Users/sajil/Downloads/rain_data_master/rainfall_sound"
+DATA_PATH = "/Users/sajil/Downloads/rain_data_additional"
 OUTPUT_PATH = "/Users/sajil/Downloads/rain_data_master/rainfall_sound_8k"
 filenames = listdir(DATA_PATH)
 target_Fs = 8000

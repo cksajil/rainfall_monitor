@@ -8,16 +8,5 @@ __pycache__/
 # Ignore virtual environment
 venv/
 
-# Igonote file locations
-recordings/
-
-output_wav/
-
-model/
-
-data/
-
-rain_dataset/
-
 # Ignore jupyter checkpoint
 .ipynb_checkpoints/
