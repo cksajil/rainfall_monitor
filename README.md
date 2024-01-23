@@ -50,8 +50,9 @@ The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 ```console
 python3 daq_pi.py
 ```
+2. `mech_vs_non_mech_dataset_creation.ipynb` contains the Kaggle script to combine wave files recorded along with mechanical rain gauge data to create training data for deep learning modeling.
 
-2. `seq_mech_vs_non_mech.ipynb` contains the LSTM modeling code which uses acoustic and mechanical data for rainfall estimation
+3. `seq_mech_vs_non_mech.ipynb` contains the LSTM modeling code which uses acoustic and mechanical data for rainfall estimation
 
 
 ## Results
