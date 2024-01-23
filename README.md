@@ -46,7 +46,7 @@ The recorded wav files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 2. [Rain_Data_Master_8K](https://www.kaggle.com/datasets/sajilck/rain-data-master-8k) Contains downsamples version of [Rain_Data_Master_2023](https://www.kaggle.com/datasets/sajilck/rain-data-master-2023) so that all files are of same sample rate (i.e. 8K).
 
 ## Scripts
-1. `daq_pi.py` contains Python script for automated audio recording in Raspberry which is added to the `~/.bashrc` profile so that the script is run everytime the device boots up and logs in. The bashrc file is appended with the following command.
+1. `daq_pi.py` contains Python script for automated audio recording in Raspberry which is added to the `~/.bashrc` profile so that the script is run everytime the device boots up and user logs in. The bashrc file is appended with the following command.
 ```console
 python3 daq_pi.py
 ```
