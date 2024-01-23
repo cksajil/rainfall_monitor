@@ -26,7 +26,7 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 ## DAQ Setup
 The Raspberry Pi 4 connected to USB microphone is kept in the enclosure. Ubuntu Server OS is installed to Raspberry Pi 4. After booting up the following script is run to install the dependencies.
 
-```bash
+```console
 chmod 777 setup.sh
 ./setup.sh
 ```
