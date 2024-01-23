@@ -10,6 +10,7 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 2. [Sajil C K](https://github.com/cksajil/)
 3. Manu Mohan M S
 4. Aiswarya Babu 
+5. Harikrishnan K P
 
 ## Sensor used
 1. [USB Mic, Jieli Technology UACDemoV1.0](https://www.amazon.in/USB-Microphone/s?k=USB+Microphone)
