@@ -10,8 +10,9 @@ resolution: "S32"
 sampling_rate: "8000"
 learning_rate: 0.001
 stft_shape: [1, 1025, 2657]
-model_dir: model
 infer_model_dir: /home/pi/raingauge/model/
-model_name: cnn.hdf5
-infer_model_name: seq_stft.hdf5
+deployed_model_type: withcnn
+infer_model_withoutcnn: seq_stft.hdf5
+infer_model_withcnn: rain_stft.hdf5
 seq_len: 1360000
+csv_file_name: recorded_data_and_estimates.csv
