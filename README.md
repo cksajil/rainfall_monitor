@@ -23,6 +23,13 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 2. We used [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) as a DAQ device for audio recording with high resolution and sampling rate.
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg" alt="raspberrypi" width="400"/>
 
+## DAQ Setup
+The Raspberry Pi 4 connected to USB microphone is kept in the enclosure. Ubuntu Server OS is installed to Raspberry Pi 4. After booting up the following script is run to install the dependencies.
+
+```bash
+chmod 777 setup.sh
+./setup.sh
+```
 
 ## Data
 
