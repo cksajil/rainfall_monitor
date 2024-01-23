@@ -21,8 +21,7 @@ def combine_audios(file_paths):
 def estimate_rainfall(model, file_paths):
     audio = combine_audios(file_paths)
     config = load_config("config.yaml")
-    audio = audio[:config["seq_len"]]
+    audio = audio[: config["seq_len"]]
     stft_sample = create_cnn_data(audio)
     y_pred = model.predict(stft_sample, verbose=0)[0][0]
     return y_pred
-

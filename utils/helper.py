@@ -4,6 +4,7 @@ from keras.models import Sequential
 from keras.layers import LSTM, Dense, Reshape
 from keras.layers import Conv2D, MaxPooling2D
 
+
 def time_stamp_fnamer(tstamp):
     """
     A function to generate filenames from timestamps
@@ -41,11 +42,13 @@ def create_log_file(log_folder, log_file):
 
 def create_lstm_model():
     model = Sequential()
-    model.add(Conv2D(64, kernel_size=(8, 8), activation='relu', input_shape=(1025, 2657, 1)))
+    model.add(
+        Conv2D(64, kernel_size=(8, 8), activation="relu", input_shape=(1025, 2657, 1))
+    )
     model.add(MaxPooling2D(pool_size=(8, 8)))
-    model.add(Conv2D(32, kernel_size=(4, 4), activation='relu'))
+    model.add(Conv2D(32, kernel_size=(4, 4), activation="relu"))
     model.add(MaxPooling2D(pool_size=(4, 4)))
-    model.add(Conv2D(16, kernel_size=(2, 2), activation='relu'))
+    model.add(Conv2D(16, kernel_size=(2, 2), activation="relu"))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Reshape((1, -1)))
     model.add(LSTM(20))
