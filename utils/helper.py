@@ -25,7 +25,6 @@ def load_config(config_name):
     CONFIG_PATH = "/home/pi/raingauge/rainfall_monitor/config/"
     with open(os.path.join(CONFIG_PATH, config_name)) as file:
         config = yaml.safe_load(file)
-
     return config
 
 
@@ -40,7 +39,16 @@ def create_log_file(log_folder, log_file):
         f.write("")
 
 
-def create_lstm_model():
+def create_lstm_model_withoutcnn():
+    model = Sequential()
+    model.add(LSTM(20))
+    model.add(Dense(32))
+    model.add(Dense(16))
+    model.add(Dense(1))
+    return model
+
+
+def create_lstm_model_withcnn():
     model = Sequential()
     model.add(
         Conv2D(64, kernel_size=(8, 8), activation="relu", input_shape=(1025, 2657, 1))
@@ -52,14 +60,19 @@ def create_lstm_model():
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Reshape((1, -1)))
     model.add(LSTM(20))
+    model.add(Dense(32))
     model.add(Dense(16))
     model.add(Dense(1))
     return model
 
 
 def load_estimate_model(model_path):
-    model = create_lstm_model()
     config = load_config("config.yaml")
+    if config["deployed_model_type"] == "withcnn":
+        model = create_lstm_model_withcnn()
+    else:
+        model = create_lstm_model_withoutcnn()
+
     model.build(input_shape=config["stft_shape"])
     model.load_weights(model_path)
     return model

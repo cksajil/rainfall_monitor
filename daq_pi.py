@@ -1,5 +1,6 @@
 import logging
 import subprocess
+import pandas as pd
 from os import path
 from datetime import datetime, timedelta
 from utils.helper import time_stamp_fnamer
@@ -15,9 +16,11 @@ logging.basicConfig(
     filemode="a+",
     format="%(message)s",
 )
+
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+result_data = []
 wav_duration = config["sample_duration_sec"]
 davis_duration = config["davis_duration_sec"]
 file_format = config["file_format"]
@@ -26,10 +29,18 @@ sampling_rate = config["sampling_rate"]
 record_hours = config["record_hours"]
 num_samples = int(config["record_hours"] * (3600 / wav_duration))
 num_subsamples = davis_duration // wav_duration
-infer_model_path = path.join(config["infer_model_dir"], config["infer_model_name"])
+
+if config["deployed_model_type"] == "withcnn":
+    infer_model_path = path.join(
+        config["infer_model_dir"], config["infer_model_withcnn"]
+    )
+else:
+    infer_model_path = path.join(
+        config["infer_model_dir"], config["infer_model_withoutcnn"]
+    )
+
 infer_model = load_estimate_model(infer_model_path)
 locations = []
-
 dt_start = datetime.now()
 dt_stop = dt_start + timedelta(hours=record_hours)
 
@@ -57,12 +68,24 @@ for i in range(1, num_samples + 1):
             location,
         ]
     )
+
+    model_type = config["deployed_model_type"]
+
     if i % num_subsamples == 0:
         mm_hat = estimate_rainfall(infer_model, locations)
-        logger.info("\n\n\n*******************************************************")
-        logger.info("At {} estimated {}".format(dt_now, mm_hat))
-        logger.info("*******************************************************\n\n\n")
+        logger.info("\n\n\n***************************************")
+        logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
+        logger.info("**********************************************\n\n\n")
         locations.clear()
+        result_data.append({"time_stamp": dt_now, "rainfall_estimate": mm_hat})
+        result_df = pd.DataFrame(result_data)
+        csv_filename = path.join(config["log_dir"], config["csv_file_name"])
+        result_df.to_csv(csv_filename, index=False)
+        logger.info(
+            "saved recorded data and rainfall estimate to: {}".format(
+                config["csv_file_name"]
+            )
+        )
     else:
         locations.append(location)
 
