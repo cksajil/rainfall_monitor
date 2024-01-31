@@ -11,5 +11,6 @@ venv/
 # Ignore jupyter checkpoint
 .ipynb_checkpoints/
 
-# Ignore temporary locations
+# Ignore temporary locations and files
 saved_TF_model/
+*.tflite
