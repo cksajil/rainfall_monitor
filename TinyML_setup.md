@@ -10,3 +10,16 @@ The following is the set of general steps needed to create TinyML version of the
 | Raspberry Pi Pico         | 264KB  | 2MB   | Dual-core Arm Cortex-M0+ processor 133 MHz |                          |                                                |
 ### Model Size
 As we can see most of the boards are having a flash memory of ~1MB. TinyML steps generally does a 4X reduction of already trained models. Hence we are targetting to convert trained models which are less than 4MB in size.
+
+### Saving Trained Keras Model
+The following code snippet saves the trained Keras models to a specific folder.
+
+```python
+export_dir = 'saved_TF_model/model1'
+tf.saved_model.save(model, export_dir)
+```
+### Convert Keras/TF Model to TFLite Model
+```python
+converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
+tflite_model = converter.convert()  
+```
