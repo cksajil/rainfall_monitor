@@ -31,8 +31,8 @@ Now we can save the tflite model and get its size in KB.
 ```python
 import pathlib
 tflite_model_file = pathlib.Path("model.tflite")
-model_size_kb = tflite_model_file.write_bytes(tflite_model)/1024
-print("Size of TensorFlow Lite Model: {} KB:", model_size_kb)
+model_size_kb = tflite_model_file.write_bytes(tflite_model) /  1024
+print("Size of TensorFlow Lite Model: {} KB:".format(model_size_kb))
 ```
 ## Testing TinyML Model without Edge Device
 ```python
@@ -65,4 +65,20 @@ interpreter.invoke()
 tflite_results = interpreter.get_tensor(output_details[0]["index"])
 print("predicted value:", tflite_results)
 ```
+## TFLite Optimizations
+In additions to optimizations, it is possible to explore the effect of TF Lite optimization on size, performance, and accuracy of the model. Just like the earlier case we can load the full size model	
+```python
+#Again loads the full size model
+converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
 
+#This will represent model weights as 8-bit precision values as opposed to Float32, resulting in 4X reduction
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+tflite_model_opt = converter.convert()
+
+tflite_model_opt_1 = pathlib.Path("model_opt_1.tflite")
+model_size_kb_opt = tflite_model_file.write_bytes(tflite_model_opt) /  1024
+print("Size of TensorFlow Lite Opt Model: {} KB:".format(model_size_kb_opt))
+
+size_reduction = np.round(model_size_kb / model_size_kb_opt, 1)
+print("There is {}x reduction in size".format(size_reduction))
+```
