@@ -19,7 +19,19 @@ export_dir = 'saved_TF_model/model1'
 tf.saved_model.save(model, export_dir)
 ```
 ### Convert Keras/TF Model to TFLite Model
+The following code snippet converts the trained model to tensorflow lite model.
 ```python
 converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
 tflite_model = converter.convert()  
 ```
+### Saving TFLite Model
+Now we can save the tflite model and get its size in KB.
+```python
+import pathlib
+tflite_model_file = pathlib.Path("model.tflite")
+model_size_kb = tflite_model_file.write_bytes(tflite_model)/1024
+print("Size of TensorFlow Lite Model: {} KB:", model_size_kb)
+```
+
+
+

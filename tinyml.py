@@ -1,3 +1,4 @@
+import pathlib
 import numpy as np
 import tensorflow as tf
 from keras.models import Sequential
@@ -29,3 +30,7 @@ tf.saved_model.save(model, export_dir)
 # Convert the model.
 converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
 tflite_model = converter.convert()
+
+tflite_model_file = pathlib.Path("model.tflite")
+model_size_kb = tflite_model_file.write_bytes(tflite_model) / 1024
+print("Size of TensorFlow Lite Model: {} KB:", model_size_kb)
