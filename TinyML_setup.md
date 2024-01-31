@@ -52,7 +52,7 @@ This will give elaborate details of the tflite models input and output such as i
 Now we can pass the input tensor and get the output tensor.
 
 ```python
-to_predict = a = np.float32(np.random.rand(1, 10))
+to_predict = np.float32(np.random.rand(1, 10))
 print("value to predict:", to_predict)
 
 # setting the 'to_predict' value at the appropriate index location of input tensor
@@ -89,13 +89,14 @@ In integer quantization the weights and activations are converted to 8-bit fixed
 converter = tf.lite.TFLiteConverter.from_saved_model(CATS_VS_DOGS_SAVED_MODEL)
 converter.optimizations = [tf.lite.Optimize.DEFAULT]
 
-def  representative_data_gen(): 
+def	representative_data_gen():
 	for input_value, _ in test_batches.take(100):
-		yield  [input_value]
+		yield [input_value]
 		
 converter.representative_dataset = representative_data_gen
 converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
 
 tflite_model_opt_2 = converter.convert()
 tflite_model_opt_2 = pathlib.Path("model_opt_2.tflite")
-tflite_model_opt_2 .write_bytes(tflite_model)
+tflite_model_opt_2.write_bytes(tflite_model)
+```
