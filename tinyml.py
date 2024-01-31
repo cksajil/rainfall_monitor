@@ -1,4 +1,5 @@
 import numpy as np
+import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense
 
@@ -21,3 +22,10 @@ model.fit(X, y, epochs=10)
 loss, accuracy = model.evaluate(X, y)
 print("Loss:", loss)
 print("Accuracy:", accuracy)
+
+export_dir = "saved_TF_model/model1"
+tf.saved_model.save(model, export_dir)
+
+# Convert the model.
+converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
+tflite_model = converter.convert()
