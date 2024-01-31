@@ -10,3 +10,6 @@ venv/
 
 # Ignore jupyter checkpoint
 .ipynb_checkpoints/
+
+# Ignore temporary locations
+saved_TF_model/
