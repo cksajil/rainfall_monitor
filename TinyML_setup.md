@@ -11,6 +11,8 @@ The following is the set of general steps needed to create TinyML version of the
 ### Model Size
 As we can see most of the boards are having a flash memory of ~1MB. TinyML steps generally does a 4X reduction of already trained models. Hence we are targetting to convert trained models which are less than 4MB in size.
 
+## Conversion to TinyML Model
+
 ### Saving Trained Keras Model
 The following code snippet saves the trained Keras models to a specific folder.
 
@@ -32,6 +34,5 @@ tflite_model_file = pathlib.Path("model.tflite")
 model_size_kb = tflite_model_file.write_bytes(tflite_model)/1024
 print("Size of TensorFlow Lite Model: {} KB:", model_size_kb)
 ```
-
-
+## Testing TinyML Model without Edge Device
 
