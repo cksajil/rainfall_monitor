@@ -35,4 +35,34 @@ model_size_kb = tflite_model_file.write_bytes(tflite_model)/1024
 print("Size of TensorFlow Lite Model: {} KB:", model_size_kb)
 ```
 ## Testing TinyML Model without Edge Device
-The TinyML model we just created can be tested using TensorFlow interpretr.
+```python
+# Load TFLite model and allocate tensors.
+interpreter = tf.lite.Interpreter(model_content=tflite_model)
+interpreter.allocate_tensors()
+
+# Get input and output tensors - to run inference
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
+
+print(input_details)
+print(output_details)
+```
+This will give elaborate details of the tflite models input and output such as input shape, output shape, quantization, sparsity etc. We have to make sure that the input tensor we pass in have the same shape and dtype (Float32 or Float64) as the tflite models input shape we just inspected.
+
+Now we can pass the input tensor and get the output tensor.
+
+```python
+to_predict = a = np.float32(np.random.rand(1, 10))
+print("value to predict:", to_predict)
+
+# setting the 'to_predict' value at the appropriate index location of input tensor
+interpreter.set_tensor(input_details[0]["index"], to_predict)
+
+# running inference on 'to_predict' value
+interpreter.invoke()
+
+# read the result that is stored at the appropriate index location of output tensor
+tflite_results = interpreter.get_tensor(output_details[0]["index"])
+print("predicted value:", tflite_results)
+```
+
