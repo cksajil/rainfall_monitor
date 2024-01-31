@@ -35,4 +35,4 @@ model_size_kb = tflite_model_file.write_bytes(tflite_model)/1024
 print("Size of TensorFlow Lite Model: {} KB:", model_size_kb)
 ```
 ## Testing TinyML Model without Edge Device
-
+The TinyML model we just created can be tested using TensorFlow interpretr.
