@@ -32,7 +32,7 @@ record_hours = config["record_hours"]
 num_samples = int(config["record_hours"]*(3600/wav_duration))
 num_subsamples = davis_duration // wav_duration
 if config["deployed_model_type"]=="withcnn":
-	infer_model_path = path.join(config["infer_model_dir"], config["infer_model_withcnn"])
+	infer_model_path = path.join(config["infer_model_dir"], config["infer_model_with_cnn"])
 else:
 	infer_model_path = path.join(config["infer_model_dir"], config["infer_model_withoutcnn"])
 
@@ -55,8 +55,7 @@ for i in range(1, num_samples +1):
 	location = config["data_dir"] +dt_fname
 
 
-	subprocess.call(
-		[
+	subprocess.call([
 		"arecord",
 		"-q",
 		"--duration="+str(wav_duration),
@@ -72,19 +71,21 @@ for i in range(1, num_samples +1):
 	model_type= config["deployed_model_type"]
 	if i % num_subsamples ==0 :
 		mm_hat = estimate_rainfall(infer_model, locations)
-		print(mm_hat)
 		logger.info("\n\n\n***************************************")
 		logger.info("At {} model {} estimated {}".format(dt_now,model_type,mm_hat))
 		logger.info("**********************************************\n\n\n")
-		locations.clear()					
+		locations.clear()
+
 		result_data.append({
-		'Time_stamp': dt_now,
-		'Rainfall Estimate':mm_hat
-		})
-		result_df=pd.DataFrame(result_data)
-		csv_filename =path.join(config["log_dir"],config["csv_file_name"])
-		result_df.to_csv(csv_filename, index=False)
-		logger.info("saved recorded data and rainfall estimate to: {}".format(config["csv_file_name"]))
+    	'Time_stamp': dt_now,
+    	'Rainfall Estimate':mm_hat
+    	})
+
+    	result_df = pd.DataFrame(result_data)
+    	csv_filename = path.join(config["log_dir"],config["csv_file_name"])
+    	result_df.to_csv(csv_filename, index=False)
+
+    	#logger.info("saved recorded data and rainfall estimate to: {}",format(csv_filename))
 
 	else:
 		locations.append(location)
