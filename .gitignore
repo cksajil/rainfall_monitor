@@ -19,5 +19,7 @@ data/
 
 rain_dataset/
 
+speech_commands_v0.02/
+
 # Ignore jupyter checkpoint
 .ipynb_checkpoints/
