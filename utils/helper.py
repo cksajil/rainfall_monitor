@@ -3,7 +3,8 @@ import yaml
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, Reshape
 from keras.layers import Conv2D, MaxPooling2D
-
+import influxdb_client
+from influxdb_client.client.write_api import SYNCHRONOUS
 
 def time_stamp_fnamer(tstamp):
     """
@@ -76,3 +77,19 @@ def load_estimate_model(model_path):
     model.build(input_shape=config["stft_shape"])
     model.load_weights(model_path)
     return model
+
+
+def influxdb(rain: float) -> bool:
+    # Configure influxDB credentials 
+    bucket = "<my-bucket>" # use our bucket name instead of <my-bucket>
+    org = "<my-org>"       # use our org name instead of <my-org>
+    token = "<my-token>"   # use our token instaed of <my-token>
+    url="https://us-west-2-1.aws.cloud2.influxdata.com" # Store the URL of your InfluxDB instance
+
+    #creating an object of influxdb_client
+    client = influxdb_client.InfluxDBClient(url=url,token=token,org=org)
+    write_api = client.write_api(write_options=SYNCHRONOUS)
+    p = influxdb_client.Point("ML-prediction").tag("location","greenfield tvm").field("rain",rain)
+    write_api.write(bucket=bucket, org=org, record=p)
+    client.close()
+    return True
