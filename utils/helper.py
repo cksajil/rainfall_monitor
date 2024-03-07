@@ -19,7 +19,7 @@ def time_stamp_fnamer(tstamp):
     return current_date_time_name
 
 
-def load_config(config_name):
+def load_config(config_name: str):
     """
     A function to load and return config file in YAML format
     """
@@ -29,13 +29,13 @@ def load_config(config_name):
     return config
 
 
-def create_folder(directory):
+def create_folder(directory: str) -> None:
     """Function to create a folder in a location if it does not exist"""
     if not os.path.exists(directory):
         os.makedirs(directory)
 
 
-def create_log_file(log_folder, log_file):
+def create_log_file(log_folder: str, log_file: str) -> None:
     with open(os.path.join(log_folder, log_file), "a") as f:
         f.write("")
 
@@ -79,7 +79,10 @@ def load_estimate_model(model_path):
     return model
 
 
-def influxdb(rain: float) -> bool:
+def influxdb(rain: float) -> bool: 
+    """
+    function to write data to influxdb
+    """
     # Configure influxDB credentials 
     bucket = "<my-bucket>" # use our bucket name instead of <my-bucket>
     org = "<my-org>"       # use our org name instead of <my-org>

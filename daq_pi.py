@@ -3,7 +3,7 @@ import subprocess
 import pandas as pd
 from os import path
 from datetime import datetime, timedelta
-from utils.helper import time_stamp_fnamer
+from utils.helper import time_stamp_fnamer, influxdb
 from utils.estimate import estimate_rainfall
 from utils.helper import load_config, create_folder, load_estimate_model
 
