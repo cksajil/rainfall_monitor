@@ -33,6 +33,7 @@ h5py==3.10.0
 idna==3.4
 importlib-metadata==6.8.0
 importlib-resources==6.1.0
+influxdb-client==1.41.0
 ipykernel==6.25.2
 ipython==8.16.1
 jedi==0.19.1

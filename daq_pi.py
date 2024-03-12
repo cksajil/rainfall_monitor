@@ -3,13 +3,13 @@ import subprocess
 import pandas as pd
 from os import path
 from datetime import datetime, timedelta
-from utils.helper import time_stamp_fnamer
+from utils.helper import time_stamp_fnamer, influxdb
 from utils.estimate import estimate_rainfall
 from utils.helper import load_config, create_folder, load_estimate_model
 
 
-config = load_config("config.yaml")
-create_folder(config["log_dir"])
+config = load_config("config.yaml") # loading data from config.yaml 
+create_folder(config["log_dir"]) # creating a folder in a directory specified in config.yml as log_dir
 
 logging.basicConfig(
     filename=path.join(config["log_dir"], config["log_filename"]),
