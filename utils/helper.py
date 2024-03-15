@@ -27,7 +27,7 @@ def load_config(config_name: str) -> dict:
     """
     A function to load and return config file in YAML format
     """
-    CONFIG_PATH = "/home/pi/raingauge/rainfall_monitor/config"
+    CONFIG_PATH = "/home/pi/raingauge/code/config"
     with open(os.path.join(CONFIG_PATH, config_name)) as file:
         config = yaml.safe_load(file)
     return config
@@ -41,7 +41,7 @@ def create_folder(directory: str) -> None:
         os.makedirs(directory)
 
 
-def create_lstm_model_withoutcnn() -> any: 
+def create_lstm_model_withoutcnn() -> any:
     # couldn't find datatype of return
     # <class 'keras.src.engine.sequential.Sequential'>
     # there is no input parmeter
@@ -87,20 +87,24 @@ def load_estimate_model(model_path: str) -> any:
     return model
 
 
-def influxdb(rain: float) -> bool: 
+def influxdb(rain: float) -> bool:
     """
     function to write data to influxdb
     """
-    # Configure influxDB credentials 
-    bucket = "<my-bucket>" # use our bucket name instead of <my-bucket>
-    org = "<my-org>"       # use our org name instead of <my-org>
-    token = "<my-token>"   # use our token instaed of <my-token>
-    url="https://us-west-2-1.aws.cloud2.influxdata.com" # Store the URL of your InfluxDB instance
+    # Configure influxDB credentials
+    bucket = "<my-bucket>"  # use our bucket name instead of <my-bucket>
+    org = "<my-org>"  # use our org name instead of <my-org>
+    token = "<my-token>"  # use our token instaed of <my-token>
+    url = "https://us-west-2-1.aws.cloud2.influxdata.com"  # Store the URL of your InfluxDB instance
 
-    #creating an object of influxdb_client
-    client = influxdb_client.InfluxDBClient(url=url,token=token,org=org)
+    # creating an object of influxdb_client
+    client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
     write_api = client.write_api(write_options=SYNCHRONOUS)
-    p = influxdb_client.Point("ML-prediction").tag("location","greenfield tvm").field("rain",rain)
+    p = (
+        influxdb_client.Point("ML-prediction")
+        .tag("location", "greenfield tvm")
+        .field("rain", rain)
+    )
     write_api.write(bucket=bucket, org=org, record=p)
     client.close()
     return True
