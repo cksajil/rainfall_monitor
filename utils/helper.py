@@ -41,7 +41,7 @@ def create_folder(directory: str) -> None:
         os.makedirs(directory)
 
 
-def create_lstm_model_withoutcnn(): 
+def create_lstm_model_withoutcnn() -> any: 
     # couldn't find datatype of return
     # <class 'keras.src.engine.sequential.Sequential'>
     # there is no input parmeter
@@ -53,7 +53,7 @@ def create_lstm_model_withoutcnn():
     return model
 
 
-def create_lstm_model_withcnn():
+def create_lstm_model_withcnn() -> any:
     # couldn't find datatype of return
     # <class 'keras.src.engine.sequential.Sequential'>
     # there is no input parmeter
@@ -74,7 +74,7 @@ def create_lstm_model_withcnn():
     return model
 
 
-def load_estimate_model(model_path: str):
+def load_estimate_model(model_path: str) -> any:
     # couldn't find datatype of return
     config = load_config("config.yaml")
     if config["deployed_model_type"] == "withcnn":
