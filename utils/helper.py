@@ -3,9 +3,14 @@ import yaml
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, Reshape
 from keras.layers import Conv2D, MaxPooling2D
+import influxdb_client
+from influxdb_client.client.write_api import SYNCHRONOUS
 
 
-def time_stamp_fnamer(tstamp):
+def time_stamp_fnamer(tstamp) -> str:
+    # datetime.now() is the input parameter
+    # couldn't find data type for "datetime"
+    # <class 'datetime.datetime'>
     """
     A function to generate filenames from timestamps
     """
@@ -18,7 +23,7 @@ def time_stamp_fnamer(tstamp):
     return current_date_time_name
 
 
-def load_config(config_name):
+def load_config(config_name: str) -> dict:
     """
     A function to load and return config file in YAML format
     """
@@ -28,18 +33,18 @@ def load_config(config_name):
     return config
 
 
-def create_folder(directory):
-    """Function to create a folder in a location if it does not exist"""
+def create_folder(directory: str) -> None:
+    """
+    Function to create a folder in a location if it does not exist
+    """
     if not os.path.exists(directory):
         os.makedirs(directory)
 
 
-def create_log_file(log_folder, log_file):
-    with open(os.path.join(log_folder, log_file), "a") as f:
-        f.write("")
-
-
-def create_lstm_model_withoutcnn():
+def create_lstm_model_withoutcnn() -> any:
+    # couldn't find datatype of return
+    # <class 'keras.src.engine.sequential.Sequential'>
+    # there is no input parmeter
     model = Sequential()
     model.add(LSTM(20))
     model.add(Dense(32))
@@ -48,7 +53,10 @@ def create_lstm_model_withoutcnn():
     return model
 
 
-def create_lstm_model_withcnn():
+def create_lstm_model_withcnn() -> any:
+    # couldn't find datatype of return
+    # <class 'keras.src.engine.sequential.Sequential'>
+    # there is no input parmeter
     model = Sequential()
     model.add(
         Conv2D(64, kernel_size=(8, 8), activation="relu", input_shape=(1025, 2657, 1))
@@ -66,7 +74,8 @@ def create_lstm_model_withcnn():
     return model
 
 
-def load_estimate_model(model_path):
+def load_estimate_model(model_path: str) -> any:
+    # couldn't find datatype of return
     config = load_config("config.yaml")
     if config["deployed_model_type"] == "withcnn":
         model = create_lstm_model_withcnn()
@@ -76,3 +85,26 @@ def load_estimate_model(model_path):
     model.build(input_shape=config["stft_shape"])
     model.load_weights(model_path)
     return model
+
+
+def influxdb(rain: float) -> bool:
+    """
+    function to write data to influxdb
+    """
+    # Configure influxDB credentials
+    bucket = "<my-bucket>"  # use our bucket name instead of <my-bucket>
+    org = "<my-org>"  # use our org name instead of <my-org>
+    token = "<my-token>"  # use our token instaed of <my-token>
+    url = "https://us-west-2-1.aws.cloud2.influxdata.com"  # Store the URL of your InfluxDB instance
+
+    # creating an object of influxdb_client
+    client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
+    write_api = client.write_api(write_options=SYNCHRONOUS)
+    p = (
+        influxdb_client.Point("ML-prediction")
+        .tag("location", "greenfield tvm")
+        .field("rain", rain)
+    )
+    write_api.write(bucket=bucket, org=org, record=p)
+    client.close()
+    return True

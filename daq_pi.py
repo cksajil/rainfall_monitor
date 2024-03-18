@@ -3,13 +3,13 @@ import subprocess
 import pandas as pd
 from os import path
 from datetime import datetime, timedelta
-from utils.helper import time_stamp_fnamer
+from utils.helper import time_stamp_fnamer, influxdb
 from utils.estimate import estimate_rainfall
 from utils.helper import load_config, create_folder, load_estimate_model
 
 
-config = load_config("config.yaml")
-create_folder(config["log_dir"])
+config = load_config("config.yaml") # loading data from config.yaml 
+create_folder(config["log_dir"]) # creating a folder in a directory specified in config.yml as log_dir
 
 logging.basicConfig(
     filename=path.join(config["log_dir"], config["log_filename"]),
@@ -20,6 +20,8 @@ logging.basicConfig(
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+db_counter = 0  # for helping data writing to DB
+rain = 0
 result_data = []
 wav_duration = config["sample_duration_sec"]
 davis_duration = config["davis_duration_sec"]
@@ -73,6 +75,12 @@ for i in range(1, num_samples + 1):
 
     if i % num_subsamples == 0:
         mm_hat = estimate_rainfall(infer_model, locations)
+        # script for writing data to influxdb in every 15 min
+        rain += mm_hat
+        db_counter += 1
+        if db_counter == 5:         
+            influxdb(rain)
+            rain,db_counter = 0,0  
         logger.info("\n\n\n***************************************")
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
         logger.info("**********************************************\n\n\n")

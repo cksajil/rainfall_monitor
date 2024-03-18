@@ -1,7 +1,5 @@
 import RPi.GPIO as GPIO
 from datetime import datetime
-import time
-
 import pandas as pd
 from os import path
 from utils.helper import load_config
@@ -12,6 +10,7 @@ GPIO.setup(interrupt_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 BUCKET_SIZE = 0.2
 count = 0
+log_count = 0
 dt_start = datetime.now()
 config = load_config("config.yaml")
 labels_df = pd.DataFrame(columns=["time", "rainfall"])
@@ -37,13 +36,15 @@ def saving_data():
 GPIO.add_event_detect(interrupt_pin, GPIO.RISING, callback=bucket_tipped, bouncetime=50)
 
 try:
-    while True:
-        time.sleep(0.01)
+    while True:      
         dt_now = datetime.now()
         elapsed_time = dt_now - dt_start
-        if elapsed_time.seconds % 10 == 0:
-            saving_data()
-            time.sleep(1)
-            reset_rainfall()
+        if elapsed_time.seconds % 10 == 0:  # for storing data in every 10s interval
+            if log_count == 0:              # to avoid multiple data logging
+                saving_data()
+                reset_rainfall() 
+                log_count = 1 
+        else:
+            log_count = 0 
 except KeyboardInterrupt:
     GPIO.cleanup()

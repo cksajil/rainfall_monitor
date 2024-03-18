@@ -3,13 +3,13 @@ import numpy as np
 from .helper import load_config
 
 
-def create_cnn_data(raw_data):
+def create_cnn_data(raw_data: np.ndarray) -> np.ndarray:
     Zxx = librosa.stft(raw_data)
     stft_sample = np.abs(Zxx)
     return stft_sample[np.newaxis, :, :]
 
 
-def combine_audios(file_paths):
+def combine_audios(file_paths: str) -> np.ndarray:
     audio = np.array([])
     config = load_config("config.yaml")
     for file_path in file_paths:
@@ -18,7 +18,9 @@ def combine_audios(file_paths):
     return audio
 
 
-def estimate_rainfall(model, file_paths):
+def estimate_rainfall(model: any, file_paths: str) -> float:
+    # unable to find data type of model
+    # model data is collecting from functions in helper.py
     audio = combine_audios(file_paths)
     config = load_config("config.yaml")
     audio = audio[: config["seq_len"]]
