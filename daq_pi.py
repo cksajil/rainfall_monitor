@@ -8,8 +8,10 @@ from utils.estimate import estimate_rainfall
 from utils.helper import load_config, create_folder, load_estimate_model
 
 
-config = load_config("config.yaml") # loading data from config.yaml 
-create_folder(config["log_dir"]) # creating a folder in a directory specified in config.yml as log_dir
+config = load_config("config.yaml")  # loading data from config.yaml
+create_folder(
+    config["log_dir"]
+)  # creating a folder in a directory specified in config.yml as log_dir
 
 logging.basicConfig(
     filename=path.join(config["log_dir"], config["log_filename"]),
@@ -71,6 +73,7 @@ for i in range(1, num_samples + 1):
         ]
     )
 
+    locations.append(location)
     model_type = config["deployed_model_type"]
 
     if i % num_subsamples == 0:
@@ -78,9 +81,9 @@ for i in range(1, num_samples + 1):
         # script for writing data to influxdb in every 15 min
         rain += mm_hat
         db_counter += 1
-        if db_counter == 5:         
+        if db_counter == 5:
             influxdb(rain)
-            rain,db_counter = 0,0  
+            rain, db_counter = 0, 0
         logger.info("\n\n\n***************************************")
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
         logger.info("**********************************************\n\n\n")
@@ -94,8 +97,6 @@ for i in range(1, num_samples + 1):
                 config["csv_file_name"]
             )
         )
-    else:
-        locations.append(location)
 
     time_left = dt_stop - dt_now
     days, seconds = time_left.days, time_left.seconds
