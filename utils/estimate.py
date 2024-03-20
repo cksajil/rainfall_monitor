@@ -21,6 +21,7 @@ def combine_audios(file_paths: str) -> np.ndarray:
 def estimate_rainfall(model: any, file_paths: str) -> float:
     # unable to find data type of model
     # model data is collecting from functions in helper.py
+    print(len(file_paths))
     audio = combine_audios(file_paths)
     config = load_config("config.yaml")
     audio = audio[: config["seq_len"]]
