@@ -25,6 +25,5 @@ def estimate_rainfall(model: any, file_paths: str) -> float:
     config = load_config("config.yaml")
     audio = audio[: config["seq_len"]]
     stft_sample = create_cnn_data(audio)
-    print(stft_sample.shape)
     y_pred = model.predict(stft_sample, verbose=0)[0][0]
     return y_pred
