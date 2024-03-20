@@ -7,9 +7,14 @@
 - Connect Davis to GPIO pin number 13 and ground (optional)
 
 ## Software Setup
-1. Install Ubuntu Server 22.04.4 LTS (64-bit) using Raspberry Pi Imager
+1. Install Ubuntu Server 22.04.4 LTS (64-bit) using **Raspberry Pi Imager** Software
+![screenshot_1](./images/screenshot_1.png)
+
 
 2. Enable SSH Settings, give user credentials and WiFi credentials
+![screenshot_2](./images/screenshot_2.png)
+![screenshot_3](./images/screenshot_3.png)
+![screenshot_4](./images/screenshot_4.png)
 
 3. Flash the operating system and boot the Raspberry Pi
 
@@ -20,7 +25,7 @@ sudo apt update
 sudo apt upgrade
 ```
 
-5. Install audio related packages & Reboot
+5. Install audio related packages & reboot
 
 ```bash
 sudo apt install alsa-utils
@@ -32,7 +37,7 @@ sudo reboot
 ```bash
 lsusb
 ```
-This will list out all the USB devices connected to Raspberry Pi including the microphone. Make sure the microphone is getting detected by unplugging it first, run this command and then run it after plugging the USB microphone. The microphone or soundcard name should appear in the list as an additional entry.
+This will list out all the USB devices connected to Raspberry Pi. To make sure that microphone is getting detected run the above command without connecting microphone and see the output. Repeat the same after connecting the microphone. Now the microphone or soundcard name should appear in the list as an additional entry.
 
 7. Check if $arecord$ command lists the input devices
 ```bash
@@ -46,7 +51,7 @@ sudo reboot
 
 9. After rebooting check if $arecord$ command is working
 ```bash
-# Records a 5 second audio as wav file
+# Records a 5 second test audio as wav file
 arecord —duration=5 sample.wav
 
 # Delete the test file
@@ -102,7 +107,7 @@ git checkout gitlab
 # Dependency setup in Raspberry Pi
 python3 -m pip install -r requirements.txt
 
-# Install required packages independently incase of dependency issue above
+# Install required packages independently in case of dependency issue above
 pip install packagename
 ```
 
