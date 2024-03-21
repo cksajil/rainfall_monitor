@@ -78,7 +78,6 @@ for i in range(1, num_samples + 1):
 
     if i % num_subsamples == 0:
         mm_hat = estimate_rainfall(infer_model, locations)
-
         logger.info("\n\n\n***************************************")
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
         logger.info("**********************************************\n\n\n")
@@ -95,9 +94,11 @@ for i in range(1, num_samples + 1):
         # script for writing data to influxdb in every 15 min
         rain += mm_hat
         db_counter += 1
-        if db_counter == 5:
+        if db_counter == 1:
             api_status = influxdb(rain)
-            logger.info("At {} API write status: ".format(dt_now, api_status))
+            logger.info("\n\n\n*****************************************")
+            logger.info("At {} API write status: ".format(dt_now, str(api_status)))
+            logger.info("**********************************************\n\n\n")
             rain, db_counter = 0, 0
 
     time_left = dt_stop - dt_now
