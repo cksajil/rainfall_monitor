@@ -101,7 +101,9 @@ def influxdb(rain: float) -> bool:
     url = influxdb["url"]
 
     # creating an object of influxdb_client
-    client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
+    client = influxdb_client.InfluxDBClient(
+        url=url, token=token, org=org, timeout=30_000
+    )
     write_api = client.write_api(write_options=SYNCHRONOUS)
     p = (
         influxdb_client.Point("ML-prediction")
