@@ -97,7 +97,7 @@ for i in range(1, num_samples + 1):
         db_counter += 1
         if db_counter == 5:
             api_status = influxdb(rain)
-            print("API write status: ", api_status)
+            logger.info("At {} API write status: ".format(dt_now, api_status))
             rain, db_counter = 0, 0
 
     time_left = dt_stop - dt_now
