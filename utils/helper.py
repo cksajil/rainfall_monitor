@@ -5,6 +5,7 @@ from keras.layers import LSTM, Dense, Reshape
 from keras.layers import Conv2D, MaxPooling2D
 import influxdb_client
 from influxdb_client.client.write_api import SYNCHRONOUS
+from requests.exceptions import ConnectionError
 
 
 def time_stamp_fnamer(tstamp) -> str:
@@ -91,20 +92,29 @@ def influxdb(rain: float) -> bool:
     """
     function to write data to influxdb
     """
-    # Configure influxDB credentials
-    bucket = "<my-bucket>"  # use our bucket name instead of <my-bucket>
-    org = "<my-org>"  # use our org name instead of <my-org>
-    token = "<my-token>"  # use our token instaed of <my-token>
-    url = "https://us-west-2-1.aws.cloud2.influxdata.com"  # Store the URL of your InfluxDB instance
+    try:
+        influxdb_config = load_config("influxdb_api.yaml")
 
-    # creating an object of influxdb_client
-    client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
-    write_api = client.write_api(write_options=SYNCHRONOUS)
-    p = (
-        influxdb_client.Point("ML-prediction")
-        .tag("location", "greenfield tvm")
-        .field("rain", rain)
-    )
-    write_api.write(bucket=bucket, org=org, record=p)
-    client.close()
-    return True
+        # Configure influxDB credentials
+        bucket = influxdb_config["bucket"]
+        org = influxdb_config["org"]
+        token = influxdb_config["token"]
+        url = influxdb_config["url"]
+
+        # creating an object of influxdb_client
+        client = influxdb_client.InfluxDBClient(
+            url=url, token=token, org=org, timeout=30_000
+        )
+        write_api = client.write_api(write_options=SYNCHRONOUS)
+        p = (
+            influxdb_client.Point("ML-prediction")
+            .tag("location", "greenfield tvm")
+            .field("rain", rain)
+        )
+
+        write_api.write(bucket=bucket, org=org, record=p)
+        client.close()
+        return True
+    except ConnectionError as e:
+        print(f"Connection to InfluxDB failed: {e}")
+        return False

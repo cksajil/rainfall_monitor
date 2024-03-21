@@ -1,5 +1,6 @@
 import logging
 import subprocess
+import numpy as np
 import pandas as pd
 from os import path
 from datetime import datetime, timedelta
@@ -77,16 +78,10 @@ for i in range(1, num_samples + 1):
     model_type = config["deployed_model_type"]
 
     if i % num_subsamples == 0:
-        mm_hat = estimate_rainfall(infer_model, locations)
-        # script for writing data to influxdb in every 15 min
-        rain += mm_hat
-        db_counter += 1
-        if db_counter == 5:
-            influxdb(rain)
-            rain, db_counter = 0, 0
-        logger.info("\n\n\n***************************************")
+        mm_hat = np.round(estimate_rainfall(infer_model, locations), 2)
+        logger.info("\n\n\n*******************************************************")
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
-        logger.info("**********************************************\n\n\n")
+        logger.info("*******************************************************\n\n\n")
         locations.clear()
         result_data.append({"time_stamp": dt_now, "rainfall_estimate": mm_hat})
         result_df = pd.DataFrame(result_data)
@@ -97,6 +92,15 @@ for i in range(1, num_samples + 1):
                 config["csv_file_name"]
             )
         )
+        # script for writing data to influxdb in every 15 min
+        rain += mm_hat
+        db_counter += 1
+        if db_counter == 5:
+            api_status = influxdb(mm_hat)
+            logger.info("\n\n\n*******************************************************")
+            logger.info("At {} API write status: {}".format(dt_now, str(api_status)))
+            logger.info("*******************************************************\n\n\n")
+            rain, db_counter = 0, 0
 
     time_left = dt_stop - dt_now
     days, seconds = time_left.days, time_left.seconds
