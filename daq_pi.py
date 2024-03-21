@@ -97,7 +97,7 @@ for i in range(1, num_samples + 1):
         if db_counter == 1:
             api_status = influxdb(rain)
             logger.info("\n\n\n*****************************************")
-            logger.info("At {} API write status: ".format(dt_now, str(api_status)))
+            logger.info("At {} API write status: {}".format(dt_now, str(api_status)))
             logger.info("**********************************************\n\n\n")
             rain, db_counter = 0, 0
 
