@@ -78,7 +78,7 @@ for i in range(1, num_samples + 1):
     model_type = config["deployed_model_type"]
 
     if i % num_subsamples == 0:
-        mm_hat = np.round(estimate_rainfall(infer_model, locations), 2)
+        mm_hat = estimate_rainfall(infer_model, locations)
         logger.info("\n\n\n*******************************************************")
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
         logger.info("*******************************************************\n\n\n")
