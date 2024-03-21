@@ -111,7 +111,7 @@ python3 -m pip install -r requirements.txt
 pip install packagename
 ```
 
-15. Add influx-db details (bucket, org, token, and URL) to helper.py
+15. Add influx-db yaml file (**influxdb_api.yaml**) to config folder
 
 
 16. Enable autologin 
