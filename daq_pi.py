@@ -78,12 +78,7 @@ for i in range(1, num_samples + 1):
 
     if i % num_subsamples == 0:
         mm_hat = estimate_rainfall(infer_model, locations)
-        # script for writing data to influxdb in every 15 min
-        rain += mm_hat
-        db_counter += 1
-        if db_counter == 5:
-            influxdb(rain)
-            rain, db_counter = 0, 0
+
         logger.info("\n\n\n***************************************")
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
         logger.info("**********************************************\n\n\n")
@@ -97,6 +92,12 @@ for i in range(1, num_samples + 1):
                 config["csv_file_name"]
             )
         )
+        # script for writing data to influxdb in every 15 min
+        rain += mm_hat
+        db_counter += 1
+        if db_counter == 5:
+            api_status = influxdb(rain)
+            rain, db_counter = 0, 0
 
     time_left = dt_stop - dt_now
     days, seconds = time_left.days, time_left.seconds
