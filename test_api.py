@@ -1,18 +1,9 @@
 import os
 import yaml
 import influxdb_client
+from utils.helper import load_config
 from influxdb_client.client.write_api import SYNCHRONOUS
 from requests.exceptions import ConnectionError
-
-
-def load_config(config_name: str) -> dict:
-    """
-    A function to load and return config file in YAML format
-    """
-    CONFIG_PATH = "./config"
-    with open(os.path.join(CONFIG_PATH, config_name)) as file:
-        config = yaml.safe_load(file)
-    return config
 
 
 def influxdb(rain: float) -> bool:
