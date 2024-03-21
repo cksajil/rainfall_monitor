@@ -91,11 +91,14 @@ def influxdb(rain: float) -> bool:
     """
     function to write data to influxdb
     """
+
+    influxdb = load_config("influxdb_api.yaml")
+
     # Configure influxDB credentials
-    bucket = "<my-bucket>"  # use our bucket name instead of <my-bucket>
-    org = "<my-org>"  # use our org name instead of <my-org>
-    token = "<my-token>"  # use our token instaed of <my-token>
-    url = "https://us-west-2-1.aws.cloud2.influxdata.com"  # Store the URL of your InfluxDB instance
+    bucket = influxdb["bucket"]
+    org = influxdb["org"]
+    token = influxdb["token"]
+    url = influxdb["url"]
 
     # creating an object of influxdb_client
     client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
