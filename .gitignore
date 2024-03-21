@@ -14,3 +14,6 @@ venv/
 # Ignore temporary locations and files
 saved_TF_model/
 *.tflite
+
+# Ignore Influxdb API credentials
+config/influxdb_api.yaml
