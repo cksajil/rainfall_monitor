@@ -1,6 +1,8 @@
 # Acoustic Rainfall Monitoring
 ## A project by [ICFOSS](https://icfoss.in/)
 
+### [Click here](https://visualizedev.icfoss.org/d/riYMAg1Ik/non_mech_rain-_gauge?orgId=3&refresh=1m&from=now-24h&to=now) to see live data on Grafana dashboard
+
 Rainfall also known as precipitation is an important part of environment stability. Inorder to have a sustainable echo system, it is important for living beings to have access to clean drinking water. It is also important for early flood warning as well. Many efforts to attain this objective depends on accurate precipitation monitoring.
 
 Precipitation monitoring devices are broadly classified into manuel, mechanical, and optical. It is desirable to have accurate sensors which are not manuel/mechanical/optical. This project is an attempt to predict precipitation using machine learning techniques with sound loudness as input feature.
@@ -24,12 +26,7 @@ Precipitation monitoring devices are broadly classified into manuel, mechanical,
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg" alt="raspberrypi" width="400"/>
 
 ## DAQ Setup
-The Raspberry Pi 4 connected to USB microphone is kept in the enclosure. Ubuntu Server OS is installed to Raspberry Pi 4. After booting up the following script is run to install the dependencies.
-
-```console
-chmod 777 setup.sh
-./setup.sh
-```
+The setup guide can be found [here](https://github.com/cksajil/rainfall_monitor/blob/sajil/rain_gauge_setup.md)
 
 ## Data
 
@@ -57,11 +54,7 @@ python3 daq_pi.py
 
 ## Results
 
-#### LSTM Sequential Model Performance
+### LSTM Sequential Model Performance
 | **EPOCHS** | **MODEL** | **MAPE** |
 |------------|-----------|----------|
 | 25         | LSTM      | 31.15%   |
-
-
-### Observations
-1. The LSTM based sequential model is having a reasonably good performance with a Mean Absolute Percentage Error (MAPE) of 31.15%
