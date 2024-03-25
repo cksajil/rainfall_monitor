@@ -109,7 +109,7 @@ git checkout gitlab
 python3 -m pip install -r requirements.txt
 
 # Install required packages independently in case of dependency issue above
-pip install packagename
+pip install packagename (e.g. pandas)
 ```
 
 15. Add influx-db yaml file (**influxdb_api.yaml**) to config folder
