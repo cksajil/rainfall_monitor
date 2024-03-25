@@ -52,7 +52,7 @@ sudo reboot
 9. After rebooting check if $arecord$ command is working
 ```bash
 # Records a 5 second test audio as wav file
-arecord —duration=5 sample.wav
+arecord --duration=5 sample.wav
 
 # Delete the test file
 rm sample.wav
