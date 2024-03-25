@@ -77,7 +77,8 @@ sudo chmod 777 /sys/class/gpio/gpio6/edge
 
 12. Create folder structure needed
 ```bash
-mkdir raingauge logs  model data
+mkdir raingauge
+mkdir raingauge/model raingauge/data raingauge/logs
 ```
 
 13. Copy the trained model files to models folder

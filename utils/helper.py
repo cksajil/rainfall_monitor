@@ -9,9 +9,6 @@ from requests.exceptions import ConnectionError
 
 
 def time_stamp_fnamer(tstamp) -> str:
-    # datetime.now() is the input parameter
-    # couldn't find data type for "datetime"
-    # <class 'datetime.datetime'>
     """
     A function to generate filenames from timestamps
     """
@@ -43,9 +40,7 @@ def create_folder(directory: str) -> None:
 
 
 def create_lstm_model_withoutcnn() -> any:
-    # couldn't find datatype of return
-    # <class 'keras.src.engine.sequential.Sequential'>
-    # there is no input parmeter
+    """Creates and returns an LSTM model with only Dense blocks"""
     model = Sequential()
     model.add(LSTM(20))
     model.add(Dense(32))
@@ -55,9 +50,7 @@ def create_lstm_model_withoutcnn() -> any:
 
 
 def create_lstm_model_withcnn() -> any:
-    # couldn't find datatype of return
-    # <class 'keras.src.engine.sequential.Sequential'>
-    # there is no input parmeter
+    """Creates and returns LSTM models with Conv and Dense blocks"""
     model = Sequential()
     model.add(
         Conv2D(64, kernel_size=(8, 8), activation="relu", input_shape=(1025, 2657, 1))
@@ -76,7 +69,7 @@ def create_lstm_model_withcnn() -> any:
 
 
 def load_estimate_model(model_path: str) -> any:
-    # couldn't find datatype of return
+    """Loads deep learning model, build it and loads weights"""
     config = load_config("config.yaml")
     if config["deployed_model_type"] == "withcnn":
         model = create_lstm_model_withcnn()
