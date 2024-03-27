@@ -28,18 +28,13 @@ def reset_rainfall():
     count = 0
 
 
-def saving_data(label_dir):
+def saving_data(label_dir, dt_now):
     rainfall = count * BUCKET_SIZE
     labels_df.loc[len(labels_df)] = (dt_now, rainfall)
     labels_df.to_csv(path.join(label_dir, config["label_file"]), index=False)
 
 
-def un_davis_logger():
-    GPIO.add_event_detect(
-        interrupt_pin, GPIO.RISING, callback=bucket_tipped, bouncetime=50
-    )
-    dt_now = datetime.now()
-
+GPIO.add_event_detect(interrupt_pin, GPIO.RISING, callback=bucket_tipped, bouncetime=50)
 
 session_dir = time_stamp_fnamer(dt_start)
 label_dir = path.join(config["log_dir"], session_dir)
@@ -51,7 +46,7 @@ try:
         elapsed_time = dt_now - dt_start
         if elapsed_time.seconds % 10 == 0:  # for storing data in every 10s interval
             if log_count == 0:  # to avoid multiple data logging
-                saving_data(label_dir)
+                saving_data(label_dir, dt_now)
                 reset_rainfall()
                 log_count = 1
         else:
