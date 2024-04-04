@@ -134,20 +134,29 @@ ExecStart=-/sbin/agetty --noissue --autologin username %I $TERM
 Type=idle
 ```
 
-17. Add Python scripts to Bashrc 
+17. Add the device to Zerotier account
+
+Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/)
+
+
+
+18. Use `nohup` to initiate scripts or add Python scripts to bashrc file  
+
+```bash
+nohup python3 daq_pi.py &
+nohup python3 davis_logger.py &
+```
+
+OR
+
 ```bash
 nano ~/.bashrc
 
 # Appened the following line to the end of .bashrc file
 python3 /home/pi/raingauge/code/daq_pi.py & python3 /home/pi/raingauge/code/davis_logger.py
-```
 
-18. Reboot the Raspberry Pi
-```bash
+# Reboot the device
 sudo reboot
 ```
 
-19. Add the device to Zerotier account
-
-Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/)
 
