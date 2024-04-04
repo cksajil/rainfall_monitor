@@ -146,3 +146,8 @@ python3 /home/pi/raingauge/code/daq_pi.py & python3 /home/pi/raingauge/code/davi
 ```bash
 sudo reboot
 ```
+
+19. Add the device to Zerotier account
+
+Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/)
+
