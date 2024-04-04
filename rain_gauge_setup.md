@@ -124,7 +124,7 @@ sudo nano /etc/systemd/logind.conf
 sudo mkdir /etc/systemd/system/getty@tty1.service.d/
 sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
 ```
-Add the following content tooverride.conf file
+Add the following content to override.conf file
 
 ```bash
 # Here replace username with your Raspberry Pi username
