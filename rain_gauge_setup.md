@@ -27,7 +27,7 @@ sudo apt upgrade
 
 ### 5. Install audio related packages & reboot
 
-```console
+```fish
 sudo apt install alsa-utils
 sudo apt install pulseaudio
 sudo reboot
