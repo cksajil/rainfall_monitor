@@ -20,7 +20,7 @@
 
 ### 4. Update and upgrade OS
 
-```console
+```shell
 sudo apt update
 sudo apt upgrade
 ```
