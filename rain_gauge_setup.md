@@ -20,21 +20,21 @@
 
 ### 4. Update and upgrade OS
 
-```bash
+```console
 sudo apt update
 sudo apt upgrade
 ```
 
 ### 5. Install audio related packages & reboot
 
-```bash
+```console
 sudo apt install alsa-utils
 sudo apt install pulseaudio
 sudo reboot
 ```
 
 ### 6. Check in command line if microphone is detected
-```bash
+```console
 lsusb
 ```
 This will list out all the USB devices connected to Raspberry Pi. To make sure that microphone is getting detected run the above command without connecting microphone and see the output. Repeat the same after connecting the microphone. Now the microphone or soundcard name should appear in the list as an additional entry.
