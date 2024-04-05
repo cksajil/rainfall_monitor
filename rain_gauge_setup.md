@@ -20,7 +20,7 @@
 
 ### 4. Update and upgrade OS
 
-```shell
+```fish
 sudo apt update
 sudo apt upgrade
 ```
