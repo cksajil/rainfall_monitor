@@ -94,7 +94,7 @@ for i in range(1, num_samples + 1):
         rain += mm_hat
         db_counter += 1
         if db_counter == 5:
-            api_status = influxdb(mm_hat)
+            api_status = influxdb(rain)
             logger.info("\n\n\n*******************************************************")
             logger.info("At {} API write status: {}".format(dt_now, str(api_status)))
             logger.info("*******************************************************\n\n\n")
