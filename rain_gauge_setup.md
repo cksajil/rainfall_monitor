@@ -98,8 +98,6 @@ wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15Ywp
 
 ### 15. Clone the project repository to $raingauge$ folder
 ```bash
-# Change directory
-cd raingauge
 
 # Clone the repository
 git clone https://github.com/cksajil/rainfall_monitor.git
