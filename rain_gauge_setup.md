@@ -73,11 +73,7 @@ sudo apt install python3-pip
 ```bash
 sudo apt install python3-rpi.gpio
 pip install lgpio==0.0.0.2
-sudo chmod 777 /sys/class/gpio/export 
-sudo echo 6 > /sys/class/gpio/export 
-sudo chmod 777 /sys/class/gpio/gpio6/direction 
-sudo echo in > /sys/class/gpio/gpio6/direction 
-sudo chmod 777 /sys/class/gpio/gpio6/edge
+sudo reboot
 ```
 
 
