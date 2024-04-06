@@ -89,6 +89,8 @@ mkdir raingauge/model raingauge/data raingauge/logs
 
 ### 14. Copy the trained model files to models folder
 ```bash
+cd raingauge
+
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=17yY89nn5k9YEcEXLsZiXsKorpf9Mzlvr' -O model/rain_stft.hdf5
 
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15YwpKMOJ8MyvhM9zoIHB-H_u-d09p6Xz' -O model/seq_stft.hdf5
