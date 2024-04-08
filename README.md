@@ -8,7 +8,7 @@ Rainfall also known as precipitation is an important part of environment stabili
 Precipitation monitoring devices are broadly classified into manuel, mechanical, and optical. It is desirable to have accurate sensors which are not manuel/mechanical/optical. This project is an attempt to predict precipitation using machine learning techniques with sound loudness as input feature.
 
 ## Project Members
-1. Gopika T G
+1. [Gopika T G](https://github.com/GopikaTG)
 2. [Sajil C K](https://github.com/cksajil/)
 3. Manu Mohan M S
 4. Aiswarya Babu 
