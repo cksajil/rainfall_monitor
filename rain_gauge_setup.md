@@ -72,7 +72,6 @@ sudo apt install python3-pip
 ### 12. GPIO setup of logging davis data via GPIO
 ```bash
 sudo apt install python3-rpi.gpio
-pip install lgpio==0.0.0.2
 sudo reboot
 ```
 
