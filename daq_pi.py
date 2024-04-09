@@ -23,6 +23,7 @@ logger.setLevel(logging.INFO)
 
 db_counter = 0
 rain = 0
+DB_write_interval = config["DB_writing_interval_min"]/3
 result_data = []
 wav_duration = config["sample_duration_sec"]
 davis_duration = config["davis_duration_sec"]
@@ -90,10 +91,10 @@ for i in range(1, num_samples + 1):
                 config["csv_file_name"]
             )
         )
-        # Script for writing data to influxdb in every 15 min
+        # Script for controlling influxdb data writing interval
         rain += mm_hat
         db_counter += 1
-        if db_counter == 1:
+        if db_counter == DB_write_interval: # now sending data in every 3min interval
             api_status = influxdb(rain)
             logger.info("\n\n\n*******************************************************")
             logger.info("At {} API write status: {}".format(dt_now, str(api_status)))
