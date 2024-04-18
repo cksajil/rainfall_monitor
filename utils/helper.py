@@ -21,11 +21,10 @@ def time_stamp_fnamer(tstamp) -> str:
     return current_date_time_name
 
 
-def load_config(config_name: str) -> dict:
+def load_config(config_name: str, CONFIG_PATH="/home/pi/raingauge/code/config") -> dict:
     """
     A function to load and return config file in YAML format
     """
-    CONFIG_PATH = "/home/pi/raingauge/code/config"
     with open(os.path.join(CONFIG_PATH, config_name)) as file:
         config = yaml.safe_load(file)
     return config
