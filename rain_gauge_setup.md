@@ -29,14 +29,17 @@ Both Ethernet and Wifi should be UP and IP should be assigned
 ```bash
 sudo apt update
 sudo apt upgrade
+sudo reboot
 ```
 
-### 6. Install audio related packages & reboot
+### 6. Download and run setup.sh for automating environment setup
 
 ```bash
-sudo apt install alsa-utils
-sudo apt install pulseaudio
-sudo reboot
+# Download setup.sh
+wget 'https://raw.githubusercontent.com/cksajil/rainfall_monitor/hari/setup.sh'
+
+# run setup.sh
+bash setup.sh
 ```
 
 ### 7. Check in command line if microphone is detected
@@ -64,84 +67,15 @@ arecord --duration=5 sample.wav
 rm sample.wav
 ```
 
-### 11. Install PIP
-```bash
-sudo apt install python3-pip
-```
+### 11. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
 
-### 12. GPIO setup of logging davis data via GPIO
-```bash
-sudo apt install python3-rpi.gpio
-sudo reboot
-```
-
-
-### 13. Create folder structure needed
-```bash
-mkdir raingauge
-mkdir raingauge/model raingauge/data raingauge/logs
-```
-
-### 14. Copy the trained model files to models folder
-```bash
-cd raingauge
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=17yY89nn5k9YEcEXLsZiXsKorpf9Mzlvr' -O model/rain_stft.hdf5
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15YwpKMOJ8MyvhM9zoIHB-H_u-d09p6Xz' -O model/seq_stft.hdf5
-```
-
-### 15. Clone the project repository to $raingauge$ folder
-```bash
-
-# Clone the repository
-git clone https://github.com/cksajil/rainfall_monitor.git
-
-# Rename the directory
-mv rainfall_monitor code
-
-# Change directory
-cd code
-
-# Checkout gitlab branch
-git checkout gitlab
-
-# Dependency setup in Raspberry Pi
-python3 -m pip install -r requirements.txt
-
-# Install required packages independently in case of dependency issue above
-pip install packagename (e.g. pandas)
-```
-
-### 16. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
-
-
-### 17. Enable autologin 
-```bash
-sudo nano /etc/systemd/logind.conf
-# Uncomment lines starting with NAutoVTs=6 and ReserveVT=6, save and exit
-
-# Create an autologin service
-sudo mkdir /etc/systemd/system/getty@tty1.service.d/
-sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
-```
-Add the following content to override.conf file
-
-```bash
-# Here replace username with your Raspberry Pi username
-[Service]
-ExecStart=
-ExecStart=-/sbin/agetty --noissue --autologin username %I $TERM
-Type=idle
-```
-
-### 18. Add the device to Zerotier account
+### 12. Add the device to Zerotier account
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
 
 
-### 19. Use `nohup` to initiate scripts or add Python scripts to bashrc file  
+### 13. Use `nohup` to initiate scripts or add Python scripts to bashrc file  
 
 ```bash
 nohup python3 daq_pi.py &
