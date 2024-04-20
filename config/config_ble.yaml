@@ -1,9 +1,0 @@
-data_dir: /home/icfoss/Datasets/rain_seq_master/
-sample_duration_sec: 10
-davis_duration_sec: 10
-sampling_rate: 8000
-learning_rate: 0.001
-model_name: seq_stft.weights.h5
-window_size: 1024
-step_size: 256
-seq_len: 8000
