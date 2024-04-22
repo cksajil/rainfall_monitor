@@ -8,6 +8,18 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from requests.exceptions import ConnectionError
 
 
+def load_config(config_name: str,CONFIG_PATH = "/home/pi/raingauge/code/config") -> dict:
+    """
+    A function to load and return config file in YAML format
+    """
+    with open(os.path.join(CONFIG_PATH, config_name)) as file:
+        config = yaml.safe_load(file)
+    return config
+
+# loading config files
+config = load_config("config.yaml")
+influxdb_config = load_config("influxdb_api.yaml")
+
 def time_stamp_fnamer(tstamp) -> str:
     """
     A function to generate filenames from timestamps
@@ -19,15 +31,6 @@ def time_stamp_fnamer(tstamp) -> str:
     current_time = "_".join([chour, cmin, csec, cmilli])
     current_date_time_name = "_".join([current_date, current_time])
     return current_date_time_name
-
-
-def load_config(config_name: str,CONFIG_PATH = "/home/pi/raingauge/code/config") -> dict:
-    """
-    A function to load and return config file in YAML format
-    """
-    with open(os.path.join(CONFIG_PATH, config_name)) as file:
-        config = yaml.safe_load(file)
-    return config
 
 
 def create_folder(directory: str) -> None:
@@ -67,8 +70,9 @@ def create_lstm_model_withcnn() -> any:
 
 
 def load_estimate_model(model_path: str) -> any:
-    """Loads deep learning model, build it and loads weights"""
-    config = load_config("config.yaml")
+    """
+    Loads deep learning model, build it and loads weights
+    """
     if config["deployed_model_type"] == "withcnn":
         model = create_lstm_model_withcnn()
     else:
@@ -84,8 +88,6 @@ def influxdb(rain: float) -> bool:
     function to write data to influxdb
     """
     try:
-        influxdb_config = load_config("influxdb_api.yaml")
-
         # Configure influxDB credentials
         bucket = influxdb_config["bucket"]
         org = influxdb_config["org"]
