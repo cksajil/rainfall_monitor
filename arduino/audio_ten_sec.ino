@@ -9,12 +9,13 @@
 #include <tensorflow/lite/micro/system_setup.h>
 #include <tensorflow/lite/schema/schema_generated.h>
 
-// Constants & Globals
-#define SAMPLES 8000
+#define SAMPLES 512 // Corresponds to 1.9 ms of audio
 #define SAMPLING_FREQUENCY 16000
-float32_t sampleBuffer[SAMPLES];
 
+short sampleBuffer[SAMPLES];
+float32_t sampleBufferFloat[SAMPLES];
 volatile int samplesRead;
+
 void onPDMdata(void);
 
 static const char CHANNELS = 1;
@@ -52,7 +53,7 @@ namespace
     // Create an area of memory to use for input, output, and intermediate arrays.
     // The size of this will depend on the model you're using, and may need to be
     // determined by experimentation.
-    constexpr int kTensorArenaSize = 2 * 2048;
+    constexpr int kTensorArenaSize = 20 * 2048;
     uint8_t tensor_arena[kTensorArenaSize];
 }
 
@@ -68,18 +69,15 @@ void setup()
     Serial.begin(9600);
     while (!Serial)
     {
-        ; // wait for serial port to connect. Needed for native USB port only
-    }
+    };
 
     PDM.onReceive(onPDMdata);
     PDM.setBufferSize(SAMPLES);
     PDM.setGain(40);
-
     if (!PDM.begin(CHANNELS, SAMPLING_FREQUENCY))
     {
         Serial.println("Failed to start PDM!");
     }
-
     model = tflite::GetModel(g_model);
     if (model->version() != TFLITE_SCHEMA_VERSION)
     {
@@ -112,13 +110,21 @@ void setup()
 
 void loop()
 {
-
     if (samplesRead)
     {
+        for (int i = 0; i < samplesRead; i++)
+        {
+            sampleBufferFloat[i] = static_cast<float32_t>(sampleBuffer[i]);
+        }
+        // for (int i = 0; i < samplesRead; i++)
+        // {
+        //     Serial.println(sampleBufferFloat[i]);
+        // }
+
         // initialize input with Sample Buffer Values
         for (int i = 0; i < samplesRead; i++)
         {
-            arm_float_to_q15(&sampleBuffer[i], &input_q15[i], 1);
+            arm_float_to_q15(&sampleBufferFloat[i], &input_q15[i], 1);
         }
         // unsigned long pipeline_start_us = micros();
 
@@ -143,6 +149,9 @@ void loop()
         appendToArray();
         // Serial.println(sizeof(twoDArray));
         // Serial.println(sizeof(twoDArray[0]));
+
+        // clear the read count
+        samplesRead = 0;
     }
 
     for (int i = 0; i < COLS; i++)
@@ -158,6 +167,7 @@ void loop()
     }
 
     float pred = model_output->data.f[0];
+    Serial.print("Estimated Rainfall: ");
     Serial.println(pred);
 }
 
