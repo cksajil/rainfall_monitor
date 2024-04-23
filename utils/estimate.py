@@ -12,7 +12,7 @@ def create_cnn_data(raw_data: np.ndarray) -> np.ndarray:
     return stft_sample[np.newaxis, :, :]
 
 
-def combine_audios(file_paths: str) -> np.ndarray:
+def combine_audios(file_paths: list) -> np.ndarray:
     """
     Combines various audio files in their chronological order
     based on list of audio file paths provided
@@ -24,7 +24,7 @@ def combine_audios(file_paths: str) -> np.ndarray:
     return audio
 
 
-def estimate_rainfall(model: any, file_paths: str) -> float:
+def estimate_rainfall(model: any, file_paths: list) -> float:
     """
     Computed the models prediction on input data provided
     """
