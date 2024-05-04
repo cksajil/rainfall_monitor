@@ -8,7 +8,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from requests.exceptions import ConnectionError
 
 
-def load_config(config_name: str,CONFIG_PATH = "./utils/config") -> dict:
+def load_config(config_name: str,CONFIG_PATH = "./config") -> dict:
     """
     A function to load and return config file in YAML format
     """
