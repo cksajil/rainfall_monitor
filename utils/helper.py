@@ -8,7 +8,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from requests.exceptions import ConnectionError
 
 
-def load_config(config_name: str,CONFIG_PATH = "/home/pi/raingauge/code/config") -> dict:
+def load_config(config_name: str,CONFIG_PATH = "./utils/config") -> dict:
     """
     A function to load and return config file in YAML format
     """
@@ -18,7 +18,6 @@ def load_config(config_name: str,CONFIG_PATH = "/home/pi/raingauge/code/config")
 
 # loading config files
 config = load_config("config.yaml")
-influxdb_config = load_config("influxdb_api.yaml")
 
 def time_stamp_fnamer(tstamp) -> str:
     """
@@ -89,6 +88,7 @@ def influxdb(rain: float) -> bool:
     """
     try:
         # Configure influxDB credentials
+        influxdb_config = load_config("influxdb_api.yaml")
         bucket = influxdb_config["bucket"]
         org = influxdb_config["org"]
         token = influxdb_config["token"]
