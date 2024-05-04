@@ -73,9 +73,13 @@ rm sample.wav
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
+### 13. change present working directory to code
 
+```bash
+cd /home/pi/raingauge/code/
+```
 
-### 13. Use `nohup` to initiate scripts or add Python scripts to bashrc file  
+### 14. Use `nohup` to initiate scripts or add Python scripts to bashrc file  
 
 ```bash
 nohup python3 daq_pi.py &
@@ -87,7 +91,7 @@ OR
 ```bash
 nano ~/.bashrc
 
-# Appened the following line to the end of .bashrc file
+# Appened the following line to the end of .bashrc file (this may cause path errors)
 python3 /home/pi/raingauge/code/daq_pi.py & python3 /home/pi/raingauge/code/davis_logger.py
 
 # Reboot the device
