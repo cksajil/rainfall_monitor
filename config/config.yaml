@@ -16,3 +16,5 @@ infer_model_withoutcnn: seq_stft.hdf5
 infer_model_withcnn: rain_stft.hdf5
 seq_len: 1360000
 csv_file_name: recorded_data_and_estimates.csv
+rain_gpi0_power_pin: 12
+rain_gpio_input_pin: 7
