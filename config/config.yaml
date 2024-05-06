@@ -16,3 +16,8 @@ infer_model_withoutcnn: seq_stft.hdf5
 infer_model_withcnn: rain_stft.hdf5
 seq_len: 1360000
 csv_file_name: recorded_data_and_estimates.csv
+interrupt_pin: 13
+davis_log_interval_sec: 10 # max.value is 60
+DB_writing_interval_min: 3 # use multiples of 3 only
+rain_gpi0_power_pin: 12
+rain_gpio_input_pin: 7
