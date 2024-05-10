@@ -74,6 +74,8 @@ echo '*********************************************************** ENVIRONMENT CR
 #installing dependencies
 echo '******************************************************** INSTALLING DEPENDENCIES **************************************************************'
 sudo apt install python3-pip
+export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
+echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
 pip install --upgrade pip
 sudo apt-get install pkg-config
 sudo apt-get install libhdf5-dev
@@ -83,8 +85,6 @@ sudo apt install pulseaudio
 sudo apt-get install usbutils
 pip install influxdb-client
 pip install pandas # numpy will automatically install with pandas
-export PATH="$HOME/.local/bin:$PATH" # adding f2py(part of numpy) path to system environment variable
-echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
 pip install librosa
 pip install keras
 pip install tensorflow
@@ -98,6 +98,5 @@ sudo reboot
 # issues
 # how to resolve asking password input when using sudo command?
 # how to install influxdb credentials automatically
-# how to dowload this bash script to initiate everything # slution: downloading bash script from github repo using wget.
 # if we move github repo contain bash script to another directory while executing bash.will that effect execution.(we can solve the issue by moving desired files only)
 # how to automate audio checking functionality
