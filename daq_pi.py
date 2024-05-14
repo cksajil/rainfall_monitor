@@ -8,7 +8,7 @@ import RPi.GPIO as GPIO
 from utils.helper import time_stamp_fnamer, influxdb
 from utils.estimate import estimate_rainfall
 from utils.helper import load_config, create_folder, load_estimate_model
-from utils.gpio import setup_rain_gpio,enable_rain_sensor,gpio_cleanup
+from utils.gpio import setup_rain_gpio,enable_rain_sensor
 from utils.gpio import disable_rain_sensor,read_rain_sensor
 
 
@@ -55,8 +55,6 @@ logger.info("\n\n\n*******************************************************")
 logger.info("Started data logging at {}\n".format(dt_start))
 logger.info("Total number of samples to be recorded: {}\n".format(num_samples))
 
-setup_rain_gpio()
-enable_rain_sensor()
 
 for i in range(1, num_samples + 1):
     dt_now = datetime.now()
@@ -101,8 +99,10 @@ for i in range(1, num_samples + 1):
         rain += mm_hat
         db_counter += 1
         if db_counter == DB_write_interval: # now sending data in every 3min interval
+            setup_rain_gpio()
+            enable_rain_sensor()
             rain_sensor_status = read_rain_sensor()
-            if (rain_sensor_status==GPIO.LOW and rain>=0.1): # chance of error when we change data sending inteval
+            if (rain_sensor_status==GPIO.LOW and rain>=0.1): # chance of error when we change data sending interval
                 api_status = influxdb(rain)
             else:
                 api_status = influxdb(0.0)
@@ -110,6 +110,8 @@ for i in range(1, num_samples + 1):
             logger.info("At {} API write status: {}".format(dt_now, str(api_status)))
             logger.info("*******************************************************\n\n\n")
             rain, db_counter = 0, 0
+            disable_rain_sensor()
+            GPIO.cleanup([4, 17])
 
     time_left = dt_stop - dt_now
     days, seconds = time_left.days, time_left.seconds
@@ -124,5 +126,3 @@ for i in range(1, num_samples + 1):
 dt_end = datetime.now()
 logger.info("Finished data logging at {}\n".format(dt_end))
 logger.info("*******************************************************\n\n\n")
-disable_rain_sensor()
-gpio_cleanup()
