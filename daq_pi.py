@@ -8,8 +8,8 @@ import RPi.GPIO as GPIO
 from utils.helper import time_stamp_fnamer, influxdb
 from utils.estimate import estimate_rainfall
 from utils.helper import load_config, create_folder, load_estimate_model
-from utils.gpio import setup_rain_gpio,enable_rain_sensor
-from utils.gpio import disable_rain_sensor,read_rain_sensor
+from utils.gpio import setup_rain_gpio,enable_rain_sensor,POWER_PIN
+from utils.gpio import disable_rain_sensor,read_rain_sensor,RAIN_PIN
 
 
 config = load_config("config.yaml")
@@ -111,7 +111,7 @@ for i in range(1, num_samples + 1):
             logger.info("*******************************************************\n\n\n")
             rain, db_counter = 0, 0
             disable_rain_sensor()
-            GPIO.cleanup([4, 17])
+            GPIO.cleanup([POWER_PIN, RAIN_PIN])
 
     time_left = dt_stop - dt_now
     days, seconds = time_left.days, time_left.seconds
