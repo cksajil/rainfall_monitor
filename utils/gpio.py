@@ -3,7 +3,7 @@ from .helper import load_config
 import time
 
 config = load_config("config.yaml")
-POWER_PIN = config["rain_gpi0_power_pin"]
+POWER_PIN = config["rain_gpio_power_pin"]
 RAIN_PIN = config["rain_gpio_input_pin"]
 
 
