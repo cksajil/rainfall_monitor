@@ -104,7 +104,7 @@ for i in range(1, num_samples + 1):
             rain_sensor_status = read_rain_sensor()
             # if (rain_sensor_status==GPIO.LOW and rain>=0.1): # chance of error when we change data sending interval
             if rain >= 0.3:
-                api_status = influxdb(rain)
+                api_status = influxdb(mm_hat)
             else:
                 api_status = influxdb(0.0)
             logger.info("\n\n\n*******************************************************")
