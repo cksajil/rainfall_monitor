@@ -5,8 +5,8 @@ from os import listdir
 from datetime import datetime, timedelta
 
 
-MECH_FILE_PATH = "/home/icfoss/Datasets/A.raingauge _data/davis_label.csv"
-NON_MECH_PATH = "/home/icfoss/Datasets/A.raingauge _data/data/"
+MECH_FILE_PATH = "/home/icfoss/Downloads/davis_label.csv"
+NON_MECH_PATH = "/home/icfoss/Downloads/data/"
 
 mech_data = pd.read_csv(MECH_FILE_PATH)
 mech_data["time"] = pd.to_datetime(mech_data["time"])
