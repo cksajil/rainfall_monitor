@@ -5,11 +5,11 @@ from os import listdir
 from datetime import datetime, timedelta
 
 
-MECH_FILE_PATH = "/home/icfoss/Downloads/davis_label.csv"
-NON_MECH_PATH = "/home/icfoss/Downloads/data/"
+MECH_FILE_PATH = "/home/icfoss/Downloads/rain_data_mechanical_master.csv"
+NON_MECH_PATH = "/home/icfoss/Downloads/rainfall_sound_8k/"
 
 mech_data = pd.read_csv(MECH_FILE_PATH)
-mech_data["time"] = pd.to_datetime(mech_data["time"])
+mech_data["Time"] = pd.to_datetime(mech_data["Time"])
 wave_files = sorted(listdir(NON_MECH_PATH))
 
 
@@ -31,7 +31,7 @@ def find_files_to_delete(mech_data, wave_files):
     filtered_wavefiles = []
     for wave_file in wave_files:
         file_datetime = extract_datetime_from_filename(wave_file)
-        for checkpoint in mech_data["time"]:
+        for checkpoint in mech_data["Time"]:
             if checkpoint - timedelta(minutes=3) <= file_datetime <= checkpoint:
                 filtered_wavefiles.append(wave_file)
     return list(set(wave_files) - set(filtered_wavefiles))
