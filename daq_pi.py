@@ -8,8 +8,8 @@ import RPi.GPIO as GPIO
 from utils.helper import time_stamp_fnamer, influxdb
 from utils.estimate import estimate_rainfall
 from utils.helper import load_config, create_folder, load_estimate_model
-from utils.gpio import setup_rain_gpio,enable_rain_sensor,POWER_PIN
-from utils.gpio import disable_rain_sensor,read_rain_sensor,RAIN_PIN
+from utils.gpio import setup_rain_gpio, enable_rain_sensor, gpio_cleanup
+from utils.gpio import disable_rain_sensor, read_rain_sensor
 
 
 config = load_config("config.yaml")
@@ -26,7 +26,7 @@ logger.setLevel(logging.INFO)
 
 db_counter = 0
 rain = 0
-DB_write_interval = config["DB_writing_interval_min"]/3
+DB_write_interval = config["DB_writing_interval_min"] / 3
 result_data = []
 wav_duration = config["sample_duration_sec"]
 davis_duration = config["davis_duration_sec"]
@@ -98,12 +98,12 @@ for i in range(1, num_samples + 1):
         # Script for controlling influxdb data writing interval
         rain += mm_hat
         db_counter += 1
-        if db_counter == DB_write_interval: # now sending data in every 3min interval
-            setup_rain_gpio()
-            enable_rain_sensor()
+        if db_counter == DB_write_interval:  # now sending data in every 3min interval
             rain_sensor_status = read_rain_sensor()
-            if (rain_sensor_status==GPIO.LOW and rain>=0.1): # chance of error when we change data sending interval
-                api_status = influxdb(rain)
+            # if (rain_sensor_status==GPIO.LOW and rain>=0.1): # chance of error when we change data sending interval
+            if rain >= 0.37:
+                api_status = influxdb(mm_hat)
+
             else:
                 api_status = influxdb(0.0)
             logger.info("\n\n\n*******************************************************")
