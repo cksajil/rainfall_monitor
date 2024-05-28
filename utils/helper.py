@@ -8,7 +8,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from requests.exceptions import ConnectionError
 
 
-def load_config(config_name: str,CONFIG_PATH = "./config") -> dict:
+def load_config(config_name: str, CONFIG_PATH="./config") -> dict:
     """
     A function to load and return config file in YAML format
     """
@@ -16,8 +16,10 @@ def load_config(config_name: str,CONFIG_PATH = "./config") -> dict:
         config = yaml.safe_load(file)
     return config
 
+
 # loading config files
 config = load_config("config.yaml")
+
 
 def time_stamp_fnamer(tstamp) -> str:
     """
@@ -53,7 +55,7 @@ def create_lstm_model_withoutcnn() -> any:
 def create_lstm_model_withcnn() -> any:
     """Creates and returns LSTM models with Conv and Dense blocks"""
     model = Sequential()
-    model.add(Input((1025, 2657, 1)))
+    model.add(Input((1025, 2672, 1)))
     model.add(Conv2D(64, kernel_size=(8, 8), activation="relu"))
     model.add(MaxPooling2D(pool_size=(8, 8)))
     model.add(Conv2D(32, kernel_size=(4, 4), activation="relu"))
