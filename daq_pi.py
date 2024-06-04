@@ -1,16 +1,14 @@
 import logging
 import subprocess
-import numpy as np
 import pandas as pd
 from os import path
-from datetime import datetime, timedelta
 import RPi.GPIO as GPIO
-from utils.helper import time_stamp_fnamer, influxdb
+from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
+from utils.helper import time_stamp_fnamer, influxdb
 from utils.helper import load_config, create_folder, load_estimate_model
-from utils.gpio import setup_rain_gpio, enable_rain_sensor, gpio_cleanup
-from utils.gpio import disable_rain_sensor, read_rain_sensor
-
+from utils.gpio import setup_rain_sensor_gpio, gpio_cleanup
+from utils.gpio import enable_rain_sensor, read_rain_sensor, disable_rain_sensor
 
 config = load_config("config.yaml")
 create_folder(config["log_dir"])
@@ -55,7 +53,7 @@ logger.info("\n\n\n*******************************************************")
 logger.info("Started data logging at {}\n".format(dt_start))
 logger.info("Total number of samples to be recorded: {}\n".format(num_samples))
 
-setup_rain_gpio()
+setup_rain_sensor_gpio()
 enable_rain_sensor()
 
 for i in range(1, num_samples + 1):
