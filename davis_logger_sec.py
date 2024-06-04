@@ -49,7 +49,7 @@ try:
         dt_now = datetime.now()
         rain_sensor_status = read_rain_sensor()
         elapsed_time = dt_now - dt_start
-        if rain_sensor_status == GPIO.LOW:
+        if (elapsed_time.seconds % 2 == 0) and rain_sensor_status == GPIO.LOW:
             if log_count == 0:
                 saving_data(label_dir, dt_now)
                 reset_rainfall()
