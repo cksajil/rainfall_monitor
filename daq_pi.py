@@ -86,7 +86,14 @@ for i in range(1, num_samples + 1):
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
         logger.info("*******************************************************\n\n\n")
         locations.clear()
-        result_data.append({"time_stamp": dt_now, "rainfall_estimate": mm_hat})
+        rain_sensor_status = read_rain_sensor()
+        result_data.append(
+            {
+                "time_stamp": dt_now,
+                "rainfall_estimate": mm_hat,
+                "rain_sensor_status": rain_sensor_status,
+            }
+        )
         result_df = pd.DataFrame(result_data)
         csv_filename = path.join(config["log_dir"], config["csv_file_name"])
         result_df.to_csv(csv_filename, index=False)
