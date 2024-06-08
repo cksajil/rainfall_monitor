@@ -1,43 +1,46 @@
-# Acoustic Rain Gauge
+# Edge Analytics Enabled Acoustic Rain Gauge
 ### R & D project by [ICFOSS](https://icfoss.in/)
 
+### Introduction
 Rainfall, also known as precipitation, is crucial for environmental stability. Accurate precipitation monitoring is vital for weather forecasting and creating early flood warning systems. In this project we have developed an acoustic rain gauge that estimates rainfall by using sound as input data.
-
-
-### Experiment Setup
 
 ![Experiment Setup](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/experiment_setup.jpeg)
 
-### Live Data Visualization
+**Figure 1:** Experiment setup
+
+### Installation and Setup
+The setup guide can be found [here](https://github.com/cksajil/rainfall_monitor/blob/sajil/rain_gauge_setup.md).
+
+### Live Data and Visualization
 
 ![grafana](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/data_visualisation.png)
 
 ### [Click here](https://visualizedev.icfoss.org/d/riYMAg1Ik/non_mech_rain-_gauge?orgId=3&refresh=1m&from=now-24h&to=now) to see live data from our acoustic rain gauge
 
-## Team
+### Project Members
 1. [Gopika T G](https://github.com/GopikaTG)
 2. [Sajil C K](https://github.com/cksajil/)
 3. [Manu Mohan M S](https://github.com/MMS731)
 4. [Aiswarya Babu](https://github.com/aiswaryaaishh)
 5. [Harikrishnan K P](https://github.com/Thelastblackpearl)
 
-## Sensor Used
+### Installation and Setup
+#### Sensor Used
 1. [USB Mic, Jieli Technology UACDemoV1.0](https://www.amazon.in/USB-Microphone/s?k=USB+Microphone)
 <img src="https://images.meesho.com/images/products/293053361/m8ldc_512.webp" width="200"/>
 
-## Data Acquisition Devices (DAQs)
+#### Data Acquisition Devices (DAQs)
 1. [Davis AeroCone 6466M Rain Gauge](https://www.amazon.de/-/en/Davis-AeroCone-6466M-Gauge-Sensor/dp/B08629NFVG) - The mechanical rain gauge used as a reference for comparing rainfall against acoustic readings.
 <img src="https://m.media-amazon.com/images/I/612KqYGrL7L._AC_SX466_.jpg" width="200"/>
 
 2. [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) - Used as a DAQ device for high-resolution and high-sampling-rate audio recording.
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg" alt="Raspberry Pi" width="300"/>
 
-## DAQ Setup
-The setup guide can be found [here](https://github.com/cksajil/rainfall_monitor/blob/sajil/rain_gauge_setup.md).
 
-## Data
 
-### Data from USB Mic and Raspberry Pi
+### Data Collection
+
+#### Data from USB Mic and Raspberry Pi
 The USB mic captures audio files saved in WAV format with a fixed duration. The parameters for the audio files (e.g., sampling rate, sample duration, bit size, total recording time, etc.) can be set in the `config.yaml` file. The recorded audio files are analyzed for deep learning modeling.
 
 The recorded WAV files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec.wav`) as shown below:
@@ -48,7 +51,7 @@ The recorded WAV files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 1. [Rain_Data_Master_2023](https://www.kaggle.com/datasets/sajilck/rain-data-master-2023) - Contains all audio recordings and rainfall data from the mechanical rain gauge collected so far. Note that files have different durations (10 sec and 3 sec) and sampling rates (48K & 8K).
 2. [Rain_Data_Master_8K](https://www.kaggle.com/datasets/sajilck/rain-data-master-8k) - Contains a downsampled version of [Rain_Data_Master_2023](https://www.kaggle.com/datasets/sajilck/rain-data-master-2023) with a uniform sample rate of 8K.
 
-## Scripts
+### Scripts
 1. `daq_pi.py` and `davis_logger.py` - These are the main script files for data acquisition and model inference. `daq_pi.py` is used for automated audio recording on Raspberry Pi and model inference. `davis_logger.py` logs data from the Davis rain gauge using the Raspberry Pi's GPIO pins. These scripts can be initiated with the `nohup` command or by adding them to the `~/.bashrc` profile.
 If added to the `~/.bashrc` profile, the script will run everytime the device boots up/user logs in/terminal opened. 
 
@@ -74,7 +77,7 @@ sudo reboot
 3. `seq_mech_vs_non_mech.ipynb` contains the LSTM modeling code which uses acoustic and mechanical data for rainfall estimation
 
 
-## Results
+### Results
 
 
 
@@ -87,9 +90,7 @@ sudo reboot
 **Table 1:** Performance of LSTM model on various features
 
 
-
-
-## Contact Information
+### Contact Information
 
 You can find us at:
 
