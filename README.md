@@ -76,11 +76,11 @@ sudo reboot
 
 
 
-# Contact Information
+## Contact Information
 
 You can find us at:
 
-ICFOSS<br>
+**ICFOSS**<br>
 Greenfield Stadium,<br>
 Opposite University of Kerala Campus, Karyavattom,<br>
 Thiruvananthapuram, Kerala 695581
