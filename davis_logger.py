@@ -43,9 +43,15 @@ def influxdb(rain: float):
         bucket = influxdb_config["davis_bucket"]
         token = influxdb_config["davis_token"]
 
-        client = influxdb_client.InfluxDBClient(url=url, token=token, org=org, timeout=30_000)
+        client = influxdb_client.InfluxDBClient(
+            url=url, token=token, org=org, timeout=30_000
+        )
         write_api = client.write_api(write_options=SYNCHRONOUS)
-        p = (influxdb_client.Point("pi_davis_raingauge").tag("location", "greenfield tvm").field("rain", rain))
+        p = (
+            influxdb_client.Point("pi_davis_raingauge")
+            .tag("location", "greenfield tvm")
+            .field("rain", rain)
+        )
         write_api.write(bucket=bucket, org=org, record=p)
         client.close()
         return True
@@ -59,7 +65,7 @@ def saving_data(label_dir, dt_now):
     influxdb(rainfall)
     labels_df.loc[len(labels_df)] = (dt_now, rainfall)
     labels_df.to_csv(path.join(label_dir, config["label_file"]), index=False)
-    
+
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(interrupt_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -69,7 +75,9 @@ try:
     while True:
         dt_now = datetime.now()
         elapsed_time = dt_now - dt_start
-        if elapsed_time.seconds % logging_interval == 0:  # for storing data in a perticular interval
+        if (
+            elapsed_time.seconds % logging_interval == 0
+        ):  # for storing data in a perticular interval
             if log_count == 0:  # to avoid multiple data logging
                 saving_data(label_dir, dt_now)
                 reset_rainfall()
