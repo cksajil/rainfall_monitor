@@ -49,14 +49,14 @@ The recorded WAV files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 1. `daq_pi.py` and `davis_logger.py` - These are the main script files for data acquisition and model inference. `daq_pi.py` is used for automated audio recording on Raspberry Pi and model inference. `davis_logger.py` logs data from the Davis rain gauge using the Raspberry Pi's GPIO pins. These scripts can be initiated with the `nohup` command or by adding them to the `~/.bashrc` profile.
 If added to the `~/.bashrc` profile, the script will run everytime the device boots up/user logs in/terminal opened. 
 
-```console
+```bash
 nohup home/pi/raingauge/code/daq_pi.py &
 nohup /home/pi/raingauge/code/davis_logger.py &
 ```
 
 OR
 
-```console
+```bash
 nano ~/.bashrc
 
 # Appened the following line to the end of .bashrc file
