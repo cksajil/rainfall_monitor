@@ -1,13 +1,16 @@
 # Acoustic Rain Gauge
-### R & D project at [ICFOSS](https://icfoss.in/)
+### R & D project carried out at [ICFOSS](https://icfoss.in/)
 
-Rainfall, also known as precipitation, is crucial for environmental stability. To maintain a sustainable ecosystem, it is essential for all living beings to have access to clean drinking water. Accurate precipitation monitoring is also vital for early flood warnings. Many efforts to achieve this goal rely on precise precipitation monitoring.
+Rainfall, also known as precipitation, is crucial for environmental stability. Accurate precipitation monitoring is vital for weather forecasting and creating early flood warning systems. In this project we have developed an acoustic rain gauge that estimates rainfall by using sound as input data.
 
-Precipitation monitoring devices are broadly classified into manual, mechanical, and optical categories. This project aims to develop accurate sensors that do not fall into the manual, mechanical, or optical categories. We attempt to predict precipitation using machine learning techniques with sound loudness as an input feature.
+
+### Experiment Setup
+
+![Experiment Setup](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/experiment_setup.jpeg)
 
 ### [Click here](https://visualizedev.icfoss.org/d/riYMAg1Ik/non_mech_rain-_gauge?orgId=3&refresh=1m&from=now-24h&to=now) to see live data from our acoustic rain gauge
 
-## Team Members
+## Team
 1. [Gopika T G](https://github.com/GopikaTG)
 2. [Sajil C K](https://github.com/cksajil/)
 3. [Manu Mohan M S](https://github.com/MMS731)
@@ -16,14 +19,14 @@ Precipitation monitoring devices are broadly classified into manual, mechanical,
 
 ## Sensor Used
 1. [USB Mic, Jieli Technology UACDemoV1.0](https://www.amazon.in/USB-Microphone/s?k=USB+Microphone)
-<img src="https://images.meesho.com/images/products/293053361/m8ldc_512.webp" width="250"/>
+<img src="https://images.meesho.com/images/products/293053361/m8ldc_512.webp" width="200"/>
 
 ## Data Acquisition Devices (DAQs)
 1. [Davis AeroCone 6466M Rain Gauge](https://www.amazon.de/-/en/Davis-AeroCone-6466M-Gauge-Sensor/dp/B08629NFVG) - The mechanical rain gauge used as a reference for comparing rainfall against acoustic readings.
-<img src="https://m.media-amazon.com/images/I/612KqYGrL7L._AC_SX466_.jpg" width="320"/>
+<img src="https://m.media-amazon.com/images/I/612KqYGrL7L._AC_SX466_.jpg" width="200"/>
 
 2. [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) - Used as a DAQ device for high-resolution and high-sampling-rate audio recording.
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg" alt="Raspberry Pi" width="400"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg" alt="Raspberry Pi" width="300"/>
 
 ## DAQ Setup
 The setup guide can be found [here](https://github.com/cksajil/rainfall_monitor/blob/sajil/rain_gauge_setup.md).
@@ -69,10 +72,16 @@ sudo reboot
 
 ## Results
 
-### LSTM Sequential Model Performance
-| **EPOCHS** | **MODEL** | **MAPE** |
-|------------|-----------|----------|
-| 25         | LSTM      | 31.15%   |
+
+
+| Epochs | Model | Features | MAPE   | R²     | Correlation |
+|--------|-------|----------|--------|--------|-------------|
+| 25     | LSTM  | STFT     | 15.76% | 0.9683 | 0.9033      |
+| 25     | LSTM  | Chroma   | 45.15% | 0.9700 | 0.1982      |
+| 25     | LSTM  | MFCC     | 96.53% | 0.3418 | 0.4469      |
+
+**Table 1:** Performance of LSTM model on various features
+
 
 
 
