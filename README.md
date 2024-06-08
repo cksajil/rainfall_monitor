@@ -18,7 +18,7 @@ The setup guide can be found [here](https://github.com/cksajil/rainfall_monitor/
 ### [Click here](https://visualizedev.icfoss.org/d/riYMAg1Ik/non_mech_rain-_gauge?orgId=3&refresh=1m&from=now-24h&to=now) to see live data from our acoustic rain gauge
 
 
-## Installation and Setup
+## Components used
 #### Sensor Used
 1. [USB Mic, Jieli Technology UACDemoV1.0](https://www.amazon.in/USB-Microphone/s?k=USB+Microphone)
 <img src="https://images.meesho.com/images/products/293053361/m8ldc_512.webp" width="200"/>
@@ -41,7 +41,7 @@ The recorded WAV files are saved with a timestamp (`yyyy_mm_dd_hh_mm_ss_millisec
 
 `2023_11_06_16_13_11_011224.wav`
 
-### Datasets Available on Kaggle
+#### Datasets Available on Kaggle
 1. [Rain_Data_Master_2023](https://www.kaggle.com/datasets/sajilck/rain-data-master-2023) - Contains all audio recordings and rainfall data from the mechanical rain gauge collected so far. Note that files have different durations (10 sec and 3 sec) and sampling rates (48K & 8K).
 2. [Rain_Data_Master_8K](https://www.kaggle.com/datasets/sajilck/rain-data-master-8k) - Contains a downsampled version of [Rain_Data_Master_2023](https://www.kaggle.com/datasets/sajilck/rain-data-master-2023) with a uniform sample rate of 8K.
 
