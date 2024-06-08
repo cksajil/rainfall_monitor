@@ -1,5 +1,5 @@
 # Acoustic Rain Gauge
-### R & D project carried out at [ICFOSS](https://icfoss.in/)
+### R & D project by [ICFOSS](https://icfoss.in/)
 
 Rainfall, also known as precipitation, is crucial for environmental stability. Accurate precipitation monitoring is vital for weather forecasting and creating early flood warning systems. In this project we have developed an acoustic rain gauge that estimates rainfall by using sound as input data.
 
@@ -7,6 +7,10 @@ Rainfall, also known as precipitation, is crucial for environmental stability. A
 ### Experiment Setup
 
 ![Experiment Setup](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/experiment_setup.jpeg)
+
+### Live Data Visualization
+
+![grafana](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/data_visualisation.png)
 
 ### [Click here](https://visualizedev.icfoss.org/d/riYMAg1Ik/non_mech_rain-_gauge?orgId=3&refresh=1m&from=now-24h&to=now) to see live data from our acoustic rain gauge
 
