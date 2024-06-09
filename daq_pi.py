@@ -108,7 +108,7 @@ for i in range(1, num_samples + 1):
         if db_counter == DB_write_interval:  # now sending data in every 3min interval
             rain_sensor_status = read_rain_sensor()
             if (
-                rain_sensor_status == GPIO.LOW and rain >= 0.37
+                rain_sensor_status == GPIO.LOW and rain >= 0.6
             ):  # chance of error when we change data sending interval
                 api_status = influxdb(mm_hat)
             else:
