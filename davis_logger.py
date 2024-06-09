@@ -6,6 +6,7 @@ from utils.helper import load_config, create_folder, time_stamp_fnamer
 import influxdb_client
 from influxdb_client.client.write_api import SYNCHRONOUS
 from requests.exceptions import ConnectionError
+import time
 
 dt_start = datetime.now()
 config = load_config("config.yaml")
@@ -19,12 +20,16 @@ count = 0
 log_count = 0
 interrupt_pin = config["interrupt_pin"]
 logging_interval = config["davis_log_interval_sec"]
+last_event_time = 0  # For software debouncing
 
 
 def bucket_tipped(interrupt_pin):
-    print("Bucket Tipped")
-    global count
-    count += 1
+    global count, last_event_time
+    current_time = time.time()
+    if current_time - last_event_time > 0.2:  # 200 ms debounce interval
+        print("Bucket Tipped")
+        count += 1
+        last_event_time = current_time
 
 
 def reset_rainfall():
@@ -34,7 +39,7 @@ def reset_rainfall():
 
 def influxdb(rain: float):
     """
-    function to write data to influxdb
+    Function to write data to InfluxDB.
     """
     try:
         influxdb_config = load_config("influxdb_api.yaml")
@@ -69,20 +74,23 @@ def saving_data(label_dir, dt_now):
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(interrupt_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(interrupt_pin, GPIO.RISING, callback=bucket_tipped, bouncetime=50)
+GPIO.add_event_detect(
+    interrupt_pin, GPIO.RISING, callback=bucket_tipped, bouncetime=200
+)
 
 try:
     while True:
         dt_now = datetime.now()
         elapsed_time = dt_now - dt_start
-        if (
-            elapsed_time.seconds % logging_interval == 0
-        ):  # for storing data in a perticular interval
-            if log_count == 0:  # to avoid multiple data logging
+        if elapsed_time.seconds % logging_interval == 0:
+            if log_count == 0:
                 saving_data(label_dir, dt_now)
                 reset_rainfall()
                 log_count = 1
         else:
             log_count = 0
+        time.sleep(
+            0.1
+        )  # Adding a small sleep to prevent the loop from running too fast
 except KeyboardInterrupt:
     GPIO.cleanup()
