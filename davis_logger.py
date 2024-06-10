@@ -71,7 +71,7 @@ def saving_data(label_dir, dt_now):
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(interrupt_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.add_event_detect(
-    interrupt_pin, GPIO.RISING, callback=bucket_tipped, bouncetime=100
+    interrupt_pin, GPIO.RISING, callback=bucket_tipped, bouncetime=300
 )
 
 try:
@@ -87,4 +87,7 @@ try:
             log_count = 0
 
 except KeyboardInterrupt:
+    print("Exiting program")
+
+finally:
     GPIO.cleanup()
