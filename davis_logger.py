@@ -7,14 +7,13 @@ import influxdb_client
 from influxdb_client.client.write_api import SYNCHRONOUS
 from requests.exceptions import ConnectionError
 
-
 dt_start = datetime.now()
 config = load_config("config.yaml")
 labels_df = pd.DataFrame(columns=["time", "rainfall"])
 session_dir = time_stamp_fnamer(dt_start)
 label_dir = path.join(config["log_dir"], session_dir)
-create_folder(label_dir)
 
+create_folder(label_dir)
 BUCKET_SIZE = 0.2
 count = 0
 log_count = 0
@@ -22,7 +21,7 @@ interrupt_pin = config["interrupt_pin"]
 logging_interval = config["davis_log_interval_sec"]
 
 
-def bucket_tipped():
+def bucket_tipped(interrupt_pin):
     print("Bucket Tipped")
     global count
     count += 1
@@ -35,7 +34,7 @@ def reset_rainfall():
 
 def influxdb(rain: float):
     """
-    Function to write data to InfluxDB.
+    function to write data to influxdb
     """
     try:
         influxdb_config = load_config("influxdb_api.yaml")
@@ -43,7 +42,6 @@ def influxdb(rain: float):
         url = influxdb_config["url"]
         bucket = influxdb_config["davis_bucket"]
         token = influxdb_config["davis_token"]
-
         client = influxdb_client.InfluxDBClient(
             url=url, token=token, org=org, timeout=30_000
         )
@@ -70,9 +68,7 @@ def saving_data(label_dir, dt_now):
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(interrupt_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(
-    interrupt_pin, GPIO.RISING, callback=bucket_tipped, bouncetime=300
-)
+GPIO.add_event_detect(interrupt_pin, GPIO.RISING, callback=bucket_tipped, bouncetime=50)
 
 try:
     while True:
@@ -85,9 +81,5 @@ try:
                 log_count = 1
         else:
             log_count = 0
-
 except KeyboardInterrupt:
-    print("Exiting program")
-
-finally:
     GPIO.cleanup()
