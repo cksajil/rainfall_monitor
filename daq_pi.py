@@ -1,16 +1,14 @@
 import logging
 import subprocess
-import numpy as np
 import pandas as pd
 from os import path
-from datetime import datetime, timedelta
 import RPi.GPIO as GPIO
-from utils.helper import time_stamp_fnamer, influxdb
+from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
+from utils.helper import time_stamp_fnamer, influxdb
 from utils.helper import load_config, create_folder, load_estimate_model
-from utils.gpio import setup_rain_gpio,enable_rain_sensor,gpio_cleanup
-from utils.gpio import disable_rain_sensor,read_rain_sensor
-
+from utils.gpio import setup_rain_sensor_gpio, gpio_cleanup
+from utils.gpio import enable_rain_sensor, read_rain_sensor, disable_rain_sensor
 
 config = load_config("config.yaml")
 create_folder(config["log_dir"])
@@ -26,7 +24,7 @@ logger.setLevel(logging.INFO)
 
 db_counter = 0
 rain = 0
-DB_write_interval = config["DB_writing_interval_min"]/3
+DB_write_interval = config["DB_writing_interval_min"] / 3
 result_data = []
 wav_duration = config["sample_duration_sec"]
 davis_duration = config["davis_duration_sec"]
@@ -55,7 +53,7 @@ logger.info("\n\n\n*******************************************************")
 logger.info("Started data logging at {}\n".format(dt_start))
 logger.info("Total number of samples to be recorded: {}\n".format(num_samples))
 
-setup_rain_gpio()
+setup_rain_sensor_gpio()
 enable_rain_sensor()
 
 for i in range(1, num_samples + 1):
@@ -88,7 +86,14 @@ for i in range(1, num_samples + 1):
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
         logger.info("*******************************************************\n\n\n")
         locations.clear()
-        result_data.append({"time_stamp": dt_now, "rainfall_estimate": mm_hat})
+        rain_sensor_status = read_rain_sensor()
+        result_data.append(
+            {
+                "time_stamp": dt_now,
+                "rainfall_estimate": mm_hat,
+                "rain_sensor_status": rain_sensor_status,
+            }
+        )
         result_df = pd.DataFrame(result_data)
         csv_filename = path.join(config["log_dir"], config["csv_file_name"])
         result_df.to_csv(csv_filename, index=False)
@@ -100,10 +105,12 @@ for i in range(1, num_samples + 1):
         # Script for controlling influxdb data writing interval
         rain += mm_hat
         db_counter += 1
-        if db_counter == DB_write_interval: # now sending data in every 3min interval
+        if db_counter == DB_write_interval:  # now sending data in every 3min interval
             rain_sensor_status = read_rain_sensor()
-            if (rain_sensor_status==GPIO.LOW and rain>=0.1): # chance of error when we change data sending inteval
-                api_status = influxdb(rain)
+            if (
+                rain_sensor_status == GPIO.LOW and rain >= 0.6
+            ):  # chance of error when we change data sending interval
+                api_status = influxdb(mm_hat)
             else:
                 api_status = influxdb(0.0)
             logger.info("\n\n\n*******************************************************")

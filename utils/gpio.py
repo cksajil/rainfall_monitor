@@ -1,13 +1,14 @@
+import time
 import RPi.GPIO as GPIO
 from .helper import load_config
-import time
+
 
 config = load_config("config.yaml")
-POWER_PIN = config["rain_gpi0_power_pin"]
+POWER_PIN = config["rain_gpio_power_pin"]
 RAIN_PIN = config["rain_gpio_input_pin"]
 
 
-def setup_rain_gpio():
+def setup_rain_sensor_gpio():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(POWER_PIN, GPIO.OUT)  # configure the power pin as an OUTPUT
     GPIO.setup(RAIN_PIN, GPIO.IN)
@@ -21,13 +22,13 @@ def disable_rain_sensor():
     GPIO.output(POWER_PIN, GPIO.LOW)
 
 
-def gpio_cleanup():
-    GPIO.cleanup()
-
-
 def read_rain_sensor():
     rain_state = GPIO.input(RAIN_PIN)
     return rain_state
+
+
+def gpio_cleanup():
+    GPIO.cleanup()
 
 
 def read_loop():
@@ -47,7 +48,7 @@ def read_loop():
 
 if __name__ == "__main__":
     try:
-        setup_rain_gpio()
+        setup_rain_sensor_gpio()
         while True:
             read_loop()
     except KeyboardInterrupt:
