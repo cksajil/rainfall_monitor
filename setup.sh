@@ -73,7 +73,7 @@ echo '*********************************************************** ENVIRONMENT CR
 
 #installing dependencies
 echo '******************************************************** INSTALLING DEPENDENCIES **************************************************************'
-sudo apt install python3-pip
+sudo apt-get install -y python3-pip
 export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
 echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
 pip install --upgrade pip
