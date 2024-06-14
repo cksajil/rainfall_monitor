@@ -77,12 +77,12 @@ sudo apt install python3-pip
 export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
 echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
 pip install --upgrade pip
-sudo apt-get install pkg-config
-sudo apt-get install libhdf5-dev
-sudo apt install python3-rpi.gpio
-sudo apt install alsa-utils
-sudo apt install pulseaudio
-sudo apt-get install usbutils
+sudo apt-get install -y pkg-config
+sudo apt-get install -y libhdf5-dev
+sudo apt install -y python3-rpi.gpio
+sudo apt install -y alsa-utils
+sudo apt install -y pulseaudio
+sudo apt-get install -y usbutils
 pip install influxdb-client
 pip install pandas # numpy will automatically install with pandas
 pip install librosa
