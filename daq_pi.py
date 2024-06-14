@@ -4,8 +4,8 @@ import pandas as pd
 from os import path
 import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
-from utils.estimate import estimate_rainfall
 from utils.helper import time_stamp_fnamer, influxdb
+from utils.estimate import estimate_rainfall, delete_files
 from utils.helper import load_config, create_folder, load_estimate_model
 from utils.gpio import setup_rain_sensor_gpio, gpio_cleanup
 from utils.gpio import enable_rain_sensor, read_rain_sensor, disable_rain_sensor
@@ -82,6 +82,7 @@ for i in range(1, num_samples + 1):
 
     if i % num_subsamples == 0:
         mm_hat = estimate_rainfall(infer_model, locations)
+        delete_files(locations)
         logger.info("\n\n\n*******************************************************")
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
         logger.info("*******************************************************\n\n\n")
