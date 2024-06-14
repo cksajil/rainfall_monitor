@@ -1,7 +1,7 @@
 #!/bin/bash
 # this file contain bash script to automating deployment environment setup 
 
-username="pi"
+username="pizero"
 
 # enabling auto login service
 sudo chmod 777 /etc/systemd/logind.conf
@@ -77,17 +77,18 @@ sudo apt-get install -y python3-pip
 export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
 echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
 pip install --upgrade pip
+sudo apt install -y python3.12-venv
+python3 -m venv venv
+source venv/bin/activate
 sudo apt-get install -y pkg-config
 sudo apt-get install -y libhdf5-dev
 sudo apt install -y python3-rpi.gpio
 sudo apt install -y alsa-utils
 sudo apt install -y pulseaudio
 sudo apt-get install -y usbutils
-pip install influxdb-client
-pip install pandas # numpy will automatically install with pandas
-pip install librosa
-pip install keras
-pip install tensorflow
+sudo apt-get install -y influxdb-client
+sudo apt-get install -y python3-pandas 
+pip install librosa keras tensorflow
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
 
