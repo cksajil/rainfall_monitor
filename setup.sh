@@ -71,6 +71,12 @@ wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=17yY8
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15YwpKMOJ8MyvhM9zoIHB-H_u-d09p6Xz' -O model/seq_stft.hdf5
 echo '*********************************************************** ENVIRONMENT CREATED ***************************************************************'
 
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install -y build-essential python3-dev
+sudo apt-get install -y libhdf5-dev
+sudo apt install python3-h5py
+
 #installing dependencies
 echo '******************************************************** INSTALLING DEPENDENCIES **************************************************************'
 sudo apt-get install -y python3-pip
@@ -81,14 +87,16 @@ sudo apt install -y python3.12-venv
 python3 -m venv venv
 source venv/bin/activate
 sudo apt-get install -y pkg-config
-sudo apt-get install -y libhdf5-dev
+
 sudo apt install -y python3-rpi.gpio
 sudo apt install -y alsa-utils
 sudo apt install -y pulseaudio
 sudo apt-get install -y usbutils
 sudo apt-get install -y influxdb-client
 sudo apt-get install -y python3-pandas 
-pip install librosa keras tensorflow
+pip install librosa 
+pip install keras 
+pip install tensorflow
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
 
