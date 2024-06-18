@@ -4,6 +4,7 @@ import pandas as pd
 from os import path
 import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
+from utils.helper import load_infer_model_path
 from utils.helper import time_stamp_fnamer, influxdb
 from utils.estimate import estimate_rainfall, delete_files
 from utils.helper import load_config, create_folder, load_estimate_model
@@ -26,6 +27,7 @@ db_counter = 0
 rain = 0
 DB_write_interval = config["DB_writing_interval_min"] / 3
 result_data = []
+board = config["board"]
 wav_duration = config["sample_duration_sec"]
 davis_duration = config["davis_duration_sec"]
 file_format = config["file_format"]
@@ -34,16 +36,7 @@ sampling_rate = config["sampling_rate"]
 record_hours = config["record_hours"]
 num_samples = int(config["record_hours"] * (3600 / wav_duration))
 num_subsamples = davis_duration // wav_duration
-
-if config["deployed_model_type"] == "withcnn":
-    infer_model_path = path.join(
-        config["infer_model_dir"], config["infer_model_withcnn"]
-    )
-else:
-    infer_model_path = path.join(
-        config["infer_model_dir"], config["infer_model_withoutcnn"]
-    )
-
+infer_model_path = load_infer_model_path(board)
 infer_model = load_estimate_model(infer_model_path)
 locations = []
 dt_start = datetime.now()

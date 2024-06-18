@@ -100,3 +100,20 @@ def influxdb(rain: float) -> bool:
     except ConnectionError as e:
         print(f"Connection to InfluxDB failed: {e}")
         return False
+
+
+def load_infer_model_path(board):
+    if board == "raspberry_pi_zero_w":
+        infer_model_path = os.path.join(
+            config["infer_model_dir"], config["tflite_model"]
+        )
+    elif board == "raspberry_pi_4":
+        if config["deployed_model_type"] == "withcnn":
+            infer_model_path = os.path.join(
+                config["infer_model_dir"], config["infer_model_withcnn"]
+            )
+        else:
+            infer_model_path = os.path.join(
+                config["infer_model_dir"], config["infer_model_withoutcnn"]
+            )
+    return infer_model_path
