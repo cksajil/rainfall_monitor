@@ -1,6 +1,8 @@
 import librosa
 import numpy as np
+from os import remove
 from .helper import config
+from os.path import exists
 
 
 def create_cnn_data(raw_data: np.ndarray) -> np.ndarray:
@@ -33,3 +35,15 @@ def estimate_rainfall(model: any, file_paths: list) -> float:
     stft_sample = create_cnn_data(audio)
     y_pred = model.predict(stft_sample, verbose=0)[0][0]
     return y_pred
+
+
+def delete_files(file_paths):
+    for file_path in file_paths:
+        try:
+            if exists(file_path):
+                remove(file_path)
+                print(f"Deleted: {file_path}")
+            else:
+                print(f"File does not exist: {file_path}")
+        except Exception as e:
+            print(f"Error deleting {file_path}: {e}")

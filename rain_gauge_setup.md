@@ -1,28 +1,53 @@
 # Acoustic Rain Gauge Setup Guide
 
 ## Hardware Setup
-- Use Raspberry Pi 4 as board 
+- Use Raspberry Pi Zero W as board 
 - Insert SD Card
-- Connect USB Microphone and LAN
-- Connect Davis to GPIO pin number 13 and ground (optional)
+- Connect USB Microphone
+- Connect Rain sensor to GPIO pin number 4 and ground
 
 ## Software Setup
-### 1. Install Ubuntu Server 22.04.4 LTS (64-bit) using **Raspberry Pi Imager** Software
-![screenshot_1](./images/screenshot_1.png)
+### 1. Download suitable OS image
+Download Ubuntu (64-bit ARM (ARMv8/AArch64) server install image) from https://cdimage.ubuntu.com/releases/focal/release/
 
-### 2. Enable SSH Settings, give user credentials and WiFi credentials
-![screenshot_2](./images/screenshot_2.png)
-![screenshot_3](./images/screenshot_3.png)
-![screenshot_4](./images/screenshot_4.png)
+OR from
 
-### 3. Flash the operating system and boot the Raspberry Pi
+https://ubuntu.com/download/server/arm. Please see [Alternative and previous releases section](https://cdimage.ubuntu.com/releases/?_gl=1*1st8y8i*_gcl_au*NjIzMTM3MzE0LjE3MTg2OTA4MzM.&_ga=2.97407837.315200084.1718690833-1252984037.1710486708)
 
-### 4. Check IP is getting assigned in Ethernet and Wifi
+### 2. Flash the operating system using balenaEtcher and boot the Raspberry Pi
+Please make sure to connect card reader to USB port in the backside of PC to avoid write verification fail
+### 3. Update default user credentials
+Credential update will be asked on first log in using default username (ubuntu/root)
+### 4. Add WiFi credentials
+```bash
+sudo vim  /etc/netplan/50-cloud-init.yaml
+```
+Add the following content to the file (use Vim editor to make sure consistent indentation)
+```yaml
+network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional: true
+    version: 2
+    wifis:
+        wlan0:
+            dhcp4: true
+            optional: true
+            access-points:
+                "wifi_name":
+                        password: "password"
+
+```
+```bash
+sudo netplan generate
+sudo netplan apply
+```
+### 5. Check IP is getting assigned for Wifi
 
 ```bash
-ip -br a
+hostname -I
 ```
-Both Ethernet and Wifi should be UP and IP should be assigned
 
 ### 5. Update and upgrade OS
 
@@ -35,11 +60,12 @@ sudo reboot
 ### 6. Download and run setup.sh for automating environment setup
 
 ```bash
-# Download setup.sh
-wget 'https://raw.githubusercontent.com/cksajil/rainfall_monitor/hari/setup.sh'
-
-# run setup.sh
-bash setup.sh
+sudo apt install python3-pip
+pip install pandas
+pip install RPi.GPIO
+pip install influxdb-client
+pip install keras
+pip install tensorflow --no-cache-dir
 ```
 
 ### 7. Check in command line if microphone is detected
@@ -77,22 +103,16 @@ Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylife
 
 ```bash
 cd /home/pi/raingauge/code/
+git checkout pizero
 ```
 
-### 14. Use `nohup` to initiate scripts or add Python scripts to bashrc file  
-
-```bash
-nohup python3 daq_pi.py &
-nohup python3 davis_logger.py &
-```
-
-OR
+### 14. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
 
 # Appened the following line to the end of .bashrc file (this may cause path errors)
-python3 /home/pi/raingauge/code/daq_pi.py & python3 /home/pi/raingauge/code/davis_logger.py
+python3 /home/pi/raingauge/code/daq_pi.py
 
 # Reboot the device
 sudo reboot
