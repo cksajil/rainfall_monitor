@@ -61,26 +61,43 @@ pip install pandas
 pip install RPi.GPIO
 pip install influxdb-client
 pip install keras
-pip install tensorflow --no-cache-dir
+sudo apt-get install libatlas-base-dev
+pip3 install tflite-runtime
+```
+### 7. Create folder structure
+```bash
+mkdir raingauge
+mkdir raingauge/model raingauge/data raingauge/logs
+cd raingauge/
+git clone https://github.com/cksajil/rainfall_monitor.git
+mv rainfall_monitor code
+cd code/
+git checkout pizero
+cd ..
 ```
 
-### 7. Check in command line if microphone is detected
+### 8. Download and convert to TFLite Model
+```bash
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15YwpKMOJ8MyvhM9zoIHB-H_u-d09p6Xz' -O model/seq_stft.hdf5
+```
+
+### 9. Check in command line if microphone is detected
 ```bash
 lsusb
 ```
 This will list out all the USB devices connected to Raspberry Pi. To make sure that microphone is getting detected run the above command without connecting microphone and see the output. Repeat the same after connecting the microphone. Now the microphone or soundcard name should appear in the list as an additional entry.
 
-### 8. Check if $arecord$ command lists the input devices
+### 10. Check if $arecord$ command lists the input devices
 ```bash
 arecord -l
 ```
 
-### 9. Reboot the Raspberry Pi
+### 11. Reboot the Raspberry Pi
 ```bash
 sudo reboot
 ```
 
-### 10. After rebooting check if $arecord$ command is working
+### 12. After rebooting check if $arecord$ command is working
 ```bash
 # Records a 5 second test audio as wav file
 arecord --duration=5 sample.wav
@@ -89,20 +106,20 @@ arecord --duration=5 sample.wav
 rm sample.wav
 ```
 
-### 11. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
+### 13. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
 
-### 12. Add the device to Zerotier account
+### 14. Add the device to Zerotier account
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 13. change present working directory to code
+### 15. change present working directory to code
 
 ```bash
 cd /home/pi/raingauge/code/
 git checkout pizero
 ```
 
-### 14. Add Python scripts to bashrc file  
+### 16. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
