@@ -78,7 +78,7 @@ cd ..
 
 ### 8. Download and convert to TFLite Model
 ```bash
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15YwpKMOJ8MyvhM9zoIHB-H_u-d09p6Xz' -O model/seq_stft.hdf5
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1k8Alhq4dq8O_u_cgBzik7R9bOwYp05Et' -O model/seq_stft.tflite
 ```
 
 ### 9. Check in command line if microphone is detected
@@ -112,19 +112,12 @@ rm sample.wav
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 15. change present working directory to code
-
-```bash
-cd /home/pi/raingauge/code/
-git checkout pizero
-```
-
-### 16. Add Python scripts to bashrc file  
+### 15. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
 
-# Appened the following line to the end of .bashrc file (this may cause path errors)
+# Appened the following line to the end of .bashrc file
 python3 /home/pi/raingauge/code/daq_pi.py
 
 # Reboot the device
