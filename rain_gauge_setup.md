@@ -78,8 +78,9 @@ cd ..
 
 ### 8. Download and convert to TFLite Model
 ```bash
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1k8Alhq4dq8O_u_cgBzik7R9bOwYp05Et' -O model/seq_stft.tflite
+wget --no-check-certificate 'https://rb.gy/7b80vv' -O model/seq_stft.tflite
 ```
+
 
 ### 9. Check in command line if microphone is detected
 ```bash
