@@ -45,7 +45,7 @@ sudo netplan apply
 hostname -I
 ```
 
-### 5. Update and upgrade OS
+### 6. Update and upgrade OS
 
 ```bash
 sudo apt update
@@ -53,7 +53,7 @@ sudo apt upgrade
 sudo reboot
 ```
 
-### 5. Increase swap space
+### 7. Increase swap space
 ```bash
 sudo fallocate -l 2G /swapfile
 sudo chmod 600 /swapfile
@@ -62,7 +62,7 @@ sudo swapon /swapfile
 sudo swapon --show
 ```
 
-### 6. Download and run setup.sh for automating environment setup
+### 8. Download and run setup.sh for automating environment setup
 
 ```bash
 sudo apt install alsa-utils
@@ -76,7 +76,7 @@ pip install keras
 sudo apt-get install libatlas-base-dev
 pip3 install tflite-runtime
 ```
-### 7. Create folder structure
+### 9. Create folder structure
 ```bash
 mkdir raingauge
 mkdir raingauge/model raingauge/data raingauge/logs
@@ -88,29 +88,29 @@ git checkout pizero
 cd ..
 ```
 
-### 8. Download and convert to TFLite Model
+### 10. Download and convert to TFLite Model
 ```bash
 wget --no-check-certificate 'https://rb.gy/7b80vv' -O model/seq_stft.tflite
 ```
 
 
-### 9. Check in command line if microphone is detected
+### 11. Check in command line if microphone is detected
 ```bash
 lsusb
 ```
 This will list out all the USB devices connected to Raspberry Pi. To make sure that microphone is getting detected run the above command without connecting microphone and see the output. Repeat the same after connecting the microphone. Now the microphone or soundcard name should appear in the list as an additional entry.
 
-### 10. Check if $arecord$ command lists the input devices
+### 11. Check if $arecord$ command lists the input devices
 ```bash
 arecord -l
 ```
 
-### 11. Reboot the Raspberry Pi
+### 12. Reboot the Raspberry Pi
 ```bash
 sudo reboot
 ```
 
-### 12. After rebooting check if $arecord$ command is working
+### 13. After rebooting check if $arecord$ command is working
 ```bash
 # Records a 5 second test audio as wav file
 arecord --duration=5 sample.wav
@@ -119,13 +119,13 @@ arecord --duration=5 sample.wav
 rm sample.wav
 ```
 
-### 13. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
+### 14. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
 
-### 14. Add the device to Zerotier account
+### 15. Add the device to Zerotier account
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 15. Add Python scripts to bashrc file  
+### 16. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
