@@ -53,6 +53,15 @@ sudo apt upgrade
 sudo reboot
 ```
 
+### 5. Increase swap space
+```bash
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo swapon --show
+```
+
 ### 6. Download and run setup.sh for automating environment setup
 
 ```bash
