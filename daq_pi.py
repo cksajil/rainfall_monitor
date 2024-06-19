@@ -46,8 +46,8 @@ logger.info("\n\n\n*******************************************************")
 logger.info("Started data logging at {}\n".format(dt_start))
 logger.info("Total number of samples to be recorded: {}\n".format(num_samples))
 
-setup_rain_sensor_gpio()
-enable_rain_sensor()
+# setup_rain_sensor_gpio()
+# enable_rain_sensor()
 
 for i in range(1, num_samples + 1):
     dt_now = datetime.now()
@@ -100,7 +100,8 @@ for i in range(1, num_samples + 1):
         rain += mm_hat
         db_counter += 1
         if db_counter == DB_write_interval:  # now sending data in every 3min interval
-            rain_sensor_status = read_rain_sensor()
+            # rain_sensor_status = read_rain_sensor()
+            rain_sensor_status = 0
             if (
                 rain_sensor_status == GPIO.LOW and rain >= 0.6
             ):  # chance of error when we change data sending interval
