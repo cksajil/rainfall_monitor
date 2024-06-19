@@ -56,6 +56,8 @@ sudo reboot
 ### 6. Download and run setup.sh for automating environment setup
 
 ```bash
+sudo apt install alsa-utils
+sudo apt install -y pulseaudio
 sudo apt install python3-pip
 pip install pandas
 pip install RPi.GPIO
@@ -119,7 +121,7 @@ Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylife
 nano ~/.bashrc
 
 # Appened the following line to the end of .bashrc file
-python3 /home/pi/raingauge/code/daq_pi.py
+python3 /home/ubuntu/raingauge/code/daq_pi.py
 
 # Reboot the device
 sudo reboot

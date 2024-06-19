@@ -1,9 +1,9 @@
 #!/bin/bash
-# this file contain bash script to automating deployment environment setup 
+# Bash script to automate Pizero deployment
 
-username="pizero"
+username="ubuntu"
 
-# enabling auto login service
+echo '*************************** ENABLING AUTO LOGIN **************************'
 sudo chmod 777 /etc/systemd/logind.conf
 echo "#  This file is part of systemd.
 #
@@ -56,56 +56,43 @@ echo "[Service]
 ExecStart=
 ExecStart=-/sbin/agetty --noissue --autologin $username %I \$TERM
 Type=idle" > /etc/systemd/system/getty@tty1.service.d/override.conf
-echo '********************************************************* AUTO LOGIN SETUP COMPLETED **********************************************************'
+echo '************************ AUTO LOGIN SETUP COMPLETED ***********************'
 
-# setting up folder structure and cloning repository
+
+
+echo '************************** INSTALLING DEPENDENCIES **********************'
+sudo apt update
+sudo apt upgrade
+sudo apt install alsa-utils
+sudo apt install -y pulseaudio
+sudo apt install python3-pip
+pip install pandas
+pip install RPi.GPIO
+pip install influxdb-client
+pip install keras
+sudo apt-get install libatlas-base-dev
+pip3 install tflite-runtime
+echo '************************** INSTALLED DEPENDENCIES ***********************'
+
+
+
+echo '************************ CREATING FOLDER STRUCTURE ***********************'
 mkdir raingauge
 mkdir raingauge/model raingauge/data raingauge/logs
 cd raingauge/
 git clone https://github.com/cksajil/rainfall_monitor.git
 mv rainfall_monitor code
 cd code/
-git checkout gitlab
+git checkout pizero
 cd ..
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=17yY89nn5k9YEcEXLsZiXsKorpf9Mzlvr' -O model/rain_stft.hdf5
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15YwpKMOJ8MyvhM9zoIHB-H_u-d09p6Xz' -O model/seq_stft.hdf5
-echo '*********************************************************** ENVIRONMENT CREATED ***************************************************************'
+wget --no-check-certificate 'https://rb.gy/7b80vv' -O model/seq_stft.tflite
+echo '************************ CREATED FOLDER STRUCTURE ***********************'
 
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install -y build-essential python3-dev
-sudo apt-get install -y libhdf5-dev
-sudo apt install python3-h5py
 
-#installing dependencies
-echo '******************************************************** INSTALLING DEPENDENCIES **************************************************************'
-sudo apt-get install -y python3-pip
-export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
-echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
-pip install --upgrade pip
-sudo apt install -y python3.12-venv
-python3 -m venv venv
-source venv/bin/activate
-sudo apt-get install -y pkg-config
-
-sudo apt install -y python3-rpi.gpio
-sudo apt install -y alsa-utils
-sudo apt install -y pulseaudio
-sudo apt-get install -y usbutils
-sudo apt-get install -y influxdb-client
-sudo apt-get install -y python3-pandas 
-pip install librosa 
-pip install keras 
-pip install tensorflow
-echo '********************************************************** REBOOTING DEVICE *******************************************************************'
+echo '*************************** REBOOTING DEVICE ****************************'
 sudo reboot
 
 
 
 
 
-# issues
-# how to resolve asking password input when using sudo command?
-# how to install influxdb credentials automatically
-# if we move github repo contain bash script to another directory while executing bash.will that effect execution.(we can solve the issue by moving desired files only)
-# how to automate audio checking functionality
