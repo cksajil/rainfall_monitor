@@ -104,12 +104,14 @@ for i in range(1, num_samples + 1):
             if (
                 rain_sensor_status == GPIO.LOW and rain >= 0.6
             ):  # chance of error when we change data sending interval
-                api_status = influxdb(mm_hat)
+                # api_status = influxdb(mm_hat)
+                print(mm_hat)
             else:
-                api_status = influxdb(0.0)
-            logger.info("\n\n\n*******************************************************")
-            logger.info("At {} API write status: {}".format(dt_now, str(api_status)))
-            logger.info("*******************************************************\n\n\n")
+                # api_status = influxdb(0.0)
+                print(0)
+            # logger.info("\n\n\n*******************************************************")
+            # logger.info("At {} API write status: {}".format(dt_now, str(api_status)))
+            # logger.info("*******************************************************\n\n\n")
             rain, db_counter = 0, 0
 
     time_left = dt_stop - dt_now
