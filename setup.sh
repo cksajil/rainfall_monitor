@@ -66,6 +66,7 @@ sudo apt upgrade
 sudo apt install alsa-utils
 sudo apt install -y pulseaudio
 sudo apt install python3-pip
+pip install librosa
 pip install pandas
 pip install RPi.GPIO
 pip install influxdb-client
