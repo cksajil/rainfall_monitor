@@ -34,6 +34,7 @@ def estimate_rainfall(model: any, file_paths: list) -> float:
     audio = audio[: config["seq_len"]]
     audio = np.float32(audio)
     stft_sample = create_cnn_data(audio)
+    stft_sample = np.expand_dims(stft_sample, axis=0)
     input_details = model.get_input_details()
     output_details = model.get_output_details()
     model.set_tensor(input_details[0]["index"], stft_sample)
