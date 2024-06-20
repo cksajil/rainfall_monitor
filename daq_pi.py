@@ -3,14 +3,16 @@ import subprocess
 
 # import pandas as pd
 from os import path
-import RPi.GPIO as GPIO
+
+# import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.helper import load_infer_model_path
 from utils.helper import time_stamp_fnamer, influxdb
 from utils.estimate import estimate_rainfall, delete_files
 from utils.helper import load_config, create_folder, load_estimate_model
-from utils.gpio import setup_rain_sensor_gpio, gpio_cleanup
-from utils.gpio import enable_rain_sensor, read_rain_sensor, disable_rain_sensor
+
+# from utils.gpio import setup_rain_sensor_gpio, gpio_cleanup
+# from utils.gpio import enable_rain_sensor, read_rain_sensor, disable_rain_sensor
 
 config = load_config("config.yaml")
 create_folder(config["log_dir"])
@@ -105,7 +107,7 @@ for i in range(1, num_samples + 1):
             # rain_sensor_status = read_rain_sensor()
             rain_sensor_status = 0
             if (
-                rain_sensor_status == GPIO.LOW and rain >= 0.6
+                rain_sensor_status == 0 and rain >= 0.6
             ):  # chance of error when we change data sending interval
                 # api_status = influxdb(mm_hat)
                 print(mm_hat)
@@ -130,5 +132,5 @@ for i in range(1, num_samples + 1):
 dt_end = datetime.now()
 logger.info("Finished data logging at {}\n".format(dt_end))
 logger.info("*******************************************************\n\n\n")
-disable_rain_sensor()
-gpio_cleanup()
+# disable_rain_sensor()
+# gpio_cleanup()
