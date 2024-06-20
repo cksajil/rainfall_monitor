@@ -1,6 +1,5 @@
 import logging
 import subprocess
-import pandas as pd
 from os import path
 import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
@@ -89,9 +88,6 @@ for i in range(1, num_samples + 1):
                 "rain_sensor_status": rain_sensor_status,
             }
         )
-        # result_df = pd.DataFrame(result_data)
-        csv_filename = path.join(config["log_dir"], config["csv_file_name"])
-        # result_df.to_csv(csv_filename, index=False)
         logger.info(
             "saved recorded data and rainfall estimate to: {}".format(
                 config["csv_file_name"]
