@@ -79,7 +79,7 @@ for i in range(1, num_samples + 1):
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
         logger.info("*******************************************************\n\n\n")
         locations.clear()
-        rain_sensor_status = read_rain_sensor()
+        # rain_sensor_status = read_rain_sensor()
         result_data.append(
             {
                 "time_stamp": dt_now,
