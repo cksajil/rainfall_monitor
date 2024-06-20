@@ -37,7 +37,7 @@ def estimate_rainfall(model: any, file_paths: list) -> float:
     stft_sample = create_cnn_data(audio)
     print(f"STFT sample shape: {stft_sample.shape}")
     stft_sample = np.expand_dims(stft_sample, axis=0)
-    print(f"STFT sample shape after expand_dims: {stft_sample.shape}")
+    stft_sample = np.reshape(stft_sample, (1, 1025, 2672, 1))
     input_details = model.get_input_details()
     output_details = model.get_output_details()
     print(f"Expected input shape:")
