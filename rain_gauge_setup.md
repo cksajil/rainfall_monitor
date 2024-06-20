@@ -48,6 +48,7 @@ hostname -I
 ### 6. Update and upgrade OS
 
 ```bash
+sudo timedatectl set-timezone Asia/Kolkata
 sudo apt update
 sudo apt upgrade
 sudo reboot
