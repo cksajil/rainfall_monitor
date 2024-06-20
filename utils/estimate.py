@@ -38,16 +38,12 @@ def estimate_rainfall(interpreter: any, file_paths: list) -> float:
     Computed the models prediction on input data provided
     """
     audio = combine_and_trim_audios(file_paths)
-    print(f"Audio shape after combining and slicing: {audio.shape}")
     stft_sample = create_cnn_data(audio)
     del audio
-    print(f"STFT sample shape: {stft_sample.shape}")
     stft_sample = np.expand_dims(stft_sample, axis=0)
     stft_sample = np.reshape(stft_sample, (1, 1025, 2672, 1))
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
-    print(f"Expected input shape:")
-    print(input_details[0]["shape"])
     interpreter.set_tensor(input_details[0]["index"], stft_sample)
     interpreter.invoke()
     y_pred = interpreter.get_tensor(output_details[0]["index"])[0][0][0]

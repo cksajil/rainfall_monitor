@@ -67,7 +67,6 @@ for i in range(1, num_samples + 1):
             location,
         ]
     )
-    print("Recording finished")
     locations.append(location)
     model_type = config["deployed_model_type"]
 
