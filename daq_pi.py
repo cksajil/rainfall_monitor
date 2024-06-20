@@ -37,7 +37,7 @@ record_hours = config["record_hours"]
 num_samples = int(config["record_hours"] * (3600 / wav_duration))
 num_subsamples = davis_duration // wav_duration
 infer_model_path = load_infer_model_path(board)
-infer_model = load_estimate_model(infer_model_path)
+interpreter = load_estimate_model(infer_model_path)
 locations = []
 dt_start = datetime.now()
 dt_stop = dt_start + timedelta(hours=record_hours)
@@ -75,7 +75,7 @@ for i in range(1, num_samples + 1):
     model_type = config["deployed_model_type"]
 
     if i % num_subsamples == 0:
-        mm_hat = estimate_rainfall(infer_model, locations)
+        mm_hat = estimate_rainfall(interpreter, locations)
         delete_files(locations)
         logger.info("\n\n\n*******************************************************")
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
