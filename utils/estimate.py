@@ -26,15 +26,21 @@ def combine_audios(file_paths: list) -> np.ndarray:
     return audio
 
 
+def combine_and_trim_audios(file_paths):
+    audio = combine_audios(file_paths)
+    audio = audio[: config["seq_len"]]
+    audio = np.float32(audio)
+    return audio
+
+
 def estimate_rainfall(interpreter: any, file_paths: list) -> float:
     """
     Computed the models prediction on input data provided
     """
-    audio = combine_audios(file_paths)
-    audio = audio[: config["seq_len"]]
+    audio = combine_and_trim_audios(file_paths)
     print(f"Audio shape after combining and slicing: {audio.shape}")
-    audio = np.float32(audio)
     stft_sample = create_cnn_data(audio)
+    del audio
     print(f"STFT sample shape: {stft_sample.shape}")
     stft_sample = np.expand_dims(stft_sample, axis=0)
     stft_sample = np.reshape(stft_sample, (1, 1025, 2672, 1))
