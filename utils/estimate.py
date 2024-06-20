@@ -32,11 +32,15 @@ def estimate_rainfall(model: any, file_paths: list) -> float:
     """
     audio = combine_audios(file_paths)
     audio = audio[: config["seq_len"]]
+    print(f"Audio shape after combining and slicing: {audio.shape}")
     audio = np.float32(audio)
     stft_sample = create_cnn_data(audio)
+    print(f"STFT sample shape: {stft_sample.shape}")
     stft_sample = np.expand_dims(stft_sample, axis=0)
+    print(f"STFT sample shape after expand_dims: {stft_sample.shape}")
     input_details = model.get_input_details()
     output_details = model.get_output_details()
+    print(f"Expected input shape: {input_details[0]["shape"]}")
     model.set_tensor(input_details[0]["index"], stft_sample)
     model.invoke()
     y_pred = model.get_tensor(output_details[0]["index"])
