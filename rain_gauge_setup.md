@@ -69,6 +69,9 @@ sudo swapon --show
 sudo apt install alsa-utils
 sudo apt install -y pulseaudio
 sudo apt install python3-pip
+```
+
+```bash
 pip install librosa
 pip install pandas
 pip install RPi.GPIO
