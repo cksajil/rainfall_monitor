@@ -24,7 +24,6 @@ logger.setLevel(logging.INFO)
 db_counter = 0
 rain = 0
 DB_write_interval = config["DB_writing_interval_min"] / 3
-result_data = []
 board = config["board"]
 wav_duration = config["sample_duration_sec"]
 davis_duration = config["davis_duration_sec"]
@@ -80,13 +79,6 @@ for i in range(1, num_samples + 1):
         logger.info("*******************************************************\n\n\n")
         locations.clear()
         # rain_sensor_status = read_rain_sensor()
-        result_data.append(
-            {
-                "time_stamp": dt_now,
-                "rainfall_estimate": mm_hat,
-                "rain_sensor_status": rain_sensor_status,
-            }
-        )
         logger.info(
             "saved recorded data and rainfall estimate to: {}".format(
                 config["csv_file_name"]
