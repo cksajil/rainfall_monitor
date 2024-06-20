@@ -1,8 +1,6 @@
 import logging
 import subprocess
 from os import path
-
-# import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.helper import load_infer_model_path
 from utils.helper import time_stamp_fnamer, influxdb
