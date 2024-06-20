@@ -51,6 +51,7 @@ logger.info("Total number of samples to be recorded: {}\n".format(num_samples))
 
 for i in range(1, num_samples + 1):
     dt_now = datetime.now()
+    print("Recording sample number {} on {}".format(i, dt_now))
     logger.info("Recording sample number {} on {}".format(i, dt_now))
     dt_fname = time_stamp_fnamer(dt_now) + ".wav"
     location = config["data_dir"] + dt_fname
