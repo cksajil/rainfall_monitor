@@ -73,6 +73,7 @@ for i in range(1, num_samples + 1):
 
     if i % num_subsamples == 0:
         mm_hat = estimate_rainfall(interpreter, locations)
+        print(mm_hat)
         delete_files(locations)
         logger.info("\n\n\n*******************************************************")
         logger.info("At {} model {} estimated {}".format(dt_now, model_type, mm_hat))
