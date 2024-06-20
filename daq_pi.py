@@ -11,8 +11,8 @@ from utils.helper import time_stamp_fnamer, influxdb
 from utils.estimate import estimate_rainfall, delete_files
 from utils.helper import load_config, create_folder, load_estimate_model
 
-# from utils.gpio import setup_rain_sensor_gpio, gpio_cleanup
-# from utils.gpio import enable_rain_sensor, read_rain_sensor, disable_rain_sensor
+from utils.gpio import setup_rain_sensor_gpio, gpio_cleanup
+from utils.gpio import enable_rain_sensor, read_rain_sensor, disable_rain_sensor
 
 config = load_config("config.yaml")
 create_folder(config["log_dir"])
