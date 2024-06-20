@@ -2,6 +2,7 @@ import os
 import yaml
 import influxdb_client
 import tflite_runtime.interpreter as tflite
+from tflite_runtime.interpreter import load_delegate
 from requests.exceptions import ConnectionError
 from influxdb_client.client.write_api import SYNCHRONOUS
 
@@ -44,7 +45,11 @@ def load_estimate_model(model_path: str) -> any:
     """
     Loads TFLITE model, build it and loads weights
     """
-    interpreter = tflite.Interpreter(model_path=model_path)
+    interpreter = tflite.Interpreter(
+        model_path=model_path,
+        experimental_delegates=[load_delegate("libtensorflowlite_flex_delegate.so")],
+    )
+    # interpreter = tflite.Interpreter(model_path=model_path)
     interpreter.allocate_tensors()
     return interpreter
 
