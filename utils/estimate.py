@@ -50,7 +50,7 @@ def estimate_rainfall(interpreter: any, file_paths: list) -> float:
     print(input_details[0]["shape"])
     interpreter.set_tensor(input_details[0]["index"], stft_sample)
     interpreter.invoke()
-    y_pred = interpreter.get_tensor(output_details[0]["index"])
+    y_pred = interpreter.get_tensor(output_details[0]["index"])[0][0][0]
     return y_pred
 
 
