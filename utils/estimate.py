@@ -42,6 +42,7 @@ def estimate_rainfall(model: any, file_paths: list) -> float:
 
 
 def delete_files(file_paths):
+    """Function to delete wav files after inference"""
     for file_path in file_paths:
         try:
             if exists(file_path):
