@@ -21,15 +21,17 @@ interrupt_pin = config["interrupt_pin"]
 logging_interval = config["davis_log_interval_sec"]
 
 
+def reset_rainfall():
+    global count
+    count = 0
+
+
 def bucket_tipped(interrupt_pin):
     print("Bucket Tipped")
     global count
     count += 1
-
-
-def reset_rainfall():
-    global count
-    count = 0
+    if count > 50:
+        reset_rainfall()
 
 
 def influxdb(rain: float):
