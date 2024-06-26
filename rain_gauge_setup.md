@@ -73,13 +73,7 @@ rm sample.wav
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 13. change present working directory to code
-
-```bash
-cd /home/pi/raingauge/code/
-```
-
-### 14. Add Python scripts to bashrc file  
+### 13. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
