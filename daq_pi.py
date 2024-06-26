@@ -88,10 +88,11 @@ def main():
     infer_model = load_estimate_model(infer_model_path)
     setup_rain_sensor_gpio()
     enable_rain_sensor()
+    locations = []
 
     try:
         if field_deployed:
-            i, locations = 1, []
+            i = 1
             while True:
                 dt_now = datetime.now()
                 dt_fname = time_stamp_fnamer(dt_now) + ".wav"
