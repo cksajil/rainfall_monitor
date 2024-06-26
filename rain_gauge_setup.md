@@ -36,7 +36,7 @@ sudo reboot
 
 ```bash
 # Download setup.sh
-wget 'https://raw.githubusercontent.com/cksajil/rainfall_monitor/hari/setup.sh'
+wget 'https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/setup.sh'
 
 # run setup.sh
 bash setup.sh
@@ -78,8 +78,8 @@ Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylife
 ```bash
 nano ~/.bashrc
 
-# Appened the following line to the end of .bashrc file (this may cause path errors)
-python3 /home/pi/raingauge/code/daq_pi.py & python3 /home/pi/raingauge/code/davis_logger.py
+# Appened the following line to the end of .bashrc file 
+python3 /home/pi/raingauge/code/daq_pi.py
 
 # Reboot the device
 sudo reboot
