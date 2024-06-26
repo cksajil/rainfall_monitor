@@ -79,14 +79,7 @@ Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylife
 cd /home/pi/raingauge/code/
 ```
 
-### 14. Use `nohup` to initiate scripts or add Python scripts to bashrc file  
-
-```bash
-nohup python3 daq_pi.py &
-nohup python3 davis_logger.py &
-```
-
-OR
+### 14. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
