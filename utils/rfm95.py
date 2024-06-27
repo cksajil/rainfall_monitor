@@ -2,107 +2,113 @@
 # SPI Configuration: Enable SPI on the Raspberry Pi using raspi-config.
 # GPIO Pins: Ensure no conflicts with other connected devices or GPIO configurations.
 
-# sudo pip3 install pySX127x lora-pico
-# RFM95 Pin   | Raspberry Pi Pin
-# ------------------------------
-# VCC         | 3.3V (Pin 1)
-# GND         | GND (Pin 6)
-# SCK         | GPIO11 (Pin 23)
-# MISO        | GPIO9 (Pin 21)
-# MOSI        | GPIO10 (Pin 19)
-# NSS         | GPIO8 (Pin 24)
-# RST         | GPIO25 (Pin 22)
-# DIO0        | GPIO7 (Pin 26)
-# DIO1        | GPIO18 (Pin 12) (optional)
-# DIO2        | GPIO23 (Pin 16) (optional)
-# DIO3        | GPIO24 (Pin 18) (optional)
-# DIO4        | GPIO25 (Pin 22) (optional)
+#  +----------------------------+       +----------------------------+
+#  |        RFM95 Module        |       |        Raspberry Pi 4      |
+#  +----------------------------+       +----------------------------+
+#  | VCC ------------------- 3.3V (Pin 1)                          |
+#  | GND ------------------- GND (Pin 6)                           |
+#  | GND (optional)--------- GND (any available GND pin)           |
+#  | GND (optional)--------- GND (any available GND pin)           |
+#  | SCK ------------------- Pin 23                                |
+#  | MISO ------------------ Pin 21                                |
+#  | MOSI ------------------ Pin 19                                |
+#  | NSS ------------------- Pin 24                                |
+#  | RST ------------------- Pin 22                                |
+#  | DIO0 ------------------ Pin 26                                |
+#  | DIO1 ------------------ Pin 12 (optional)                     |
+#  | DIO2 ------------------ Pin 16 (optional)                     |
+#  | DIO3 ------------------ Pin 18 (optional)                     |
+#  | DIO4 ------------------ Pin 22 (optional)                     |
+#  +----------------------------+       +----------------------------+
+
+# sudo pip3 install smbus2
 
 
-from time import sleep
-from SX127x.LoRa import *
-from SX127x.board_config import BOARD
-from LoRaWAN.LoRaWAN import LoRaWAN
-from LoRaWAN.MHDR import MHDR
-import binascii
+import time
+import spidev
+import smbus2
 
-BOARD.setup()
+# RFM95 module constants
+RFM95_REG_VERSION = 0x42
+RFM95_VERSION = 0x12
+
+# Replace with your LoRaWAN parameters
+DEVADDR = bytearray([0x00, 0x01, 0x02, 0x03])
+NWKSKEY = bytearray(
+    [
+        0x01,
+        0x23,
+        0x45,
+        0x67,
+        0x89,
+        0xAB,
+        0xCD,
+        0xEF,
+        0x01,
+        0x23,
+        0x45,
+        0x67,
+        0x89,
+        0xAB,
+        0xCD,
+        0xEF,
+    ]
+)
+APPSKEY = bytearray(
+    [
+        0xFE,
+        0xDC,
+        0xBA,
+        0x98,
+        0x76,
+        0x54,
+        0x32,
+        0x10,
+        0xFE,
+        0xDC,
+        0xBA,
+        0x98,
+        0x76,
+        0x54,
+        0x32,
+        0x10,
+    ]
+)
+
+# Initialize SPI
+spi = spidev.SpiDev()
+spi.open(0, 0)
+spi.max_speed_hz = 500000
+
+# Initialize I2C
+bus = smbus2.SMBus(1)  # Use 1 for Raspberry Pi Model B+
+i2c_address = 0x6B
 
 
-class LoRaRFM95(LoRa):
-    def __init__(self, verbose=False):
-        super(LoRaRFM95, self).__init__(verbose)
-        self.set_mode(MODE.SLEEP)
-        self.set_dio_mapping([1, 0, 0, 0, 0, 0])
-
-    def on_tx_done(self):
-        print("TxDone")
-        self.set_mode(MODE.STDBY)
-        self.set_mode(MODE.TX)
-        self.clear_irq_flags(TxDone=1)
-
-    def send_lorawan(self, devaddr, nwkskey, appskey, data):
-        lorawan = LoRaWAN.new(nwkskey, appskey)
-        lorawan.create(
-            MHDR.UNCONF_DATA_UP,
-            {"devaddr": devaddr, "fcnt": 1, "data": list(data.encode("utf-8"))},
-        )
-        payload = lorawan.to_raw()
-        self.write_payload(payload)
-        self.set_mode(MODE.TX)
-        sleep(0.5)
-        self.set_mode(MODE.STDBY)
+def setup():
+    # Check RFM95 module version
+    version = spi.xfer2([RFM95_REG_VERSION, 0])[1]
+    if version != RFM95_VERSION:
+        print("RFM95 module not found!")
+        return False
+    print("RFM95 module found")
+    return True
 
 
-# Define your device address, network session key, and application session key
-DEVADDR = [0x26, 0x01, 0x1B, 0xA1]
-NWKSKEY = [
-    0x1F,
-    0xB2,
-    0x8D,
-    0x22,
-    0xF4,
-    0xE1,
-    0xF3,
-    0x7B,
-    0x8E,
-    0x54,
-    0x7A,
-    0x67,
-    0xC6,
-    0x45,
-    0x11,
-    0x0A,
-]
-APPSKEY = [
-    0xD7,
-    0xF7,
-    0xE6,
-    0xD9,
-    0xAC,
-    0xE1,
-    0x2D,
-    0xB7,
-    0x55,
-    0x1A,
-    0xE5,
-    0x74,
-    0x91,
-    0xC7,
-    0x9E,
-    0xF2,
-]
+def send_data(message):
+    # Send data implementation using SPI/I2C
+    print("Sending message:", message)
+    # Implement your LoRaWAN message sending logic here
 
-lora = LoRaRFM95(verbose=True)
-lora.set_mode(MODE.STDBY)
-lora.set_freq(868.0)
 
-try:
-    while True:
-        lora.send_lorawan(DEVADDR, NWKSKEY, APPSKEY, "Hello, Gateway from ICFOSS!")
-        sleep(10)
-except KeyboardInterrupt:
-    print("Interrupted")
-finally:
-    lora.set_mode(MODE.SLEEP)
-    BOARD.teardown()
+# Main execution
+if __name__ == "__main__":
+    if setup():
+        try:
+            while True:
+                send_data("Hello, LoRa!")
+                time.sleep(10)
+        except KeyboardInterrupt:
+            print("\nTerminated by user")
+        finally:
+            spi.close()
