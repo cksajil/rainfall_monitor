@@ -21,7 +21,7 @@
 #  | DIO4 ------------------ Pin 22 (optional)                     |
 #  +----------------------------+       +----------------------------+
 
-# sudo pip3 install smbus2
+# sudo pip3 install smbus2 spidev
 
 
 import time
