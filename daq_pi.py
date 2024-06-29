@@ -69,7 +69,7 @@ def write_rain_data_to_csv(result_data, log_dir, csv_filename):
 def main():
     config = load_config("config.yaml")
     db_counter, rain = 0, 0
-    DB_write_interval = config["DB_writing_interval_min"] / 3
+    DB_write_interval = config["DB_writing_interval_min"]
     result_data = []
     wav_duration = config["sample_duration_sec"]
     davis_duration = config["davis_duration_sec"]
