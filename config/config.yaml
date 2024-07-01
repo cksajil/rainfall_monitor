@@ -17,7 +17,7 @@ seq_len: 1368000
 csv_file_name: recorded_data_and_estimates.csv
 interrupt_pin: 13
 davis_log_interval_sec: 180
-DB_writing_interval_min: 5 # use multiples of 3 only
+DB_writing_interval_min: 3 # use multiples of 3 only
 rain_gpio_power_pin: 4
 rain_gpio_input_pin: 17
 field_deployed: false
