@@ -161,7 +161,7 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if read_rain_sensor() == GPIO.LOW and rain >= 0.6:
+                        if read_rain_sensor() == GPIO.LOW and mm_hat >= 0.6:
                             influxdb(mm_hat)
                         else:
                             influxdb(0.0)
