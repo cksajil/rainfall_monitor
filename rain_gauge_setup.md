@@ -91,6 +91,7 @@ cd ..
 ```
 
 ### 10. Download and convert to TFLite Model
+Check Kaggle notebook version 92 outputs to see the model without LSTM blocks
 ```bash
 wget --no-check-certificate 'https://rb.gy/kdojrr' -O model/seq_stft.tflite
 ```
