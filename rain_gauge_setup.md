@@ -56,7 +56,7 @@ sudo reboot
 
 ### 7. Increase swap space
 ```bash
-sudo fallocate -l 2G /swapfile
+sudo fallocate -l 4G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
