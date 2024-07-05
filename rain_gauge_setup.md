@@ -81,7 +81,7 @@ pip3 install tflite-runtime
 ### 9. Create folder structure
 ```bash
 mkdir raingauge
-mkdir raingauge/model raingauge/data raingauge/logs
+mkdir raingauge/model raingauge/data
 cd raingauge/
 git clone https://github.com/cksajil/rainfall_monitor.git
 mv rainfall_monitor code
