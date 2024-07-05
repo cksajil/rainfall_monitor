@@ -92,7 +92,7 @@ cd ..
 
 ### 10. Download and convert to TFLite Model
 ```bash
-wget --no-check-certificate 'https://rb.gy/7b80vv' -O model/seq_stft.tflite
+wget --no-check-certificate 'https://rb.gy/kdojrr' -O model/seq_stft.tflite
 ```
 
 
