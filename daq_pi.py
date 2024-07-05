@@ -71,6 +71,8 @@ def main():
 
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
+                    dt_now = datetime.now()
+                    print(f"At {dt_now} estimated {mm_hat}")
                     delete_files(locations)
                     locations.clear()
                     # rain_sensor_status = read_rain_sensor()
@@ -80,9 +82,10 @@ def main():
 
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == 0 and rain >= 0.6:
-                            influxdb(mm_hat)
+                            db_write_status = influxdb(mm_hat)
                         else:
-                            influxdb(0.0)
+                            db_write_status = influxdb(0.0)
+                        print(f"At {dt_now} DB write status {db_write_status}")
                         rain, db_counter = 0, 0
                 i += 1
 
