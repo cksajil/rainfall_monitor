@@ -1,6 +1,7 @@
 import os
 import yaml
 import influxdb_client
+from os.path import exists
 import tflite_runtime.interpreter as tflite
 from requests.exceptions import ConnectionError
 from influxdb_client.client.write_api import SYNCHRONOUS
@@ -40,6 +41,19 @@ def create_folder(directory: str) -> None:
     """
     if not os.path.exists(directory):
         os.makedirs(directory)
+
+
+def delete_files(file_paths):
+    """Function to delete wav files after inference"""
+    for file_path in file_paths:
+        try:
+            if exists(file_path):
+                remove(file_path)
+                print(f"Deleted: {file_path}")
+            else:
+                print(f"File does not exist: {file_path}")
+        except Exception as e:
+            print(f"Error deleting {file_path}: {e}")
 
 
 def load_estimate_model(model_path: str) -> any:
