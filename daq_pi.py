@@ -8,7 +8,6 @@ from utils.helper import (
     load_config,
     delete_files,
     load_estimate_model,
-    load_infer_model_path,
 )
 
 from utils.gpio import (
@@ -31,7 +30,7 @@ def record_audio(file_path, duration, file_format, resolution, sampling_rate):
             "-f",
             str(resolution),
             "-r",
-            sampling_rate,
+            str(sampling_rate),
             file_path,
         ]
     )
@@ -44,13 +43,11 @@ def main():
     db_counter, rain = 0, 0
     DB_write_interval = config["DB_writing_interval_min"]
     wav_duration = config["sample_duration_sec"]
-    davis_duration = config["davis_duration_sec"]
-    num_subsamples = davis_duration // wav_duration
     field_deployed = config["field_deployed"]
     infer_model = load_estimate_model(infer_model_path)
+
     # setup_rain_sensor_gpio()
     # enable_rain_sensor()
-    locations = []
 
     try:
         if field_deployed:
@@ -67,26 +64,20 @@ def main():
                     config["resolution"],
                     config["sampling_rate"],
                 )
-                locations.append(location)
 
-                if i % num_subsamples == 0:
-                    mm_hat = estimate_rainfall(infer_model, locations)
-                    dt_now = datetime.now()
-                    print(f"At {dt_now} estimated {mm_hat}")
-                    delete_files(locations)
-                    locations.clear()
-                    # rain_sensor_status = read_rain_sensor()
-                    rain_sensor_status = 0
-                    rain += mm_hat
-                    db_counter += 1
+                mm_hat = estimate_rainfall(infer_model, [location])
+                dt_now = datetime.now()
+                print(f"At {dt_now} estimated {mm_hat}")
 
-                    if db_counter == DB_write_interval:
-                        if rain_sensor_status == 0 and rain >= 0.6:
-                            db_write_status = influxdb(mm_hat)
-                        else:
-                            db_write_status = influxdb(0.0)
-                        print(f"At {dt_now} DB write status {db_write_status}")
-                        rain, db_counter = 0, 0
+                if rain >= 0.6:
+                    db_write_status = influxdb(mm_hat)
+                else:
+                    db_write_status = influxdb(0.0)
+                print(f"At {dt_now} DB write status {db_write_status}")
+
+                delete_files([location])  # Delete the recorded file
+
+                rain, db_counter = 0, 0  # Reset counters
                 i += 1
 
     except KeyboardInterrupt:
