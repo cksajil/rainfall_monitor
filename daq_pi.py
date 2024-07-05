@@ -67,6 +67,7 @@ def main():
                 )
 
                 mm_hat = estimate_rainfall(infer_model, [location])
+                delete_files([location])
                 dt_now = datetime.now()
                 print(f"At {dt_now} estimated {mm_hat}")
 
@@ -75,8 +76,6 @@ def main():
                 else:
                     db_write_status = influxdb(0.0)
                 print(f"At {dt_now} DB write status {db_write_status}")
-
-                delete_files([location])  # Delete the recorded file
 
                 rain, db_counter = 0, 0  # Reset counters
                 i += 1
