@@ -8,6 +8,7 @@ from utils.helper import (
     load_config,
     delete_files,
     load_estimate_model,
+    load_infer_model_path,
 )
 
 from utils.gpio import (
