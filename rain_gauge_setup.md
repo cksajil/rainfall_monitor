@@ -66,16 +66,16 @@ sudo swapon --show
 ### 8. Download and run setup.sh for automating environment setup
 
 ```bash
-sudo apt install alsa-utils
+sudo apt install -y alsa-utils
 sudo apt install -y pulseaudio
-sudo apt install python3-pip
+sudo apt install -y python3-pip
 ```
 
 ```bash
 pip install librosa
 pip install RPi.GPIO
 pip install influxdb-client
-sudo apt-get install libatlas-base-dev
+sudo apt-get install -y libatlas-base-dev
 pip3 install tflite-runtime
 ```
 ### 9. Create folder structure
