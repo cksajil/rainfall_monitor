@@ -69,6 +69,7 @@ sudo swapon --show
 sudo apt install -y alsa-utils
 sudo apt install -y pulseaudio
 sudo apt install -y python3-pip
+pip install --upgrade pip
 ```
 
 ```bash
