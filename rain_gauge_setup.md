@@ -8,7 +8,7 @@
 
 ## Software Setup
 ### 1. Download suitable OS image
-Download Ubuntu (Raspberry Pi Generic (64-bit ARM) preinstalled server image) from https://cdimage.ubuntu.com/releases/20.04/release/ or from https://ubuntu.com/download/server/arm
+Download Ubuntu (Raspberry Pi Generic (Hard-Float) preinstalled server image) from https://cdimage.ubuntu.com/releases/20.04/release/ or from https://ubuntu.com/download/server/arm
 
 ### 2. Flash the operating system using balenaEtcher and boot the Raspberry Pi
 **Please make sure to connect card reader to USB port in the backside of PC to avoid write verification fail. Also avoid quick format to reduce write error.**
