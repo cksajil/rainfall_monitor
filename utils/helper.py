@@ -1,6 +1,7 @@
 import os
 import yaml
 import influxdb_client
+from os import remove
 from os.path import exists
 import tflite_runtime.interpreter as tflite
 from requests.exceptions import ConnectionError
