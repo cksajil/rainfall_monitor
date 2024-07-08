@@ -119,6 +119,7 @@ Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylife
 nano ~/.bashrc
 
 # Appened the following line to the end of .bashrc file
+source ~/venv/bin/activate
 python3 /home/ubuntu/raingauge/code/daq_pi.py
 
 # Reboot the device
