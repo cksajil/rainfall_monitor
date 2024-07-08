@@ -11,7 +11,7 @@ sampling_rate: "8000"
 stft_shape: [None, 1, 1025, 2672]
 infer_model_dir: /home/pi/raingauge/model/
 deployed_model_type: withcnn
-tflite_model: seq_stft.tflite
+tflite_model: seq_stft_2.tflite
 seq_len: 1368000
 interrupt_pin: 13
 DB_writing_interval_min: 1
