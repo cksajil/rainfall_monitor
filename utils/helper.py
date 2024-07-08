@@ -71,10 +71,10 @@ def influxdb(rain: float) -> bool:
     try:
         # Configure influxDB credentials
         influxdb_config = load_config("influxdb_api.yaml")
-        bucket = influxdb_config["bucket"]
         org = influxdb_config["org"]
-        token = influxdb_config["token"]
         url = influxdb_config["url"]
+        bucket = influxdb_config["bucket"]
+        token = influxdb_config["token"]
 
         # creating an object of influxdb_client
         client = influxdb_client.InfluxDBClient(
