@@ -54,7 +54,8 @@ def main():
             while True:
                 dt_now = datetime.now()
                 print(f"Recording sample number {i} on {dt_now}")
-                rain_sensor = read_rain_sensor()
+                # rain_sensor = read_rain_sensor()
+                rain_sensor = 0
                 dt_fname = time_stamp_fnamer(dt_now) + ".wav"
                 location = path.join(config["data_dir"], dt_fname)
                 record_audio(
@@ -70,7 +71,7 @@ def main():
                 dt_now = datetime.now()
                 print(f"At {dt_now} estimated {mm_hat}")
 
-                if rain >= 0.6:
+                if rain_sensor == GPIO.LOW and rain >= 0.6:
                     db_write_status = influxdb(mm_hat)
                 else:
                     db_write_status = influxdb(0.0)
