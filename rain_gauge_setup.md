@@ -27,20 +27,7 @@ sudo apt upgrade
 sudo reboot
 ```
 
-### 4. Increase swap space
-```bash
-sudo nano /etc/dphys-swapfile
-
-# modify the following line (4GB Swap space)
-CONF_SWAPSIZE=4096
-
-sudo systemctl restart dphys-swapfile
-
-#check current size
-free -m
-```
-
-### 5. Install dependencies
+### 4. Install dependencies
 
 ```bash
 sudo apt install -y alsa-utils
@@ -51,12 +38,27 @@ pip install --upgrade pip
 sudo apt install python3.11-venv
 ```
 
+### 5. Increase swap space
+```bash
+sudo nano /etc/dphys-swapfile
+
+# Modify the following line (4GB Swap space)
+CONF_SWAPSIZE=4096
+
+sudo systemctl restart dphys-swapfile
+
+# Check current size
+free -m
+```
+
 ### 6. Create venv and activate
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
+
+### 7. Install dependencies
 
 ```bash
 pip install PyYAML
@@ -68,7 +70,28 @@ pip install --upgrade tflite_runtime
 pip uninstall numpy
 pip install numpy==1.23.5
 ```
-### 7. Create folder structure
+
+### 8. Enable autologin 
+```bash
+sudo nano /etc/systemd/logind.conf
+# Uncomment lines starting with NAutoVTs=6 and ReserveVT=6, save and exit
+
+# Create an autologin service
+sudo mkdir /etc/systemd/system/getty@tty1.service.d/
+sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
+
+# Add the following content to override.conf file
+# Here replace username with your Raspberry Pi username
+
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --noissue --autologin pi %I $TERM
+Type=idle
+```
+
+
+### 9. Create folder structure
+
 ```bash
 mkdir raingauge
 mkdir raingauge/model raingauge/data
@@ -80,45 +103,50 @@ git checkout pizero
 cd ..
 ```
 
-### 8. Download and convert to TFLite Model
+### 10. Download and convert to TFLite Model
+
 Check Kaggle notebook version 92 outputs to see the model without LSTM blocks
 ```bash
 wget --no-check-certificate 'https://rb.gy/kdojrr' -O model/seq_stft.tflite
 ```
 
 
-### 9. Check in command line if microphone is detected
+### 11. Check in command line if microphone is detected
+
 ```bash
 lsusb
 ```
 This will list out all the USB devices connected to Raspberry Pi. To make sure that microphone is getting detected run the above command without connecting microphone and see the output. Repeat the same after connecting the microphone. Now the microphone or soundcard name should appear in the list as an additional entry.
 
-### 10. Check if $arecord$ command lists the input devices
+### 12. Check if $arecord$ command lists the input devices
+
 ```bash
 arecord -l
 ```
 
-### 11. Reboot the Raspberry Pi
+### 13. Reboot the Raspberry Pi
+
 ```bash
 sudo reboot
 ```
 
-### 12. After rebooting check if $arecord$ command is working
+### 14. After rebooting check if $arecord$ command is working
+
 ```bash
 # Records a 5 second test audio as wav file
-arecord --duration=5 sample.wav
+arecord --duration=2 sample.wav
 
 # Delete the test file
 rm sample.wav
 ```
 
-### 13. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
+### 15. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
 
-### 14. Add the device to Zerotier account
+### 16. Add the device to Zerotier account
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 15. Add Python scripts to bashrc file  
+### 17. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
