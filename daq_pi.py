@@ -65,7 +65,7 @@ def main():
                     config["resolution"],
                     config["sampling_rate"],
                 )
-
+                print(f"Recording finished for sample {i}")
                 mm_hat = estimate_rainfall(infer_model, [location])
                 delete_files([location])
                 dt_now = datetime.now()
