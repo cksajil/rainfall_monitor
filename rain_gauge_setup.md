@@ -153,7 +153,7 @@ nano ~/.bashrc
 
 # Appened the following line to the end of .bashrc file
 source ~/venv/bin/activate
-python3 /home/ubuntu/raingauge/code/daq_pi.py
+python3 /home/pi/raingauge/code/daq_pi.py
 
 # Reboot the device
 sudo reboot
