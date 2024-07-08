@@ -31,7 +31,7 @@ sudo reboot
 ```bash
 sudo nano /etc/dphys-swapfile
 
-# modify the following line
+# modify the following line (4GB Swap space)
 CONF_SWAPSIZE=4096
 
 sudo systemctl restart dphys-swapfile
