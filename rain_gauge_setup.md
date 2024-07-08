@@ -29,11 +29,15 @@ sudo reboot
 
 ### 4. Increase swap space
 ```bash
-sudo fallocate -l 4G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-sudo swapon --show
+sudo nano /etc/dphys-swapfile
+
+# modify the following line
+CONF_SWAPSIZE=4096
+
+sudo systemctl restart dphys-swapfile
+
+#check current size
+free -m
 ```
 
 ### 5. Install dependencies
@@ -41,6 +45,7 @@ sudo swapon --show
 ```bash
 sudo apt install -y alsa-utils
 sudo apt install -y pulseaudio
+sudo apt-get install -y dphys-swapfile
 sudo apt install -y python3-pip
 pip install --upgrade pip
 sudo apt install python3.11-venv
