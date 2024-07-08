@@ -14,7 +14,7 @@ deployed_model_type: withcnn
 tflite_model: seq_stft.tflite
 seq_len: 1368000
 interrupt_pin: 13
-DB_writing_interval_min: 1
+DB_writing_interval_min: 3
 rain_gpio_power_pin: 4
 rain_gpio_input_pin: 17
 field_deployed: true
