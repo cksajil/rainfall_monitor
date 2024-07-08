@@ -1,7 +1,7 @@
 # board: raspberry_pi_4
 board: raspberry_pi_zero_w
-data_dir: /home/ubuntu/raingauge/data/
-log_dir: /home/ubuntu/raingauge/logs/
+data_dir: /home/pi/raingauge/data/
+log_dir: /home/pi/raingauge/logs/
 record_hours: 168
 sample_duration_sec: 180
 davis_duration_sec: 180
@@ -11,7 +11,7 @@ sampling_rate: "8000"
 stft_shape: [None, 1, 1025, 2672]
 infer_model_dir: /home/pi/raingauge/model/
 deployed_model_type: withcnn
-tflite_model: seq_stft_2.tflite
+tflite_model: seq_stft.tflite
 seq_len: 1368000
 interrupt_pin: 13
 DB_writing_interval_min: 1
