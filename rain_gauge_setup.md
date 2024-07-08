@@ -73,6 +73,7 @@ pip install --upgrade pip
 ```
 
 ```bash
+pip install PyYAML
 pip install librosa
 pip install RPi.GPIO
 pip install influxdb-client
