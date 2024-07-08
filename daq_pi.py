@@ -71,8 +71,7 @@ def main():
                 dt_now = datetime.now()
                 print(f"At {dt_now} estimated {mm_hat}")
 
-                # if rain_sensor == GPIO.LOW and rain >= 0.6:
-                if rain_sensor == GPIO.LOW:
+                if rain_sensor == GPIO.LOW and rain >= 0.6:
                     db_write_status = influxdb(mm_hat)
                 else:
                     db_write_status = influxdb(0.0)
