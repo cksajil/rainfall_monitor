@@ -73,8 +73,8 @@ def influxdb(rain: float) -> bool:
         influxdb_config = load_config("influxdb_api.yaml")
         org = influxdb_config["org"]
         url = influxdb_config["url"]
-        bucket = influxdb_config["bucket"]
-        token = influxdb_config["token"]
+        bucket = influxdb_config["pizero_bucket"]
+        token = influxdb_config["pizero_token"]
 
         # creating an object of influxdb_client
         client = influxdb_client.InfluxDBClient(
