@@ -122,7 +122,7 @@ $ ttn-abp-send <DevAddr> <Nwkskey> <Appskey> <Rain_mm> <LED_FLAG>
 ```
 
 ### 12. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
-Download these from `API_Keys` folder in SWSICFOSS's  Google Drive. 
+Download these from `API_Keys` folder in `SWSICFOSS`  Google Drive. 
 
 ### 13. Add the device to Zerotier account
 
