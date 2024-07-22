@@ -105,14 +105,20 @@ $ ./build
 
 ```bash
 # Access the lmic_rpi folder 
-$ cd lmic_rpi/examples/ttn-abp-send 
+$ cd home/pi/raingauge/code/lmic_rpi/examples/ttn-abp-send 
 
 # Make the project 
+# This will generate the executable for LoraWAN communication
 $ make 
 
-# Running the program 
-# This will generate the executable for LoraWAN communication
-$ ./ttn-abp-send 
+# Add the executable to system path
+$ nano ~/.bashrc
+$ export PATH="$PATH:/home/pi/raingauge/code/lmic_rpi_fox/examples/ttn-abp-send"
+$ source ~/.bashrc
+
+# How to run
+# LED flag (0/1) can be used as an indication for data sending
+$ ttn-abp-send <DevAddr> <Nwkskey> <Appskey> <Rain_mm> <LED_FLAG>
 ```
 
 ### 12. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
