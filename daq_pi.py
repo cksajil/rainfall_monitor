@@ -5,6 +5,7 @@ from os import path
 import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
+
 from utils.helper import (
     time_stamp_fnamer,
     influxdb,
@@ -13,6 +14,7 @@ from utils.helper import (
     delete_files,
     load_estimate_model,
 )
+
 from utils.gpio import (
     setup_rain_sensor_gpio,
     gpio_cleanup,
@@ -132,7 +134,7 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if read_rain_sensor() == GPIO.LOW and rain >= min_threshold:
+                        if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
                             send_data(config, mm_hat)
                         else:
                             send_data(config, 0.0)
@@ -178,7 +180,7 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if read_rain_sensor() == GPIO.LOW and rain >= min_threshold:
+                        if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
                             send_data(config, mm_hat)
                         else:
                             send_data(config, 0.0)
