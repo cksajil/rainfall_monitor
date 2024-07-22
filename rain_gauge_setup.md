@@ -81,8 +81,7 @@ The complete WiringPi pin mapping can be seen [here](https://raw.githubuserconte
 | 13           | MISO            |
 | 14           | SCK             |
 | 6            | SS              |
-| 2            | STATUS LED      |
-| 3            | DATE SENT LED   |
+| 25           | LORAWAN LED     |
 | GND          | GND             |
 | 3.3V         | +3.3V           |
 
