@@ -66,26 +66,20 @@ def write_rain_data_to_csv(result_data, log_dir, csv_filename):
     result_df.to_csv(path.join(log_dir, csv_filename), index=False)
 
 
-def send_data_via_lorawan(mm_hat, led_flag):
+def send_data_via_lorawan(mm_hat):
     lorawan_config = load_config("lorawan_keys.yaml")
     dev_addr = lorawan_config["dev_addr"]
     nwk_key = lorawan_config["nwk_key"]
     app_skey = lorawan_config["app_skey"]
-    # subprocess.call(
-    #     [
-    #         "arecord",
-    #         "-q",
-    #         "--duration=" + str(duration),
-    #         "-t",
-    #         str(file_format),
-    #         "-f",
-    #         str(resolution),
-    #         "-r",
-    #         sampling_rate,
-    #         file_path,
-    #         ""./ttn-abp-send <DevAddr> <Nwkskey> <Appskey> <Rain_mm> <LED_FLAG>
-    #     ]
-    # )
+    led_flag = lorawan_config["led_flag"]
+    subprocess.call(["ttn-abp-send", dev_addr, nwk_key, app_skey, mm_hat, led_flag])
+
+
+def send_data(config, mm_hat):
+    if config["communication"] == "LORAWAN":
+        send_data_via_lorawan(mm_hat)
+    else:
+        influxdb(mm_hat)
 
 
 def main():
@@ -99,6 +93,7 @@ def main():
     record_hours = config["record_hours"]
     field_deployed = config["field_deployed"]
     end_time = datetime.now() + timedelta(hours=record_hours)
+    min_threshold = config["min_threshold"]
     infer_model_path = path.join(
         config["infer_model_dir"],
         (
@@ -137,10 +132,10 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if read_rain_sensor() == GPIO.LOW and rain >= 0.6:
-                            influxdb(mm_hat)
+                        if read_rain_sensor() == GPIO.LOW and rain >= min_threshold:
+                            send_data(config, mm_hat)
                         else:
-                            influxdb(0.0)
+                            send_data(config, 0.0)
                         rain, db_counter = 0, 0
                 i += 1
 
@@ -183,10 +178,10 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if read_rain_sensor() == GPIO.LOW and rain >= 0.6:
-                            influxdb(mm_hat)
+                        if read_rain_sensor() == GPIO.LOW and rain >= min_threshold:
+                            send_data(config, mm_hat)
                         else:
-                            influxdb(0.0)
+                            send_data(config, 0.0)
                         rain, db_counter = 0, 0
                 log_time_remaining(logger, end_time)
             logger.info(f"Finished data logging at {datetime.now()}\n")
