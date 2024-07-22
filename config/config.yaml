@@ -23,3 +23,4 @@ rain_gpio_input_pin: 17
 field_deployed: true
 communication: LORAWAN # WIFI
 min_threshold: 0.6
+lora_led_pin: 25

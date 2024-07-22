@@ -18,8 +18,7 @@
 #define RFM95_PIN_RST 0
 #define RFM95_PIN_D0 4
 #define RFM95_PIN_D1 5
-#define STATUS_PIN_LED 2
-#define DATA_SENT_LED 3
+#define DATA_SENT_LED 25
 
 // Dummy definitions to satisfy linker
 void os_getArtEui(u1_t *buf) {}
@@ -95,14 +94,6 @@ static void do_send(osjob_t *j, float rain)
   time_t t = time(NULL);
   fprintf(stdout, "[%x] (%ld) %s\n", hal_ticks(), t, ctime(&t));
 
-  // Blink LED to indicate transmission start if LEDs are enabled
-  if (useLeds)
-  {
-    digitalWrite(STATUS_PIN_LED, HIGH);
-    delay(100);
-    digitalWrite(STATUS_PIN_LED, LOW);
-  }
-
   // Show TX channel (channel numbers are local to LMIC)
   // Check if there is not a current TX/RX job running
   if (LMIC.opmode & OP_TXRXPEND)
@@ -168,7 +159,6 @@ void setup(u1_t *DevAddr, u1_t *Nwkskey, u1_t *Appskey, float rain)
   // Set pin direction if LEDs are enabled
   if (useLeds)
   {
-    pinMode(STATUS_PIN_LED, OUTPUT);
     pinMode(DATA_SENT_LED, OUTPUT);
   }
 
