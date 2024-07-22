@@ -70,7 +70,7 @@ rm sample.wav
 ### 11 Connect and Setup RFM95 Module to Raspberry Pi 4
 #### Hardware mapping 
 
-The complete WiringPi pin mapping can be seen [here](https://raw.githubusercontent.com/cksajil/LoraWANPi/main/lmic_rpi/raspberry_pi_wiring_gpio_pins.png) 
+The complete WiringPi pin mapping can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/lmic_rpi/raspberry_pi_wiring_gpio_pins.png) 
 | WiringPi Pin | Function        |
 |--------------|-----------------|
 | 0            | Reset           |
