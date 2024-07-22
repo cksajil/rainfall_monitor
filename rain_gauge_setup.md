@@ -67,13 +67,61 @@ arecord --duration=5 sample.wav
 rm sample.wav
 ```
 
-### 11. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
+### 11 Connect and Setup RFM95 Module to Raspberry Pi 4
+#### Hardware mapping 
 
-### 12. Add the device to Zerotier account
+The complete WiringPi pin mapping can be seen [here](https://raw.githubusercontent.com/cksajil/LoraWANPi/main/lmic_rpi/raspberry_pi_wiring_gpio_pins.png) 
+| WiringPi Pin | Function        |
+|--------------|-----------------|
+| 0            | Reset           |
+| 4            | DIO0            |
+| 5            | DIO1            |
+| 1            | DIO2 (Not used) |
+| 12           | MOSI            |
+| 13           | MISO            |
+| 14           | SCK             |
+| 6            | SS              |
+| 2            | STATUS LED      |
+| 3            | DATE SENT LED   |
+| GND          | GND             |
+| 3.3V         | +3.3V           |
+
+#### Install the WiringPi library 
+
+The [WiringPi](https://github.com/WiringPi/WiringPi) library provides the Raspberry Pi GPIO interface. Follow the instructions in that repository or do the following.
+
+```bash
+# Clone the repository 
+$ git clone https://github.com/WiringPi/WiringPi.git 
+
+# Access the wiringPi folder 
+$ cd wiringPi 
+
+# Build the library
+$ ./build 
+```
+
+#### Compile [LoraWANPi](https://github.com/lucasmaziero/lmic-rpi-fox.git) 
+
+```bash
+# Access the lmic_rpi folder 
+$ cd lmic_rpi/examples/ttn-abp-send 
+
+# Make the project 
+$ make 
+
+# Running the program 
+# This will generate the executable for LoraWAN communication
+$ ./ttn-abp-send 
+```
+
+### 12. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
+
+### 13. Add the device to Zerotier account
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 13. Add Python scripts to bashrc file  
+### 14. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
