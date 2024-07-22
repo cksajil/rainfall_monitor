@@ -18,6 +18,7 @@ saved_TF_model/
 
 # Ignore Influxdb API credentials
 config/influxdb_api.yaml
+config/lorawan_keys.yaml
 
 
 # IDE specific
