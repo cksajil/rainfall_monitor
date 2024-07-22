@@ -4,6 +4,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
+*.o
 
 # Ignore virtual environment
 venv/
@@ -17,3 +18,7 @@ saved_TF_model/
 
 # Ignore Influxdb API credentials
 config/influxdb_api.yaml
+
+
+# IDE specific
+.vscode/
