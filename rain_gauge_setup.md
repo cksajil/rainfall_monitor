@@ -116,12 +116,13 @@ $ nano ~/.bashrc
 $ export PATH="$PATH:/home/pi/raingauge/code/lmic_rpi_fox/examples/ttn-abp-send"
 $ source ~/.bashrc
 
-# How to run
+# Usage
 # LED flag (0/1) can be used as an indication for data sending
 $ ttn-abp-send <DevAddr> <Nwkskey> <Appskey> <Rain_mm> <LED_FLAG>
 ```
 
 ### 12. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
+Download these from `API_Keys` folder in SWSICFOSS's  Google Drive. 
 
 ### 13. Add the device to Zerotier account
 
