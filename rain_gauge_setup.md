@@ -38,6 +38,9 @@ sudo reboot
 # Download setup.sh
 wget 'https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/setup.sh'
 
+# Set executable permission
+chmod a+x script.sh
+
 # run setup.sh
 bash setup.sh
 ```
