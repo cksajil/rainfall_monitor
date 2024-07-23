@@ -71,7 +71,7 @@ def write_rain_data_to_csv(result_data, log_dir, csv_filename):
 def send_data_via_lorawan(mm_hat):
     lorawan_config = load_config("lorawan_keys.yaml")
     dev_addr = lorawan_config["dev_addr"]
-    nwk_key = lorawan_config["nwk_key"]
+    nwk_key = lorawan_config["nwk_skey"]
     app_skey = lorawan_config["app_skey"]
     led_flag = lorawan_config["led_flag"]
     subprocess.call(["ttn-abp-send", dev_addr, nwk_key, app_skey, mm_hat, led_flag])
