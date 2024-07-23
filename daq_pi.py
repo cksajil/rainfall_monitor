@@ -75,7 +75,7 @@ def send_data_via_lorawan(mm_hat):
     app_skey = lorawan_config["app_skey"]
     led_flag = lorawan_config["led_flag"]
     subprocess.call(
-        ["ttn-abp-send", dev_addr, nwk_skey, app_skey, str(mm_hat), led_flag]
+        ["ttn-abp-send", dev_addr, nwk_skey, app_skey, str(mm_hat), str(led_flag)]
     )
 
 
