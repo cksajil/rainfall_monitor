@@ -115,7 +115,7 @@ $ make
 
 # Add the executable to system path
 $ nano ~/.bashrc
-$ export PATH="$PATH:/home/pi/raingauge/code/lmic_rpi_fox/examples/ttn-abp-send"
+$ export PATH="$PATH:/home/pi/raingauge/code/lmic_rpi/examples/ttn-abp-send"
 $ source ~/.bashrc
 
 # Usage
