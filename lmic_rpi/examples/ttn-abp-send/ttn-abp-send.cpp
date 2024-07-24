@@ -81,7 +81,9 @@ void onEvent(ev_t ev)
     if (useLeds)
       digitalWrite(DATA_SENT_LED, LOW);
 
-    exit(0); // Exit the program after data is sent
+    // Reset the device by re-running the program
+    char *args[] = {argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], NULL};
+    execv(args[0], args); // Restart the program with the same arguments
     break;
   default:
     fprintf(stdout, "Unknown event\n");
