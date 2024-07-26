@@ -110,12 +110,13 @@ def main():
                     mm_hat = estimate_rainfall(infer_model, locations)
                     delete_files(locations)
                     locations.clear()
-                    rain_sensor_status = read_rain_sensor()
+                    # rain_sensor_status = read_rain_sensor()
+                    rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if read_rain_sensor() == GPIO.LOW and rain >= 0.6:
+                        if rain_sensor_status == GPIO.LOW and mm_hat >= 2:
                             influxdb(mm_hat)
                         else:
                             influxdb(0.0)
@@ -146,7 +147,8 @@ def main():
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
                     locations.clear()
-                    rain_sensor_status = read_rain_sensor()
+                    # rain_sensor_status = read_rain_sensor()
+                    rain_sensor_status = 0
                     result_data.append(
                         {
                             "time_stamp": dt_now,
@@ -161,7 +163,7 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if read_rain_sensor() == GPIO.LOW and mm_hat >= 0.6:
+                        if rain_sensor_status == GPIO.LOW and mm_hat >= 2:
                             influxdb(mm_hat)
                         else:
                             influxdb(0.0)
