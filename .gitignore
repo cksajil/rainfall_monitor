@@ -6,6 +6,9 @@ __pycache__/
 *.pyc
 *.o
 
+# Executables
+ttn-abp-send
+
 # Ignore virtual environment
 venv/
 
