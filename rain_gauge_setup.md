@@ -74,19 +74,19 @@ rm sample.wav
 #### Hardware mapping 
 
 The complete WiringPi pin mapping can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/lmic_rpi/raspberry_pi_wiring_gpio_pins.png) 
-| WiringPi Pin | Function        |
-|--------------|-----------------|
-| 0            | Reset           |
-| 4            | DIO0            |
-| 5            | DIO1            |
-| 1            | DIO2 (Not used) |
-| 12           | MOSI            |
-| 13           | MISO            |
-| 14           | SCK             |
-| 6            | SS              |
-| 25           | LORAWAN LED     |
-| GND          | GND             |
-| 3.3V         | +3.3V           |
+| WiringPi Pin | Function        | Physical Pin    |
+|--------------|-----------------|-----------------|
+| 0            | Reset           | 11              |
+| 4            | DIO0            | 16              |
+| 5            | DIO1            | 18              |
+| 1            | DIO2 (Not used) | 12              |      
+| 12           | MOSI            | 19              |
+| 13           | MISO            | 21              |
+| 14           | SCK             | 23              |
+| 6            | SS              | 22              |     
+| 25           | LORAWAN LED     | 37              |
+| GND          | GND             | 39              |
+| 3.3V         | +3.3V           | 1               |
 
 #### Install the WiringPi library 
 
