@@ -22,4 +22,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 EXPOSE 80
 
 # Run the application
-CMD ["python3", "daq_pis.py"]
+CMD ["python3", "daq_pi.py"]
