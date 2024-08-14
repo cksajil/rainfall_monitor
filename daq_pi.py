@@ -132,6 +132,7 @@ def main():
             i = 1
             while True:
                 dt_now = datetime.now()
+                print(f"Recording sample number {i} on {dt_now}")
                 dt_fname = time_stamp_fnamer(dt_now) + ".wav"
                 location = path.join(config["data_dir"], dt_fname)
                 record_audio(
