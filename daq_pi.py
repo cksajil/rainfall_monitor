@@ -146,6 +146,7 @@ def main():
 
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
+                    print("Estimated rainfall: ", mm_hat)
                     delete_files(locations)
                     locations.clear()
                     # rain_sensor_status = read_rain_sensor()
