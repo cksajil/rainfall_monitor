@@ -97,7 +97,7 @@ The [WiringPi](https://github.com/WiringPi/WiringPi) library provides the Raspbe
 $ git clone https://github.com/WiringPi/WiringPi.git 
 
 # Access the wiringPi folder 
-$ cd wiringPi 
+$ cd WiringPi 
 
 # Build the library
 $ ./build 
@@ -107,7 +107,7 @@ $ ./build
 
 ```bash
 # Access the lmic_rpi folder 
-$ cd home/pi/raingauge/code/lmic_rpi/examples/ttn-abp-send 
+$ cd /home/pi/raingauge/code/lmic_rpi/examples/ttn-abp-send 
 
 # Make the project 
 # This will generate the executable for LoraWAN communication
