@@ -15,13 +15,13 @@ from utils.helper import (
     load_estimate_model,
 )
 
-from utils.gpio import (
-    setup_rain_sensor_gpio,
-    gpio_cleanup,
-    enable_rain_sensor,
-    read_rain_sensor,
-    disable_rain_sensor,
-)
+# from utils.gpio import (
+#     setup_rain_sensor_gpio,
+#     gpio_cleanup,
+#     enable_rain_sensor,
+#     read_rain_sensor,
+#     disable_rain_sensor,
+# )
 
 
 def record_audio(file_path, duration, file_format, resolution, sampling_rate):
@@ -123,8 +123,8 @@ def main():
         ),
     )
     infer_model = load_estimate_model(infer_model_path)
-    setup_rain_sensor_gpio()
-    enable_rain_sensor()
+    # setup_rain_sensor_gpio()
+    # enable_rain_sensor()
     locations = []
 
     try:
@@ -147,7 +147,8 @@ def main():
                     mm_hat = estimate_rainfall(infer_model, locations)
                     delete_files(locations)
                     locations.clear()
-                    rain_sensor_status = read_rain_sensor()
+                    # rain_sensor_status = read_rain_sensor()
+                    rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
 
@@ -183,7 +184,8 @@ def main():
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
                     locations.clear()
-                    rain_sensor_status = read_rain_sensor()
+                    # rain_sensor_status = read_rain_sensor()
+                    rain_sensor_status = 0
                     result_data.append(
                         {
                             "time_stamp": dt_now,
@@ -207,12 +209,13 @@ def main():
             logger.info(f"Finished data logging at {datetime.now()}\n")
 
     except KeyboardInterrupt:
-        disable_rain_sensor()
-        gpio_cleanup()
+        # disable_rain_sensor()
+        # gpio_cleanup()
         print("Execution interrupted by user")
     finally:
-        disable_rain_sensor()
-        gpio_cleanup()
+        # disable_rain_sensor()
+        # gpio_cleanup()
+        pass
 
 
 if __name__ == "__main__":
