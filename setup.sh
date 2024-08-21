@@ -75,6 +75,7 @@ echo '******************************************************** INSTALLING DEPEND
 sudo apt-get install -y python3-pip
 export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
 echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
+sudo apt install -y python3.12-venv
 pip install --upgrade pip
 sudo apt-get install -y pkg-config
 sudo apt-get install -y libhdf5-dev
