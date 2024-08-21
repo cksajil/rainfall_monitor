@@ -87,6 +87,7 @@ pip install pandas # numpy will automatically install with pandas
 pip install librosa
 pip install keras
 pip install tensorflow
+pip install PyYAML
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
 
