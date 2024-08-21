@@ -125,6 +125,7 @@ def main():
     infer_model = load_estimate_model(infer_model_path)
     # setup_rain_sensor_gpio()
     # enable_rain_sensor()
+    
     locations = []
 
     try:
@@ -157,6 +158,7 @@ def main():
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
                             send_data(config, mm_hat)
+
                         else:
                             send_data(config, 0.0)
                         rain, db_counter = 0, 0
@@ -204,6 +206,7 @@ def main():
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
                             send_data(config, mm_hat)
+
                         else:
                             send_data(config, 0.0)
                         rain, db_counter = 0, 0
