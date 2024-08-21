@@ -5,6 +5,7 @@ from os import path
 import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
+
 from utils.helper import (
     time_stamp_fnamer,
     influxdb,
@@ -13,13 +14,14 @@ from utils.helper import (
     delete_files,
     load_estimate_model,
 )
-from utils.gpio import (
-    setup_rain_sensor_gpio,
-    gpio_cleanup,
-    enable_rain_sensor,
-    read_rain_sensor,
-    disable_rain_sensor,
-)
+
+# from utils.gpio import (
+#     setup_rain_sensor_gpio,
+#     gpio_cleanup,
+#     enable_rain_sensor,
+#     read_rain_sensor,
+#     disable_rain_sensor,
+# )
 
 
 def record_audio(file_path, duration, file_format, resolution, sampling_rate):
@@ -66,6 +68,40 @@ def write_rain_data_to_csv(result_data, log_dir, csv_filename):
     result_df.to_csv(path.join(log_dir, csv_filename), index=False)
 
 
+def send_data_via_lorawan(mm_hat):
+    lorawan_config = load_config("lorawan_keys.yaml")
+    dev_addr = lorawan_config["dev_addr"]
+    nwk_skey = lorawan_config["nwk_skey"]
+    app_skey = lorawan_config["app_skey"]
+    led_flag = lorawan_config["led_flag"]
+    success = False
+    while not success:
+        try:
+            result = subprocess.call(
+                [
+                    "ttn-abp-send",
+                    dev_addr,
+                    nwk_skey,
+                    app_skey,
+                    str(mm_hat),
+                    str(led_flag),
+                ]
+            )
+            if result == 0:
+                success = True
+            else:
+                print("Subprocess call failed, retrying...")
+        except subprocess.CalledProcessError as e:
+            print(f"Error during subprocess call: {e}. Retrying...")
+
+
+def send_data(config, mm_hat):
+    if config["communication"] == "LORAWAN":
+        send_data_via_lorawan(mm_hat)
+    else:
+        influxdb(mm_hat)
+
+
 def main():
     config = load_config("config.yaml")
     db_counter, rain = 0, 0
@@ -77,6 +113,7 @@ def main():
     record_hours = config["record_hours"]
     field_deployed = config["field_deployed"]
     end_time = datetime.now() + timedelta(hours=record_hours)
+    min_threshold = config["min_threshold"]
     infer_model_path = path.join(
         config["infer_model_dir"],
         (
@@ -86,8 +123,9 @@ def main():
         ),
     )
     infer_model = load_estimate_model(infer_model_path)
-    setup_rain_sensor_gpio()
-    enable_rain_sensor()
+    # setup_rain_sensor_gpio()
+    # enable_rain_sensor()
+    
     locations = []
 
     try:
@@ -95,6 +133,7 @@ def main():
             i = 1
             while True:
                 dt_now = datetime.now()
+                print(f"Recording sample number {i} on {dt_now}")
                 dt_fname = time_stamp_fnamer(dt_now) + ".wav"
                 location = path.join(config["data_dir"], dt_fname)
                 record_audio(
@@ -108,6 +147,7 @@ def main():
 
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
+                    print("Estimated rainfall: ", mm_hat)
                     delete_files(locations)
                     locations.clear()
                     # rain_sensor_status = read_rain_sensor()
@@ -116,10 +156,11 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if rain_sensor_status == GPIO.LOW and mm_hat >= 2:
-                            influxdb(mm_hat)
+                        if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
+                            send_data(config, mm_hat)
+
                         else:
-                            influxdb(0.0)
+                            send_data(config, 0.0)
                         rain, db_counter = 0, 0
                 i += 1
 
@@ -163,21 +204,23 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if rain_sensor_status == GPIO.LOW and mm_hat >= 2:
-                            influxdb(mm_hat)
+                        if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
+                            send_data(config, mm_hat)
+
                         else:
-                            influxdb(0.0)
+                            send_data(config, 0.0)
                         rain, db_counter = 0, 0
                 log_time_remaining(logger, end_time)
             logger.info(f"Finished data logging at {datetime.now()}\n")
 
     except KeyboardInterrupt:
-        disable_rain_sensor()
-        gpio_cleanup()
+        # disable_rain_sensor()
+        # gpio_cleanup()
         print("Execution interrupted by user")
     finally:
-        disable_rain_sensor()
-        gpio_cleanup()
+        # disable_rain_sensor()
+        # gpio_cleanup()
+        pass
 
 
 if __name__ == "__main__":

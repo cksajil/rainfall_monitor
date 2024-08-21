@@ -65,10 +65,9 @@ cd raingauge/
 git clone https://github.com/cksajil/rainfall_monitor.git
 mv rainfall_monitor code
 cd code/
-git checkout gitlab
+git checkout deployment
 cd ..
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=17yY89nn5k9YEcEXLsZiXsKorpf9Mzlvr' -O model/rain_stft.hdf5
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15YwpKMOJ8MyvhM9zoIHB-H_u-d09p6Xz' -O model/seq_stft.hdf5
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15rnz_j0QYxJM-4zMHGyLYQMw8a8ndjzs' -O model/seq_stft.hdf5
 echo '*********************************************************** ENVIRONMENT CREATED ***************************************************************'
 
 #installing dependencies

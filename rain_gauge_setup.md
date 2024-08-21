@@ -36,7 +36,10 @@ sudo reboot
 
 ```bash
 # Download setup.sh
-wget 'https://raw.githubusercontent.com/cksajil/rainfall_monitor/hari/setup.sh'
+wget 'https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/setup.sh'
+
+# Set executable permission
+chmod a+x setup.sh
 
 # run setup.sh
 bash setup.sh
@@ -67,32 +70,73 @@ arecord --duration=5 sample.wav
 rm sample.wav
 ```
 
-### 11. Add influx-db yaml file (`influxdb_api.yaml`) to config folder
+### 11 Connect and Setup RFM95 Module to Raspberry Pi 4
+#### Hardware mapping 
 
-### 12. Add the device to Zerotier account
+The complete WiringPi pin mapping can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/lmic_rpi/raspberry_pi_wiring_gpio_pins.png) 
+| WiringPi Pin | Function        | Physical Pin    |
+|--------------|-----------------|-----------------|
+| 0            | Reset           | 11              |
+| 4            | DIO0            | 16              |
+| 5            | DIO1            | 18              |
+| 1            | DIO2 (Not used) | 12              |      
+| 12           | MOSI            | 19              |
+| 13           | MISO            | 21              |
+| 14           | SCK             | 23              |
+| 6            | SS              | 22              |     
+| 25           | LORAWAN LED     | 37              |
+| GND          | GND             | 39              |
+| 3.3V         | +3.3V           | 1               |
+
+#### Install the WiringPi library 
+
+The [WiringPi](https://github.com/WiringPi/WiringPi) library provides the Raspberry Pi GPIO interface. Follow the instructions in that repository or do the following.
+
+```bash
+# Clone the repository 
+$ git clone https://github.com/WiringPi/WiringPi.git 
+
+# Access the wiringPi folder 
+$ cd WiringPi 
+
+# Build the library
+$ ./build 
+```
+
+#### Compile [LoraWANPi](https://github.com/lucasmaziero/lmic-rpi-fox.git) 
+
+```bash
+# Access the lmic_rpi folder 
+$ cd /home/pi/raingauge/code/lmic_rpi/examples/ttn-abp-send 
+
+# Make the project 
+# This will generate the executable for LoraWAN communication
+$ make 
+
+# Add the executable to system path
+$ nano ~/.bashrc
+$ export PATH="$PATH:/home/pi/raingauge/code/lmic_rpi/examples/ttn-abp-send"
+$ source ~/.bashrc
+
+# Usage
+# LED flag (0/1) can be used as an indication for data sending
+$ ttn-abp-send <DevAddr> <Nwkskey> <Appskey> <Rain_mm> <LED_FLAG>
+```
+
+### 12. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
+Download these from `API_Keys` folder in `SWSICFOSS`  Google Drive. 
+
+### 13. Add the device to Zerotier account
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 13. change present working directory to code
-
-```bash
-cd /home/pi/raingauge/code/
-```
-
-### 14. Use `nohup` to initiate scripts or add Python scripts to bashrc file  
-
-```bash
-nohup python3 daq_pi.py &
-nohup python3 davis_logger.py &
-```
-
-OR
+### 14. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
 
-# Appened the following line to the end of .bashrc file (this may cause path errors)
-python3 /home/pi/raingauge/code/daq_pi.py & python3 /home/pi/raingauge/code/davis_logger.py
+# Appened the following line to the end of .bashrc file 
+python3 /home/pi/raingauge/code/daq_pi.py
 
 # Reboot the device
 sudo reboot

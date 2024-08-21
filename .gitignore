@@ -4,6 +4,10 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
+*.o
+
+# Executables
+ttn-abp-send
 
 # Ignore virtual environment
 venv/
@@ -17,3 +21,8 @@ saved_TF_model/
 
 # Ignore Influxdb API credentials
 config/influxdb_api.yaml
+config/lorawan_keys.yaml
+
+
+# IDE specific
+.vscode/
