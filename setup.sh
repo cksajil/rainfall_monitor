@@ -91,6 +91,7 @@ pip install librosa
 pip install keras
 pip install tensorflow
 pip install PyYAML
+pip install RPi.GPIO
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
 
