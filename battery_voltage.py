@@ -15,9 +15,10 @@ def list_ports():
 
 
 # print(list_ports())
+serial_port = "/dev/serial0"
 
 try:
-    serial_port = "/dev/serial0"
+    
     ser = Serial(port=serial_port,
         baudrate=9600,
         timeout=1)
