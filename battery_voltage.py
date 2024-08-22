@@ -12,7 +12,7 @@ def list_ports():
     return ports
 
 
-# print(list_ports())
+print(list_ports())
 serial_port = "/dev/serial0"
 
 try:
