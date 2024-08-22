@@ -2,14 +2,12 @@ data_dir: /home/pi/raingauge/data/
 log_dir: /home/pi/raingauge/logs/
 log_filename: log.txt
 label_file: davis_label.csv
-label_file_sec: davis_label_sec.csv
 record_hours: 168
 sample_duration_sec: 10
 davis_duration_sec: 180
 file_format: "wav"
 resolution: "S32"
 sampling_rate: "8000"
-learning_rate: 0.001
 stft_shape: [None, 1, 1025, 2672]
 infer_model_dir: /home/pi/raingauge/model/
 deployed_model_type: withcnn
@@ -19,10 +17,10 @@ seq_len: 1368000
 csv_file_name: recorded_data_and_estimates.csv
 interrupt_pin: 13
 davis_log_interval_sec: 180
-DB_writing_interval_min: 3 # use multiples of 3 only
+DB_writing_interval_min: 1 # use multiples of 3 only
 rain_gpio_power_pin: 4
-<<<<<<< HEAD
 rain_gpio_input_pin: 17
-=======
-rain_gpio_input_pin: 17
->>>>>>> 133baca17148b40e24f9f542c76ce11df7bc58de
+communication: WIFI #LORAWAN # WIFI
+min_threshold: 0.6
+lora_led_pin: 25
+field_deployed: false
