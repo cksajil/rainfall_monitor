@@ -1,7 +1,6 @@
 data_dir: /home/pi/raingauge/data/
 log_dir: /home/pi/raingauge/logs/
 log_filename: log.txt
-label_file: davis_label.csv
 record_hours: 168
 sample_duration_sec: 10
 davis_duration_sec: 180
@@ -15,7 +14,8 @@ infer_model_withoutcnn: rain_stft.hdf5
 infer_model_withcnn: seq_stft.hdf5
 seq_len: 1368000
 csv_file_name: recorded_data_and_estimates.csv
-interrupt_pin: 13
+davis_log_filename: davis_label.csv
+davis_interrupt_pin: 13
 davis_log_interval_sec: 180
 DB_writing_interval_min: 1 # use multiples of 3 only
 rain_gpio_power_pin: 4
