@@ -1,13 +1,10 @@
 import os
 import yaml
 from os import remove
-import influxdb_client
 from os.path import exists
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import LSTM, Dense, Reshape, Input
-from influxdb_client.client.write_api import SYNCHRONOUS
-from requests.exceptions import ConnectionError
 
 
 def load_config(config_name: str, CONFIG_PATH="/home/pi/raingauge/code/config") -> dict:
@@ -97,34 +94,3 @@ def load_estimate_model(model_path: str) -> any:
     model.build(input_shape=config["stft_shape"])
     model.load_weights(model_path)
     return model
-
-
-def influxdb(rain: float) -> bool:
-    """
-    function to write data to influxdb
-    """
-    try:
-        # Configure influxDB credentials
-        influxdb_config = load_config("influxdb_api.yaml")
-        bucket = influxdb_config["pizero_bucket"]
-        org = influxdb_config["org"]
-        token = influxdb_config["pizero_token"]
-        url = influxdb_config["url"]
-
-        # creating an object of influxdb_client
-        client = influxdb_client.InfluxDBClient(
-            url=url, token=token, org=org, timeout=30_000
-        )
-        write_api = client.write_api(write_options=SYNCHRONOUS)
-        p = (
-            influxdb_client.Point("ML-prediction")
-            .tag("location", "greenfield tvm")
-            .field("rain", rain)
-        )
-
-        write_api.write(bucket=bucket, org=org, record=p)
-        client.close()
-        return True
-    except ConnectionError as e:
-        print(f"Connection to InfluxDB failed: {e}")
-        return False

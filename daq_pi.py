@@ -5,10 +5,10 @@ from os import path
 import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
+from utils.connectivity import influxdb 
 
 from utils.helper import (
     time_stamp_fnamer,
-    influxdb,
     load_config,
     create_folder,
     delete_files,
