@@ -1,5 +1,6 @@
 import time
 import serial
+import serial.tools.list_ports
 
 
 def list_ports():
