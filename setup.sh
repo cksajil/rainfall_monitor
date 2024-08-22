@@ -75,6 +75,9 @@ echo '******************************************************** INSTALLING DEPEND
 sudo apt-get install -y python3-pip
 export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
 echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
+sudo apt install -y python3.12-venv
+python3 -m venv venv
+source venv/bin/activate
 pip install --upgrade pip
 sudo apt-get install -y pkg-config
 sudo apt-get install -y libhdf5-dev
@@ -87,6 +90,8 @@ pip install pandas # numpy will automatically install with pandas
 pip install librosa
 pip install keras
 pip install tensorflow
+pip install PyYAML
+pip install RPi.GPIO
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
 
