@@ -18,7 +18,7 @@ try:
                 print(f"Battery Voltage: {voltage}V")
             time.sleep(1)
     except KeyboardInterrupt:
-        print("Program terminated")
+        print("Program terminated by user")
     finally:
         ser.close()
 
