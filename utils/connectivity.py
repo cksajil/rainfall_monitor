@@ -5,7 +5,7 @@ from utils.helper import load_config
 import subprocess
 
 
-def send_data_via_influxdb(rain: float) -> bool:
+def send_data_via_internet(rain: float) -> bool:
     """
     function to write data to influxdb using internet
     """

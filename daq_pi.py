@@ -5,7 +5,7 @@ from os import path
 import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
-from utils.connectivity import send_data_via_influxdb,send_data_via_lorawan
+from utils.connectivity import send_data_via_internet,send_data_via_lorawan
 
 from utils.helper import (
     time_stamp_fnamer,
@@ -74,7 +74,7 @@ def send_data(config, mm_hat):
     if config["communication"] == "LORAWAN":
         send_data_via_lorawan(mm_hat)
     else:
-        send_data_via_influxdb(mm_hat)
+        send_data_via_internet(mm_hat)
 
 
 def main():
