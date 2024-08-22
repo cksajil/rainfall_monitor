@@ -3,11 +3,12 @@ from serial import Serial, SerialException
 from serial.tools import list_ports
 
 
-
 def list_ports():
     ports = list(list_ports.comports())
     for port in ports:
-        print(f"Port: {port.device}, Description: {port.description}, HWID: {port.hwid}")
+        print(
+            f"Port: {port.device}, Description: {port.description}, HWID: {port.hwid}"
+        )
     return ports
 
 
@@ -15,12 +16,10 @@ def list_ports():
 serial_port = "/dev/serial0"
 
 try:
-    
-    ser = Serial(port=serial_port,
-        baudrate=9600,
-        timeout=1)
+
+    ser = Serial(port=serial_port, baudrate=9600, timeout=1)
     print(f"Connected to {serial_port}")
-    time.sleep(2)  
+    time.sleep(2)
 
     try:
         while True:
@@ -33,5 +32,5 @@ try:
     finally:
         ser.close()
 
- except SerialException as e:
-        print(f"Error: {e}")
+except SerialException as e:
+    print(f"Error: {e}")
