@@ -1,6 +1,5 @@
 import time
 from serial import Serial, SerialException
-from serial.tools import list_ports
 
 
 serial_port = "/dev/serial0"
