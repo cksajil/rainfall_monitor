@@ -12,6 +12,8 @@ def list_ports():
     return ports
 
 
+print(list_ports)
+
 # Setup UART communication
 ser = serial.Serial(
     port="/dev/serial0",  # The serial port name
