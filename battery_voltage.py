@@ -2,6 +2,16 @@ import time
 import serial
 
 
+def list_ports():
+    """List all available ports and their descriptions."""
+    ports = list(serial.tools.list_ports.comports())
+    for port in ports:
+        print(
+            f"Port: {port.device}, Description: {port.description}, HWID: {port.hwid}"
+        )
+    return ports
+
+
 # Setup UART communication
 ser = serial.Serial(
     port="/dev/serial0",  # The serial port name
