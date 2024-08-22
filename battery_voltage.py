@@ -3,16 +3,6 @@ from serial import Serial, SerialException
 from serial.tools import list_ports
 
 
-def list_ports():
-    ports = list(list_ports.comports())
-    for port in ports:
-        print(
-            f"Port: {port.device}, Description: {port.description}, HWID: {port.hwid}"
-        )
-    return ports
-
-
-print(list_ports())
 serial_port = "/dev/serial0"
 
 try:
