@@ -20,7 +20,7 @@ davis_interrupt_pin: 13
 davis_log_interval_sec: 180
 rain_gpio_power_pin: 4
 rain_gpio_input_pin: 17
-communication: WIFI #LORAWAN # WIFI
+communication: WIFI # LORAWAN or WIFI
 min_threshold: 0.6
 lora_led_pin: 25
 field_deployed: false
