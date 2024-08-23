@@ -65,29 +65,33 @@ cd raingauge/
 git clone https://github.com/cksajil/rainfall_monitor.git
 mv rainfall_monitor code
 cd code/
-git checkout gitlab
+git checkout deployment
 cd ..
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=17yY89nn5k9YEcEXLsZiXsKorpf9Mzlvr' -O model/rain_stft.hdf5
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15YwpKMOJ8MyvhM9zoIHB-H_u-d09p6Xz' -O model/seq_stft.hdf5
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15rnz_j0QYxJM-4zMHGyLYQMw8a8ndjzs' -O model/seq_stft.hdf5
 echo '*********************************************************** ENVIRONMENT CREATED ***************************************************************'
 
 #installing dependencies
 echo '******************************************************** INSTALLING DEPENDENCIES **************************************************************'
-sudo apt install python3-pip
+sudo apt-get install -y python3-pip
 export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
 echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
+sudo apt install -y python3.12-venv
+python3 -m venv venv
+source venv/bin/activate
 pip install --upgrade pip
-sudo apt-get install pkg-config
-sudo apt-get install libhdf5-dev
-sudo apt install python3-rpi.gpio
-sudo apt install alsa-utils
-sudo apt install pulseaudio
-sudo apt-get install usbutils
+sudo apt-get install -y pkg-config
+sudo apt-get install -y libhdf5-dev
+sudo apt install -y python3-rpi.gpio
+sudo apt install -y alsa-utils
+sudo apt install -y pulseaudio
+sudo apt-get install -y usbutils
 pip install influxdb-client
 pip install pandas # numpy will automatically install with pandas
 pip install librosa
 pip install keras
 pip install tensorflow
+pip install PyYAML
+pip install RPi.GPIO
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
 

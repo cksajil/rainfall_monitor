@@ -1,14 +1,13 @@
 import os
 import yaml
-import influxdb_client
+from os import remove
+from os.path import exists
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import LSTM, Dense, Reshape, Input
-from influxdb_client.client.write_api import SYNCHRONOUS
-from requests.exceptions import ConnectionError
 
 
-def load_config(config_name: str, CONFIG_PATH="./config") -> dict:
+def load_config(config_name: str, CONFIG_PATH="/home/pi/raingauge/code/config") -> dict:
     """
     A function to load and return config file in YAML format
     """
@@ -40,6 +39,19 @@ def create_folder(directory: str) -> None:
     """
     if not os.path.exists(directory):
         os.makedirs(directory)
+
+
+def delete_files(file_paths):
+    """Function to delete wav files after inference"""
+    for file_path in file_paths:
+        try:
+            if exists(file_path):
+                remove(file_path)
+                print(f"Deleted: {file_path}")
+            else:
+                print(f"File does not exist: {file_path}")
+        except Exception as e:
+            print(f"Error deleting {file_path}: {e}")
 
 
 def create_lstm_model_withoutcnn() -> any:
@@ -82,34 +94,3 @@ def load_estimate_model(model_path: str) -> any:
     model.build(input_shape=config["stft_shape"])
     model.load_weights(model_path)
     return model
-
-
-def influxdb(rain: float) -> bool:
-    """
-    function to write data to influxdb
-    """
-    try:
-        # Configure influxDB credentials
-        influxdb_config = load_config("influxdb_api.yaml")
-        bucket = influxdb_config["bucket"]
-        org = influxdb_config["org"]
-        token = influxdb_config["token"]
-        url = influxdb_config["url"]
-
-        # creating an object of influxdb_client
-        client = influxdb_client.InfluxDBClient(
-            url=url, token=token, org=org, timeout=30_000
-        )
-        write_api = client.write_api(write_options=SYNCHRONOUS)
-        p = (
-            influxdb_client.Point("ML-prediction")
-            .tag("location", "greenfield tvm")
-            .field("rain", rain)
-        )
-
-        write_api.write(bucket=bucket, org=org, record=p)
-        client.close()
-        return True
-    except ConnectionError as e:
-        print(f"Connection to InfluxDB failed: {e}")
-        return False

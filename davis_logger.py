@@ -17,7 +17,7 @@ create_folder(label_dir)
 BUCKET_SIZE = 0.2
 count = 0
 log_count = 0
-interrupt_pin = config["interrupt_pin"]
+interrupt_pin = config["davis_interrupt_pin"]
 logging_interval = config["davis_log_interval_sec"]
 
 
@@ -65,7 +65,7 @@ def saving_data(label_dir, dt_now):
     rainfall = count * BUCKET_SIZE
     influxdb(rainfall)
     labels_df.loc[len(labels_df)] = (dt_now, rainfall)
-    labels_df.to_csv(path.join(label_dir, config["label_file"]), index=False)
+    labels_df.to_csv(path.join(label_dir, config["davis_log_filename"]), index=False)
 
 
 GPIO.setmode(GPIO.BCM)
