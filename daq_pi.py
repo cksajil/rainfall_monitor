@@ -83,8 +83,8 @@ def main():
     DB_write_interval = config["DB_writing_interval_min"]
     result_data = []
     wav_duration = config["sample_duration_sec"]
-    davis_duration = config["davis_duration_sec"]
-    num_subsamples = davis_duration // wav_duration
+    infer_inetrval = config["infer_inetrval_sec"]
+    num_subsamples = infer_inetrval // wav_duration
     record_hours = config["record_hours"]
     field_deployed = config["field_deployed"]
     end_time = datetime.now() + timedelta(hours=record_hours)
