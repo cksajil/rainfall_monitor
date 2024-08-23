@@ -4,3 +4,4 @@ librosa
 keras
 tensorflow
 PyYAML
+RPi.GPIO

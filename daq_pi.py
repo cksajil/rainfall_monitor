@@ -15,6 +15,7 @@ from utils.helper import (
     load_estimate_model,
 )
 
+
 # from utils.gpio import (
 #     setup_rain_sensor_gpio,
 #     gpio_cleanup,
@@ -22,6 +23,7 @@ from utils.helper import (
 #     read_rain_sensor,
 #     disable_rain_sensor,
 # )
+
 
 
 def record_audio(file_path, duration, file_format, resolution, sampling_rate):
@@ -87,6 +89,7 @@ def send_data_via_lorawan(mm_hat):
                     str(led_flag),
                 ]
             )
+
             if result == 0:
                 success = True
             else:
