@@ -10,18 +10,16 @@ def send_data_via_internet(rain: float) -> bool:
     function to write data to influxdb using internet
     """
     try:
-        # configure device details
+        # loading device details
         device_config = load_config("config.yaml")
         name = device_config["device_name"]
         location = device_config["device_location"]
-
-        # Configure influxDB credentials
+        # loading influxDB credentials
         influxdb_config = load_config("influxdb_api.yaml")
         url = influxdb_config["url"]
         org = influxdb_config["org"]
         bucket = influxdb_config[name]["bucket"]
         token = influxdb_config[name]["token"]
-        
         # creating an object of influxdb_client
         client = influxdb_client.InfluxDBClient(
             url=url, token=token, org=org, timeout=30_000
@@ -45,6 +43,7 @@ def send_data_via_lorawan(mm_hat):
     """
     function to write data to chirpstack server using LoRa
     """    
+    # loading device details
     device_config = load_config("config.yaml")
     name = device_config["device_name"]
     # loading lora keys
