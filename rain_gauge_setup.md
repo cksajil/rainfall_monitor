@@ -115,7 +115,11 @@ $ make
 
 # Add the executable to system path
 $ nano ~/.bashrc
+
+# Appened the following line to the end of .bashrc file 
 $ export PATH="$PATH:/home/pi/raingauge/code/lmic_rpi/examples/ttn-abp-send"
+
+# to avoid rebooting after change
 $ source ~/.bashrc
 
 # Usage
@@ -126,11 +130,29 @@ $ ttn-abp-send <DevAddr> <Nwkskey> <Appskey> <Rain_mm> <LED_FLAG>
 ### 12. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
 Download these from `API_Keys` folder in `SWSICFOSS`  Google Drive. 
 
-### 13. Add the device to Zerotier account
+### 13. Edit device details in config file
+```bash
+# open config.yaml
+nano /home/pi/raingauge/code/config/config.yaml
+
+# edit device name based on names in infulxdb or lora key files
+eg: 
+    device_name: rainpi_test
+    device_name: rainpi_x
+
+# edit device location
+eg: 
+    device_location: greenfield tvm 
+
+# edit device field deployment status
+eg:
+    field_deployed: false
+```
+### 14. Add the device to Zerotier account
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 14. Add Python scripts to bashrc file  
+### 15. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc

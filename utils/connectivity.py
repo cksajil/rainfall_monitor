@@ -10,13 +10,16 @@ def send_data_via_internet(rain: float) -> bool:
     function to write data to influxdb using internet
     """
     try:
-        # Configure influxDB credentials
+        # loading device details
+        device_config = load_config("config.yaml")
+        name = device_config["device_name"]
+        location = device_config["device_location"]
+        # loading influxDB credentials
         influxdb_config = load_config("influxdb_api.yaml")
-        bucket = influxdb_config["pizero_bucket"]
-        org = influxdb_config["org"]
-        token = influxdb_config["pizero_token"]
         url = influxdb_config["url"]
-
+        org = influxdb_config["org"]
+        bucket = influxdb_config[name]["bucket"]
+        token = influxdb_config[name]["token"]
         # creating an object of influxdb_client
         client = influxdb_client.InfluxDBClient(
             url=url, token=token, org=org, timeout=30_000
@@ -24,7 +27,7 @@ def send_data_via_internet(rain: float) -> bool:
         write_api = client.write_api(write_options=SYNCHRONOUS)
         p = (
             influxdb_client.Point("ML-prediction")
-            .tag("location", "greenfield tvm")
+            .tag("location", location)
             .field("rain", rain)
         )
 
@@ -40,10 +43,14 @@ def send_data_via_lorawan(mm_hat):
     """
     function to write data to chirpstack server using LoRa
     """    
+    # loading device details
+    device_config = load_config("config.yaml")
+    name = device_config["device_name"]
+    # loading lora keys
     lorawan_config = load_config("lorawan_keys.yaml")
-    dev_addr = lorawan_config["dev_addr"]
-    nwk_skey = lorawan_config["nwk_skey"]
-    app_skey = lorawan_config["app_skey"]
+    dev_addr = lorawan_config[name]["dev_addr"]
+    nwk_skey = lorawan_config[name]["nwk_skey"]
+    app_skey = lorawan_config[name]["app_skey"]
     led_flag = lorawan_config["led_flag"]
     success = False
     while not success:
