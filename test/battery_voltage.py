@@ -13,8 +13,11 @@ try:
     try:
         while True:
             if ser.in_waiting > 0:
+                print("Reading battery voltage")
                 voltage = ser.readline().decode("utf-8").strip()
                 print(f"Battery Voltage: {voltage}V")
+            else:
+                print("Not inside SER waiting")
             time.sleep(1)
     except KeyboardInterrupt:
         print("Program terminated by user")
