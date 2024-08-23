@@ -5,10 +5,10 @@ from os import path
 import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
+from utils.connectivity import send_data_via_internet,send_data_via_lorawan
 
 from utils.helper import (
     time_stamp_fnamer,
-    influxdb,
     load_config,
     create_folder,
     delete_files,
@@ -70,39 +70,11 @@ def write_rain_data_to_csv(result_data, log_dir, csv_filename):
     result_df.to_csv(path.join(log_dir, csv_filename), index=False)
 
 
-def send_data_via_lorawan(mm_hat):
-    lorawan_config = load_config("lorawan_keys.yaml")
-    dev_addr = lorawan_config["dev_addr"]
-    nwk_skey = lorawan_config["nwk_skey"]
-    app_skey = lorawan_config["app_skey"]
-    led_flag = lorawan_config["led_flag"]
-    success = False
-    while not success:
-        try:
-            result = subprocess.call(
-                [
-                    "ttn-abp-send",
-                    dev_addr,
-                    nwk_skey,
-                    app_skey,
-                    str(mm_hat),
-                    str(led_flag),
-                ]
-            )
-
-            if result == 0:
-                success = True
-            else:
-                print("Subprocess call failed, retrying...")
-        except subprocess.CalledProcessError as e:
-            print(f"Error during subprocess call: {e}. Retrying...")
-
-
 def send_data(config, mm_hat):
     if config["communication"] == "LORAWAN":
         send_data_via_lorawan(mm_hat)
     else:
-        influxdb(mm_hat)
+        send_data_via_internet(mm_hat)
 
 
 def main():
