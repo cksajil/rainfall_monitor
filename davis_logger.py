@@ -39,18 +39,20 @@ def influxdb(rain: float):
     function to write data to influxdb
     """
     try:
+        name = "rainpi_mech"
+        location = "greenfield tvm"
         influxdb_config = load_config("influxdb_api.yaml")
         org = influxdb_config["org"]
         url = influxdb_config["url"]
-        bucket = influxdb_config["davis_bucket"]
-        token = influxdb_config["davis_token"]
+        bucket = influxdb_config[name]["bucket"]
+        token = influxdb_config[name]["token"]
+        
         client = influxdb_client.InfluxDBClient(
             url=url, token=token, org=org, timeout=30_000
         )
         write_api = client.write_api(write_options=SYNCHRONOUS)
-        p = (
-            influxdb_client.Point("pi_davis_raingauge")
-            .tag("location", "greenfield tvm")
+        p = (influxdb_client.Point("ML-prediction")
+            .tag("location", location)
             .field("rain", rain)
         )
         write_api.write(bucket=bucket, org=org, record=p)

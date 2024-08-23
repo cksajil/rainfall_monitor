@@ -24,3 +24,5 @@ communication: WIFI #LORAWAN # WIFI
 min_threshold: 0.6
 lora_led_pin: 25
 field_deployed: false
+device_name: rainpi_test
+device_location: greenfield tvm 
