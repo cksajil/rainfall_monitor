@@ -45,10 +45,13 @@ def send_data_via_lorawan(mm_hat):
     """
     function to write data to chirpstack server using LoRa
     """    
+    device_config = load_config("config.yaml")
+    name = device_config["device_name"]
+    # loading lora keys
     lorawan_config = load_config("lorawan_keys.yaml")
-    dev_addr = lorawan_config["dev_addr"]
-    nwk_skey = lorawan_config["nwk_skey"]
-    app_skey = lorawan_config["app_skey"]
+    dev_addr = lorawan_config[name]["dev_addr"]
+    nwk_skey = lorawan_config[name]["nwk_skey"]
+    app_skey = lorawan_config[name]["app_skey"]
     led_flag = lorawan_config["led_flag"]
     success = False
     while not success:
