@@ -81,7 +81,7 @@ sudo reboot
 
 **Table 1:** Performance of LSTM model on various features
 
-## Project Members
+## Team Members
 1. [Gopika T G](https://github.com/GopikaTG)
 2. [Sajil C K](https://github.com/cksajil/)
 3. [Manu Mohan M S](https://github.com/MMS731)
