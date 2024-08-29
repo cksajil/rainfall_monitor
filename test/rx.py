@@ -12,8 +12,8 @@ def find_active_serial_ports():
         or dev.startswith("ttyAMA")
         or dev.startswith("ttyUSB")
     ]
-    active_ports = []
-    return active_ports
+
+    return serial_ports
 
 
 def read_from_serial(ser):
