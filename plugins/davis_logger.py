@@ -51,7 +51,7 @@ def influxdb(rain: float):
             url=url, token=token, org=org, timeout=30_000
         )
         write_api = client.write_api(write_options=SYNCHRONOUS)
-        p = (influxdb_client.Point("ML-prediction")
+        p = (influxdb_client.Point("pi_davis_raingauge")
             .tag("location", location)
             .field("rain", rain)
         )
