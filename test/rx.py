@@ -1,10 +1,10 @@
-import time
-from serial import Serial, SerialException
 import os
+import time
+import threading
+from serial import Serial, SerialException
 
 
 def find_active_serial_ports():
-    # List all serial devices
     serial_ports = [
         f"/dev/{dev}"
         for dev in os.listdir("/dev")
@@ -16,11 +16,10 @@ def find_active_serial_ports():
 
     for port in serial_ports:
         try:
-            # Open the serial port
+            print(f"Attempting to open port: {port}")
             ser = Serial(port=port, baudrate=9600, timeout=1)
-            print(f"Testing port: {port}")
+            print(f"Port opened: {port}")
 
-            # Attempt to send and receive data
             ser.write(b"Test\n")
             time.sleep(1)
             if ser.in_waiting > 0:
