@@ -4,8 +4,8 @@ from utils.helper import load_config
 
 
 config = load_config("config.yaml")
-POWER_PIN = config["rain_gpio_power_pin"]
-RAIN_PIN = config["rain_gpio_input_pin"]
+POWER_PIN = config["rain_sensor_power_pin"]
+RAIN_PIN = config["rain_sensor_input_pin"]
 
 
 def setup_rain_sensor_gpio():
