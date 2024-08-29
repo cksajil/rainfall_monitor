@@ -9,15 +9,21 @@ def find_active_serial_ports():
     serial_ports = [
         f"/dev/{dev}"
         for dev in os.listdir("/dev")
-        if dev.startswith("ttyS") or dev.startswith("ttyAMA")
+        if dev.startswith("ttyS")
+        or dev.startswith("ttyAMA")
+        or dev.startswith("ttyUSB")
+        or dev.startswith("ttyACM")
     ]
     active_ports = []
 
+    print(f"Detected serial ports: {serial_ports}")
+
     for port in serial_ports:
         try:
+            print(f"Trying port: {port}")
             # Open the serial port
             ser = Serial(port=port, baudrate=9600, timeout=1)
-            print(f"Testing port: {port}")
+            print(f"Port opened: {port}")
 
             # Attempt to send and receive data
             ser.write(b"Test\n")
@@ -33,6 +39,8 @@ def find_active_serial_ports():
             print(f"SerialException on {port}: {e}")
         except OSError as e:
             print(f"OSError on {port}: {e}")
+        except Exception as e:
+            print(f"Unexpected error on {port}: {e}")
 
     return active_ports
 
