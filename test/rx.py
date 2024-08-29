@@ -33,6 +33,7 @@ def receive_data(port_name, baudrate=9600):
 
 def main():
     ports = list_ports()
+    print(ports)
     if not ports:
         print("No active serial ports found.")
         return
