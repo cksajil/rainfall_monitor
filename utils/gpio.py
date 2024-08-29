@@ -23,33 +23,36 @@ def disable_rain_sensor():
 
 
 def read_rain_sensor():
-    rain_state = GPIO.input(RAIN_PIN)
-    return rain_state
+    rain_status = GPIO.input(RAIN_PIN)
+    return rain_status
 
 
 def gpio_cleanup():
-    GPIO.cleanup()
+    GPIO.cleanup([POWER_PIN,RAIN_PIN])
 
 
 def read_loop():
+    setup_rain_sensor_gpio()
     enable_rain_sensor()
     time.sleep(0.01)
-
-    rain_state = read_rain_sensor()
+    rain_status = read_rain_sensor()
     disable_rain_sensor()
-
-    if rain_state == GPIO.HIGH:
-        print("The rain is NOT detected")
-    else:
-        print("The rain is detected")
-
-    time.sleep(1)
-
+    gpio_cleanup()
+    return rain_status
+    
 
 if __name__ == "__main__":
     try:
         setup_rain_sensor_gpio()
         while True:
-            read_loop()
+            enable_rain_sensor()
+            time.sleep(0.01)
+            rain_status = read_rain_sensor()
+            disable_rain_sensor()
+            if rain_status == GPIO.HIGH:
+                print("The rain is NOT detected")
+            else:
+                print("The rain is detected")
+            time.sleep(1)
     except KeyboardInterrupt:
         gpio_cleanup()
