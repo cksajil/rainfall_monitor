@@ -6,6 +6,7 @@ import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
 from utils.connectivity import send_data_via_internet,send_data_via_lorawan
+# from plugins.rain_sensor import read_loop, disable_rain_sensor
 
 from utils.helper import (
     time_stamp_fnamer,
@@ -14,15 +15,6 @@ from utils.helper import (
     delete_files,
     load_estimate_model,
 )
-
-
-# from utils.gpio import (
-#     setup_rain_sensor_gpio,
-#     gpio_cleanup,
-#     enable_rain_sensor,
-#     read_rain_sensor,
-#     disable_rain_sensor,
-# )
 
 
 
@@ -97,10 +89,7 @@ def main():
             else config["infer_model_withoutcnn"]
         ),
     )
-    infer_model = load_estimate_model(infer_model_path)
-    # setup_rain_sensor_gpio()
-    # enable_rain_sensor()
-    
+    infer_model = load_estimate_model(infer_model_path)    
     locations = []
 
     try:
@@ -125,7 +114,7 @@ def main():
                     print("Estimated rainfall: ", mm_hat)
                     delete_files(locations)
                     locations.clear()
-                    # rain_sensor_status = read_rain_sensor()
+                    # rain_sensor_status = read_loop()
                     rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
@@ -163,7 +152,7 @@ def main():
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
                     locations.clear()
-                    # rain_sensor_status = read_rain_sensor()
+                    # rain_sensor_status = read_loop()
                     rain_sensor_status = 0
                     result_data.append(
                         {
@@ -189,8 +178,6 @@ def main():
             logger.info(f"Finished data logging at {datetime.now()}\n")
 
     except KeyboardInterrupt:
-        # disable_rain_sensor()
-        # gpio_cleanup()
         print("Execution interrupted by user")
     finally:
         # disable_rain_sensor()
