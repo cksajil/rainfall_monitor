@@ -8,7 +8,9 @@ def find_active_serial_ports():
     serial_ports = [
         f"/dev/{dev}"
         for dev in os.listdir("/dev")
-        if dev.startswith("ttyS") or dev.startswith("ttyAMA")
+        if dev.startswith("ttyS")
+        or dev.startswith("ttyAMA")
+        or dev.startswith("ttyUSB")
     ]
     active_ports = []
 
