@@ -26,6 +26,8 @@ def read_from_serial(ser):
                 message = ser.readline().decode("utf-8").strip()
                 if message:
                     print(f"Received: {message}")
+            else:
+                print("No data incoming")
         except Exception as e:
             print(f"Error reading from serial port: {e}")
             break
