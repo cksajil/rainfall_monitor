@@ -34,6 +34,8 @@ def find_active_serial_ports():
             print(f"SerialException on {port}: {e}")
         except OSError as e:
             print(f"OSError on {port}: {e}")
+        except Exception as e:
+            print(f"Unexpected error on {port}: {e}")
 
     return active_ports
 
