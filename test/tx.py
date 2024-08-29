@@ -5,44 +5,15 @@ import threading
 
 
 def find_active_serial_ports():
-    # List all serial devices
     serial_ports = [
         f"/dev/{dev}"
         for dev in os.listdir("/dev")
         if dev.startswith("ttyS")
         or dev.startswith("ttyAMA")
         or dev.startswith("ttyUSB")
-        or dev.startswith("ttyACM")
     ]
-    active_ports = []
 
-    print(f"Detected serial ports: {serial_ports}")
-
-    for port in serial_ports:
-        try:
-            print(f"Trying port: {port}")
-            # Open the serial port
-            ser = Serial(port=port, baudrate=9600, timeout=1)
-            print(f"Port opened: {port}")
-
-            # Attempt to send and receive data
-            ser.write(b"Test\n")
-            time.sleep(1)
-            if ser.in_waiting > 0:
-                response = ser.readline().decode("utf-8").strip()
-                if response == "Test":
-                    print(f"Active port found: {port}")
-                    active_ports.append(port)
-
-            ser.close()
-        except SerialException as e:
-            print(f"SerialException on {port}: {e}")
-        except OSError as e:
-            print(f"OSError on {port}: {e}")
-        except Exception as e:
-            print(f"Unexpected error on {port}: {e}")
-
-    return active_ports
+    return serial_ports
 
 
 def write_to_serial(ser):
