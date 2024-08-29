@@ -24,9 +24,12 @@ def receive_data(port_name, baudrate=9600):
                 if ser.in_waiting > 0:
                     data = ser.read(ser.in_waiting).decode("utf-8")
                     print(f"Received data: {data}")
+                else:
+                    # Debug output for empty buffer
+                    print(f"No data available at {port_name}.")
                 time.sleep(0.1)  # Small delay to avoid high CPU usage
     except serial.SerialException as e:
-        print(f"Error opening or using serial port {port_name}: {e}")
+        print(f"Serial Exception: {e}")
     except OSError as e:
         print(f"OS Error: {e}")
 
