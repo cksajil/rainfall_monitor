@@ -13,29 +13,6 @@ def find_active_serial_ports():
         or dev.startswith("ttyUSB")
     ]
     active_ports = []
-
-    for port in serial_ports:
-        try:
-            print(f"Attempting to open port: {port}")
-            ser = Serial(port=port, baudrate=9600, timeout=1)
-            print(f"Port opened: {port}")
-
-            ser.write(b"Test\n")
-            time.sleep(1)
-            if ser.in_waiting > 0:
-                response = ser.readline().decode("utf-8").strip()
-                if response == "Test":
-                    print(f"Active port found: {port}")
-                    active_ports.append(port)
-
-            ser.close()
-        except SerialException as e:
-            print(f"SerialException on {port}: {e}")
-        except OSError as e:
-            print(f"OSError on {port}: {e}")
-        except Exception as e:
-            print(f"Unexpected error on {port}: {e}")
-
     return active_ports
 
 
