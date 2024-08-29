@@ -33,14 +33,12 @@ def receive_data(port_name, baudrate=9600):
 
 def main():
     ports = list_ports()
-
     if not ports:
         print("No active serial ports found.")
         return
 
-    # Choose a port based on your setup
-    # For example, if you're using /dev/ttyS0
-    port_name = "/dev/ttyS0"  # Update this if necessary
+    # Example: Choose the correct port based on your setup
+    port_name = "/dev/ttyS0"  # Update this to the correct port if needed
 
     receive_data(port_name)
 
