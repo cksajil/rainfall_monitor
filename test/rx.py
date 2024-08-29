@@ -43,7 +43,7 @@ def main():
     # Example: Choose the correct port based on your setup
     port_name = "/dev/ttyS0"  # Update this to the correct port if needed
 
-    receive_data(port_name)
+    receive_data(ports[0].device)
 
 
 if __name__ == "__main__":
