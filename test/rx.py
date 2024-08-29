@@ -13,7 +13,6 @@ def list_ports():
 
 def main():
     active_ports = list_ports()
-    print(active_ports)
     if not active_ports:
         print("No active serial ports found.")
         return
