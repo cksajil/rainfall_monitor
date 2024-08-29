@@ -1,5 +1,6 @@
 import os
 import time
+import select
 import threading
 from serial import Serial, SerialException
 
@@ -18,10 +19,16 @@ def find_active_serial_ports():
 
 def read_from_serial(ser):
     while True:
-        if ser.in_waiting > 0:
-            message = ser.readline().decode("utf-8").strip()
-            if message:
-                print(f"Received: {message}")
+        try:
+            # Check if data is available to read
+            readable, _, _ = select.select([ser], [], [], 1)
+            if readable:
+                message = ser.readline().decode("utf-8").strip()
+                if message:
+                    print(f"Received: {message}")
+        except Exception as e:
+            print(f"Error reading from serial port: {e}")
+            break
 
 
 def main():
@@ -38,23 +45,23 @@ def main():
     try:
         ser = Serial(port=serial_port, baudrate=9600, timeout=1)
         print(f"Connected to {serial_port}")
-        time.sleep(2)
 
         # Start the reading thread
         read_thread = threading.Thread(target=read_from_serial, args=(ser,))
         read_thread.start()
 
-        # Wait for the thread to complete (it runs indefinitely)
+        # Allow the reading thread to run
         read_thread.join()
 
     except SerialException as e:
         print(f"SerialException: {e}")
-
     except OSError as e:
         print(f"OSError: {e}")
-
+    except Exception as e:
+        print(f"Unexpected error: {e}")
     finally:
-        ser.close()
+        if ser and ser.is_open:
+            ser.close()
 
 
 if __name__ == "__main__":
