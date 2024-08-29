@@ -1,80 +1,49 @@
+import serial
+import serial.tools.list_ports
 import time
-from serial import Serial, SerialException
-import os
 
 
-def find_active_serial_ports():
-    # List all serial devices
-    serial_ports = [
-        f"/dev/{dev}"
-        for dev in os.listdir("/dev")
-        if dev.startswith("ttyS") or dev.startswith("ttyAMA")
-    ]
-    active_ports = []
-
-    for port in serial_ports:
-        try:
-            # Open the serial port
-            ser = Serial(port=port, baudrate=9600, timeout=1)
-            print(f"Testing port: {port}")
-
-            # Attempt to send and receive data
-            ser.write(b"Test\n")
-            time.sleep(1)
-            if ser.in_waiting > 0:
-                response = ser.readline().decode("utf-8").strip()
-                if response == "Test":
-                    print(f"Active port found: {port}")
-                    active_ports.append(port)
-
-            ser.close()
-        except SerialException as e:
-            print(f"SerialException on {port}: {e}")
-        except OSError as e:
-            print(f"OSError on {port}: {e}")
-
-    return active_ports
+def list_ports():
+    """List all available ports and their descriptions."""
+    ports = list(serial.tools.list_ports.comports())
+    if not ports:
+        print("No serial ports found.")
+    for port in ports:
+        print(
+            f"Port: {port.device}, Description: {port.description}, HWID: {port.hwid}"
+        )
+    return ports
 
 
-def read_from_serial(ser):
-    while True:
-        if ser.in_waiting > 0:
-            message = ser.readline().decode("utf-8").strip()
-            if message:
-                print(f"Received: {message}")
+def receive_data(port_name, baudrate=9600):
+    """Receive data from the specified serial port."""
+    try:
+        with serial.Serial(port_name, baudrate, timeout=1) as ser:
+            print(f"Listening on {port_name}...")
+            while True:
+                if ser.in_waiting > 0:
+                    data = ser.read(ser.in_waiting).decode("utf-8")
+                    print(f"Received data: {data}")
+                else:
+                    # Debug output for empty buffer
+                    print(f"No data available at {port_name}.")
+                time.sleep(0.1)  # Small delay to avoid high CPU usage
+    except serial.SerialException as e:
+        print(f"Serial Exception: {e}")
+    except OSError as e:
+        print(f"OS Error: {e}")
 
 
 def main():
-    active_ports = find_active_serial_ports()
-
-    if not active_ports:
+    ports = list_ports()
+    if not ports:
         print("No active serial ports found.")
         return
 
-    # Use the first active port found
-    serial_port = active_ports[0]
-    print(f"Using serial port: {serial_port}")
+    # Example: Choose the correct port based on your setup
+    port_name = "/dev/ttyS0"  # Update this to the correct port if needed
 
-    try:
-        ser = Serial(port=serial_port, baudrate=9600, timeout=1)
-        print(f"Connected to {serial_port}")
-        time.sleep(2)
-
-        # Start the reading thread
-        read_thread = threading.Thread(target=read_from_serial, args=(ser,))
-        read_thread.start()
-
-        # Wait for the thread to complete (it runs indefinitely)
-        read_thread.join()
-
-    except SerialException as e:
-        print(f"SerialException: {e}")
-
-    except OSError as e:
-        print(f"OSError: {e}")
-
-    finally:
-        ser.close()
+    receive_data(ports[0].device)
 
 
 if __name__ == "__main__":
