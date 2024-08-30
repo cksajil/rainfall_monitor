@@ -45,7 +45,7 @@ def initialize_logging(log_dir, log_filename, start_time, total_samples):
     )
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    logger.info("\n\n\n*******************************************************")
+    logger.info("*******************************************************")
     logger.info(f"Started data logging at {start_time}\n")
     logger.info(f"Total number of samples to be recorded: {total_samples}\n")
     return logger
