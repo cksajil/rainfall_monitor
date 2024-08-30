@@ -1,69 +1,87 @@
 import serial
 import struct
+import sys
+import time
 
-# Set up the serial connection (adjust parameters as needed)
-ser = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=1)
+
+def setup_serial_connection(port, baudrate, timeout):
+    try:
+        ser = serial.Serial(port, baudrate=baudrate, timeout=timeout)
+        return ser
+    except serial.SerialException as e:
+        sys.exit(1)
 
 
 def read_int8(serial_connection):
-    # Read one byte from the serial port
-    byte = serial_connection.read(1)
-
-    if byte:
-        # Convert the byte to a signed int8 value
-        value = struct.unpack("b", byte)[0]
-        return value
-    else:
+    try:
+        byte = serial_connection.read(1)
+        if byte:
+            value = struct.unpack("b", byte)[0]
+            return value
+        else:
+            return None
+    except Exception as e:
         return None
 
 
 def process_data(values):
     if len(values) == 4:
-        # Divide each value by 10
         solar_voltage = values[0] / 10.0
         battery_voltage = values[1] / 10.0
         solar_current = values[2] / 10.0
         battery_current = values[3] / 10.0
-
-        # Print adjusted values
-        print(f"Solar Voltage: {solar_voltage:.1f} V")
-        print(f"Battery Voltage: {battery_voltage:.1f} V")
-        print(f"Solar Current: {solar_current:.1f} A")
-        print(f"Battery Current: {battery_current:.1f} A")
+        return solar_voltage, battery_voltage, solar_current, battery_current
     else:
-        print("Unexpected number of values")
+        pass
 
 
 def main():
-    print("Listening on /dev/ttyS0...")
+    port = "/dev/ttyS0"  # Adjust as needed
+    baudrate = 9600
+    timeout = 1
 
-    while True:
-        values = []
+    ser = setup_serial_connection(port, baudrate, timeout)
 
-        # Read data until start marker (21) is found
+    try:
         while True:
-            value = read_int8(ser)
-            if value == 21:
-                break
+            values = []
 
-        # Read the next four values
-        for _ in range(4):
-            value = read_int8(ser)
-            if value is not None:
-                values.append(value)
+            # Read data until start marker (21) is found
+            while True:
+                value = read_int8(ser)
+                if value == 21:
+                    break
 
-        # Read until end marker (75) is found
-        while True:
-            value = read_int8(ser)
-            if value == 75:
-                break
+            # Read the next four values
+            for _ in range(4):
+                value = read_int8(ser)
+                if value is not None:
+                    values.append(value)
 
-        # Process and print the values
-        process_data(values)
+            # Read until end marker (75) is found
+            while True:
+                value = read_int8(ser)
+                if value == 75:
+                    break
+
+            # Process and print the values
+            solar_voltage, battery_voltage, solar_current, battery_current = (
+                process_data(values)
+            )
+            print(f"Solar Voltage: {solar_voltage:.1f} V")
+            print(f"Battery Voltage: {battery_voltage:.1f} V")
+            print(f"Solar Current: {solar_current:.1f} A")
+            print(f"Battery Current: {battery_current:.1f} A")
+
+            # Wait for 3 minutes before the next reading
+            time.sleep(180)
+
+    except KeyboardInterrupt:
+        print("Battery monitory interrupted by user.")
+    finally:
+        ser.close()
+        print("Serial port closed.")
 
 
 if __name__ == "__main__":
     main()
-
-# Close the serial connection when done
-ser.close()
