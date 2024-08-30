@@ -163,7 +163,8 @@ def main():
 
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
-                    logger.info("Estimated rainfall: ", mm_hat)
+                    print(mm_hat)
+                    # logger.info("Estimated rainfall: ", mm_hat)
                     locations.clear()
                     # rain_sensor_status = read_loop()
                     rain_sensor_status = 0
