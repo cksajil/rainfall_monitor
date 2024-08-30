@@ -163,6 +163,7 @@ def main():
 
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
+                    logger.info("Estimated rainfall: ", mm_hat)
                     locations.clear()
                     # rain_sensor_status = read_loop()
                     rain_sensor_status = 0
@@ -178,13 +179,14 @@ def main():
                     )
                     rain += mm_hat
                     db_counter += 1
+                    logger.info("Getting battery readings")
                     solar_voltage, battery_voltage, solar_current, battery_current = (
                         preprocess_dataframe(ser)
                     )
-                    print(f"Solar Voltage: {solar_voltage:.1f} V")
-                    print(f"Battery Voltage: {battery_voltage:.1f} V")
-                    print(f"Solar Current: {solar_current:.1f} A")
-                    print(f"Battery Current: {battery_current:.1f} A")
+                    logger.info(f"Solar Voltage: {solar_voltage:.1f} V")
+                    logger.info(f"Battery Voltage: {battery_voltage:.1f} V")
+                    logger.info(f"Solar Current: {solar_current:.1f} A")
+                    logger.info(f"Battery Current: {battery_current:.1f} A")
 
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
