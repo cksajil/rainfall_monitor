@@ -72,7 +72,7 @@ def send_data(
         send_data_via_lorawan(mm_hat)
     else:
         send_data_via_internet(
-            mm_hat, solar_voltage, battery_voltage, solar_current, battery_current
+            mm_hat, battery_voltage, battery_current, solar_voltage, solar_current
         )
 
 
