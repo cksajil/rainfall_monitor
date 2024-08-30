@@ -5,7 +5,8 @@ from os import path
 import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
-from utils.connectivity import send_data_via_internet,send_data_via_lorawan
+from utils.connectivity import send_data_via_internet, send_data_via_lorawan
+
 # from plugins.rain_sensor import read_loop, disable_rain_sensor
 
 from utils.helper import (
@@ -15,7 +16,6 @@ from utils.helper import (
     delete_files,
     load_estimate_model,
 )
-
 
 
 def record_audio(file_path, duration, file_format, resolution, sampling_rate):
@@ -89,7 +89,7 @@ def main():
             else config["infer_model_withoutcnn"]
         ),
     )
-    infer_model = load_estimate_model(infer_model_path)    
+    infer_model = load_estimate_model(infer_model_path)
     locations = []
 
     try:
