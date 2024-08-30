@@ -116,7 +116,7 @@ def main():
 
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
-                    print("Estimated rainfall: ", mm_hat)
+                    print(f"Estimated rainfall: ", mm_hat)
                     delete_files(locations)
                     locations.clear()
                     # rain_sensor_status = read_loop()
@@ -124,8 +124,14 @@ def main():
                     rain += mm_hat
                     db_counter += 1
                     print("Getting battery readings")
-                    solar_voltage, battery_voltage, solar_current, battery_current = (
-                        preprocess_dataframe(ser)
+                    # solar_voltage, battery_voltage, solar_current, battery_current = (
+                    #     preprocess_dataframe(ser)
+                    # )
+                     solar_voltage, battery_voltage, solar_current, battery_current = (
+                        0,
+                        0,
+                        0,
+                        0,
                     )
                     print(f"Solar Voltage: {solar_voltage:.1f} V")
                     print(f"Battery Voltage: {battery_voltage:.1f} V")
@@ -163,8 +169,7 @@ def main():
 
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
-                    print(mm_hat)
-                    # logger.info("Estimated rainfall: ", mm_hat)
+                    # logger.info(f"Estimated rainfall: ", mm_hat)
                     locations.clear()
                     # rain_sensor_status = read_loop()
                     rain_sensor_status = 0
@@ -180,9 +185,15 @@ def main():
                     )
                     rain += mm_hat
                     db_counter += 1
-                    logger.info("Getting battery readings")
+                    logger.info(f"Getting battery readings")
+                    # solar_voltage, battery_voltage, solar_current, battery_current = (
+                    #     preprocess_dataframe(ser)
+                    # )
                     solar_voltage, battery_voltage, solar_current, battery_current = (
-                        preprocess_dataframe(ser)
+                        0,
+                        0,
+                        0,
+                        0,
                     )
                     logger.info(f"Solar Voltage: {solar_voltage:.1f} V")
                     logger.info(f"Battery Voltage: {battery_voltage:.1f} V")
@@ -200,7 +211,7 @@ def main():
             logger.info(f"Finished data logging at {datetime.now()}\n")
 
     except KeyboardInterrupt:
-        print("Execution interrupted by user")
+        print(f"Execution interrupted by user")
     finally:
         # disable_rain_sensor()
         # gpio_cleanup()
