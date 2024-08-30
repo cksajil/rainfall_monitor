@@ -127,7 +127,7 @@ def main():
                     # solar_voltage, battery_voltage, solar_current, battery_current = (
                     #     preprocess_dataframe(ser)
                     # )
-                     solar_voltage, battery_voltage, solar_current, battery_current = (
+                    solar_voltage, battery_voltage, solar_current, battery_current = (
                         0,
                         0,
                         0,
