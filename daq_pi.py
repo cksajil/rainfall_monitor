@@ -65,11 +65,15 @@ def write_rain_data_to_csv(result_data, log_dir, csv_filename):
     result_df.to_csv(path.join(log_dir, csv_filename), index=False)
 
 
-def send_data(config, mm_hat):
+def send_data(
+    config, mm_hat, solar_voltage, battery_voltage, solar_current, battery_current
+):
     if config["communication"] == "LORAWAN":
         send_data_via_lorawan(mm_hat)
     else:
-        send_data_via_internet(mm_hat)
+        send_data_via_internet(
+            mm_hat, solar_voltage, battery_voltage, solar_current, battery_current
+        )
 
 
 def main():
@@ -142,9 +146,23 @@ def main():
 
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
-                            send_data(config, mm_hat)
+                            send_data(
+                                config,
+                                mm_hat,
+                                solar_voltage,
+                                battery_voltage,
+                                solar_current,
+                                battery_current,
+                            )
                         else:
-                            send_data(config, 0.0)
+                            send_data(
+                                config,
+                                0.0,
+                                solar_voltage,
+                                battery_voltage,
+                                solar_current,
+                                battery_current,
+                            )
                         rain, db_counter = 0, 0
                 i += 1
 
