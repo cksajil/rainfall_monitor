@@ -123,6 +123,7 @@ def main():
                     rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
+                    print("Getting battery readings")
                     solar_voltage, battery_voltage, solar_current, battery_current = (
                         preprocess_dataframe(ser)
                     )
