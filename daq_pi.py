@@ -134,10 +134,10 @@ def main():
                     #     preprocess_dataframe(ser)
                     # )
                     solar_voltage, battery_voltage, solar_current, battery_current = (
-                        0,
-                        0,
-                        0,
-                        0,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0,
                     )
                     print(f"Solar Voltage: {solar_voltage:.1f} V")
                     print(f"Battery Voltage: {battery_voltage:.1f} V")
@@ -210,10 +210,10 @@ def main():
                     #     preprocess_dataframe(ser)
                     # )
                     solar_voltage, battery_voltage, solar_current, battery_current = (
-                        0,
-                        0,
-                        0,
-                        0,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0,
                     )
                     logger.info(f"Solar Voltage: {solar_voltage:.1f} V")
                     logger.info(f"Battery Voltage: {battery_voltage:.1f} V")
