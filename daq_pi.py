@@ -53,9 +53,11 @@ def initialize_logging(log_dir, log_filename, start_time, total_samples):
 
 def log_time_remaining(logger, end_time):
     time_left = end_time - datetime.now()
+    days = time_left.days
     hours, remainder = divmod(time_left.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
-    logger.info(f"Time left {hours} hours {minutes} minutes and {seconds} seconds\n")
+    log_message = f"Time left: {days} days {hours} hours {minutes} minutes and {seconds} seconds\n"
+    logger.info(log_message)
 
 
 def write_rain_data_to_csv(result_data, log_dir, csv_filename):
@@ -123,7 +125,7 @@ def main():
                     rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
-                    print("Getting battery readings")
+                    print("\nGetting battery readings")
                     # solar_voltage, battery_voltage, solar_current, battery_current = (
                     #     preprocess_dataframe(ser)
                     # )
@@ -185,7 +187,7 @@ def main():
                     )
                     rain += mm_hat
                     db_counter += 1
-                    logger.info(f"Getting battery readings")
+                    logger.info(f"\nGetting battery readings")
                     # solar_voltage, battery_voltage, solar_current, battery_current = (
                     #     preprocess_dataframe(ser)
                     # )
