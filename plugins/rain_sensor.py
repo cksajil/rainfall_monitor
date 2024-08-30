@@ -1,6 +1,6 @@
 import time
 import RPi.GPIO as GPIO
-from utils.helper import load_config
+from ..utils.helper import load_config
 
 
 config = load_config("config.yaml")
