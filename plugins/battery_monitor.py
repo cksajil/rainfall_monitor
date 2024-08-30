@@ -2,7 +2,7 @@ import sys
 import time
 import serial
 import struct
-from utils.helper import load_config
+from ..utils.helper import load_config
 
 
 def setup_serial_connection(port, baudrate, timeout=1):
