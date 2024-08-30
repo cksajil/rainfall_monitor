@@ -33,7 +33,32 @@ def process_data(values):
         battery_current = values[3] / 10.0
         return solar_voltage, battery_voltage, solar_current, battery_current
     else:
-        pass
+        return None
+
+
+def preprocess_dataframe(ser):
+    values = []
+
+    # Read data until start marker (21) is found
+    while True:
+        value = read_int8(ser)
+        if value == 21:
+            break
+
+    # Read the next four values
+    for _ in range(4):
+        value = read_int8(ser)
+        if value is not None:
+            values.append(value)
+
+    # Read until end marker (75) is found
+    while True:
+        value = read_int8(ser)
+        if value == 75:
+            break
+
+    # Process and return the values
+    return process_data(values)
 
 
 def main():
@@ -41,47 +66,23 @@ def main():
     port = config["uart_port"]
     baudrate = config["baudrate"]
 
-    ser = setup_serial_connection(port, baudrate)
-
-    try:
-        while True:
-            values = []
-
-            # Read data until start marker (21) is found
-            while True:
-                value = read_int8(ser)
-                if value == 21:
-                    break
-
-            # Read the next four values
-            for _ in range(4):
-                value = read_int8(ser)
-                if value is not None:
-                    values.append(value)
-
-            # Read until end marker (75) is found
-            while True:
-                value = read_int8(ser)
-                if value == 75:
-                    break
-
-            # Process and print the values
-            solar_voltage, battery_voltage, solar_current, battery_current = (
-                process_data(values)
-            )
-            print(f"Solar Voltage: {solar_voltage:.1f} V")
-            print(f"Battery Voltage: {battery_voltage:.1f} V")
-            print(f"Solar Current: {solar_current:.1f} A")
-            print(f"Battery Current: {battery_current:.1f} A")
-
-            # Wait for 3 minutes before the next reading
+    while True:
+        ser = setup_serial_connection(port, baudrate)
+        try:
+            data = preprocess_dataframe(ser)
+            if data:
+                solar_voltage, battery_voltage, solar_current, battery_current = data
+                print(f"Solar Voltage: {solar_voltage:.1f} V")
+                print(f"Battery Voltage: {battery_voltage:.1f} V")
+                print(f"Solar Current: {solar_current:.1f} A")
+                print(f"Battery Current: {battery_current:.1f} A")
+            else:
+                print("Data processing failed.")
             time.sleep(180)
-
-    except KeyboardInterrupt:
-        print("Battery monitory interrupted by user.")
-    finally:
-        ser.close()
-        print("Serial port closed.")
+        except KeyboardInterrupt:
+            break
+        finally:
+            ser.close()
 
 
 if __name__ == "__main__":
