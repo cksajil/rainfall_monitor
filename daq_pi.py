@@ -130,15 +130,10 @@ def main():
                     rain += mm_hat
                     db_counter += 1
                     print("\nGetting battery readings")
-                    # solar_voltage, battery_voltage, solar_current, battery_current = (
-                    #     preprocess_dataframe(ser)
-                    # )
                     solar_voltage, battery_voltage, solar_current, battery_current = (
-                        0.0,
-                        0.0,
-                        0.0,
-                        0.0,
+                        preprocess_dataframe(ser)
                     )
+
                     print(f"Solar Voltage: {solar_voltage:.1f} V")
                     print(f"Battery Voltage: {battery_voltage:.1f} V")
                     print(f"Solar Current: {solar_current:.1f} A")
@@ -206,15 +201,10 @@ def main():
                     rain += mm_hat
                     db_counter += 1
                     logger.info(f"\nGetting battery readings")
-                    # solar_voltage, battery_voltage, solar_current, battery_current = (
-                    #     preprocess_dataframe(ser)
-                    # )
                     solar_voltage, battery_voltage, solar_current, battery_current = (
-                        0.0,
-                        0.0,
-                        0.0,
-                        0.0,
+                        preprocess_dataframe(ser)
                     )
+
                     logger.info(f"Solar Voltage: {solar_voltage:.1f} V")
                     logger.info(f"Battery Voltage: {battery_voltage:.1f} V")
                     logger.info(f"Solar Current: {solar_current:.1f} A")
