@@ -1,10 +1,11 @@
-import serial
-import struct
 import sys
 import time
+import serial
+import struct
+from utils.helper import load_config
 
 
-def setup_serial_connection(port, baudrate, timeout):
+def setup_serial_connection(port, baudrate, timeout=1):
     try:
         ser = serial.Serial(port, baudrate=baudrate, timeout=timeout)
         return ser
@@ -36,11 +37,11 @@ def process_data(values):
 
 
 def main():
-    port = "/dev/ttyS0"  # Adjust as needed
-    baudrate = 9600
-    timeout = 1
+    config = load_config("config.yaml")
+    port = config["uart_port"]
+    baudrate = config["baudrate"]
 
-    ser = setup_serial_connection(port, baudrate, timeout)
+    ser = setup_serial_connection(port, baudrate)
 
     try:
         while True:

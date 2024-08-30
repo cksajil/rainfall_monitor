@@ -26,3 +26,5 @@ lora_led_pin: 25
 field_deployed: false
 device_name: rainpi_test
 device_location: greenfield tvm 
+uart_port: /dev/ttyS0
+baudrate: 9600
