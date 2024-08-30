@@ -222,10 +222,24 @@ def main():
 
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
-                            send_data(config, mm_hat)
+                            send_data(
+                                config,
+                                mm_hat,
+                                solar_voltage,
+                                battery_voltage,
+                                solar_current,
+                                battery_current,
+                            )
 
                         else:
-                            send_data(config, 0.0)
+                            send_data(
+                                config,
+                                0.0,
+                                solar_voltage,
+                                battery_voltage,
+                                solar_current,
+                                battery_current,
+                            )
                         rain, db_counter = 0, 0
                 log_time_remaining(logger, end_time)
             logger.info(f"Finished data logging at {datetime.now()}\n")
