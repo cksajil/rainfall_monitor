@@ -1,4 +1,5 @@
 import sys
+import time
 import serial
 import struct
 
@@ -60,11 +61,21 @@ def preprocess_dataframe(ser):
 
 
 if __name__ == "__main__":
-    ser = setup_serial_connection("dev/ttyS0", 9600)
-    solar_voltage, battery_voltage, solar_current, battery_current = (
-        preprocess_dataframe(ser)
-    )
-    print(f"Solar Voltage: {solar_voltage:.1f} V")
-    print(f"Battery Voltage: {battery_voltage:.1f} V")
-    print(f"Solar Current: {solar_current:.1f} A")
-    print(f"Battery Current: {battery_current:.1f} A")
+    port = "/dev/ttyS0"  # Adjust to your port
+    baudrate = 9600
+    ser = setup_serial_connection(port, baudrate)
+
+    while True:
+        solar_voltage, battery_voltage, solar_current, battery_current = (
+            preprocess_dataframe(ser)
+        )
+
+        if solar_voltage is not None:
+            print(f"Solar Voltage: {solar_voltage:.1f} V")
+            print(f"Battery Voltage: {battery_voltage:.1f} V")
+            print(f"Solar Current: {solar_current:.1f} A")
+            print(f"Battery Current: {battery_current:.1f} A")
+        else:
+            print("No valid data received.")
+
+        time.sleep(1)  # Adjust as needed
