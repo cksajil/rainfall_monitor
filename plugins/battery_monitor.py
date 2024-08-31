@@ -16,6 +16,7 @@ def read_int8(serial_connection):
     try:
         byte = serial_connection.read(1)
         if byte:
+            print(byte)
             value = struct.unpack("b", byte)[0]
             return value
         else:
