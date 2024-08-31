@@ -1,8 +1,8 @@
 import logging
 import subprocess
 import pandas as pd
+from os import path
 import RPi.GPIO as GPIO
-from os import path, listdir
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
 from utils.connectivity import send_data_via_internet, send_data_via_lorawan
@@ -45,7 +45,7 @@ def initialize_logging(log_dir, log_filename, start_time, total_samples):
     )
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    logger.info("*******************************************************")
+    logger.info("\n\n\n*******************************************************")
     logger.info(f"Started data logging at {start_time}\n")
     logger.info(f"Total number of samples to be recorded: {total_samples}\n")
     return logger
@@ -65,15 +65,11 @@ def write_rain_data_to_csv(result_data, log_dir, csv_filename):
     result_df.to_csv(path.join(log_dir, csv_filename), index=False)
 
 
-def send_data(
-    config, mm_hat, solar_voltage, battery_voltage, solar_current, battery_current
-):
+def send_data(config, mm_hat):
     if config["communication"] == "LORAWAN":
         send_data_via_lorawan(mm_hat)
     else:
-        send_data_via_internet(
-            mm_hat, battery_voltage, battery_current, solar_voltage, solar_current
-        )
+        send_data_via_internet(mm_hat)
 
 
 def main():
@@ -123,23 +119,22 @@ def main():
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
                     print(f"Estimated rainfall: ", mm_hat)
-                    files_and_directories = listdir(config["data_dir"])
-                    files_to_delete = [
-                        path.join(config["data_dir"], f)
-                        for f in files_and_directories
-                        if path.isfile(path.join(config["data_dir"], f))
-                    ]
-                    delete_files(files_to_delete)
+                    delete_files(locations)
                     locations.clear()
                     # rain_sensor_status = read_loop()
                     rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
                     print("\nGetting battery readings")
+                    # solar_voltage, battery_voltage, solar_current, battery_current = (
+                    #     preprocess_dataframe(ser)
+                    # )
                     solar_voltage, battery_voltage, solar_current, battery_current = (
-                        preprocess_dataframe(ser)
+                        0,
+                        0,
+                        0,
+                        0,
                     )
-
                     print(f"Solar Voltage: {solar_voltage:.1f} V")
                     print(f"Battery Voltage: {battery_voltage:.1f} V")
                     print(f"Solar Current: {solar_current:.1f} A")
@@ -147,23 +142,9 @@ def main():
 
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
-                            send_data(
-                                config,
-                                mm_hat,
-                                solar_voltage,
-                                battery_voltage,
-                                solar_current,
-                                battery_current,
-                            )
+                            send_data(config, mm_hat)
                         else:
-                            send_data(
-                                config,
-                                0.0,
-                                solar_voltage,
-                                battery_voltage,
-                                solar_current,
-                                battery_current,
-                            )
+                            send_data(config, 0.0)
                         rain, db_counter = 0, 0
                 i += 1
 
@@ -207,10 +188,15 @@ def main():
                     rain += mm_hat
                     db_counter += 1
                     logger.info(f"\nGetting battery readings")
+                    # solar_voltage, battery_voltage, solar_current, battery_current = (
+                    #     preprocess_dataframe(ser)
+                    # )
                     solar_voltage, battery_voltage, solar_current, battery_current = (
-                        preprocess_dataframe(ser)
+                        0,
+                        0,
+                        0,
+                        0,
                     )
-
                     logger.info(f"Solar Voltage: {solar_voltage:.1f} V")
                     logger.info(f"Battery Voltage: {battery_voltage:.1f} V")
                     logger.info(f"Solar Current: {solar_current:.1f} A")
@@ -218,24 +204,10 @@ def main():
 
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
-                            send_data(
-                                config,
-                                mm_hat,
-                                solar_voltage,
-                                battery_voltage,
-                                solar_current,
-                                battery_current,
-                            )
+                            send_data(config, mm_hat)
 
                         else:
-                            send_data(
-                                config,
-                                0.0,
-                                solar_voltage,
-                                battery_voltage,
-                                solar_current,
-                                battery_current,
-                            )
+                            send_data(config, 0.0)
                         rain, db_counter = 0, 0
                 log_time_remaining(logger, end_time)
             logger.info(f"Finished data logging at {datetime.now()}\n")
