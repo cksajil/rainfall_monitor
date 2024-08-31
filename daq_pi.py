@@ -1,8 +1,8 @@
 import logging
 import subprocess
 import pandas as pd
-from os import path
 import RPi.GPIO as GPIO
+from os import path, listdir
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
 from utils.connectivity import send_data_via_internet, send_data_via_lorawan
@@ -123,7 +123,13 @@ def main():
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
                     print(f"Estimated rainfall: ", mm_hat)
-                    delete_files(locations)
+                    files_and_directories = listdir(config["data_dir"])
+                    files_to_delete = [
+                        f
+                        for f in files_and_directories
+                        if path.isfile(path.join(config["data_dir"], f))
+                    ]
+                    delete_files(files_to_delete)
                     locations.clear()
                     # rain_sensor_status = read_loop()
                     rain_sensor_status = 0
