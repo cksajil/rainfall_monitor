@@ -1,9 +1,3 @@
-#define DATA_RATE_UP_DOWN 2 // Spreading factor (DR0 - DR5)
-#define TX_POWER 20         // power option: 2, 5, 8, 11, 14 and 20
-#define SESSION_PORT 1      // Port session
-
-// AUXILIARY LIBRARIES
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -12,8 +6,11 @@
 #include <hal.h>
 #include <local_hal.h>
 
-// VARIABLES AND DEFINITIONS
-// Module RFM95 pin mapping
+#define DATA_RATE_UP_DOWN 2 // Spreading factor (DR0 - DR5)
+#define TX_POWER 20         // power option: 2, 5, 8, 11, 14 and 20
+#define SESSION_PORT 1      // Port session
+
+// MODULE RFM95 PIN MAPPING
 #define RFM95_PIN_NSS 6
 #define RFM95_PIN_RST 0
 #define RFM95_PIN_D0 4
@@ -25,7 +22,7 @@ void os_getArtEui(u1_t *buf) {}
 void os_getDevEui(u1_t *buf) {}
 void os_getDevKey(u1_t *buf) {}
 
-// Convert u4_t in u1_t(array)
+// Convert u4_t in u1_t (array)
 #define msbf4_read(p) (u4_t)((u4_t)(p)[0] << 24 | (u4_t)(p)[1] << 16 | (p)[2] << 8 | (p)[3])
 
 static osjob_t sendjob;
@@ -45,11 +42,8 @@ void onEvent(ev_t ev)
 {
   switch (ev)
   {
-  // scheduled data sent (optionally data received)
-  // note: this includes the receive window!
   case EV_TXCOMPLETE:
-
-    // use this event to keep track of actual transmissions
+    // Use this event to keep track of actual transmissions
     fprintf(stdout, "Event EV_TXCOMPLETE, time: %d\n", millis() / 1000);
 
     // Check ACK
@@ -89,12 +83,11 @@ void onEvent(ev_t ev)
   }
 }
 
-static void do_send(osjob_t *j, float rain)
+static void do_send(osjob_t *j, float rain, float battery_voltage, float battery_current, float solar_voltage, float solar_current)
 {
   time_t t = time(NULL);
   fprintf(stdout, "[%x] (%ld) %s\n", hal_ticks(), t, ctime(&t));
 
-  // Show TX channel (channel numbers are local to LMIC)
   // Check if there is not a current TX/RX job running
   if (LMIC.opmode & OP_TXRXPEND)
   {
@@ -102,14 +95,22 @@ static void do_send(osjob_t *j, float rain)
   }
   else
   {
-    // Convert float to fixed-point integer representation
-    int int_rain = (int)(rain * 100);
-
     // Prepare upstream data transmission at the next possible time.
-    unsigned char buf[2];
-    buf[0] = (int_rain >> 8) & 0xFF;
-    buf[1] = int_rain & 0xFF;
-    LMIC_setTxData2(1, buf, 2, 0);
+    unsigned char buf[20];
+
+    // Convert each float value to a fixed-point integer representation (4 bytes each)
+    float values[5] = {rain, battery_voltage, battery_current, solar_voltage, solar_current};
+
+    for (int i = 0; i < 5; i++)
+    {
+      int int_val = (int)(values[i] * 100); // 2 decimal places
+      buf[i * 4 + 0] = (int_val >> 24) & 0xFF;
+      buf[i * 4 + 1] = (int_val >> 16) & 0xFF;
+      buf[i * 4 + 2] = (int_val >> 8) & 0xFF;
+      buf[i * 4 + 3] = int_val & 0xFF;
+    }
+
+    LMIC_setTxData2(SESSION_PORT, buf, sizeof(buf), 0);
   }
 
   // Blink LED to indicate end of transmission attempt if LEDs are enabled
@@ -117,7 +118,7 @@ static void do_send(osjob_t *j, float rain)
     digitalWrite(DATA_SENT_LED, HIGH);
 }
 
-void setup(u1_t *DevAddr, u1_t *Nwkskey, u1_t *Appskey, float rain)
+void setup(u1_t *DevAddr, u1_t *Nwkskey, u1_t *Appskey, float rain, float battery_voltage, float battery_current, float solar_voltage, float solar_current)
 {
   // wiringPi init
   wiringPiSetup();
@@ -129,7 +130,7 @@ void setup(u1_t *DevAddr, u1_t *Nwkskey, u1_t *Appskey, float rain)
   LMIC_reset();
 
   // Set static session parameters. Instead of dynamically establishing a session
-  // by joining the network, precomputed session parameters are be provided.
+  // by joining the network, precomputed session parameters are provided.
   LMIC_setSession(SESSION_PORT, msbf4_read((u1_t *)DevAddr), Nwkskey, Appskey);
 
   // Multi channel IN865 (CH0-CH7)
@@ -163,21 +164,22 @@ void setup(u1_t *DevAddr, u1_t *Nwkskey, u1_t *Appskey, float rain)
   }
 
   // Send data once
-  do_send(&sendjob, rain);
+  do_send(&sendjob, rain, battery_voltage, battery_current, solar_voltage, solar_current);
 }
 
 int main(int argc, char *argv[])
 {
-  if (argc != 6)
+  if (argc != 10)
   {
-    fprintf(stderr, "Usage: %s <DevAddr> <Nwkskey> <Appskey> <Rain> <UseLeds>\n", argv[0]);
+    fprintf(stderr, "Usage: %s <DevAddr> <Nwkskey> <Appskey> <Rain> <BatteryVoltage> <BatteryCurrent> <SolarVoltage> <SolarCurrent> <UseLeds>\n", argv[0]);
     exit(1);
   }
 
   u1_t DevAddr[4];
   u1_t Nwkskey[16];
   u1_t Appskey[16];
-  float rain;
+  float rain, battery_voltage, battery_current, solar_voltage, solar_current;
+  int useLeds;
 
   sscanf(argv[1], "%2hhx%2hhx%2hhx%2hhx", &DevAddr[0], &DevAddr[1], &DevAddr[2], &DevAddr[3]);
   for (int i = 0; i < 16; i++)
@@ -185,9 +187,13 @@ int main(int argc, char *argv[])
   for (int i = 0; i < 16; i++)
     sscanf(&argv[3][i * 2], "%2hhx", &Appskey[i]);
   sscanf(argv[4], "%f", &rain);
-  sscanf(argv[5], "%d", &useLeds);
+  sscanf(argv[5], "%f", &battery_voltage);
+  sscanf(argv[6], "%f", &battery_current);
+  sscanf(argv[7], "%f", &solar_voltage);
+  sscanf(argv[8], "%f", &solar_current);
+  sscanf(argv[9], "%d", &useLeds);
 
-  setup(DevAddr, Nwkskey, Appskey, rain);
+  setup(DevAddr, Nwkskey, Appskey, rain, battery_voltage, battery_current, solar_voltage, solar_current);
 
   // Run the loop once
   os_runloop();
@@ -199,7 +205,8 @@ int main(int argc, char *argv[])
 /*
 function Decode(fPort, bytes, variables) {
   var decoded = {};
-  decoded.rain = ((bytes[0] << 8) | bytes[1]) / 100.0;
-  return decoded;
-}
-*/
+  if (bytes.length === 20) {
+    decoded.rain = ((bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3]) / 100.0);
+    decoded.battery_voltage = ((bytes[4] << 24 | bytes[5] << 16 | bytes[6] << 8 | bytes[7]) / 100.0);
+    decoded.battery_current = ((bytes[8] << 24 | bytes[9] << 16 | bytes[10] << 8 | bytes[11]) / 100.0);
+    decoded.s
