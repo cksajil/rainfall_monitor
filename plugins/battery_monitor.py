@@ -46,27 +46,18 @@ def preprocess_dataframe(ser):
         value = read_uint8(ser)
         if value == 21:
             break
-        elif value is None:
-            print("Timeout or error while waiting for start marker.")
-            return None, None, None, None
 
     # Read the next four values
     for _ in range(4):
         value = read_uint8(ser)
         if value is not None:
             values.append(value)
-        else:
-            print("Timeout or error while reading data values.")
-            return None, None, None, None
 
     # Read until end marker (75) is found
     while True:
         value = read_uint8(ser)
         if value == 75:
             break
-        elif value is None:
-            print("Timeout or error while waiting for end marker.")
-            return None, None, None, None
 
     # Process and return the values
     return process_data(values)
