@@ -69,7 +69,9 @@ def send_data(
     config, mm_hat, solar_voltage, battery_voltage, solar_current, battery_current
 ):
     if config["communication"] == "LORAWAN":
-        send_data_via_lorawan(mm_hat)
+        send_data_via_lorawan(
+            mm_hat, battery_voltage, battery_current, solar_voltage, solar_current
+        )
     else:
         send_data_via_internet(
             mm_hat, battery_voltage, battery_current, solar_voltage, solar_current
@@ -87,7 +89,14 @@ def main():
     record_hours = config["record_hours"]
     field_deployed = config["field_deployed"]
     end_time = datetime.now() + timedelta(hours=record_hours)
-    min_threshold = config["min_threshold"]
+    now = datetime.now().time()
+    day_start = now.replace(hour=6, minute=0, second=0, microsecond=0)
+    day_end = now.replace(hour=22, minute=0, second=0, microsecond=0)
+    if day_start <= now <= day_end:
+        min_threshold = 1.5
+    else:
+        min_threshold = config["min_threshold"]
+
     infer_model_path = path.join(
         config["infer_model_dir"],
         (
@@ -136,8 +145,14 @@ def main():
                     rain += mm_hat
                     db_counter += 1
                     print("\nGetting battery readings")
+                    # solar_voltage, battery_voltage, solar_current, battery_current = (
+                    #     preprocess_dataframe(ser)
+                    # )
                     solar_voltage, battery_voltage, solar_current, battery_current = (
-                        preprocess_dataframe(ser)
+                        10.1,
+                        11.1,
+                        12.1,
+                        13.1,
                     )
 
                     print(f"Solar Voltage: {solar_voltage:.1f} V")
@@ -207,8 +222,15 @@ def main():
                     rain += mm_hat
                     db_counter += 1
                     logger.info(f"\nGetting battery readings")
+                    # solar_voltage, battery_voltage, solar_current, battery_current = (
+                    #     preprocess_dataframe(ser)
+                    # )
+
                     solar_voltage, battery_voltage, solar_current, battery_current = (
-                        preprocess_dataframe(ser)
+                        10.1,
+                        11.1,
+                        12.1,
+                        13.1,
                     )
 
                     logger.info(f"Solar Voltage: {solar_voltage:.1f} V")
