@@ -1,7 +1,7 @@
 import sys
-import time
 import serial
 import struct
+import time
 
 
 def setup_serial_connection(port, baudrate, timeout=1):
@@ -9,6 +9,7 @@ def setup_serial_connection(port, baudrate, timeout=1):
         ser = serial.Serial(port, baudrate=baudrate, timeout=timeout)
         return ser
     except serial.SerialException as e:
+        print(f"Error setting up serial connection: {e}")
         sys.exit(1)
 
 
@@ -16,12 +17,12 @@ def read_int8(serial_connection):
     try:
         byte = serial_connection.read(1)
         if byte:
-            print(byte)
             value = struct.unpack("b", byte)[0]
             return value
         else:
             return None
     except Exception as e:
+        print(f"Error reading from serial: {e}")
         return None
 
 
@@ -33,7 +34,8 @@ def process_data(values):
         battery_current = values[3] / 10.0
         return solar_voltage, battery_voltage, solar_current, battery_current
     else:
-        return None
+        print(f"Unexpected number of values: {len(values)}")
+        return None, None, None, None
 
 
 def preprocess_dataframe(ser):
@@ -44,18 +46,27 @@ def preprocess_dataframe(ser):
         value = read_int8(ser)
         if value == 21:
             break
+        elif value is None:
+            print("Timeout or error while waiting for start marker.")
+            return None, None, None, None
 
     # Read the next four values
     for _ in range(4):
         value = read_int8(ser)
         if value is not None:
             values.append(value)
+        else:
+            print("Timeout or error while reading data values.")
+            return None, None, None, None
 
     # Read until end marker (75) is found
     while True:
         value = read_int8(ser)
         if value == 75:
             break
+        elif value is None:
+            print("Timeout or error while waiting for end marker.")
+            return None, None, None, None
 
     # Process and return the values
     return process_data(values)
@@ -65,10 +76,8 @@ if __name__ == "__main__":
     port = "/dev/ttyS0"  # Adjust to your port
     baudrate = 9600
     ser = setup_serial_connection(port, baudrate)
-    print("Inside battery monitor")
 
     while True:
-        print("Reading values...")
         solar_voltage, battery_voltage, solar_current, battery_current = (
             preprocess_dataframe(ser)
         )
