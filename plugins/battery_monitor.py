@@ -57,3 +57,14 @@ def preprocess_dataframe(ser):
 
     # Process and return the values
     return process_data(values)
+
+
+if __name__ == "__main__":
+    ser = setup_serial_connection("dev/ttyS0", 9600)
+    solar_voltage, battery_voltage, solar_current, battery_current = (
+        preprocess_dataframe(ser)
+    )
+    print(f"Solar Voltage: {solar_voltage:.1f} V")
+    print(f"Battery Voltage: {battery_voltage:.1f} V")
+    print(f"Solar Current: {solar_current:.1f} A")
+    print(f"Battery Current: {battery_current:.1f} A")
