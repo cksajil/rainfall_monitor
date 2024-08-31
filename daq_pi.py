@@ -125,7 +125,7 @@ def main():
                     print(f"Estimated rainfall: ", mm_hat)
                     files_and_directories = listdir(config["data_dir"])
                     files_to_delete = [
-                        f
+                        path.join(config["data_dir"], f)
                         for f in files_and_directories
                         if path.isfile(path.join(config["data_dir"], f))
                     ]
