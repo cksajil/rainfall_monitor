@@ -7,7 +7,7 @@
 #include <local_hal.h>
 
 #define DATA_RATE_UP_DOWN 2 // Spreading factor (DR0 - DR5)
-#define TX_POWER 20         // power option: 2, 5, 8, 11, 14 and 20
+#define TX_POWER 20         // Power option: 2, 5, 8, 11, 14, and 20
 #define SESSION_PORT 1      // Port session
 
 // MODULE RFM95 PIN MAPPING
@@ -55,13 +55,8 @@ void onEvent(ev_t ev)
     // Check DOWN
     if (LMIC.dataLen)
     {
-      fprintf(stdout, "RSSI: ");
-      fprintf(stdout, "%ld", LMIC.rssi - 96);
-      fprintf(stdout, " dBm\n");
-
-      fprintf(stdout, "SNR: ");
-      fprintf(stdout, "%ld", LMIC.snr * 0.25);
-      fprintf(stdout, " dB\n");
+      fprintf(stdout, "RSSI: %d dBm\n", LMIC.rssi - 96);
+      fprintf(stdout, "SNR: %f dB\n", LMIC.snr * 0.25);
 
       fprintf(stdout, "Data Received!\n");
       for (int i = 0; i < LMIC.dataLen; i++)
@@ -172,7 +167,7 @@ int main(int argc, char *argv[])
   if (argc != 10)
   {
     fprintf(stderr, "Usage: %s <DevAddr> <Nwkskey> <Appskey> <Rain> <BatteryVoltage> <BatteryCurrent> <SolarVoltage> <SolarCurrent> <UseLeds>\n", argv[0]);
-    exit(1);
+    return EXIT_FAILURE;
   }
 
   u1_t DevAddr[4];
@@ -181,32 +176,47 @@ int main(int argc, char *argv[])
   float rain, battery_voltage, battery_current, solar_voltage, solar_current;
   int useLeds;
 
-  sscanf(argv[1], "%2hhx%2hhx%2hhx%2hhx", &DevAddr[0], &DevAddr[1], &DevAddr[2], &DevAddr[3]);
+  if (sscanf(argv[1], "%2hhx%2hhx%2hhx%2hhx", &DevAddr[0], &DevAddr[1], &DevAddr[2], &DevAddr[3]) != 4 ||
+      sscanf(argv[4], "%f", &rain) != 1 ||
+      sscanf(argv[5], "%f", &battery_voltage) != 1 ||
+      sscanf(argv[6], "%f", &battery_current) != 1 ||
+      sscanf(argv[7], "%f", &solar_voltage) != 1 ||
+      sscanf(argv[8], "%f", &solar_current) != 1 ||
+      sscanf(argv[9], "%d", &useLeds) != 1)
+  {
+    fprintf(stderr, "Error parsing arguments\n");
+    return EXIT_FAILURE;
+  }
+
   for (int i = 0; i < 16; i++)
-    sscanf(&argv[2][i * 2], "%2hhx", &Nwkskey[i]);
-  for (int i = 0; i < 16; i++)
-    sscanf(&argv[3][i * 2], "%2hhx", &Appskey[i]);
-  sscanf(argv[4], "%f", &rain);
-  sscanf(argv[5], "%f", &battery_voltage);
-  sscanf(argv[6], "%f", &battery_current);
-  sscanf(argv[7], "%f", &solar_voltage);
-  sscanf(argv[8], "%f", &solar_current);
-  sscanf(argv[9], "%d", &useLeds);
+  {
+    if (sscanf(&argv[2][i * 2], "%2hhx", &Nwkskey[i]) != 1 ||
+        sscanf(&argv[3][i * 2], "%2hhx", &Appskey[i]) != 1)
+    {
+      fprintf(stderr, "Error parsing keys\n");
+      return EXIT_FAILURE;
+    }
+  }
 
   setup(DevAddr, Nwkskey, Appskey, rain, battery_voltage, battery_current, solar_voltage, solar_current);
 
   // Run the loop once
   os_runloop();
 
-  return 0;
+  return EXIT_SUCCESS;
 }
 
-// TTN decode payload
-/*
-function Decode(fPort, bytes, variables) {
-  var decoded = {};
-  if (bytes.length === 20) {
-    decoded.rain = ((bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3]) / 100.0);
-    decoded.battery_voltage = ((bytes[4] << 24 | bytes[5] << 16 | bytes[6] << 8 | bytes[7]) / 100.0);
-    decoded.battery_current = ((bytes[8] << 24 | bytes[9] << 16 | bytes[10] << 8 | bytes[11]) / 100.0);
-    decoded.s
+// function Decode(fPort, bytes, variables) {
+//     var decoded = {};
+
+//     if (bytes.length === 20) {
+//         // Extract and decode each value from the byte array
+//         decoded.rain = ((bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3]) / 100.0);
+//         decoded.battery_voltage = ((bytes[4] << 24 | bytes[5] << 16 | bytes[6] << 8 | bytes[7]) / 100.0);
+//         decoded.battery_current = ((bytes[8] << 24 | bytes[9] << 16 | bytes[10] << 8 | bytes[11]) / 100.0);
+//         decoded.solar_voltage = ((bytes[12] << 24 | bytes[13] << 16 | bytes[14] << 8 | bytes[15]) / 100.0);
+//         decoded.solar_current = ((bytes[16] << 24 | bytes[17] << 16 | bytes[18] << 8 | bytes[19]) / 100.0);
+//     }
+
+//     return decoded;
+// }
