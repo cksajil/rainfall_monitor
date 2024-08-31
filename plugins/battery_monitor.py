@@ -64,8 +64,10 @@ if __name__ == "__main__":
     port = "/dev/ttyS0"  # Adjust to your port
     baudrate = 9600
     ser = setup_serial_connection(port, baudrate)
+    print("Inside battery monitor")
 
     while True:
+        print("Reading values...")
         solar_voltage, battery_voltage, solar_current, battery_current = (
             preprocess_dataframe(ser)
         )
