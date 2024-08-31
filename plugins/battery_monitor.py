@@ -13,11 +13,11 @@ def setup_serial_connection(port, baudrate, timeout=1):
         sys.exit(1)
 
 
-def read_int8(serial_connection):
+def read_uint8(serial_connection):
     try:
         byte = serial_connection.read(1)
         if byte:
-            value = struct.unpack("b", byte)[0]
+            value = struct.unpack("B", byte)[0]  # Use "B" for unsigned 8-bit integer
             return value
         else:
             return None
@@ -43,7 +43,7 @@ def preprocess_dataframe(ser):
 
     # Read data until start marker (21) is found
     while True:
-        value = read_int8(ser)
+        value = read_uint8(ser)
         if value == 21:
             break
         elif value is None:
@@ -52,7 +52,7 @@ def preprocess_dataframe(ser):
 
     # Read the next four values
     for _ in range(4):
-        value = read_int8(ser)
+        value = read_uint8(ser)
         if value is not None:
             values.append(value)
         else:
@@ -61,7 +61,7 @@ def preprocess_dataframe(ser):
 
     # Read until end marker (75) is found
     while True:
-        value = read_int8(ser)
+        value = read_uint8(ser)
         if value == 75:
             break
         elif value is None:
