@@ -6,7 +6,6 @@ import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
 from utils.connectivity import send_data_via_internet, send_data_via_lorawan
-from plugins.battery_monitor import setup_serial_connection, preprocess_dataframe
 
 # from plugins.rain_sensor import read_loop, disable_rain_sensor
 
@@ -45,7 +44,7 @@ def initialize_logging(log_dir, log_filename, start_time, total_samples):
     )
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    logger.info("\n\n\n*******************************************************")
+    logger.info("*******************************************************")
     logger.info(f"Started data logging at {start_time}\n")
     logger.info(f"Total number of samples to be recorded: {total_samples}\n")
     return logger
@@ -92,12 +91,9 @@ def main():
             else config["infer_model_withoutcnn"]
         ),
     )
-    port = config["uart_port"]
-    baudrate = config["baudrate"]
 
     infer_model = load_estimate_model(infer_model_path)
     locations = []
-    ser = setup_serial_connection(port, baudrate)
 
     try:
         if field_deployed:
@@ -125,20 +121,6 @@ def main():
                     rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
-                    print("\nGetting battery readings")
-                    # solar_voltage, battery_voltage, solar_current, battery_current = (
-                    #     preprocess_dataframe(ser)
-                    # )
-                    solar_voltage, battery_voltage, solar_current, battery_current = (
-                        0,
-                        0,
-                        0,
-                        0,
-                    )
-                    print(f"Solar Voltage: {solar_voltage:.1f} V")
-                    print(f"Battery Voltage: {battery_voltage:.1f} V")
-                    print(f"Solar Current: {solar_current:.1f} A")
-                    print(f"Battery Current: {battery_current:.1f} A")
 
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
@@ -187,20 +169,6 @@ def main():
                     )
                     rain += mm_hat
                     db_counter += 1
-                    logger.info(f"\nGetting battery readings")
-                    # solar_voltage, battery_voltage, solar_current, battery_current = (
-                    #     preprocess_dataframe(ser)
-                    # )
-                    solar_voltage, battery_voltage, solar_current, battery_current = (
-                        0,
-                        0,
-                        0,
-                        0,
-                    )
-                    logger.info(f"Solar Voltage: {solar_voltage:.1f} V")
-                    logger.info(f"Battery Voltage: {battery_voltage:.1f} V")
-                    logger.info(f"Solar Current: {solar_current:.1f} A")
-                    logger.info(f"Battery Current: {battery_current:.1f} A")
 
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
@@ -215,9 +183,9 @@ def main():
     except KeyboardInterrupt:
         print(f"Execution interrupted by user")
     finally:
+        pass
         # disable_rain_sensor()
         # gpio_cleanup()
-        ser.close()
 
 
 if __name__ == "__main__":
