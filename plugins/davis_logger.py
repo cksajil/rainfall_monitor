@@ -46,12 +46,13 @@ def influxdb(rain: float):
         url = influxdb_config["url"]
         bucket = influxdb_config[name]["bucket"]
         token = influxdb_config[name]["token"]
-        
+
         client = influxdb_client.InfluxDBClient(
             url=url, token=token, org=org, timeout=30_000
         )
         write_api = client.write_api(write_options=SYNCHRONOUS)
-        p = (influxdb_client.Point("pi_davis_raingauge")
+        p = (
+            influxdb_client.Point("pi_davis_raingauge")
             .tag("location", location)
             .field("rain", rain)
         )

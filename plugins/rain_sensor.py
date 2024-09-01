@@ -28,7 +28,7 @@ def read_rain_sensor():
 
 
 def gpio_cleanup():
-    GPIO.cleanup([POWER_PIN,RAIN_PIN])
+    GPIO.cleanup([POWER_PIN, RAIN_PIN])
 
 
 def read_loop():
@@ -39,7 +39,7 @@ def read_loop():
     disable_rain_sensor()
     gpio_cleanup()
     return rain_status
-    
+
 
 if __name__ == "__main__":
     try:
