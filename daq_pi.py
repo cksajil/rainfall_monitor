@@ -114,7 +114,7 @@ def main():
 
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
-                    print(f"Estimated rainfall: ", mm_hat)
+                    print("Estimated rainfall: ", mm_hat)
                     delete_files(locations)
                     locations.clear()
                     # rain_sensor_status = read_loop()
@@ -153,7 +153,7 @@ def main():
 
                 if i % num_subsamples == 0:
                     mm_hat = estimate_rainfall(infer_model, locations)
-                    # logger.info(f"Estimated rainfall: ", mm_hat)
+                    # logger.info("Estimated rainfall: ", mm_hat)
                     locations.clear()
                     # rain_sensor_status = read_loop()
                     rain_sensor_status = 0
@@ -181,7 +181,7 @@ def main():
             logger.info(f"Finished data logging at {datetime.now()}\n")
 
     except KeyboardInterrupt:
-        print(f"Execution interrupted by user")
+        print("Execution interrupted by user")
     finally:
         pass
         # disable_rain_sensor()
