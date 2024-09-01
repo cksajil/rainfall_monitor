@@ -1,5 +1,5 @@
-data_dir: /home/pi/raingauge/data/
-log_dir: /home/pi/raingauge/logs/
+data_dir: /home/ubuntu/raingauge/data/
+log_dir: /home/ubuntu/raingauge/logs/
 log_filename: log.txt
 record_hours: 168
 sample_duration_sec: 10
@@ -8,7 +8,7 @@ resolution: "S32"
 sampling_rate: "8000"
 stft_shape: [None, 1, 1025, 2672]
 infer_inetrval_sec: 180
-infer_model_dir: /home/pi/raingauge/model/
+infer_model_dir: /home/ubuntu/raingauge/model/
 deployed_model_type: withcnn
 infer_model_withoutcnn: rain_stft.hdf5
 infer_model_withcnn: seq_stft.hdf5
@@ -20,11 +20,11 @@ davis_interrupt_pin: 13
 davis_log_interval_sec: 180
 rain_sensor_power_pin: 4
 rain_sensor_input_pin: 17
-communication: WIFI # LORAWAN or WIFI
-min_threshold: 0.6
+communication: LORAWAN # or WIFI
+min_threshold: 0.8
 lora_led_pin: 25
 field_deployed: false
-device_name: rainpi_test
+device_name: rainpi_2
 device_location: greenfield tvm 
 uart_port: /dev/ttyS0
 baudrate: 9600
