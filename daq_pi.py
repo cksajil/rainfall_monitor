@@ -189,8 +189,10 @@ def main():
     except KeyboardInterrupt:
         print(f"Execution interrupted by user")
     finally:
+        pass
         # disable_rain_sensor()
         # gpio_cleanup()
+
 
 if __name__ == "__main__":
     main()
