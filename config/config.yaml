@@ -21,7 +21,7 @@ davis_log_interval_sec: 180
 rain_sensor_power_pin: 4
 rain_sensor_input_pin: 17
 communication: LORAWAN # or WIFI
-min_threshold: 0.2
+min_threshold: 0.8
 lora_led_pin: 25
 field_deployed: false
 device_name: rainpi_2
