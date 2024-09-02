@@ -82,13 +82,16 @@ def main():
     record_hours = config["record_hours"]
     field_deployed = config["field_deployed"]
     end_time = datetime.now() + timedelta(hours=record_hours)
-    now = datetime.now().time()
-    day_start = now.replace(hour=6, minute=0, second=0, microsecond=0)
-    day_end = now.replace(hour=22, minute=0, second=0, microsecond=0)
-    if day_start <= now <= day_end:
-        min_threshold = 1.5
-    else:
-        min_threshold = config["min_threshold"]
+
+    # now = datetime.now().time()
+    # day_start = now.replace(hour=6, minute=0, second=0, microsecond=0)
+    # day_end = now.replace(hour=22, minute=0, second=0, microsecond=0)
+    # if day_start <= now <= day_end:
+    # min_threshold = 1.5
+    # else:
+    # min_threshold = config["min_threshold"]
+
+    min_threshold = config["min_threshold"]
     infer_model_path = path.join(
         config["infer_model_dir"],
         (
