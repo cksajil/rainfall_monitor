@@ -15,9 +15,9 @@ def load_config(config_name: str, CONFIG_PATH="/home/pi/raingauge/code/config") 
 
 def send_test_data():
     lorawan_config = load_config("lorawan_keys.yaml")
-    dev_addr = lorawan_config["dev_addr"]
-    nwk_skey = lorawan_config["nwk_skey"]
-    app_skey = lorawan_config["app_skey"]
+    dev_addr = lorawan_config["rainpi_test"]["dev_addr"]
+    nwk_skey = lorawan_config["rainpi_test"]["nwk_skey"]
+    app_skey = lorawan_config["rainpi_test"]["app_skey"]
     success = False
     while not success:
         try:
