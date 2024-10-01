@@ -1,17 +1,28 @@
 import time
-from Adafruit_ADS1x15 import ADS1115
+from Adafruit_ADS1x15 import ADS1x15
 
 # Create an ADS1115 ADC instance
-adc = ADS1115()
+adc = ADS1x15()
 
-# Set the gain (adjust based on your expected voltage range)
-GAIN = 1  # Change as needed (1 for +/- 4.096V)
+# Set the gain (1 means +/- 4.096V)
+gain = 1
+
+# Select the channel where the sensor is connected
+channel = 0  # Assuming the sensor is connected to A0
 
 try:
     while True:
-        # Read the value from A0
-        moisture_value = adc.read_adc(0, gain=GAIN)
-        print(f"Moisture Level: {moisture_value}")
-        time.sleep(1)  # Delay for 1 second
+        # Read the ADC value
+        moisture_value = adc.readADC(channel, gain)
+
+        # Convert the raw value to a moisture percentage (0 to 100)
+        # This conversion may vary based on your calibration
+        moisture_percentage = (moisture_value / 32767.0) * 100
+
+        print(f"Moisture Level: {moisture_percentage:.2f}%")
+
+        # Wait before the next reading
+        time.sleep(1)
+
 except KeyboardInterrupt:
-    print("Exiting program")
+    print("Program terminated.")
