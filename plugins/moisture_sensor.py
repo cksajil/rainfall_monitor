@@ -6,7 +6,7 @@ channel = 0  # Change if needed
 
 try:
     while True:
-        value = adc.read_adc(channel, gain=10)
+        value = adc.read_adc(channel, gain=8)
         print(f"Raw value: {value}")
         time.sleep(0.2)
 
