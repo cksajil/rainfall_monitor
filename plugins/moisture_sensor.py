@@ -1,9 +1,9 @@
 # Enable I2C in sudo raspi-config and reboot
-# Check I2C
+# Check I2C with following command
 # i2cdetect -y 1
 
 
-# ADS1115
+# ADC  Module: ADS1115
 # VDD - 5V
 # GND - GND
 # SCL - SCL.1 (Physical 5)
