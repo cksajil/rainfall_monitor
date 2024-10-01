@@ -1,6 +1,16 @@
 import time
 import RPi.GPIO as GPIO
-from ..utils.helper import load_config
+
+
+def load_config(
+    config_name: str, CONFIG_PATH="/home/ubuntu/raingauge/code/config"
+) -> dict:
+    """
+    A function to load and return config file in YAML format
+    """
+    with open(os.path.join(CONFIG_PATH, config_name)) as file:
+        config = yaml.safe_load(file)
+    return config
 
 
 config = load_config("config.yaml")
@@ -28,7 +38,7 @@ def read_rain_sensor():
 
 
 def gpio_cleanup():
-    GPIO.cleanup([POWER_PIN,RAIN_PIN])
+    GPIO.cleanup([POWER_PIN, RAIN_PIN])
 
 
 def read_loop():
@@ -39,7 +49,7 @@ def read_loop():
     disable_rain_sensor()
     gpio_cleanup()
     return rain_status
-    
+
 
 if __name__ == "__main__":
     try:
