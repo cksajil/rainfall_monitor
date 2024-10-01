@@ -9,7 +9,7 @@
 # SCL - SCL.1 (Physical 5)
 # SDA - SDA.1 (Physical 3)
 # ADDR - GND
-# A0 - Sensor output
+# A0 - Grove moisture Sensor output
 
 
 import time
