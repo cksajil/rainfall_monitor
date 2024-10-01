@@ -14,7 +14,7 @@ channel = 0  # Assuming the sensor is connected to A0
 try:
     while True:
         # Read the ADC value
-        moisture_value = adc.readADC(channel, gain)
+        moisture_value = adc.read_adc(channel, gain)
 
         # Convert the raw value to a moisture percentage (0 to 100)
         # This conversion may vary based on your calibration
