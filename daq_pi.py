@@ -8,6 +8,7 @@ from utils.estimate import estimate_rainfall
 from utils.connectivity import send_data_via_internet, send_data_via_lorawan
 
 # from plugins.rain_sensor import read_loop, disable_rain_sensor
+from plugins.moisture_sensor import read_moisture_sensor
 
 from utils.helper import (
     time_stamp_fnamer,
@@ -82,6 +83,7 @@ def main():
     record_hours = config["record_hours"]
     field_deployed = config["field_deployed"]
     end_time = datetime.now() + timedelta(hours=record_hours)
+    moisture_threshold = config["moisture_threshold"]
 
     # now = datetime.now().time()
     # day_start = now.replace(hour=6, minute=0, second=0, microsecond=0)
@@ -126,13 +128,18 @@ def main():
                     print(f"Estimated rainfall: ", mm_hat)
                     delete_files(locations)
                     locations.clear()
+                    moisture = read_moisture_sensor(channel=0, gain=1)
                     # rain_sensor_status = read_loop()
-                    rain_sensor_status = 0
+                    # rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
+                        if (
+                            moisture
+                            and moisture < moisture_threshold
+                            and rain >= min_threshold
+                        ):
                             send_data(config, mm_hat)
                         else:
                             send_data(config, 0.0)
@@ -164,13 +171,14 @@ def main():
                     mm_hat = estimate_rainfall(infer_model, locations)
                     # logger.info(f"Estimated rainfall: ", mm_hat)
                     locations.clear()
+                    moisture = read_moisture_sensor(channel=0, gain=1)
                     # rain_sensor_status = read_loop()
-                    rain_sensor_status = 0
+                    # rain_sensor_status = 0
                     result_data.append(
                         {
                             "time_stamp": dt_now,
                             "rainfall_estimate": mm_hat,
-                            "rain_sensor_status": rain_sensor_status,
+                            "moisture": moisture,
                         }
                     )
                     write_rain_data_to_csv(
@@ -180,7 +188,11 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
+                        if (
+                            moisture
+                            and moisture < moisture_threshold
+                            and rain >= min_threshold
+                        ):
                             send_data(config, mm_hat)
 
                         else:

@@ -2,7 +2,6 @@
 # Check I2C with following command
 # i2cdetect -y 1
 
-
 # ADC  Module: ADS1115
 # VDD - 5V
 # GND - GND
@@ -15,14 +14,28 @@
 import time
 from Adafruit_ADS1x15 import ADS1115
 
-adc = ADS1115()
+
 channel = 0  # Change if needed
 
-try:
+
+def read_moisture_sensor(channel, gain=1):
+    adc = ADS1115()
+    try:
+        moisture_value = adc.read_adc(channel, gain)
+    except Exception as e:
+        moisture_value = None
+    return moisture_value
+
+
+def main():
     while True:
-        value = adc.read_adc(channel, gain=1)
-        print(f"Raw value: {value}")
+        value = read_moisture_sensor(channel, gain=1)
+        if value not None:
+            print(f"Raw value: {value}")
+        else:
+            print("Cannot read moisture sensor")
         time.sleep(0.2)
 
-except Exception as e:
-    print(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()
