@@ -84,16 +84,8 @@ def main():
     field_deployed = config["field_deployed"]
     end_time = datetime.now() + timedelta(hours=record_hours)
     moisture_threshold = config["moisture_threshold"]
-
-    # now = datetime.now().time()
-    # day_start = now.replace(hour=6, minute=0, second=0, microsecond=0)
-    # day_end = now.replace(hour=22, minute=0, second=0, microsecond=0)
-    # if day_start <= now <= day_end:
-    # min_threshold = 1.5
-    # else:
-    # min_threshold = config["min_threshold"]
-
     min_threshold = config["min_threshold"]
+
     infer_model_path = path.join(
         config["infer_model_dir"],
         (
@@ -130,7 +122,6 @@ def main():
                     locations.clear()
                     moisture = read_moisture_sensor(channel=0, gain=1)
                     # rain_sensor_status = read_loop()
-                    # rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
 
@@ -173,7 +164,6 @@ def main():
                     locations.clear()
                     moisture = read_moisture_sensor(channel=0, gain=1)
                     # rain_sensor_status = read_loop()
-                    # rain_sensor_status = 0
                     result_data.append(
                         {
                             "time_stamp": dt_now,
@@ -188,15 +178,15 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        if (
-                            moisture
-                            and moisture < moisture_threshold
-                            and rain >= min_threshold
-                        ):
-                            send_data(config, mm_hat)
+                        # if (
+                        #     moisture
+                        #     and moisture < moisture_threshold
+                        #     and rain >= min_threshold
+                        # ):
+                        #     send_data(config, mm_hat)
 
-                        else:
-                            send_data(config, 0.0)
+                        # else:
+                        #     send_data(config, 0.0)
                         rain, db_counter = 0, 0
                 log_time_remaining(logger, end_time)
             logger.info(f"Finished data logging at {datetime.now()}\n")
