@@ -1,16 +1,3 @@
-# Enable I2C in sudo raspi-config and reboot
-# Check I2C with following command
-# i2cdetect -y 1
-
-# ADC  Module: ADS1115
-# VDD - 5V
-# GND - GND
-# SCL - SCL.1 (Physical 5)
-# SDA - SDA.1 (Physical 3)
-# ADDR - GND
-# A0 - Grove moisture Sensor output
-
-
 import time
 from Adafruit_ADS1x15 import ADS1115
 
