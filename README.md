@@ -15,7 +15,7 @@ The setup guide can be found [here](https://github.com/cksajil/rainfall_monitor/
 
 ![grafana](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/data_visualisation.png)
 
-### [Click here](https://visualizedev.icfoss.org/d/riYMAg1Ik/non_mech_rain-_gauge?orgId=3&refresh=1m&from=now-24h&to=now) to see live data from our acoustic rain gauge
+### [Click here](http://117.223.185.200:3000/d/d6zIvsjIz/rain_pi_2?orgId=3&refresh=1m) to see live data from our acoustic rain gauge
 
 
 ## Components used
