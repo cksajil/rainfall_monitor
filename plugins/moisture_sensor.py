@@ -17,7 +17,7 @@ def read_moisture_sensor(channel, gain=1):
 def main():
     while True:
         value = read_moisture_sensor(channel, gain=1)
-        if value not None:
+        if value:
             print(f"Raw value: {value}")
         else:
             print("Cannot read moisture sensor")
