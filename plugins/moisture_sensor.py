@@ -20,7 +20,7 @@ def main():
         if value:
             print(f"Raw value: {value}")
         else:
-            print("Cannot read moisture sensor")
+            print(f"Cannot read moisture sensor {value}")
         time.sleep(0.2)
 
 
