@@ -178,15 +178,15 @@ def main():
                     db_counter += 1
 
                     if db_counter == DB_write_interval:
-                        # if (
-                        #     moisture
-                        #     and moisture < moisture_threshold
-                        #     and rain >= min_threshold
-                        # ):
-                        #     send_data(config, mm_hat)
+                        if (
+                            moisture
+                            and moisture < moisture_threshold
+                            and rain >= min_threshold
+                        ):
+                            send_data(config, mm_hat)
 
-                        # else:
-                        #     send_data(config, 0.0)
+                        else:
+                            send_data(config, 0.0)
                         rain, db_counter = 0, 0
                 log_time_remaining(logger, end_time)
             logger.info(f"Finished data logging at {datetime.now()}\n")
