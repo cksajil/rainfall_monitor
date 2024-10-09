@@ -212,15 +212,15 @@ int main(int argc, char *argv[])
   return 0;
 }
 
-// TTN decode payload
+// chirpstack decode payload
 /*
 function Decode(fPort, bytes, variables) {
   var decoded = {};
   decoded.rain = ((bytes[0] << 8) | bytes[1]) / 100.0;
-  decoded.val1 = ((bytes[2] << 8) | bytes[3]) / 100.0;
-  decoded.val2 = ((bytes[4] << 8) | bytes[5]) / 100.0;
-  decoded.val3 = ((bytes[6] << 8) | bytes[7]) / 100.0;
-  decoded.val4 = ((bytes[8] << 8) | bytes[9]) / 100.0;
+  decoded.solar_voltage = ((bytes[2] << 8) | bytes[3]) / 100.0;
+  decoded.battery_voltage = ((bytes[4] << 8) | bytes[5]) / 100.0;
+  decoded.solar_current = ((bytes[6] << 8) | bytes[7]) / 100.0;
+  decoded.battery_current = ((bytes[8] << 8) | bytes[9]) / 100.0;
   return decoded;
 }
 */
