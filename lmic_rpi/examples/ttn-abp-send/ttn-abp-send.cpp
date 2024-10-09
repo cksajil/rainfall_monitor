@@ -89,7 +89,7 @@ void onEvent(ev_t ev)
   }
 }
 
-static void do_send(osjob_t *j, float rain)
+static void do_send(osjob_t *j, float rain, float solar_V, float battery_V, float solar_I, float battery_I)
 {
   time_t t = time(NULL);
   fprintf(stdout, "[%x] (%ld) %s\n", hal_ticks(), t, ctime(&t));
@@ -102,14 +102,27 @@ static void do_send(osjob_t *j, float rain)
   }
   else
   {
-    // Convert float to fixed-point integer representation
+    // Convert floats to fixed-point integer representations (multiplied by 100)
     int int_rain = (int)(rain * 100);
+    int int_solar_V = (int)(solar_V * 100);
+    int int_battery_V = (int)(battery_V * 100);
+    int int_solar_I = (int)(solar_I * 100);
+    int int_battery_I = (int)(battery_I * 100);
 
     // Prepare upstream data transmission at the next possible time.
-    unsigned char buf[2];
+    unsigned char buf[10]; // 5 values, 2 bytes each = 10 bytes total
     buf[0] = (int_rain >> 8) & 0xFF;
     buf[1] = int_rain & 0xFF;
-    LMIC_setTxData2(1, buf, 2, 0);
+    buf[2] = (int_solar_V >> 8) & 0xFF;
+    buf[3] = int_solar_V & 0xFF;
+    buf[4] = (int_battery_V >> 8) & 0xFF;
+    buf[5] = int_battery_V & 0xFF;
+    buf[6] = (int_solar_I >> 8) & 0xFF;
+    buf[7] = int_solar_I & 0xFF;
+    buf[8] = (int_battery_I >> 8) & 0xFF;
+    buf[9] = int_battery_I & 0xFF;
+
+    LMIC_setTxData2(1, buf, sizeof(buf), 0); // Send all 10 bytes
   }
 
   // Blink LED to indicate end of transmission attempt if LEDs are enabled
@@ -117,7 +130,7 @@ static void do_send(osjob_t *j, float rain)
     digitalWrite(DATA_SENT_LED, HIGH);
 }
 
-void setup(u1_t *DevAddr, u1_t *Nwkskey, u1_t *Appskey, float rain)
+void setup(u1_t *DevAddr, u1_t *Nwkskey, u1_t *Appskey, float rain, float solar_V, float battery_V, float solar_I, float battery_I)
 {
   // wiringPi init
   wiringPiSetup();
@@ -162,22 +175,22 @@ void setup(u1_t *DevAddr, u1_t *Nwkskey, u1_t *Appskey, float rain)
     pinMode(DATA_SENT_LED, OUTPUT);
   }
 
-  // Send data once
-  do_send(&sendjob, rain);
+  // Send data once, passing all the float values
+  do_send(&sendjob, rain, solar_V, battery_V, solar_I, battery_I);
 }
 
 int main(int argc, char *argv[])
 {
-  if (argc != 6)
+  if (argc != 10)
   {
-    fprintf(stderr, "Usage: %s <DevAddr> <Nwkskey> <Appskey> <Rain> <UseLeds>\n", argv[0]);
+    fprintf(stderr, "Usage: %s <DevAddr> <Nwkskey> <Appskey> <Rain> <solar_V> <battery_V> <solar_I> <battery_I> <UseLeds>\n", argv[0]);
     exit(1);
   }
 
   u1_t DevAddr[4];
   u1_t Nwkskey[16];
   u1_t Appskey[16];
-  float rain;
+  float rain, solar_V, battery_V, solar_I, battery_I;
 
   sscanf(argv[1], "%2hhx%2hhx%2hhx%2hhx", &DevAddr[0], &DevAddr[1], &DevAddr[2], &DevAddr[3]);
   for (int i = 0; i < 16; i++)
@@ -185,9 +198,13 @@ int main(int argc, char *argv[])
   for (int i = 0; i < 16; i++)
     sscanf(&argv[3][i * 2], "%2hhx", &Appskey[i]);
   sscanf(argv[4], "%f", &rain);
-  sscanf(argv[5], "%d", &useLeds);
+  sscanf(argv[5], "%f", &solar_V);
+  sscanf(argv[6], "%f", &battery_V);
+  sscanf(argv[7], "%f", &solar_I);
+  sscanf(argv[8], "%f", &battery_I);
+  sscanf(argv[9], "%d", &useLeds);
 
-  setup(DevAddr, Nwkskey, Appskey, rain);
+  setup(DevAddr, Nwkskey, Appskey, rain, solar_V, battery_V, solar_I, battery_I);
 
   // Run the loop once
   os_runloop();
@@ -200,6 +217,10 @@ int main(int argc, char *argv[])
 function Decode(fPort, bytes, variables) {
   var decoded = {};
   decoded.rain = ((bytes[0] << 8) | bytes[1]) / 100.0;
+  decoded.val1 = ((bytes[2] << 8) | bytes[3]) / 100.0;
+  decoded.val2 = ((bytes[4] << 8) | bytes[5]) / 100.0;
+  decoded.val3 = ((bytes[6] << 8) | bytes[7]) / 100.0;
+  decoded.val4 = ((bytes[8] << 8) | bytes[9]) / 100.0;
   return decoded;
 }
 */
