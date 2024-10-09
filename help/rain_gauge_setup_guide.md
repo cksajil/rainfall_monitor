@@ -36,7 +36,7 @@ sudo reboot
 
 ```bash
 # Download setup.sh
-wget 'https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/setup.sh'
+wget 'https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/setup.sh'
 
 # Set executable permission
 chmod a+x setup.sh
