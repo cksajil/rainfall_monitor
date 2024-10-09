@@ -18,6 +18,11 @@ def send_test_data():
     dev_addr = lorawan_config["rainpi_test"]["dev_addr"]
     nwk_skey = lorawan_config["rainpi_test"]["nwk_skey"]
     app_skey = lorawan_config["rainpi_test"]["app_skey"]
+    rain = 3.14
+    solar_V = 17.3
+    battery_V = 18.7
+    solar_I = 2.3
+    battery_I = 1.3
     success = False
     while not success:
         try:
@@ -27,7 +32,11 @@ def send_test_data():
                     dev_addr,
                     nwk_skey,
                     app_skey,
-                    str(3.14),
+                    str(rain),
+                    str(solar_V),
+                    str(battery_V),
+                    str(solar_I),
+                    str(battery_I),
                     str(1),
                 ]
             )
