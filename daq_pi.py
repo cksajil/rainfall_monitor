@@ -6,6 +6,7 @@ import RPi.GPIO as GPIO
 from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
 from utils.connectivity import send_data_via_internet, send_data_via_lorawan
+from plugins.battery_monitor import setup_serial_connection, preprocess_dataframe
 
 # from plugins.rain_sensor import read_loop, disable_rain_sensor
 
@@ -64,11 +65,11 @@ def write_rain_data_to_csv(result_data, log_dir, csv_filename):
     result_df.to_csv(path.join(log_dir, csv_filename), index=False)
 
 
-def send_data(config, mm_hat):
+def send_data(config, mm_hat, solar_V, battery_V, solar_I, battery_I):
     if config["communication"] == "LORAWAN":
-        send_data_via_lorawan(mm_hat)
+        send_data_via_lorawan(mm_hat, solar_V, battery_V, solar_I, battery_I)
     else:
-        send_data_via_internet(mm_hat)
+        send_data_via_internet(mm_hat, solar_V, battery_V, solar_I, battery_I)
 
 
 def main():
@@ -95,6 +96,11 @@ def main():
     infer_model = load_estimate_model(infer_model_path)
     locations = []
 
+    # serial commuication setup for battery monitoring
+    port = config["uart_port"]
+    baudrate = config["baudrate"]
+    ser = setup_serial_connection(port, baudrate)
+
     try:
         if field_deployed:
             i = 1
@@ -112,7 +118,7 @@ def main():
                 )
                 locations.append(location)
 
-                if i % num_subsamples == 0:
+                if i % num_subsamples == 0: # estimating rainfall
                     mm_hat = estimate_rainfall(infer_model, locations)
                     print("Estimated rainfall: ", mm_hat)
 
@@ -131,11 +137,15 @@ def main():
                     rain += mm_hat
                     db_counter += 1
 
+                    # reading battery parameters
+                    solar_V, battery_V, solar_I, battery_I = (preprocess_dataframe(ser))
+
+                    # sending data to DB
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
-                            send_data(config, mm_hat)
+                            send_data(config, mm_hat, solar_V, battery_V, solar_I, battery_I)
                         else:
-                            send_data(config, 0.0)
+                            send_data(config, 0.0, solar_V, battery_V, solar_I, battery_I)
                         rain, db_counter = 0, 0
                 i += 1
 
@@ -160,7 +170,7 @@ def main():
                 )
                 locations.append(location)
 
-                if i % num_subsamples == 0:
+                if i % num_subsamples == 0: # estimating rainfall
                     mm_hat = estimate_rainfall(infer_model, locations)
                     # logger.info("Estimated rainfall: ", mm_hat)
                     locations.clear()
@@ -178,13 +188,17 @@ def main():
                     )
                     rain += mm_hat
                     db_counter += 1
+                    
+                    # reading battery parameters
+                    solar_V, battery_V, solar_I, battery_I = (preprocess_dataframe(ser))
 
+                    # sending data to DB
                     if db_counter == DB_write_interval:
                         if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
-                            send_data(config, mm_hat)
+                            send_data(config, mm_hat, solar_V, battery_V, solar_I, battery_I)
 
                         else:
-                            send_data(config, 0.0)
+                            send_data(config, 0.0, solar_V, battery_V, solar_I, battery_I)
                         rain, db_counter = 0, 0
                 log_time_remaining(logger, end_time)
             logger.info(f"Finished data logging at {datetime.now()}\n")

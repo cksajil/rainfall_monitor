@@ -5,7 +5,7 @@ from utils.helper import load_config
 import subprocess
 
 
-def send_data_via_internet(rain: float) -> bool:
+def send_data_via_internet(rain, solar_V, battery_V, solar_I, battery_I: float) -> bool:
     """
     function to write data to influxdb using internet
     """
@@ -29,6 +29,10 @@ def send_data_via_internet(rain: float) -> bool:
             influxdb_client.Point("acoustic raingauge")
             .tag("location", location)
             .field("rain", rain)
+            .field("solar voltage", solar_V)
+            .field("battery voltage", battery_V)
+            .field("solar current", solar_I)
+            .field("battery current", battery_I)
         )
 
         write_api.write(bucket=bucket, org=org, record=p)
@@ -39,7 +43,7 @@ def send_data_via_internet(rain: float) -> bool:
         return False
 
 
-def send_data_via_lorawan(mm_hat):
+def send_data_via_lorawan(mm_hat, solar_V, battery_V, solar_I, battery_I):
     """
     function to write data to chirpstack server using LoRa
     """
@@ -62,6 +66,10 @@ def send_data_via_lorawan(mm_hat):
                     nwk_skey,
                     app_skey,
                     str(mm_hat),
+                    str(solar_V),
+                    str(battery_V),
+                    str(solar_I),
+                    str(battery_I),
                     str(led_flag),
                 ]
             )

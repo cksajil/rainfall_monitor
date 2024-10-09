@@ -91,6 +91,8 @@ pip install librosa
 pip install keras
 pip install tensorflow
 pip install PyYAML
+pip install pyserial
+pip install Adafruit-ADS1x15
 pip install RPi.GPIO
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
