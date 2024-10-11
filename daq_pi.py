@@ -142,6 +142,7 @@ def main():
                     moisture = read_moisture_sensor(channel=0, gain=1)
 
                     # reading battery parameters
+                    # solar_V, battery_V, solar_I, battery_I = 17.2, 15.2, 1.5, 2.2
                     solar_V, battery_V, solar_I, battery_I = (preprocess_dataframe(ser))
 
                     # sending data to DB
@@ -194,8 +195,9 @@ def main():
                     db_counter += 1
 
                     # reading battery parameters
+                    # solar_V, battery_V, solar_I, battery_I = 17.2, 15.2, 1.5, 2.2
                     solar_V, battery_V, solar_I, battery_I = (preprocess_dataframe(ser))
-
+                    
                     # sending data to DB
                     if db_counter == DB_write_interval:
                         if moisture and moisture < moisture_threshold and rain >= min_threshold:
