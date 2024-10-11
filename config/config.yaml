@@ -28,3 +28,4 @@ device_name: rainpi_test
 device_location: greenfield tvm
 uart_port: /dev/ttyS0
 baudrate: 9600
+moisture_threshold: 17000

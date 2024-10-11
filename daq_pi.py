@@ -7,9 +7,8 @@ from datetime import datetime, timedelta
 from utils.estimate import estimate_rainfall
 from utils.connectivity import send_data_via_internet, send_data_via_lorawan
 from plugins.battery_monitor import setup_serial_connection, preprocess_dataframe
-
+from plugins.moisture_sensor import read_moisture_sensor
 # from plugins.rain_sensor import read_loop, disable_rain_sensor
-
 from utils.helper import (
     time_stamp_fnamer,
     load_config,
@@ -84,6 +83,7 @@ def main():
     field_deployed = config["field_deployed"]
     end_time = datetime.now() + timedelta(hours=record_hours)
     min_threshold = config["min_threshold"]
+    moisture_threshold = config["moisture_threshold"]
     infer_model_path = path.join(
         config["infer_model_dir"],
         (
@@ -132,17 +132,22 @@ def main():
                     delete_files(files_to_delete)
                     locations.clear()
 
-                    # rain_sensor_status = read_loop()
-                    rain_sensor_status = 0
                     rain += mm_hat
                     db_counter += 1
 
+                    # raeding rain_sensor_status
+                    # rain_sensor_status = read_loop()
+
+                    # reading moisture sensor
+                    moisture = read_moisture_sensor(channel=0, gain=1)
+
                     # reading battery parameters
+                    # solar_V, battery_V, solar_I, battery_I = 17.2, 15.2, 1.5, 2.2
                     solar_V, battery_V, solar_I, battery_I = (preprocess_dataframe(ser))
 
                     # sending data to DB
                     if db_counter == DB_write_interval:
-                        if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
+                        if moisture and moisture < moisture_threshold and rain >= min_threshold:
                             send_data(config, mm_hat, solar_V, battery_V, solar_I, battery_I)
                         else:
                             send_data(config, 0.0, solar_V, battery_V, solar_I, battery_I)
@@ -175,12 +180,12 @@ def main():
                     # logger.info("Estimated rainfall: ", mm_hat)
                     locations.clear()
                     # rain_sensor_status = read_loop()
-                    rain_sensor_status = 0
+                    moisture = read_moisture_sensor(channel=0, gain=1) # reading moisture sensor
                     result_data.append(
                         {
                             "time_stamp": dt_now,
                             "rainfall_estimate": mm_hat,
-                            "rain_sensor_status": rain_sensor_status,
+                            "moisture": moisture,
                         }
                     )
                     write_rain_data_to_csv(
@@ -188,13 +193,14 @@ def main():
                     )
                     rain += mm_hat
                     db_counter += 1
-                    
-                    # reading battery parameters
-                    solar_V, battery_V, solar_I, battery_I = (preprocess_dataframe(ser))
 
+                    # reading battery parameters
+                    # solar_V, battery_V, solar_I, battery_I = 17.2, 15.2, 1.5, 2.2
+                    solar_V, battery_V, solar_I, battery_I = (preprocess_dataframe(ser))
+                    
                     # sending data to DB
                     if db_counter == DB_write_interval:
-                        if rain_sensor_status == GPIO.LOW and rain >= min_threshold:
+                        if moisture and moisture < moisture_threshold and rain >= min_threshold:
                             send_data(config, mm_hat, solar_V, battery_V, solar_I, battery_I)
 
                         else:
