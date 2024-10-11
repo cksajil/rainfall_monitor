@@ -69,8 +69,28 @@ arecord --duration=5 sample.wav
 # Delete the test file
 rm sample.wav
 ```
+### 11 Connect and Setup ADS1115 ADC Module and Grove moisture sensor to Raspberry Pi 4
+#### Hardware mapping 
 
-### 11 Connect and Setup RFM95 Module to Raspberry Pi 4
+| ADC1115 | Physical Pin                 | Grove Sensor        |
+|---------|------------------------------|---------------------|
+| VDD     | 5V                           | VCC                 |
+| GND     | GND                          | GND                 |
+| SCL     | 5 (SCL.1)                    |                     |    
+| SDA     | 3 (SDA.1)                    |                     |
+| ADDR    | GND                          |                     |    
+| A0      |                              | Grove Sensor output |
+
+####  Enable I2C in Raspberry PI and Reboot
+```bash
+sudo raspi-config
+sudo reboot
+```
+####  Check if I2C device is detected
+```bash
+i2cdetect -y 1
+```
+### 12 Connect and Setup RFM95 Module to Raspberry Pi 4
 #### Hardware mapping 
 
 The complete WiringPi pin mapping can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/lmic_rpi/raspberry_pi_wiring_gpio_pins.png) 
@@ -127,10 +147,10 @@ $ source ~/.bashrc
 $ ttn-abp-send <DevAddr> <Nwkskey> <Appskey> <Rain_mm> <LED_FLAG>
 ```
 
-### 12. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
+### 13. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
 Download these from `API_Keys` folder in `SWSICFOSS`  Google Drive. 
 
-### 13. Edit device details in config file
+### 14. Edit device details in config file
 ```bash
 # open config.yaml
 nano /home/pi/raingauge/code/config/config.yaml
@@ -148,11 +168,11 @@ eg:
 eg:
     field_deployed: false
 ```
-### 14. Add the device to Zerotier account
+### 15. Add the device to Zerotier account
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 15. Add Python scripts to bashrc file  
+### 16. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc
