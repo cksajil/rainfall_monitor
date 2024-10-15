@@ -31,8 +31,8 @@ def process_data(values):
         solar_voltage = values[0] / 10.0
         battery_voltage = values[1] / 10.0
         solar_current = values[2] / 10.0
-        battery_current = values[3] / 10.0
-        return solar_voltage, battery_voltage, solar_current, battery_current
+        battery_charging_current = values[3] / 10.0
+        return solar_voltage, battery_voltage, solar_current, battery_charging_current
     else:
         print(f"Unexpected number of values: {len(values)}")
         return None, None, None, None
@@ -47,7 +47,7 @@ def preprocess_dataframe(ser):
         if value == 21:
             break
 
-    # Read the next four values
+    # Read the next four values after 21
     for _ in range(4):
         value = read_uint8(ser)
         if value is not None:
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     ser = setup_serial_connection(port, baudrate)
 
     while True:
-        solar_voltage, battery_voltage, solar_current, battery_current = (
+        solar_voltage, battery_voltage, solar_current, battery_charging_current = (
             preprocess_dataframe(ser)
         )
 
@@ -77,7 +77,7 @@ if __name__ == "__main__":
             print(f"Solar Voltage: {solar_voltage:.1f} V")
             print(f"Battery Voltage: {battery_voltage:.1f} V")
             print(f"Solar Current: {solar_current:.1f} A")
-            print(f"Battery Current: {battery_current:.1f} A")
+            print(f"Battery charging Current: {battery_charging_current:.1f} A")
         else:
             print("No valid data received.")
 
