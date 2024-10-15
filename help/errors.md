@@ -5,3 +5,5 @@
     * try reinstalling OS
     * if make is present in system (installing make)
         https://www.makeuseof.com/how-to-fix-make-command-not-found-error-ubuntu/
+* UART in python and c: https://www.electronicwings.com/raspberry-pi/raspberry-pi-uart-communication-using-python-and-c
+* Enabling UART for battery monitoring: https://www.electronicwings.com/raspberry-pi/raspberry-pi-uart-communication-using-python-and-c        
