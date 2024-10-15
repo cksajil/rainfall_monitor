@@ -8,12 +8,12 @@
 
 ## Software Setup
 ### 1. Install Ubuntu Server 22.04.4 LTS (64-bit) using **Raspberry Pi Imager** Software
-![screenshot_1](./images/screenshot_1.png)
+![screenshot_1](../images/screenshot_1.png)
 
 ### 2. Enable SSH Settings, give user credentials and WiFi credentials
-![screenshot_2](./images/screenshot_2.png)
-![screenshot_3](./images/screenshot_3.png)
-![screenshot_4](./images/screenshot_4.png)
+![screenshot_2](../images/screenshot_2.png)
+![screenshot_3](../images/screenshot_3.png)
+![screenshot_4](../images/screenshot_4.png)
 
 ### 3. Flash the operating system and boot the Raspberry Pi
 
