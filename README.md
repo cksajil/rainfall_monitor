@@ -9,7 +9,7 @@ Rainfall, also known as precipitation, is crucial for environmental stability. A
 **Figure 1:** Experiment setup
 
 ## Installation and Setup
-The setup guide can be found [here](https://github.com/cksajil/rainfall_monitor/blob/sajil/rain_gauge_setup.md).
+The setup guide can be found [here](https://github.com/cksajil/rainfall_monitor/blob/gitlab/help/rain_gauge_setup_guide.md).
 
 ## Live Data and Visualization
 
