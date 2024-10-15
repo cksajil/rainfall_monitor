@@ -69,7 +69,7 @@ arecord --duration=5 sample.wav
 # Delete the test file
 rm sample.wav
 ```
-### 11 Connect and Setup ADS1115 ADC Module and Grove moisture sensor to Raspberry Pi 4
+### 11. Connect and Setup ADS1115 ADC Module and Grove moisture sensor to Raspberry Pi 4
 #### Hardware mapping 
 
 | ADC1115 | Physical Pin                 | Grove Sensor        |
@@ -90,7 +90,7 @@ sudo reboot
 ```bash
 i2cdetect -y 1
 ```
-### 12 Connect and Setup RFM95 Module to Raspberry Pi 4
+### 12. Connect and Setup RFM95 Module to Raspberry Pi 4
 #### Hardware mapping 
 
 The complete WiringPi pin mapping can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/lmic_rpi/raspberry_pi_wiring_gpio_pins.png) 

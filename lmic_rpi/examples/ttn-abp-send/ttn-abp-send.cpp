@@ -220,7 +220,7 @@ function Decode(fPort, bytes, variables) {
   decoded.solar_voltage = ((bytes[2] << 8) | bytes[3]) / 100.0;
   decoded.battery_voltage = ((bytes[4] << 8) | bytes[5]) / 100.0;
   decoded.solar_current = ((bytes[6] << 8) | bytes[7]) / 100.0;
-  decoded.battery_current = ((bytes[8] << 8) | bytes[9]) / 100.0;
+  decoded.battery_charging_current = ((bytes[8] << 8) | bytes[9]) / 100.0;
   return decoded;
 }
 */
