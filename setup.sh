@@ -4,7 +4,7 @@
 # progress bar animation
 progress_bar() {
     local duration=$1
-    local color="\033[1;31m"  # Green color
+    local color="\033[1;31m"  # red color
     local reset="\033[0m"     # Reset color to default
 
     already_done() { for ((done=0; done<$filled; done++)); do printf "${color}▇${reset}"; done }
@@ -22,6 +22,32 @@ progress_bar() {
         sleep 0.07  # Simulating the work being done (adjust as needed)
     done
     printf "\n"  # New line after completion
+}
+
+print_centered_message() {
+    local message="$1"
+    local padding_char="#"
+
+    # Get the current terminal width
+    local term_width=$(tput cols)
+    local message_length=${#message}  # Length of the message
+    local total_length=$((term_width - 4))  # Total length of the line, accounting for borders
+
+    # Calculate padding on both sides
+    local padding_length=$(( (total_length - message_length) / 2 ))
+
+    # Ensure padding length is non-negative
+    if (( padding_length < 0 )); then
+        padding_length=0
+    fi
+
+    # Create the line with padding
+    local line=$(printf "%s" "${padding_char}$(printf "%*s" $padding_length "" | tr " " "$padding_char") $message $(printf "%*s" $padding_length "" | tr " " "$padding_char")${padding_char}")
+
+    # Print the line
+    printf "\r"  # Move to the start of the line
+    tput el  # Clear the current line to ensure no residual characters
+    printf "%s\n" "$line"  # Print the constructed line
 }
 
 username="pi"
@@ -79,7 +105,8 @@ echo "[Service]
 ExecStart=
 ExecStart=-/sbin/agetty --noissue --autologin $username %I \$TERM
 Type=idle" > /etc/systemd/system/getty@tty1.service.d/override.conf
-echo '********************************************************* AUTO LOGIN SETUP COMPLETED **********************************************************'
+
+print_centered_message "AUTO LOGIN SETUP COMPLETED"
 progress_bar 20
 
 # setting up folder structure and cloning repository
@@ -93,11 +120,12 @@ git checkout deployment
 cd ..
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15rnz_j0QYxJM-4zMHGyLYQMw8a8ndjzs' -O model/seq_stft.hdf5
 # wget --no-check-certificate 'https://drive.google.com/file/d/1-P7dm65AwHHd9gw4DtFe9Bf5Z1nIH1dE/view?usp=drive_link' -O model/seq_stft_enc2.hdf5
-echo '*********************************************************** ENVIRONMENT CREATED ***************************************************************'
+
+print_centered_message "ENVIRONMENT CREATED"
 progress_bar 20
 
 #installing dependencies
-echo '******************************************************** INSTALLING DEPENDENCIES **************************************************************'
+print_centered_message "INSTALLING DEPENDENCIES"
 sudo apt-get install -y python3-pip
 export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
 echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
@@ -122,9 +150,9 @@ pip install Adafruit-ADS1x15
 sudo apt install i2c-tools
 sudo apt install raspi-config
 pip install RPi.GPIO
-echo '******************************************************** INSTAllED DEPENDENCIES **************************************************************'
+print_centered_message "INSTALLED DEPENDENCIES"
 progress_bar 20
-echo '********************************************************** REBOOTING DEVICE *******************************************************************'
+print_centered_message "REBOOTING DEVICE"
 sudo reboot
 
 
