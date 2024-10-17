@@ -68,6 +68,7 @@ cd code/
 git checkout deployment
 cd ..
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15rnz_j0QYxJM-4zMHGyLYQMw8a8ndjzs' -O model/seq_stft.hdf5
+# wget --no-check-certificate 'https://drive.google.com/file/d/1-P7dm65AwHHd9gw4DtFe9Bf5Z1nIH1dE/view?usp=drive_link' -O model/seq_stft_enc2.hdf5
 echo '*********************************************************** ENVIRONMENT CREATED ***************************************************************'
 
 #installing dependencies
@@ -75,9 +76,9 @@ echo '******************************************************** INSTALLING DEPEND
 sudo apt-get install -y python3-pip
 export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
 echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
-sudo apt install -y python3.12-venv
-python3 -m venv venv
-source venv/bin/activate
+# sudo apt install -y python3.12-venv
+# python3 -m venv venv
+# source venv/bin/activate
 pip install --upgrade pip
 sudo apt-get install -y pkg-config
 sudo apt-get install -y libhdf5-dev
@@ -93,6 +94,7 @@ pip install tensorflow
 pip install PyYAML
 pip install pyserial
 pip install Adafruit-ADS1x15
+sudo apt install i2c-tools
 pip install RPi.GPIO
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
