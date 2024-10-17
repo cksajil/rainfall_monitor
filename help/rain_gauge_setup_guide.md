@@ -90,10 +90,30 @@ sudo reboot
 ```bash
 i2cdetect -y 1
 ```
-### 12. Connect and Setup RFM95 Module to Raspberry Pi 4
+### 12. Connect and setup battery monitoring
+#### Hardware mapping
+
+* optocoupler connection diagram can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/optocupler conectin.png)
+* optocoupler pinout can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/opto coupler.png)
+
+| pi Physical Pin       | optocoupler | solar charge controlller |
+|-----------------------|-------------|--------------------------|
+|                       | 1           | TX (via 470ohm resistor) |
+|                       | 2           | GND                      |
+| 10 (GPIO 15-RX)       | 3           |                          |
+| 39 (GND) via 470ohm R | 3           |                          |
+| 1 (3.3v)              | 4           |                          |
+
+####  Enable UART in Raspberry PI and Reboot
+```bash
+sudo raspi-config
+# interfacing options >> serial >> no >> yes
+sudo reboot
+```   
+### 13. Connect and Setup RFM95 Module to Raspberry Pi 4
 #### Hardware mapping 
 
-The complete WiringPi pin mapping can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/deployment/lmic_rpi/raspberry_pi_wiring_gpio_pins.png) 
+The complete WiringPi pin mapping can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/lmic_rpi/raspberry_pi_wiring_gpio_pins.png) 
 | WiringPi Pin | Function        | Physical Pin    |
 |--------------|-----------------|-----------------|
 | 0            | Reset           | 11              |
@@ -147,10 +167,10 @@ $ source ~/.bashrc
 $ ttn-abp-send <DevAddr> <Nwkskey> <Appskey> <Rain_mm> <solar_V> <battery_V> <solar_I> <battery_I> <LED_FLAG>
 ```
 
-### 13. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
+### 14. Add influx-db yaml file (`influxdb_api.yaml`) or LoraWAN keys yaml file (`lorawan_keys.yaml`) to config folder
 Download these from `API_Keys` folder in `SWSICFOSS`  Google Drive. 
 
-### 14. Edit device details in config file
+### 15. Edit device details in config file
 ```bash
 # open config.yaml
 nano /home/pi/raingauge/code/config/config.yaml
@@ -168,11 +188,11 @@ eg:
 eg:
     field_deployed: false
 ```
-### 15. Add the device to Zerotier account
+### 16. Add the device to Zerotier account
 
 Follow the instructions on [Zerotier for Raspberry Pi Tutorial](https://pimylifeup.com/raspberry-pi-zerotier/). Go to  [Zerotier](https://my.zerotier.com/) platform and login with the credentials shared via email/open project to monitor/connect to device IPs.
 
-### 16. Add Python scripts to bashrc file  
+### 17. Add Python scripts to bashrc file  
 
 ```bash
 nano ~/.bashrc

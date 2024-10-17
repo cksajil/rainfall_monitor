@@ -1,6 +1,56 @@
 #!/bin/bash
 # this file contain bash script to automating deployment environment setup 
 
+# progress bar animation
+progress_bar() {
+    local duration=$1
+    local color="\033[1;31m"  # red color
+    local reset="\033[0m"     # Reset color to default
+
+    already_done() { for ((done=0; done<$filled; done++)); do printf "${color}▇${reset}"; done }
+    remaining() { for ((remain=$filled; remain<$bar_width; remain++)); do printf " "; done }
+    percentage() { printf "| %s%%" $((elapsed * 100 / duration)); }
+
+    for ((elapsed=1; elapsed<=duration; elapsed++)); do
+        local term_width=$(tput cols)  # Get the current terminal width dynamically
+        local bar_width=$((term_width - 6))  # Adjust for percentage display (| XX%)
+
+        filled=$((elapsed * bar_width / duration))  # Calculate the number of filled blocks
+        
+        printf "\r"  # Return to the beginning of the line
+        already_done; remaining; percentage
+        sleep 0.07  # Simulating the work being done (adjust as needed)
+    done
+    printf "\n"  # New line after completion
+}
+
+print_centered_message() {
+    local message="$1"
+    local padding_char="${2:-#}"  # Padding character (default is #)
+    local text_color="${3:-31}"   # Text color (default is green)
+
+    # Get the current terminal width
+    local term_width=$(tput cols)
+    local message_length=${#message}  # Length of the message
+    local total_length=$((term_width - 4))  # Total length of the line, accounting for borders
+
+    # Calculate padding on both sides
+    local padding_length=$(( (total_length - message_length) / 2 ))
+
+    # Ensure padding length is non-negative
+    if (( padding_length < 0 )); then
+        padding_length=0
+    fi
+
+    # Create the line with padding
+    local line=$(printf "%s" "${padding_char}$(printf "%*s" $padding_length "" | tr " " "$padding_char") $message $(printf "%*s" $padding_length "" | tr " " "$padding_char")${padding_char}")
+
+    # Print the line with the specified text color
+    printf "\r"  # Move to the start of the line
+    tput el  # Clear the current line to ensure no residual characters
+    printf "\e[${text_color}m%s\e[0m\n" "$line"  # Apply the color to the message and reset it
+}
+
 username="pi"
 
 # enabling auto login service
@@ -56,7 +106,9 @@ echo "[Service]
 ExecStart=
 ExecStart=-/sbin/agetty --noissue --autologin $username %I \$TERM
 Type=idle" > /etc/systemd/system/getty@tty1.service.d/override.conf
-echo '********************************************************* AUTO LOGIN SETUP COMPLETED **********************************************************'
+
+print_centered_message "AUTO LOGIN SETUP COMPLETED"
+progress_bar 20
 
 # setting up folder structure and cloning repository
 mkdir raingauge
@@ -68,16 +120,19 @@ cd code/
 git checkout deployment
 cd ..
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15rnz_j0QYxJM-4zMHGyLYQMw8a8ndjzs' -O model/seq_stft.hdf5
-echo '*********************************************************** ENVIRONMENT CREATED ***************************************************************'
+# wget --no-check-certificate 'https://drive.google.com/file/d/1-P7dm65AwHHd9gw4DtFe9Bf5Z1nIH1dE/view?usp=drive_link' -O model/seq_stft_enc2.hdf5
+
+print_centered_message "ENVIRONMENT CREATED"
+progress_bar 20
 
 #installing dependencies
-echo '******************************************************** INSTALLING DEPENDENCIES **************************************************************'
+print_centered_message "INSTALLING DEPENDENCIES"
 sudo apt-get install -y python3-pip
 export PATH="$HOME/.local/bin:$PATH" # adding f2py path to system environment variable
 echo '****************************************** "/home/pi/.local/bin" PATH ADDED TO ENVIRONMENT VARIABLES ******************************************'
-sudo apt install -y python3.12-venv
-python3 -m venv venv
-source venv/bin/activate
+# sudo apt install -y python3.12-venv
+# python3 -m venv venv
+# source venv/bin/activate
 pip install --upgrade pip
 sudo apt-get install -y pkg-config
 sudo apt-get install -y libhdf5-dev
@@ -93,8 +148,12 @@ pip install tensorflow
 pip install PyYAML
 pip install pyserial
 pip install Adafruit-ADS1x15
+sudo apt install i2c-tools
+sudo apt install raspi-config
 pip install RPi.GPIO
-echo '********************************************************** REBOOTING DEVICE *******************************************************************'
+print_centered_message "INSTALLED DEPENDENCIES"
+progress_bar 20
+print_centered_message "REBOOTING DEVICE"
 sudo reboot
 
 
@@ -106,3 +165,4 @@ sudo reboot
 # how to install influxdb credentials automatically
 # if we move github repo contain bash script to another directory while executing bash.will that effect execution.(we can solve the issue by moving desired files only)
 # how to automate audio checking functionality
+# make progress bar for each sections.that is progress bar on the bottom side and installation will run in background
