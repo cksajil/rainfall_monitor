@@ -26,7 +26,8 @@ progress_bar() {
 
 print_centered_message() {
     local message="$1"
-    local padding_char="#"
+    local padding_char="${2:-#}"  # Padding character (default is #)
+    local text_color="${3:-31}"   # Text color (default is green)
 
     # Get the current terminal width
     local term_width=$(tput cols)
@@ -44,10 +45,10 @@ print_centered_message() {
     # Create the line with padding
     local line=$(printf "%s" "${padding_char}$(printf "%*s" $padding_length "" | tr " " "$padding_char") $message $(printf "%*s" $padding_length "" | tr " " "$padding_char")${padding_char}")
 
-    # Print the line
+    # Print the line with the specified text color
     printf "\r"  # Move to the start of the line
     tput el  # Clear the current line to ensure no residual characters
-    printf "%s\n" "$line"  # Print the constructed line
+    printf "\e[${text_color}m%s\e[0m\n" "$line"  # Apply the color to the message and reset it
 }
 
 username="pi"
