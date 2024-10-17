@@ -1,6 +1,29 @@
 #!/bin/bash
 # this file contain bash script to automating deployment environment setup 
 
+# progress bar animation
+progress_bar() {
+    local duration=$1
+    local color="\033[1;31m"  # Green color
+    local reset="\033[0m"     # Reset color to default
+
+    already_done() { for ((done=0; done<$filled; done++)); do printf "${color}▇${reset}"; done }
+    remaining() { for ((remain=$filled; remain<$bar_width; remain++)); do printf " "; done }
+    percentage() { printf "| %s%%" $((elapsed * 100 / duration)); }
+
+    for ((elapsed=1; elapsed<=duration; elapsed++)); do
+        local term_width=$(tput cols)  # Get the current terminal width dynamically
+        local bar_width=$((term_width - 6))  # Adjust for percentage display (| XX%)
+
+        filled=$((elapsed * bar_width / duration))  # Calculate the number of filled blocks
+        
+        printf "\r"  # Return to the beginning of the line
+        already_done; remaining; percentage
+        sleep 0.07  # Simulating the work being done (adjust as needed)
+    done
+    printf "\n"  # New line after completion
+}
+
 username="pi"
 
 # enabling auto login service
@@ -57,6 +80,7 @@ ExecStart=
 ExecStart=-/sbin/agetty --noissue --autologin $username %I \$TERM
 Type=idle" > /etc/systemd/system/getty@tty1.service.d/override.conf
 echo '********************************************************* AUTO LOGIN SETUP COMPLETED **********************************************************'
+progress_bar 20
 
 # setting up folder structure and cloning repository
 mkdir raingauge
@@ -70,6 +94,7 @@ cd ..
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=15rnz_j0QYxJM-4zMHGyLYQMw8a8ndjzs' -O model/seq_stft.hdf5
 # wget --no-check-certificate 'https://drive.google.com/file/d/1-P7dm65AwHHd9gw4DtFe9Bf5Z1nIH1dE/view?usp=drive_link' -O model/seq_stft_enc2.hdf5
 echo '*********************************************************** ENVIRONMENT CREATED ***************************************************************'
+progress_bar 20
 
 #installing dependencies
 echo '******************************************************** INSTALLING DEPENDENCIES **************************************************************'
@@ -97,6 +122,8 @@ pip install Adafruit-ADS1x15
 sudo apt install i2c-tools
 sudo apt install raspi-config
 pip install RPi.GPIO
+echo '******************************************************** INSTAllED DEPENDENCIES **************************************************************'
+progress_bar 20
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
 
@@ -109,3 +136,4 @@ sudo reboot
 # how to install influxdb credentials automatically
 # if we move github repo contain bash script to another directory while executing bash.will that effect execution.(we can solve the issue by moving desired files only)
 # how to automate audio checking functionality
+# make progress bar for each sections.that is progress bar on the bottom side and installation will run in background
