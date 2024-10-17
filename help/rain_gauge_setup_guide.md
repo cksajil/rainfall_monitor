@@ -91,6 +91,7 @@ sudo reboot
 i2cdetect -y 1
 ```
 ### 12. Connect and setup battery monitoring
+#### Hardware mapping
 
 * optocoupler connection diagram can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/optocupler conectin.png)
 * optocoupler pinout can be seen [here](https://raw.githubusercontent.com/cksajil/rainfall_monitor/gitlab/images/opto coupler.png)
@@ -102,7 +103,13 @@ i2cdetect -y 1
 | 10 (GPIO 15-RX)       | 3           |                          |
 | 39 (GND) via 470ohm R | 3           |                          |
 | 1 (3.3v)              | 4           |                          |
-   
+
+####  Enable UART in Raspberry PI and Reboot
+```bash
+sudo raspi-config
+# interfacing options >> serial >> no >> yes
+sudo reboot
+```   
 ### 13. Connect and Setup RFM95 Module to Raspberry Pi 4
 #### Hardware mapping 
 
