@@ -95,6 +95,7 @@ pip install PyYAML
 pip install pyserial
 pip install Adafruit-ADS1x15
 sudo apt install i2c-tools
+sudo apt install raspi-config
 pip install RPi.GPIO
 echo '********************************************************** REBOOTING DEVICE *******************************************************************'
 sudo reboot
