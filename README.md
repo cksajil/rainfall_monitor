@@ -1,6 +1,17 @@
 # Acoustic Rain Gauge
 ### R & D project by [ICFOSS](https://icfoss.in/)
 
+**Measuring rainfall from the sound of rain**: a low-cost alternative to mechanical rain gauges.
+
+```
+USB mic on Raspberry Pi ─► audio clips ─► STFT features ─► LSTM ─► rainfall (mm) ─► LoRaWAN ─► Grafana dashboard
+```
+
+- **Best model:** LSTM on STFT features, **R² 0.97** and **MAPE 15.8%** against a Davis mechanical rain gauge ([results](#results))
+- **Edge to cloud:** recording and inference on a Raspberry Pi; readings sent over LoRaWAN with [LoraWANPi](https://github.com/cksajil/LoraWANPi)
+- **Open data:** recordings and reference rainfall published on Kaggle ([datasets](#datasets-available-on-kaggle))
+- **Publication:** *Edge Analytics Enabled Acoustic Rain Gauge*, IEEE RAICS 2024
+
 ## Introduction
 Rainfall, also known as precipitation, is crucial for environmental stability. Accurate precipitation monitoring is vital for weather forecasting and creating early flood warning systems. In this project we have developed an acoustic rain gauge that estimates rainfall by using sound as input data.
 
@@ -59,7 +70,7 @@ OR
 ```bash
 nano ~/.bashrc
 
-# Appened the following line to the end of .bashrc file
+# Append the following line to the end of .bashrc file
 python3 /home/pi/raingauge/src/daq_pi.py & python3 /home/pi/raingauge/src/davis_logger.py
 
 # Reboot the device
